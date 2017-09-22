@@ -5,6 +5,8 @@
 //  Created by BAMFAdmin on 22.09.17.
 //  Copyright © 2017 BAMFAdmin. All rights reserved.
 //
+// TODO:
+// change image size on this controlller (so it fits images from popup table view)
 
 import UIKit
 import RealmSwift
@@ -13,7 +15,6 @@ class RegistrationViewController: UIViewController {
 
     @IBOutlet weak var nextButtonOutlet: UIButton!
     @IBOutlet weak var mainWhiteViewOutlet: UIView!
-    
     @IBOutlet weak var skipRegistrationButtonOutlet: UIButton!
     
     
