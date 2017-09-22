@@ -12,6 +12,7 @@ class MakeOrderCellTableViewCell: UITableViewCell {
 
     @IBOutlet weak var makeOrderIconImageOutlet: UIImageView!
     
+    @IBOutlet weak var imageInsideImageMakeOrderOutlet: UIImageView!
     @IBOutlet weak var makeOrderTopMenuLabelOutlet: UILabel!
     
     
