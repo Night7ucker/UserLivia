@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import RealmSwift
+
 
 class RegistrationViewController: UIViewController {
 
@@ -21,10 +21,10 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+       
+
         
-        print("test bitbucket get notification")
-        
+      
         nextButtonOutlet.layer.cornerRadius = 10
         mainWhiteViewOutlet.layer.cornerRadius = 10
         skipRegistrationButtonOutlet.layer.cornerRadius = 10
