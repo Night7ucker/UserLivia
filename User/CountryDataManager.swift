@@ -20,7 +20,7 @@ class CountryCodesDataManager{
     ]
  
     func getCountryCodes() {
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
 
         Alamofire.request(url, method: .get, headers: headers).responseJSON { (response) in
             

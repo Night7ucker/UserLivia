@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Popup Country Codes Table View Controller-->
+        <scene sceneID="Ioo-yE-SfX">
+            <objects>
+                <viewController storyboardIdentifier="kPopupCountryCodesTableViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="2FC-h4-8Wa" customClass="PopupCountryCodesTableViewController" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0AV-C4-Tem"/>
+                        <viewControllerLayoutGuide type="bottom" id="KvR-uf-O3r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="I5g-fK-zUy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Feu-E5-OfL">
+                                <rect key="frame" x="16" y="296" width="105" height="186"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="105" id="Azg-40-dag"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="countryCodeCell" rowHeight="70" id="e25-Jc-rCn" customClass="CountryCodeCell" customModule="User" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="105" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e25-Jc-rCn" id="NeB-JR-cLD">
+                                            <rect key="frame" x="0.0" y="0.0" width="105" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GDd-Ha-2EK">
+                                                    <rect key="frame" x="8" y="22" width="31" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="31" id="huI-gQ-KNy"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dt-IC-YAC">
+                                                    <rect key="frame" x="46" y="28" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8L-gI-cdt">
+                                                    <rect key="frame" x="8" y="-1" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="GDd-Ha-2EK" firstAttribute="top" secondItem="W8L-gI-cdt" secondAttribute="bottom" constant="2" id="1gy-9D-eBh"/>
+                                                <constraint firstItem="W8L-gI-cdt" firstAttribute="top" secondItem="NeB-JR-cLD" secondAttribute="topMargin" constant="-9" id="5xJ-iu-IcA"/>
+                                                <constraint firstItem="GDd-Ha-2EK" firstAttribute="top" secondItem="W8L-gI-cdt" secondAttribute="bottom" constant="2" id="AUZ-lk-2vX"/>
+                                                <constraint firstItem="6dt-IC-YAC" firstAttribute="leading" secondItem="GDd-Ha-2EK" secondAttribute="trailing" constant="7" id="LUn-6s-ABf"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="GDd-Ha-2EK" secondAttribute="bottom" constant="9" id="VI7-dA-ECW"/>
+                                                <constraint firstItem="GDd-Ha-2EK" firstAttribute="leading" secondItem="NeB-JR-cLD" secondAttribute="leadingMargin" id="YDm-kx-laS"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="6dt-IC-YAC" secondAttribute="bottom" constant="13.5" id="elz-EF-sAM"/>
+                                                <constraint firstItem="6dt-IC-YAC" firstAttribute="top" secondItem="NeB-JR-cLD" secondAttribute="topMargin" constant="20" id="hOp-RQ-0zG"/>
+                                                <constraint firstItem="W8L-gI-cdt" firstAttribute="leading" secondItem="NeB-JR-cLD" secondAttribute="leadingMargin" id="sAG-jb-a67"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="countryCodeLabelOutlet" destination="6dt-IC-YAC" id="e6N-pZ-7Tl"/>
+                                            <outlet property="countryFlagImageViewOutlet" destination="GDd-Ha-2EK" id="b5p-g7-sQY"/>
+                                            <outlet property="countryNameLabelOutlet" destination="W8L-gI-cdt" id="LWS-1t-Jkt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Feu-E5-OfL" firstAttribute="top" secondItem="0AV-C4-Tem" secondAttribute="bottom" constant="276" id="0ij-YZ-TLx"/>
+                            <constraint firstItem="Feu-E5-OfL" firstAttribute="leading" secondItem="I5g-fK-zUy" secondAttribute="leadingMargin" id="9G5-6G-d6Q"/>
+                            <constraint firstItem="KvR-uf-O3r" firstAttribute="top" secondItem="Feu-E5-OfL" secondAttribute="bottom" constant="185" id="eES-Vt-gP8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="countryCodesTableView" destination="Feu-E5-OfL" id="IQn-38-Shl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yvJ-G2-gu5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1464.8" y="-286.50674662668666"/>
+        </scene>
+    </scenes>
+</document>

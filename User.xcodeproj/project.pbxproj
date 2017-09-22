@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CEA61BC91F756D9400BA1AED /* SmsPlusFirstTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA61BAB1F756D9400BA1AED /* SmsPlusFirstTableView.storyboard */; };
+		CEA61BCA1F756D9400BA1AED /* CountryCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA61BAD1F756D9400BA1AED /* CountryCodeCell.swift */; };
+		CEA61BCE1F756D9400BA1AED /* MakeOrderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA61BB11F756D9400BA1AED /* MakeOrderCellTableViewCell.swift */; };
+		CEA61BCF1F756D9400BA1AED /* MakeOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA61BB21F756D9400BA1AED /* MakeOrderViewController.swift */; };
+		CEA61BD01F756D9400BA1AED /* PopupCountryCodesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA61BB31F756D9400BA1AED /* PopupCountryCodesTableViewController.swift */; };
+		CEA61BD11F756D9400BA1AED /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA61BB41F756D9400BA1AED /* RegistrationViewController.swift */; };
+		CEA61BD21F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA61BB51F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard */; };
 		D1A8AFAF7B974F868E6BDCF7 /* Pods_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA6723FDEE4071DE9039A46 /* Pods_User.framework */; };
 		FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB740D161F74F24900F6DD79 /* AppDelegate.swift */; };
 		FB740D1E1F74F24900F6DD79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB740D1D1F74F24900F6DD79 /* Assets.xcassets */; };
@@ -19,6 +26,13 @@
 /* Begin PBXFileReference section */
 		6AADFDFA54C039FDAC2628CA /* Pods-User.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User.release.xcconfig"; path = "Pods/Target Support Files/Pods-User/Pods-User.release.xcconfig"; sourceTree = "<group>"; };
 		9EA6723FDEE4071DE9039A46 /* Pods_User.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_User.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEA61BAC1F756D9400BA1AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SmsPlusFirstTableView.storyboard; sourceTree = "<group>"; };
+		CEA61BAD1F756D9400BA1AED /* CountryCodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodeCell.swift; sourceTree = "<group>"; };
+		CEA61BB11F756D9400BA1AED /* MakeOrderCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeOrderCellTableViewCell.swift; sourceTree = "<group>"; };
+		CEA61BB21F756D9400BA1AED /* MakeOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeOrderViewController.swift; sourceTree = "<group>"; };
+		CEA61BB31F756D9400BA1AED /* PopupCountryCodesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupCountryCodesTableViewController.swift; sourceTree = "<group>"; };
+		CEA61BB41F756D9400BA1AED /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		CEA61BB51F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SupportingViewControllersStoryboard.storyboard; sourceTree = "<group>"; };
 		D54A04BC4E2A4BD6D4442D1C /* Pods-User.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User.debug.xcconfig"; path = "Pods/Target Support Files/Pods-User/Pods-User.debug.xcconfig"; sourceTree = "<group>"; };
 		FB740D131F74F24900F6DD79 /* User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB740D161F74F24900F6DD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +73,52 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CEA61BA61F756D9400BA1AED /* User */ = {
+			isa = PBXGroup;
+			children = (
+				CEA61BE01F756DCF00BA1AED /* Storyboards */,
+				CEA61BE11F756E1800BA1AED /* MakeOrderModule */,
+				CEA61BE21F756E4000BA1AED /* Registration Page Module */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		CEA61BE01F756DCF00BA1AED /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CEA61BAB1F756D9400BA1AED /* SmsPlusFirstTableView.storyboard */,
+				CEA61BB51F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		CEA61BE11F756E1800BA1AED /* MakeOrderModule */ = {
+			isa = PBXGroup;
+			children = (
+				CEA61BB11F756D9400BA1AED /* MakeOrderCellTableViewCell.swift */,
+				CEA61BB21F756D9400BA1AED /* MakeOrderViewController.swift */,
+			);
+			name = MakeOrderModule;
+			sourceTree = "<group>";
+		};
+		CEA61BE21F756E4000BA1AED /* Registration Page Module */ = {
+			isa = PBXGroup;
+			children = (
+				CEA61BB41F756D9400BA1AED /* RegistrationViewController.swift */,
+				CEA61BE31F756E4E00BA1AED /* Popup Module */,
+			);
+			name = "Registration Page Module";
+			sourceTree = "<group>";
+		};
+		CEA61BE31F756E4E00BA1AED /* Popup Module */ = {
+			isa = PBXGroup;
+			children = (
+				CEA61BB31F756D9400BA1AED /* PopupCountryCodesTableViewController.swift */,
+				CEA61BAD1F756D9400BA1AED /* CountryCodeCell.swift */,
+			);
+			name = "Popup Module";
+			sourceTree = "<group>";
+		};
 		FB740D0A1F74F24900F6DD79 = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +140,7 @@
 		FB740D151F74F24900F6DD79 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				CEA61BA61F756D9400BA1AED /* User */,
 				FB958B851F752BBC0065B49C /* RegisterModel */,
 				FB740D281F74F26200F6DD79 /* Supporting Files */,
 			);
@@ -169,8 +230,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA61BC91F756D9400BA1AED /* SmsPlusFirstTableView.storyboard in Resources */,
 				FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */,
 				FB740D1E1F74F24900F6DD79 /* Assets.xcassets in Resources */,
+				CEA61BD21F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,15 +303,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB958B891F752D000065B49C /* CountryDataManager.swift in Sources */,
+				CEA61BCF1F756D9400BA1AED /* MakeOrderViewController.swift in Sources */,
 				FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */,
+				CEA61BD01F756D9400BA1AED /* PopupCountryCodesTableViewController.swift in Sources */,
+				CEA61BD11F756D9400BA1AED /* RegistrationViewController.swift in Sources */,
 				FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */,
 				FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */,
+				CEA61BCE1F756D9400BA1AED /* MakeOrderCellTableViewCell.swift in Sources */,
+				CEA61BCA1F756D9400BA1AED /* CountryCodeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		CEA61BAB1F756D9400BA1AED /* SmsPlusFirstTableView.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEA61BAC1F756D9400BA1AED /* Base */,
+			);
+			name = SmsPlusFirstTableView.storyboard;
+			sourceTree = "<group>";
+		};
 		FB740D1F1F74F24900F6DD79 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
