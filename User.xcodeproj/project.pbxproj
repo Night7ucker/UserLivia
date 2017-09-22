@@ -73,13 +73,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		CEA61BA61F756D9400BA1AED /* User */ = {
+		CEA61BA61F756D9400BA1AED /* Interface Module */ = {
 			isa = PBXGroup;
 			children = (
 				CEA61BE01F756DCF00BA1AED /* Storyboards */,
 				CEA61BE11F756E1800BA1AED /* MakeOrderModule */,
 				CEA61BE21F756E4000BA1AED /* Registration Page Module */,
 			);
+			name = "Interface Module";
 			path = User;
 			sourceTree = "<group>";
 		};
@@ -140,7 +141,7 @@
 		FB740D151F74F24900F6DD79 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				CEA61BA61F756D9400BA1AED /* User */,
+				CEA61BA61F756D9400BA1AED /* Interface Module */,
 				FB958B851F752BBC0065B49C /* RegisterModel */,
 				FB740D281F74F26200F6DD79 /* Supporting Files */,
 			);

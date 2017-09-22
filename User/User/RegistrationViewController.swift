@@ -20,8 +20,7 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("test bitbucket")
-        print("test bitbucket 2")
+        
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         nextButtonOutlet.layer.cornerRadius = 10
