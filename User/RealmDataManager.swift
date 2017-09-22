@@ -21,21 +21,9 @@ class RealmDataManager {
     
     static func getDataFromCountries() -> Results<CountryCodesModel> {
         let realm = try! Realm()
-        let days = realm.objects(CountryCodesModel.self)
-        return days
+        let data = realm.objects(CountryCodesModel.self)
+        return data
     }
-  /*
-    static func getDaysInfoFromDataBaseWithArrayResults(realm: Realm) -> [RealmModel] {
-        let days = Array(realm.objects(RealmModel.self))
-        let cityName = DataManager.getCityNameFromDatabase(realm: realm)
-        var outputArray = [RealmModel]()
-        for day in days {
-            if day.cityName == cityName {
-                outputArray.append(day)
-            }
-        }
-        return outputArray
-    }
-   */
+
     
 }
