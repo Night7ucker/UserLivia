@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1A8AFAF7B974F868E6BDCF7 /* Pods_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA6723FDEE4071DE9039A46 /* Pods_User.framework */; };
 		FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB740D161F74F24900F6DD79 /* AppDelegate.swift */; };
-		FB740D191F74F24900F6DD79 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB740D181F74F24900F6DD79 /* ViewController.swift */; };
-		FB740D1C1F74F24900F6DD79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB740D1A1F74F24900F6DD79 /* Main.storyboard */; };
 		FB740D1E1F74F24900F6DD79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB740D1D1F74F24900F6DD79 /* Assets.xcassets */; };
 		FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB740D1F1F74F24900F6DD79 /* LaunchScreen.storyboard */; };
+		FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B861F752C4D0065B49C /* CountryCodesModel.swift */; };
+		FB958B891F752D000065B49C /* CountryDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B881F752D000065B49C /* CountryDataManager.swift */; };
+		FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B8C1F755D820065B49C /* RealmDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6AADFDFA54C039FDAC2628CA /* Pods-User.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User.release.xcconfig"; path = "Pods/Target Support Files/Pods-User/Pods-User.release.xcconfig"; sourceTree = "<group>"; };
+		9EA6723FDEE4071DE9039A46 /* Pods_User.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_User.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D54A04BC4E2A4BD6D4442D1C /* Pods-User.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User.debug.xcconfig"; path = "Pods/Target Support Files/Pods-User/Pods-User.debug.xcconfig"; sourceTree = "<group>"; };
 		FB740D131F74F24900F6DD79 /* User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB740D161F74F24900F6DD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FB740D181F74F24900F6DD79 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FB740D1B1F74F24900F6DD79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB740D1D1F74F24900F6DD79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB740D201F74F24900F6DD79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB740D221F74F24900F6DD79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB958B861F752C4D0065B49C /* CountryCodesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodesModel.swift; sourceTree = "<group>"; };
+		FB958B881F752D000065B49C /* CountryDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDataManager.swift; sourceTree = "<group>"; };
+		FB958B8C1F755D820065B49C /* RealmDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1A8AFAF7B974F868E6BDCF7 /* Pods_User.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A60317FA6321E05DCD3F5A73 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9EA6723FDEE4071DE9039A46 /* Pods_User.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C55DA99B51D0BBE559589D2E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D54A04BC4E2A4BD6D4442D1C /* Pods-User.debug.xcconfig */,
+				6AADFDFA54C039FDAC2628CA /* Pods-User.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FB740D0A1F74F24900F6DD79 = {
 			isa = PBXGroup;
 			children = (
 				FB740D151F74F24900F6DD79 /* User */,
 				FB740D141F74F24900F6DD79 /* Products */,
+				C55DA99B51D0BBE559589D2E /* Pods */,
+				A60317FA6321E05DCD3F5A73 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,9 +80,8 @@
 		FB740D151F74F24900F6DD79 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				FB958B851F752BBC0065B49C /* RegisterModel */,
 				FB740D281F74F26200F6DD79 /* Supporting Files */,
-				FB740D181F74F24900F6DD79 /* ViewController.swift */,
-				FB740D1A1F74F24900F6DD79 /* Main.storyboard */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -72,6 +97,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FB958B851F752BBC0065B49C /* RegisterModel */ = {
+			isa = PBXGroup;
+			children = (
+				FB958B861F752C4D0065B49C /* CountryCodesModel.swift */,
+				FB958B881F752D000065B49C /* CountryDataManager.swift */,
+				FB958B8C1F755D820065B49C /* RealmDataManager.swift */,
+			);
+			name = RegisterModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,9 +114,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB740D251F74F24900F6DD79 /* Build configuration list for PBXNativeTarget "User" */;
 			buildPhases = (
+				49B766E344841F4976377CE5 /* [CP] Check Pods Manifest.lock */,
 				FB740D0F1F74F24900F6DD79 /* Sources */,
 				FB740D101F74F24900F6DD79 /* Frameworks */,
 				FB740D111F74F24900F6DD79 /* Resources */,
+				2B8B734F05EB790690214E3F /* [CP] Embed Pods Frameworks */,
+				5B98E3ED2BCE070B483C04DE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -133,33 +171,84 @@
 			files = (
 				FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */,
 				FB740D1E1F74F24900F6DD79 /* Assets.xcassets in Resources */,
-				FB740D1C1F74F24900F6DD79 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2B8B734F05EB790690214E3F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-User/Pods-User-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-User/Pods-User-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49B766E344841F4976377CE5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-User-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B98E3ED2BCE070B483C04DE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-User/Pods-User-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FB740D0F1F74F24900F6DD79 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB740D191F74F24900F6DD79 /* ViewController.swift in Sources */,
+				FB958B891F752D000065B49C /* CountryDataManager.swift in Sources */,
+				FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */,
 				FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */,
+				FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FB740D1A1F74F24900F6DD79 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FB740D1B1F74F24900F6DD79 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FB740D1F1F74F24900F6DD79 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -268,6 +357,7 @@
 		};
 		FB740D261F74F24900F6DD79 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D54A04BC4E2A4BD6D4442D1C /* Pods-User.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = User/Info.plist;
@@ -280,6 +370,7 @@
 		};
 		FB740D271F74F24900F6DD79 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AADFDFA54C039FDAC2628CA /* Pods-User.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = User/Info.plist;
@@ -309,6 +400,7 @@
 				FB740D271F74F24900F6DD79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
