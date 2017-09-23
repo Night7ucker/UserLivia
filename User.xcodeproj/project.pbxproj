@@ -16,6 +16,12 @@
 		CEA61BD21F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA61BB51F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard */; };
 		CEABE41D1F764DF80041FAD5 /* SearchForItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE41C1F764DF80041FAD5 /* SearchForItemsViewController.swift */; };
 		CEABE4201F7650CC0041FAD5 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE41F1F7650CC0041FAD5 /* CityTableViewCell.swift */; };
+		CEABE4221F7662AC0041FAD5 /* RegistrationModule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEABE4211F7662AC0041FAD5 /* RegistrationModule.storyboard */; };
+		CEABE4251F76689B0041FAD5 /* SmsConfrimViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE4241F76689B0041FAD5 /* SmsConfrimViewController.swift */; };
+		CEABE4281F7676470041FAD5 /* FillRegistrationInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE4271F7676470041FAD5 /* FillRegistrationInfoViewController.swift */; };
+		CEABE42B1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE42A1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift */; };
+		CEABE42E1F769B980041FAD5 /* PersonTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE42D1F769B980041FAD5 /* PersonTitleTableViewCell.swift */; };
+		CEABE4301F769F4E0041FAD5 /* PersonTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE42F1F769F4E0041FAD5 /* PersonTitleModel.swift */; };
 		D1A8AFAF7B974F868E6BDCF7 /* Pods_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA6723FDEE4071DE9039A46 /* Pods_User.framework */; };
 		FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB740D161F74F24900F6DD79 /* AppDelegate.swift */; };
 		FB740D1E1F74F24900F6DD79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB740D1D1F74F24900F6DD79 /* Assets.xcassets */; };
@@ -37,6 +43,12 @@
 		CEA61BB51F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SupportingViewControllersStoryboard.storyboard; sourceTree = "<group>"; };
 		CEABE41C1F764DF80041FAD5 /* SearchForItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchForItemsViewController.swift; sourceTree = "<group>"; };
 		CEABE41F1F7650CC0041FAD5 /* CityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
+		CEABE4211F7662AC0041FAD5 /* RegistrationModule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegistrationModule.storyboard; sourceTree = "<group>"; };
+		CEABE4241F76689B0041FAD5 /* SmsConfrimViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmsConfrimViewController.swift; sourceTree = "<group>"; };
+		CEABE4271F7676470041FAD5 /* FillRegistrationInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillRegistrationInfoViewController.swift; sourceTree = "<group>"; };
+		CEABE42A1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupTitleForPersonViewController.swift; sourceTree = "<group>"; };
+		CEABE42D1F769B980041FAD5 /* PersonTitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTitleTableViewCell.swift; sourceTree = "<group>"; };
+		CEABE42F1F769F4E0041FAD5 /* PersonTitleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTitleModel.swift; sourceTree = "<group>"; };
 		D54A04BC4E2A4BD6D4442D1C /* Pods-User.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User.debug.xcconfig"; path = "Pods/Target Support Files/Pods-User/Pods-User.debug.xcconfig"; sourceTree = "<group>"; };
 		FB740D131F74F24900F6DD79 /* User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB740D161F74F24900F6DD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,7 +94,7 @@
 			children = (
 				CEA61BE01F756DCF00BA1AED /* Storyboards */,
 				CEABE41B1F764D950041FAD5 /* User Functionality Module */,
-				CEA61BE21F756E4000BA1AED /* Registration Page Module */,
+				CEA61BE21F756E4000BA1AED /* Registration Module */,
 			);
 			name = "Interface Module";
 			path = User;
@@ -93,6 +105,7 @@
 			children = (
 				CEA61BAB1F756D9400BA1AED /* MainViewsStoryboard.storyboard */,
 				CEA61BB51F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard */,
+				CEABE4211F7662AC0041FAD5 /* RegistrationModule.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -106,13 +119,14 @@
 			name = MakeOrderModule;
 			sourceTree = "<group>";
 		};
-		CEA61BE21F756E4000BA1AED /* Registration Page Module */ = {
+		CEA61BE21F756E4000BA1AED /* Registration Module */ = {
 			isa = PBXGroup;
 			children = (
-				CEA61BB41F756D9400BA1AED /* RegistrationViewController.swift */,
-				CEA61BE31F756E4E00BA1AED /* Popup Module */,
+				CEABE4231F76687F0041FAD5 /* Sms Get Number Module */,
+				CEABE4261F76689D0041FAD5 /* Sms Confirm Module */,
+				CEABE4291F76764A0041FAD5 /* Registration Info Module */,
 			);
-			name = "Registration Page Module";
+			name = "Registration Module";
 			sourceTree = "<group>";
 		};
 		CEA61BE31F756E4E00BA1AED /* Popup Module */ = {
@@ -140,6 +154,41 @@
 				CEABE41F1F7650CC0041FAD5 /* CityTableViewCell.swift */,
 			);
 			name = "Over The Counter Products Module";
+			sourceTree = "<group>";
+		};
+		CEABE4231F76687F0041FAD5 /* Sms Get Number Module */ = {
+			isa = PBXGroup;
+			children = (
+				CEA61BB41F756D9400BA1AED /* RegistrationViewController.swift */,
+				CEA61BE31F756E4E00BA1AED /* Popup Module */,
+			);
+			name = "Sms Get Number Module";
+			sourceTree = "<group>";
+		};
+		CEABE4261F76689D0041FAD5 /* Sms Confirm Module */ = {
+			isa = PBXGroup;
+			children = (
+				CEABE4241F76689B0041FAD5 /* SmsConfrimViewController.swift */,
+			);
+			name = "Sms Confirm Module";
+			sourceTree = "<group>";
+		};
+		CEABE4291F76764A0041FAD5 /* Registration Info Module */ = {
+			isa = PBXGroup;
+			children = (
+				CEABE4271F7676470041FAD5 /* FillRegistrationInfoViewController.swift */,
+				CEABE42C1F769B7D0041FAD5 /* Popup Title Module */,
+			);
+			name = "Registration Info Module";
+			sourceTree = "<group>";
+		};
+		CEABE42C1F769B7D0041FAD5 /* Popup Title Module */ = {
+			isa = PBXGroup;
+			children = (
+				CEABE42A1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift */,
+				CEABE42D1F769B980041FAD5 /* PersonTitleTableViewCell.swift */,
+			);
+			name = "Popup Title Module";
 			sourceTree = "<group>";
 		};
 		FB740D0A1F74F24900F6DD79 = {
@@ -187,6 +236,7 @@
 				FB958B861F752C4D0065B49C /* CountryCodesModel.swift */,
 				FB958B881F752D000065B49C /* CountryDataManager.swift */,
 				FB958B8C1F755D820065B49C /* RealmDataManager.swift */,
+				CEABE42F1F769F4E0041FAD5 /* PersonTitleModel.swift */,
 			);
 			name = RegisterModel;
 			sourceTree = "<group>";
@@ -255,6 +305,7 @@
 			files = (
 				CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */,
 				FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */,
+				CEABE4221F7662AC0041FAD5 /* RegistrationModule.storyboard in Resources */,
 				FB740D1E1F74F24900F6DD79 /* Assets.xcassets in Resources */,
 				CEA61BD21F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard in Resources */,
 			);
@@ -331,9 +382,14 @@
 				FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */,
 				CEA61BD01F756D9400BA1AED /* PopupCountryCodesTableViewController.swift in Sources */,
 				CEA61BD11F756D9400BA1AED /* RegistrationViewController.swift in Sources */,
+				CEABE42E1F769B980041FAD5 /* PersonTitleTableViewCell.swift in Sources */,
+				CEABE4281F7676470041FAD5 /* FillRegistrationInfoViewController.swift in Sources */,
 				FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */,
 				FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */,
+				CEABE42B1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift in Sources */,
+				CEABE4301F769F4E0041FAD5 /* PersonTitleModel.swift in Sources */,
 				CEA61BCE1F756D9400BA1AED /* MakeOrderCellTableViewCell.swift in Sources */,
+				CEABE4251F76689B0041FAD5 /* SmsConfrimViewController.swift in Sources */,
 				CEA61BCA1F756D9400BA1AED /* CountryCodeCell.swift in Sources */,
 				CEABE41D1F764DF80041FAD5 /* SearchForItemsViewController.swift in Sources */,
 			);
