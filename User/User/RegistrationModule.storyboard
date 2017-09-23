@@ -206,11 +206,11 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="noData" translatesAutoresizingMaskIntoConstraints="NO" id="O2t-wF-65U">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkBoxUncheked.png" translatesAutoresizingMaskIntoConstraints="NO" id="O2t-wF-65U">
                                 <rect key="frame" x="16" y="519" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="noData" translatesAutoresizingMaskIntoConstraints="NO" id="hcV-t2-4UI">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkBoxUncheked.png" translatesAutoresizingMaskIntoConstraints="NO" id="hcV-t2-4UI">
                                 <rect key="frame" x="16" y="552" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -410,6 +410,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkBoxUncheked.png" width="2000" height="2000"/>
         <image name="noData" width="16" height="16"/>
         <image name="userIconas" width="16" height="16"/>
     </resources>

@@ -19,6 +19,9 @@ class FillRegistrationInfoViewController: UIViewController {
     
     var token = NotificationToken()
     let realm = try! Realm()
+    
+    var yearsOld18IsChecked = false
+    var agreeWithTermsIsChecked = false
 
     @IBOutlet weak var personTitleLabelOutlet: UILabel!
     @IBOutlet weak var firstNameTextFieldOutlet: UITextField!
@@ -86,11 +89,24 @@ class FillRegistrationInfoViewController: UIViewController {
         femaleLabelOutlet.textColor = .white
     }
     @IBAction func check18YearsOldButtonTapped(_ sender: UIButton) {
-        
+        if agreeWithTermsIsChecked {
+            check18YearsOldImageViewOutlet.image = UIImage(named: "checkBoxUncheked.png")
+            agreeWithTermsIsChecked = false
+        } else {
+            check18YearsOldImageViewOutlet.image = UIImage(named: "checkBoxChecked.png")
+            agreeWithTermsIsChecked = true
+        }
     }
     
     
     @IBAction func agreeWithTermsButtonTapped(_ sender: UIButton) {
+        if yearsOld18IsChecked {
+            checkTermsAndConditionsImageViewOutlet.image = UIImage(named: "checkBoxUncheked.png")
+            yearsOld18IsChecked = false
+        } else {
+            checkTermsAndConditionsImageViewOutlet.image = UIImage(named: "checkBoxChecked.png")
+            yearsOld18IsChecked = true
+        }
     }
     
     @IBAction func changeTitleButtonTapped(_ sender: UIButton) {
