@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wxn-hZ-PRr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="36b-NT-WDT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -33,7 +33,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dM4-uN-e0j" id="bmx-af-HD2">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Az-Ll-OZC">
@@ -359,6 +359,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="countryCode" destination="UVm-in-5td" id="QvE-Wp-KUq"/>
+                        <outlet property="countryImage" destination="W6Y-G7-ZRH" id="69D-sp-npU"/>
+                        <outlet property="countryName" destination="gVE-kS-1mB" id="ZlP-A8-ZJV"/>
                         <outlet property="mainWhiteViewOutlet" destination="mF0-Yj-Mk7" id="jO6-01-eS6"/>
                         <outlet property="nextButtonOutlet" destination="8Zs-qy-Usl" id="wX4-Ym-e4u"/>
                         <outlet property="skipRegistrationButtonOutlet" destination="GeW-99-uif" id="Yz2-cW-xri"/>

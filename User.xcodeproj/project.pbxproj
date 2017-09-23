@@ -23,6 +23,7 @@
 		CEABE42E1F769B980041FAD5 /* PersonTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE42D1F769B980041FAD5 /* PersonTitleTableViewCell.swift */; };
 		CEABE4301F769F4E0041FAD5 /* PersonTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE42F1F769F4E0041FAD5 /* PersonTitleModel.swift */; };
 		D1A8AFAF7B974F868E6BDCF7 /* Pods_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA6723FDEE4071DE9039A46 /* Pods_User.framework */; };
+		FB727AB21F76C916002B511A /* CountryCodesIndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB727AB11F76C916002B511A /* CountryCodesIndexModel.swift */; };
 		FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB740D161F74F24900F6DD79 /* AppDelegate.swift */; };
 		FB740D1E1F74F24900F6DD79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB740D1D1F74F24900F6DD79 /* Assets.xcassets */; };
 		FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB740D1F1F74F24900F6DD79 /* LaunchScreen.storyboard */; };
@@ -50,6 +51,7 @@
 		CEABE42D1F769B980041FAD5 /* PersonTitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTitleTableViewCell.swift; sourceTree = "<group>"; };
 		CEABE42F1F769F4E0041FAD5 /* PersonTitleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTitleModel.swift; sourceTree = "<group>"; };
 		D54A04BC4E2A4BD6D4442D1C /* Pods-User.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User.debug.xcconfig"; path = "Pods/Target Support Files/Pods-User/Pods-User.debug.xcconfig"; sourceTree = "<group>"; };
+		FB727AB11F76C916002B511A /* CountryCodesIndexModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodesIndexModel.swift; sourceTree = "<group>"; };
 		FB740D131F74F24900F6DD79 /* User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB740D161F74F24900F6DD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB740D1D1F74F24900F6DD79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				FB958B881F752D000065B49C /* CountryDataManager.swift */,
 				FB958B8C1F755D820065B49C /* RealmDataManager.swift */,
 				CEABE42F1F769F4E0041FAD5 /* PersonTitleModel.swift */,
+				FB727AB11F76C916002B511A /* CountryCodesIndexModel.swift */,
 			);
 			name = RegisterModel;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */,
 				CEA61BD01F756D9400BA1AED /* PopupCountryCodesTableViewController.swift in Sources */,
 				CEA61BD11F756D9400BA1AED /* RegistrationViewController.swift in Sources */,
+				FB727AB21F76C916002B511A /* CountryCodesIndexModel.swift in Sources */,
 				CEABE42E1F769B980041FAD5 /* PersonTitleTableViewCell.swift in Sources */,
 				CEABE4281F7676470041FAD5 /* FillRegistrationInfoViewController.swift in Sources */,
 				FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */,

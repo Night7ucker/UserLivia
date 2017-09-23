@@ -23,14 +23,18 @@ class RealmDataManager {
         return data
     }
     
+    
     static func getPersonTitleFromRealm() -> Results<PersonTitleModel> {
         let realm = try! Realm()
         let data = realm.objects(PersonTitleModel.self)
-//        print(data)
-        
-//        let personTitle = Array(realm.objects(PersonTitleModel.self)).first?.title
         return data
     }
+    static func getIndexCountryFromRealm() -> Results<CountryCodesIndexModel> {
+        let realm = try! Realm()
+        let data = realm.objects(CountryCodesIndexModel.self)
+        return data
+    }
+
 
     
 }
