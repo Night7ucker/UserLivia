@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CEA61BC91F756D9400BA1AED /* SmsPlusFirstTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA61BAB1F756D9400BA1AED /* SmsPlusFirstTableView.storyboard */; };
+		CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA61BAB1F756D9400BA1AED /* MainViewsStoryboard.storyboard */; };
 		CEA61BCA1F756D9400BA1AED /* CountryCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA61BAD1F756D9400BA1AED /* CountryCodeCell.swift */; };
 		CEA61BCE1F756D9400BA1AED /* MakeOrderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA61BB11F756D9400BA1AED /* MakeOrderCellTableViewCell.swift */; };
 		CEA61BCF1F756D9400BA1AED /* MakeOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA61BB21F756D9400BA1AED /* MakeOrderViewController.swift */; };
@@ -26,7 +26,7 @@
 /* Begin PBXFileReference section */
 		6AADFDFA54C039FDAC2628CA /* Pods-User.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User.release.xcconfig"; path = "Pods/Target Support Files/Pods-User/Pods-User.release.xcconfig"; sourceTree = "<group>"; };
 		9EA6723FDEE4071DE9039A46 /* Pods_User.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_User.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEA61BAC1F756D9400BA1AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SmsPlusFirstTableView.storyboard; sourceTree = "<group>"; };
+		CEA61BAC1F756D9400BA1AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainViewsStoryboard.storyboard; sourceTree = "<group>"; };
 		CEA61BAD1F756D9400BA1AED /* CountryCodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodeCell.swift; sourceTree = "<group>"; };
 		CEA61BB11F756D9400BA1AED /* MakeOrderCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeOrderCellTableViewCell.swift; sourceTree = "<group>"; };
 		CEA61BB21F756D9400BA1AED /* MakeOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeOrderViewController.swift; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 		CEA61BE01F756DCF00BA1AED /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				CEA61BAB1F756D9400BA1AED /* SmsPlusFirstTableView.storyboard */,
+				CEA61BAB1F756D9400BA1AED /* MainViewsStoryboard.storyboard */,
 				CEA61BB51F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard */,
 			);
 			name = Storyboards;
@@ -231,7 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA61BC91F756D9400BA1AED /* SmsPlusFirstTableView.storyboard in Resources */,
+				CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */,
 				FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */,
 				FB740D1E1F74F24900F6DD79 /* Assets.xcassets in Resources */,
 				CEA61BD21F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard in Resources */,
@@ -318,12 +318,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CEA61BAB1F756D9400BA1AED /* SmsPlusFirstTableView.storyboard */ = {
+		CEA61BAB1F756D9400BA1AED /* MainViewsStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CEA61BAC1F756D9400BA1AED /* Base */,
 			);
-			name = SmsPlusFirstTableView.storyboard;
+			name = MainViewsStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 		FB740D1F1F74F24900F6DD79 /* LaunchScreen.storyboard */ = {
