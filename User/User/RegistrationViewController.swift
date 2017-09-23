@@ -26,9 +26,9 @@ class RegistrationViewController: UIViewController {
 
         
       
-        nextButtonOutlet.layer.cornerRadius = 10
+        nextButtonOutlet.layer.cornerRadius = 2
         mainWhiteViewOutlet.layer.cornerRadius = 10
-        skipRegistrationButtonOutlet.layer.cornerRadius = 10
+        skipRegistrationButtonOutlet.layer.cornerRadius = 2
         // Do any additional setup after loading the view, typically from a nib.
     }
 
