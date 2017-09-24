@@ -27,8 +27,6 @@ class FillRegistrationInfoViewController: UIViewController {
     @IBOutlet weak var firstNameTextFieldOutlet: UITextField!
     @IBOutlet weak var lastNameTextFieldOutlet: UITextField!
     @IBOutlet weak var ageTextFieldOutlet: UITextField!
-    @IBOutlet weak var femaleLabelOutlet: UILabel!
-    @IBOutlet weak var maleLabelOutlet: UILabel!
     @IBOutlet weak var emailTextFieldOutlet: UITextField!
     @IBOutlet weak var check18YearsOldImageViewOutlet: UIImageView!
     @IBOutlet weak var checkTermsAndConditionsImageViewOutlet: UIImageView!
@@ -38,14 +36,13 @@ class FillRegistrationInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Registration Fields"
+        
+        
         try! realm.write {
             realm.deleteAll()
         }
-        
-        femaleLabelOutlet.backgroundColor = .blue
-        femaleLabelOutlet.textColor = .white
-        maleLabelOutlet.backgroundColor = .gray
-        maleLabelOutlet.textColor = .blue
+
         nextButtonOutlet.layer.cornerRadius = 2
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
@@ -75,19 +72,6 @@ class FillRegistrationInfoViewController: UIViewController {
         token.stop()
     }
 
-    @IBAction func femaleButtonTouched(_ sender: UIButton) {
-        femaleLabelOutlet.backgroundColor = .gray
-        femaleLabelOutlet.textColor = .blue
-        maleLabelOutlet.backgroundColor = .blue
-        maleLabelOutlet.textColor = .white
-    }
-    
-    @IBAction func maleButtonTouched(_ sender: UIButton) {
-        maleLabelOutlet.backgroundColor = .gray
-        maleLabelOutlet.textColor = .blue
-        femaleLabelOutlet.backgroundColor = .blue
-        femaleLabelOutlet.textColor = .white
-    }
     @IBAction func check18YearsOldButtonTapped(_ sender: UIButton) {
         if agreeWithTermsIsChecked {
             check18YearsOldImageViewOutlet.image = UIImage(named: "checkBoxUncheked.png")
@@ -113,6 +97,13 @@ class FillRegistrationInfoViewController: UIViewController {
         
     }
     
+    @IBAction func changeSexSegmentedControl(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            print("female")
+        } else if sender.selectedSegmentIndex == 1 {
+            print("male")
+        }
+    }
     /*
     // MARK: - Navigation
 
