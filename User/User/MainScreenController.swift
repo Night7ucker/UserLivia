@@ -32,7 +32,7 @@ class MainScreenController: UIViewController {
     }
     
     
-
+    
 }
 
 extension MainScreenController : UITableViewDataSource{
@@ -54,32 +54,32 @@ extension MainScreenController : UITableViewDataSource{
             cell.mainIcon.image = #imageLiteral(resourceName: "orderImage")
             cell.mainLabel.text = "Make Order"
             cell.detailLabel.text = "GENERATE ORDER"
-
+            
         case 1:
             cell.mainIcon.image = #imageLiteral(resourceName: "searchMedecine")
             cell.mainLabel.text = "Over the Counter Products"
             cell.detailLabel.text = "SEARCH FOR ITEMS"
-
+            
         case 2:
             cell.mainIcon.image = #imageLiteral(resourceName: "purchaseHistoryImage")
             cell.mainLabel.text = "History"
             cell.detailLabel.text = "ORDERS, APPOINTMENTS, PAIMENTS"
-
+            
         case 3:
             cell.mainIcon.image = #imageLiteral(resourceName: "reminderImage")
             cell.mainLabel.text = "Reminders & Results"
             cell.detailLabel.text = "ПРИВЕТ"
-
+            
         case 4:
             cell.mainIcon.image = #imageLiteral(resourceName: "inviteFriendsImage")
             cell.mainLabel.text = "Invite Friends"
             cell.detailLabel.text = "INVITE FROM CONTACTS"
-
+            
         case 5:
             cell.mainIcon.image = #imageLiteral(resourceName: "settingsImage")
             cell.mainLabel.text = "Settings"
             cell.detailLabel.text = "APP SETTINGS"
-
+            
         default:
             break
         }

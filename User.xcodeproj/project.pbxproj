@@ -29,6 +29,7 @@
 		FB22C22F1F77E6BE000EED58 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22C22E1F77E6BE000EED58 /* SettingsController.swift */; };
 		FB22C2311F77E73F000EED58 /* MainScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22C2301F77E73F000EED58 /* MainScreenCell.swift */; };
 		FB22C2331F77E752000EED58 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22C2321F77E752000EED58 /* CustomImageView.swift */; };
+		FB22C2351F77E91B000EED58 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22C2341F77E91B000EED58 /* MainScreenController.swift */; };
 		FB727AB21F76C916002B511A /* CountryCodesIndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB727AB11F76C916002B511A /* CountryCodesIndexModel.swift */; };
 		FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB740D161F74F24900F6DD79 /* AppDelegate.swift */; };
 		FB740D1E1F74F24900F6DD79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB740D1D1F74F24900F6DD79 /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		FB22C22E1F77E6BE000EED58 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsController.swift; path = User/User/SettingsController.swift; sourceTree = SOURCE_ROOT; };
 		FB22C2301F77E73F000EED58 /* MainScreenCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainScreenCell.swift; path = User/User/MainScreenCell.swift; sourceTree = SOURCE_ROOT; };
 		FB22C2321F77E752000EED58 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomImageView.swift; path = User/User/CustomImageView.swift; sourceTree = SOURCE_ROOT; };
+		FB22C2341F77E91B000EED58 /* MainScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainScreenController.swift; path = User/User/MainScreenController.swift; sourceTree = SOURCE_ROOT; };
 		FB727AB11F76C916002B511A /* CountryCodesIndexModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodesIndexModel.swift; sourceTree = "<group>"; };
 		FB740D131F74F24900F6DD79 /* User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB740D161F74F24900F6DD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				FB22C2301F77E73F000EED58 /* MainScreenCell.swift */,
 				FB22C2321F77E752000EED58 /* CustomImageView.swift */,
+				FB22C2341F77E91B000EED58 /* MainScreenController.swift */,
 			);
 			name = MainMenuModule;
 			path = ../../../../user/User;
@@ -448,6 +451,7 @@
 				FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */,
 				CEABE42B1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift in Sources */,
 				CEABE4301F769F4E0041FAD5 /* PersonTitleModel.swift in Sources */,
+				FB22C2351F77E91B000EED58 /* MainScreenController.swift in Sources */,
 				CEA61BCE1F756D9400BA1AED /* MakeOrderCellTableViewCell.swift in Sources */,
 				CEABE4251F76689B0041FAD5 /* SmsConfrimViewController.swift in Sources */,
 				FB22C2311F77E73F000EED58 /* MainScreenCell.swift in Sources */,
