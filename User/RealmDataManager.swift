@@ -34,6 +34,11 @@ class RealmDataManager {
         let data = realm.objects(CountryCodesIndexModel.self)
         return data
     }
+    static func getPhoneNumberFromRealm() -> Results<PhoneNumberModel> {
+        let realm = try! Realm()
+        let data = realm.objects(PhoneNumberModel.self)
+        return data
+    }
 
 
     
