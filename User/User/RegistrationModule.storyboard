@@ -253,36 +253,6 @@
                                 <color key="textColor" red="0.61381496760704402" green="0.75640683549845522" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FEMALE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIP-Y4-Dp4">
-                                <rect key="frame" x="181" y="376" width="89" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.41885445817015954" green="0.56031364144986884" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MALE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bj-Wq-ctK">
-                                <rect key="frame" x="270" y="376" width="89" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.4188544582" green="0.56031364139999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMG-0t-UBF" userLabel="Female button">
-                                <rect key="frame" x="181" y="376" width="89" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="femaleButtonTouched:" destination="Jid-Ke-xCJ" eventType="touchUpInside" id="pk2-Ei-oc1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QL5-dQ-8X9" userLabel="Male button">
-                                <rect key="frame" x="270" y="377" width="89" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="maleButtonTouched:" destination="Jid-Ke-xCJ" eventType="touchUpInside" id="0xg-et-Xjk"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWe-wk-Cvg">
                                 <rect key="frame" x="14" y="521" width="212" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -309,6 +279,14 @@
                                     <segue destination="8rz-Gr-rcE" kind="presentation" id="067-Qs-Jg1"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cei-Ck-o5a">
+                                <rect key="frame" x="184" y="376" width="121" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -317,10 +295,8 @@
                         <outlet property="check18YearsOldImageViewOutlet" destination="O2t-wF-65U" id="K0r-wd-9Zx"/>
                         <outlet property="checkTermsAndConditionsImageViewOutlet" destination="hcV-t2-4UI" id="vh2-RK-DzQ"/>
                         <outlet property="emailTextFieldOutlet" destination="9kw-5K-MgC" id="Sc4-HE-xVT"/>
-                        <outlet property="femaleLabelOutlet" destination="wIP-Y4-Dp4" id="wti-DA-Zgo"/>
                         <outlet property="firstNameTextFieldOutlet" destination="EaR-Zc-Lau" id="Z5g-zd-aIa"/>
                         <outlet property="lastNameTextFieldOutlet" destination="vwa-Qe-erl" id="8lN-Y4-uQ5"/>
-                        <outlet property="maleLabelOutlet" destination="6bj-Wq-ctK" id="YY3-9s-Pbe"/>
                         <outlet property="nextButtonOutlet" destination="CsD-Gd-Lyz" id="dWQ-F5-Vhi"/>
                         <outlet property="openTermsLinkButtonOutlet" destination="Iss-SR-3VQ" id="AXO-ee-UDr"/>
                         <outlet property="personTitleLabelOutlet" destination="nlP-Vu-BsP" id="LvQ-wE-rk0"/>
