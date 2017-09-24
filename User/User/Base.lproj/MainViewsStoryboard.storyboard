@@ -263,6 +263,7 @@
                                         </state>
                                         <connections>
                                             <action selector="sendAuthCodeAction:" destination="36b-NT-WDT" eventType="touchUpInside" id="yhy-Od-g2d"/>
+                                            <segue destination="Zti-Sh-P54" kind="show" id="2OX-AB-P3x"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GeW-99-uif">
@@ -302,7 +303,7 @@
                                             <segue destination="Da0-ik-0JB" kind="presentation" id="nk5-Q8-hvR"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="The Simple, Secure and Convenient way of ordering items from a chemist at BEST prices and delivered to you" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Cg4-oP-YnR">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="The Simple, Secure and Convenient way of ordering items from a chemist at BEST prices and delivered to you" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Cg4-oP-YnR">
                                         <rect key="frame" x="43" y="166" width="256" height="78"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
@@ -382,6 +383,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yR3-Fi-k1l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2292" y="163.26836581709148"/>
+        </scene>
+        <!--RegistrationModule-->
+        <scene sceneID="wGX-XK-pcR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RegistrationModule" id="Zti-Sh-P54" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OPR-gt-nu9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2426" y="376"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aoO-tZ-KKt">

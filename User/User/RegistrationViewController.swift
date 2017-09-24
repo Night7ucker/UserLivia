@@ -33,6 +33,7 @@ class RegistrationViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         phoneNumberField.delegate = self
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         let countryCodesObject = CountryCodesDataManager()
         countryCodesObject.getCountryCodes()
         
@@ -71,9 +72,13 @@ class RegistrationViewController: UIViewController{
     }
     
     @IBAction func sendAuthCodeAction(_ sender: Any) {
+        let phoneNumberObject = PhoneNumberModel()
+        phoneNumberObject.phoneNumber = phoneNumberField.text!
+        RealmDataManager.writeIntoRealm(object: phoneNumberObject, realm: realm)
         let countryCodeValue = String(countryCode.text!.characters.dropFirst())
-        let obj = GetAuthCode(number: phoneNumberField.text!, code: countryCodeValue)
-        obj.getAutCodeRequest()
+        let getAuthCodeObject = GetAuthCode(number: phoneNumberField.text!, code: countryCodeValue)
+        getAuthCodeObject.getAutCodeRequest()
+
         
     }
     

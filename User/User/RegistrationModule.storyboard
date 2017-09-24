@@ -22,13 +22,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userIconas" translatesAutoresizingMaskIntoConstraints="NO" id="x7H-IW-PRs">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x7H-IW-PRs">
                                 <rect key="frame" x="131" y="81" width="113" height="108"/>
+                                <color key="backgroundColor" red="0.38455103950000002" green="0.63425021699999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="113" id="Yml-Hk-mc5"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="A code has been sent to you via SMS. On the number +375296205222 Enter the sms code you have received and tap on CONFIRM." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dhb-12-LhE">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="A code has been sent to you via SMS. On the number +375296205222 Enter the sms code you have received and tap on CONFIRM." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dhb-12-LhE">
                                 <rect key="frame" x="67" y="197" width="241" height="76"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
@@ -403,6 +404,5 @@
     </scenes>
     <resources>
         <image name="checkBoxUncheked.png" width="2000" height="2000"/>
-        <image name="userIconas" width="16" height="16"/>
     </resources>
 </document>
