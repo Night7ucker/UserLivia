@@ -30,6 +30,7 @@
 		FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B861F752C4D0065B49C /* CountryCodesModel.swift */; };
 		FB958B891F752D000065B49C /* CountryDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B881F752D000065B49C /* CountryDataManager.swift */; };
 		FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B8C1F755D820065B49C /* RealmDataManager.swift */; };
+		FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA44C0E1F77B8BC00687544 /* GetAuthCodeRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		FB958B861F752C4D0065B49C /* CountryCodesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodesModel.swift; sourceTree = "<group>"; };
 		FB958B881F752D000065B49C /* CountryDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDataManager.swift; sourceTree = "<group>"; };
 		FB958B8C1F755D820065B49C /* RealmDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
+		FBA44C0E1F77B8BC00687544 /* GetAuthCodeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAuthCodeRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 		FB958B851F752BBC0065B49C /* RegisterModel */ = {
 			isa = PBXGroup;
 			children = (
+				FBA44C0D1F77B87800687544 /* Get Auth Code */,
 				FB958B861F752C4D0065B49C /* CountryCodesModel.swift */,
 				FB958B881F752D000065B49C /* CountryDataManager.swift */,
 				FB958B8C1F755D820065B49C /* RealmDataManager.swift */,
@@ -242,6 +245,14 @@
 				FB727AB11F76C916002B511A /* CountryCodesIndexModel.swift */,
 			);
 			name = RegisterModel;
+			sourceTree = "<group>";
+		};
+		FBA44C0D1F77B87800687544 /* Get Auth Code */ = {
+			isa = PBXGroup;
+			children = (
+				FBA44C0E1F77B8BC00687544 /* GetAuthCodeRequest.swift */,
+			);
+			name = "Get Auth Code";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,6 +401,7 @@
 				CEABE4281F7676470041FAD5 /* FillRegistrationInfoViewController.swift in Sources */,
 				FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */,
 				FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */,
+				FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */,
 				CEABE42B1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift in Sources */,
 				CEABE4301F769F4E0041FAD5 /* PersonTitleModel.swift in Sources */,
 				CEA61BCE1F756D9400BA1AED /* MakeOrderCellTableViewCell.swift in Sources */,

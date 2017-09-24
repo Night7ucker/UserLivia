@@ -11,7 +11,7 @@
 import UIKit
 import RealmSwift
 
-class RegistrationViewController: UIViewController {
+class RegistrationViewController: UIViewController{
     
     @IBOutlet weak var nextButtonOutlet: UIButton!
     @IBOutlet weak var mainWhiteViewOutlet: UIView!
@@ -20,6 +20,8 @@ class RegistrationViewController: UIViewController {
     @IBOutlet var countryImage: UIImageView!
     @IBOutlet var countryCode: UILabel!
     @IBOutlet var countryName: UILabel!
+    
+    @IBOutlet var phoneNumberField: UITextField!
     
     var token = NotificationToken()
     let realm = try! Realm()
@@ -30,6 +32,7 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        phoneNumberField.delegate = self
         let countryCodesObject = CountryCodesDataManager()
         countryCodesObject.getCountryCodes()
         
@@ -42,10 +45,8 @@ class RegistrationViewController: UIViewController {
         countryName.text = "Belarus"
         countryCode.text = "+375"
         
-        
         token = realm.addNotificationBlock { (notifcation, realm) -> Void in
             let indexOfCountry = RealmDataManager.getIndexCountryFromRealm()
-            
             if indexOfCountry.count > 0 {
                 let countryObject = RealmDataManager.getDataFromCountries()[indexOfCountry[0].index]
                 
@@ -58,30 +59,42 @@ class RegistrationViewController: UIViewController {
                     }
                 }
             }
- 
         }
-
-        
-        
-        
         nextButtonOutlet.layer.cornerRadius = 2
         mainWhiteViewOutlet.layer.cornerRadius = 10
         skipRegistrationButtonOutlet.layer.cornerRadius = 2
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func sendAuthCodeAction(_ sender: Any) {
+        let countryCodeValue = String(countryCode.text!.characters.dropFirst())
+        let obj = GetAuthCode(number: phoneNumberField.text!, code: countryCodeValue)
+        obj.getAutCodeRequest()
+        
     }
     
     deinit {
         token.stop()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func changePhoneCodeForCountryButtonTapped(_ sender: UIButton) {
-        
+
     }
     
 }
 
+
+extension RegistrationViewController: UITextFieldDelegate  {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 9
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+    }
+
+}
