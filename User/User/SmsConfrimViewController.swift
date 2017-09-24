@@ -13,9 +13,15 @@ class SmsConfrimViewController: UIViewController {
     @IBOutlet weak var sendCodeAgainButtonOutlet: UIButton!
     @IBOutlet weak var textViewForCodeOutlet: UITextField!
     @IBOutlet weak var confirmButtonOutlet: UIButton!
+    @IBOutlet var smsHasBeenSentInfo: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        
+   //RealmDataManager.getPhoneNumberFromRealm()[0].phoneNumber!
+        
         
         
         sendCodeAgainButtonOutlet.layer.borderColor = UIColor.gray.cgColor
@@ -32,14 +38,5 @@ class SmsConfrimViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

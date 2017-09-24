@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		CE5F4BEC1F77CC19009CBA5D /* Orders Appointments Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */; };
+=======
+		7FBAFBB61F77D9D700BEB7F1 /* MainScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBAFBA91F77D9D700BEB7F1 /* MainScreen.storyboard */; };
+		7FBAFBB71F77D9D700BEB7F1 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBAFBAA1F77D9D700BEB7F1 /* Settings.storyboard */; };
+		7FBAFBB81F77D9D700BEB7F1 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAFBAB1F77D9D700BEB7F1 /* SettingsController.swift */; };
+		7FBAFBB91F77D9D700BEB7F1 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAFBAC1F77D9D700BEB7F1 /* MainScreenController.swift */; };
+		7FBAFBBA1F77D9D700BEB7F1 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAFBAD1F77D9D700BEB7F1 /* CustomImageView.swift */; };
+		7FBAFBBB1F77D9D700BEB7F1 /* MainScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAFBAE1F77D9D700BEB7F1 /* MainScreenCell.swift */; };
+>>>>>>> 7f6367fbf05cd92ac2ba560728355bfe64e902be
 		CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA61BAB1F756D9400BA1AED /* MainViewsStoryboard.storyboard */; };
 		CEA61BCA1F756D9400BA1AED /* CountryCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA61BAD1F756D9400BA1AED /* CountryCodeCell.swift */; };
 		CEA61BCE1F756D9400BA1AED /* MakeOrderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA61BB11F756D9400BA1AED /* MakeOrderCellTableViewCell.swift */; };
@@ -37,6 +46,12 @@
 
 /* Begin PBXFileReference section */
 		6AADFDFA54C039FDAC2628CA /* Pods-User.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User.release.xcconfig"; path = "Pods/Target Support Files/Pods-User/Pods-User.release.xcconfig"; sourceTree = "<group>"; };
+		7FBAFBA91F77D9D700BEB7F1 /* MainScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainScreen.storyboard; path = ../../../../user/User/MainScreen.storyboard; sourceTree = "<group>"; };
+		7FBAFBAA1F77D9D700BEB7F1 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = ../../../../user/User/Settings.storyboard; sourceTree = "<group>"; };
+		7FBAFBAB1F77D9D700BEB7F1 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		7FBAFBAC1F77D9D700BEB7F1 /* MainScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
+		7FBAFBAD1F77D9D700BEB7F1 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomImageView.swift; path = ../CustomImageView.swift; sourceTree = "<group>"; };
+		7FBAFBAE1F77D9D700BEB7F1 /* MainScreenCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenCell.swift; sourceTree = "<group>"; };
 		9EA6723FDEE4071DE9039A46 /* Pods_User.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_User.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Orders Appointments Payments.storyboard"; sourceTree = "<group>"; };
 		CEA61BAC1F756D9400BA1AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainViewsStoryboard.storyboard; sourceTree = "<group>"; };
@@ -80,6 +95,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7FBAFBBC1F77DAAF00BEB7F1 /* MainMenuModule */ = {
+			isa = PBXGroup;
+			children = (
+				7FBAFBAC1F77D9D700BEB7F1 /* MainScreenController.swift */,
+				7FBAFBAE1F77D9D700BEB7F1 /* MainScreenCell.swift */,
+				7FBAFBAD1F77D9D700BEB7F1 /* CustomImageView.swift */,
+			);
+			name = MainMenuModule;
+			path = ../../../../user/User;
+			sourceTree = "<group>";
+		};
+		7FBAFBBD1F77DAE500BEB7F1 /* SettingsMenuModule */ = {
+			isa = PBXGroup;
+			children = (
+				7FBAFBAB1F77D9D700BEB7F1 /* SettingsController.swift */,
+			);
+			name = SettingsMenuModule;
+			path = ../../../../user/User;
+			sourceTree = "<group>";
+		};
 		A60317FA6321E05DCD3F5A73 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +146,8 @@
 		CEA61BE01F756DCF00BA1AED /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				7FBAFBA91F77D9D700BEB7F1 /* MainScreen.storyboard */,
+				7FBAFBAA1F77D9D700BEB7F1 /* Settings.storyboard */,
 				CEA61BAB1F756D9400BA1AED /* MainViewsStoryboard.storyboard */,
 				CEA61BB51F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard */,
 				CEABE4211F7662AC0041FAD5 /* RegistrationModule.storyboard */,
@@ -150,6 +187,8 @@
 		CEABE41B1F764D950041FAD5 /* User Functionality Module */ = {
 			isa = PBXGroup;
 			children = (
+				7FBAFBBD1F77DAE500BEB7F1 /* SettingsMenuModule */,
+				7FBAFBBC1F77DAAF00BEB7F1 /* MainMenuModule */,
 				CEA61BE11F756E1800BA1AED /* MakeOrderModule */,
 				CEABE41E1F764DFE0041FAD5 /* Over The Counter Products Module */,
 			);
@@ -325,6 +364,8 @@
 			files = (
 				CE5F4BEC1F77CC19009CBA5D /* Orders Appointments Payments.storyboard in Resources */,
 				CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */,
+				7FBAFBB61F77D9D700BEB7F1 /* MainScreen.storyboard in Resources */,
+				7FBAFBB71F77D9D700BEB7F1 /* Settings.storyboard in Resources */,
 				FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */,
 				CEABE4221F7662AC0041FAD5 /* RegistrationModule.storyboard in Resources */,
 				FB740D1E1F74F24900F6DD79 /* Assets.xcassets in Resources */,
@@ -398,6 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB958B891F752D000065B49C /* CountryDataManager.swift in Sources */,
+				7FBAFBBA1F77D9D700BEB7F1 /* CustomImageView.swift in Sources */,
 				CEABE4201F7650CC0041FAD5 /* CityTableViewCell.swift in Sources */,
 				CEA61BCF1F756D9400BA1AED /* MakeOrderViewController.swift in Sources */,
 				FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */,
@@ -412,10 +454,13 @@
 				FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */,
 				CEABE42B1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift in Sources */,
 				CEABE4301F769F4E0041FAD5 /* PersonTitleModel.swift in Sources */,
+				7FBAFBB91F77D9D700BEB7F1 /* MainScreenController.swift in Sources */,
+				7FBAFBB81F77D9D700BEB7F1 /* SettingsController.swift in Sources */,
 				CEA61BCE1F756D9400BA1AED /* MakeOrderCellTableViewCell.swift in Sources */,
 				CEABE4251F76689B0041FAD5 /* SmsConfrimViewController.swift in Sources */,
 				CEA61BCA1F756D9400BA1AED /* CountryCodeCell.swift in Sources */,
 				CEABE41D1F764DF80041FAD5 /* SearchForItemsViewController.swift in Sources */,
+				7FBAFBBB1F77D9D700BEB7F1 /* MainScreenCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
