@@ -28,5 +28,5 @@ class CustomImageView: UIImageView {
         layer.cornerRadius = frame.size.width/2
         layer.masksToBounds = true
     }
-
+    
 }

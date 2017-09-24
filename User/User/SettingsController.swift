@@ -9,19 +9,19 @@
 import UIKit
 
 class SettingsController: UIViewController {
-
+    
     @IBOutlet weak var settingsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
         
         settingsTableView.layer.cornerRadius = 5.0
         
     }
-
-
+    
+    
 }
 
 extension SettingsController : UITableViewDataSource{
@@ -41,7 +41,7 @@ extension SettingsController : UITableViewDataSource{
         var cell : MainScreenCell!
         switch indexPath.row {
         case 0, 2, 4, 5:
-             cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! MainScreenCell
+            cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! MainScreenCell
             switch indexPath.row {
             case 0:
                 cell.mainIcon.image = #imageLiteral(resourceName: "orderImage")
@@ -50,7 +50,7 @@ extension SettingsController : UITableViewDataSource{
             case 2:
                 cell.mainIcon.image = #imageLiteral(resourceName: "contactUsImage")
                 cell.mainLabel.text = "Contact us"
-
+                
             case 4:
                 cell.mainIcon.image = #imageLiteral(resourceName: "logoutImage")
                 cell.mainLabel.text = "Logout from this device only"
@@ -62,7 +62,7 @@ extension SettingsController : UITableViewDataSource{
             default:
                 break
             }
-
+            
         case 1, 3:
             cell = tableView.dequeueReusableCell(withIdentifier: "settingsWithDetailInfoCell", for: indexPath) as! MainScreenCell
             switch indexPath.row {
@@ -79,7 +79,7 @@ extension SettingsController : UITableViewDataSource{
             default:
                 break
             }
-
+            
         default:
             break
         }
