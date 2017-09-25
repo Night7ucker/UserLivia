@@ -48,41 +48,46 @@ extension MainScreenController : UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : MainScreenCell = tableView.dequeueReusableCell(withIdentifier: "mainScreenCell", for: indexPath) as! MainScreenCell
+        var cell : MainScreenCell!
         switch indexPath.row {
-        case 0:
-            cell.mainIcon.image = #imageLiteral(resourceName: "orderImage")
-            cell.mainLabel.text = "Make Order"
-            cell.detailLabel.text = "GENERATE ORDER"
-            
-        case 1:
-            cell.mainIcon.image = #imageLiteral(resourceName: "searchMedecine")
-            cell.mainLabel.text = "Over the Counter Products"
-            cell.detailLabel.text = "SEARCH FOR ITEMS"
-            
-        case 2:
-            cell.mainIcon.image = #imageLiteral(resourceName: "purchaseHistoryImage")
-            cell.mainLabel.text = "History"
-            cell.detailLabel.text = "ORDERS, APPOINTMENTS, PAIMENTS"
-            
+        case 0,1,2,4,5:
+            cell = tableView.dequeueReusableCell(withIdentifier: "mainScreenCell", for: indexPath) as! MainScreenCell
+            switch indexPath.row {
+            case 0:
+                cell.mainIcon.image = #imageLiteral(resourceName: "orderImage")
+                cell.mainLabel.text = "Make Order"
+                cell.detailLabel.text = "GENERATE ORDER"
+                
+            case 1:
+                cell.mainIcon.image = #imageLiteral(resourceName: "searchMedecine")
+                cell.mainLabel.text = "Over the Counter Products"
+                cell.detailLabel.text = "SEARCH FOR ITEMS"
+                
+            case 2:
+                cell.mainIcon.image = #imageLiteral(resourceName: "purchaseHistoryImage")
+                cell.mainLabel.text = "Orders Appointments Payments"
+                cell.detailLabel.text = "YOU HAVE 0 ORDERS"
+            case 4:
+                cell.mainIcon.image = #imageLiteral(resourceName: "inviteFriendsImage")
+                cell.mainLabel.text = "Invite Friends"
+                cell.detailLabel.text = "INVITE FROM CONTACTS"
+                
+            case 5:
+                cell.mainIcon.image = #imageLiteral(resourceName: "settingsImage")
+                cell.mainLabel.text = "Settings"
+                cell.detailLabel.text = "APP SETTINGS"
+                
+            default:
+                break
+            }
         case 3:
+            cell = tableView.dequeueReusableCell(withIdentifier: "mainScreenSecondCell", for: indexPath) as! MainScreenCell
             cell.mainIcon.image = #imageLiteral(resourceName: "reminderImage")
             cell.mainLabel.text = "Reminders & Results"
-            cell.detailLabel.text = "ПРИВЕТ"
-            
-        case 4:
-            cell.mainIcon.image = #imageLiteral(resourceName: "inviteFriendsImage")
-            cell.mainLabel.text = "Invite Friends"
-            cell.detailLabel.text = "INVITE FROM CONTACTS"
-            
-        case 5:
-            cell.mainIcon.image = #imageLiteral(resourceName: "settingsImage")
-            cell.mainLabel.text = "Settings"
-            cell.detailLabel.text = "APP SETTINGS"
-            
         default:
             break
         }
+        
         return cell
     }
 }
