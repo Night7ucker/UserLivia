@@ -42,6 +42,10 @@ class PopupCountryCodesTableViewController: UIViewController{
     func dismissIfTappedOnView(_ sender: UITapGestureRecognizer) {
      //   dismiss(animated: false, completion: nil)
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.dismiss(animated: true, completion: nil)
+    }
  }
 
 extension PopupCountryCodesTableViewController: UITableViewDataSource {
