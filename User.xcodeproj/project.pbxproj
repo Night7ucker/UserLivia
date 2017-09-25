@@ -16,6 +16,8 @@
 		CE40CA8C1F79132A003BC535 /* CalendarPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA8B1F79132A003BC535 /* CalendarPopupViewController.swift */; };
 		CE40CA8E1F793408003BC535 /* TimePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA8D1F793408003BC535 /* TimePopupViewController.swift */; };
 		CE5F4BEC1F77CC19009CBA5D /* Orders Appointments Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */; };
+		CE95905A1F7945DA00536DF7 /* ReminderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9590591F7945DA00536DF7 /* ReminderModel.swift */; };
+		CE95905C1F79473800536DF7 /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95905B1F79473800536DF7 /* ReminderTableViewCell.swift */; };
 		CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA61BAB1F756D9400BA1AED /* MainViewsStoryboard.storyboard */; };
 		CEA61BCA1F756D9400BA1AED /* CountryCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA61BAD1F756D9400BA1AED /* CountryCodeCell.swift */; };
 		CEA61BCE1F756D9400BA1AED /* MakeOrderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA61BB11F756D9400BA1AED /* MakeOrderCellTableViewCell.swift */; };
@@ -61,6 +63,8 @@
 		CE40CA8B1F79132A003BC535 /* CalendarPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPopupViewController.swift; sourceTree = "<group>"; };
 		CE40CA8D1F793408003BC535 /* TimePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePopupViewController.swift; sourceTree = "<group>"; };
 		CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Orders Appointments Payments.storyboard"; sourceTree = "<group>"; };
+		CE9590591F7945DA00536DF7 /* ReminderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderModel.swift; sourceTree = "<group>"; };
+		CE95905B1F79473800536DF7 /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
 		CEA61BAC1F756D9400BA1AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainViewsStoryboard.storyboard; sourceTree = "<group>"; };
 		CEA61BAD1F756D9400BA1AED /* CountryCodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodeCell.swift; sourceTree = "<group>"; };
 		CEA61BB11F756D9400BA1AED /* MakeOrderCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeOrderCellTableViewCell.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				CE40CA811F78E87D003BC535 /* RemindersViewController.swift */,
+				CE95905B1F79473800536DF7 /* ReminderTableViewCell.swift */,
 				CE40CA841F78F2ED003BC535 /* AddReminderViewController.swift */,
 				CE40CA881F790D72003BC535 /* CalendarPopupModule */,
 			);
@@ -332,6 +337,7 @@
 				FB958B8C1F755D820065B49C /* RealmDataManager.swift */,
 				CEABE42F1F769F4E0041FAD5 /* PersonTitleModel.swift */,
 				FB727AB11F76C916002B511A /* CountryCodesIndexModel.swift */,
+				CE9590591F7945DA00536DF7 /* ReminderModel.swift */,
 			);
 			name = RegisterModel;
 			sourceTree = "<group>";
@@ -490,6 +496,7 @@
 				CEA61BCF1F756D9400BA1AED /* MakeOrderViewController.swift in Sources */,
 				FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */,
 				CEA61BD01F756D9400BA1AED /* PopupCountryCodesTableViewController.swift in Sources */,
+				CE95905A1F7945DA00536DF7 /* ReminderModel.swift in Sources */,
 				FBA44C111F77C71B00687544 /* PhoneNumberModel.swift in Sources */,
 				CEA61BD11F756D9400BA1AED /* RegistrationViewController.swift in Sources */,
 				CE40CA821F78E87D003BC535 /* RemindersViewController.swift in Sources */,
@@ -498,6 +505,7 @@
 				FB6B62E31F78F07100AAB2F0 /* TokensModel.swift in Sources */,
 				CEABE42E1F769B980041FAD5 /* PersonTitleTableViewCell.swift in Sources */,
 				CEABE4281F7676470041FAD5 /* FillRegistrationInfoViewController.swift in Sources */,
+				CE95905C1F79473800536DF7 /* ReminderTableViewCell.swift in Sources */,
 				FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */,
 				FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */,
 				FB6B62E51F78F0C400AAB2F0 /* GetTokensRequest.swift in Sources */,

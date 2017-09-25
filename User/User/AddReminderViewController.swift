@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 protocol CalendarPopupViewControllerDelegate: class {
     func transferData(data: Date)
@@ -39,6 +40,7 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
     
     @IBOutlet weak var timeHoursLabelOutlet: UILabel!
     
+    @IBOutlet weak var medicineNameTextFieldOutlet: UITextField!
     
     let lightBluecolor = UIColor(red: CGFloat(0/255.0), green: CGFloat(128/255.0), blue: CGFloat(255/255.0), alpha: CGFloat(1.0))
     
@@ -47,6 +49,10 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
     var week3ReminderCheckButtonTapped = false
     var week4ReminderCheckButtonTapped = false
     var monthReminderCheckButtonTapped = false
+    
+    var lastTrueBoolean = false
+    
+    var delegate: AddReminderViewControllerProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -141,15 +147,16 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
         if week3ReminderCheckButtonTapped == false {
             checkImage3WeekOutlet.image = UIImage(named: "checkBoxChecked.png")
             week3ReminderCheckButtonTapped = true
+            checkImage2WeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
+            checkImageWeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
+            checkImage4WeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
+            checkImageMonthOutlet.image = UIImage(named: "checkBoxUnchecked.png")
+            week2ReminderCheckButtonTapped = false
+            weekReminderCheckButtonTapped = false
+            week4ReminderCheckButtonTapped = false
+            monthReminderCheckButtonTapped = false
         }
-        checkImage2WeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
-        checkImageWeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
-        checkImage4WeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
-        checkImageMonthOutlet.image = UIImage(named: "checkBoxUnchecked.png")
-        week2ReminderCheckButtonTapped = false
-        weekReminderCheckButtonTapped = false
-        week4ReminderCheckButtonTapped = false
-        monthReminderCheckButtonTapped = false
+        
     }
     
     
@@ -157,15 +164,16 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
         if week4ReminderCheckButtonTapped == false {
             checkImage4WeekOutlet.image = UIImage(named: "checkBoxChecked.png")
             week4ReminderCheckButtonTapped = true
+            checkImage2WeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
+            checkImage3WeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
+            checkImageWeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
+            checkImageMonthOutlet.image = UIImage(named: "checkBoxUnchecked.png")
+            week2ReminderCheckButtonTapped = false
+            week3ReminderCheckButtonTapped = false
+            weekReminderCheckButtonTapped = false
+            monthReminderCheckButtonTapped = false
         }
-        checkImage2WeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
-        checkImage3WeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
-        checkImageWeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
-        checkImageMonthOutlet.image = UIImage(named: "checkBoxUnchecked.png")
-        week2ReminderCheckButtonTapped = false
-        week3ReminderCheckButtonTapped = false
-        weekReminderCheckButtonTapped = false
-        monthReminderCheckButtonTapped = false
+        
     }
     
     
@@ -175,15 +183,16 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
         if monthReminderCheckButtonTapped == false {
             checkImageMonthOutlet.image = UIImage(named: "checkBoxChecked.png")
             monthReminderCheckButtonTapped = true
+            checkImage2WeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
+            checkImage3WeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
+            checkImage4WeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
+            checkImageWeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
+            week2ReminderCheckButtonTapped = false
+            week3ReminderCheckButtonTapped = false
+            week4ReminderCheckButtonTapped = false
+            weekReminderCheckButtonTapped = false
         }
-        checkImage2WeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
-        checkImage3WeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
-        checkImage4WeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
-        checkImageWeekOutlet.image = UIImage(named: "checkBoxUnchecked.png")
-        week2ReminderCheckButtonTapped = false
-        week3ReminderCheckButtonTapped = false
-        week4ReminderCheckButtonTapped = false
-        weekReminderCheckButtonTapped = false
+        
     }
     
     @IBAction func calendarPopupButtonTapped(_ sender: UIButton) {
@@ -199,7 +208,6 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
         
         formatter.dateFormat = "dd.MM.yyyy"
         dateLabelOutlet.text = formatter.string(from: data)
-        
     }
     
     
@@ -221,6 +229,38 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
         } else {
             timeHoursLabelOutlet.text = String(hour) + ":" + String(minutes)
         }
+    }
+    
+    func getTrueCheckIndex(week1Checkbox: Bool, week2Checkbox: Bool, week3Checkbox: Bool, week4Checkbox: Bool, monthCheckbox: Bool) -> Int? {
+        var checkBoxArray = [Bool]()
+        checkBoxArray.append(week1Checkbox)
+        checkBoxArray.append(week2Checkbox)
+        checkBoxArray.append(week3Checkbox)
+        checkBoxArray.append(week4Checkbox)
+        checkBoxArray.append(monthCheckbox)
+        for boolean in checkBoxArray {
+            if boolean == true {
+                return checkBoxArray.index(of: boolean)
+            }
+        }
+        return nil
+    }
+    
+    
+    @IBAction func saveReminderButtonTapped(_ sender: UIButton) {
+        let checkBoxIndex = getTrueCheckIndex(week1Checkbox: weekReminderCheckButtonTapped, week2Checkbox: week2ReminderCheckButtonTapped, week3Checkbox: week3ReminderCheckButtonTapped, week4Checkbox: week4ReminderCheckButtonTapped, monthCheckbox: monthReminderCheckButtonTapped)
+        let reminderModelObject = ReminderModel()
+        if checkBoxIndex != nil {
+            reminderModelObject.checkBoxIndex = checkBoxIndex!
+        }
+        reminderModelObject.dateTimeDaysAndYears = dateLabelOutlet.text
+        reminderModelObject.dateTimeHoursAndMinutes = timeHoursLabelOutlet.text
+        reminderModelObject.medicineName = medicineNameTextFieldOutlet.text
+        let realm = try! Realm()
+        RealmDataManager.writeIntoRealm(object: reminderModelObject, realm: realm)
+        delegate.reloadTable()
+        
+        navigationController?.popViewController(animated: true)
     }
     
 }

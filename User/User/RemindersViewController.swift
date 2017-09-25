@@ -6,21 +6,31 @@
 //  Copyright © 2017 BAMFAdmin. All rights reserved.
 //
 
-// make realm model with reminder
-// make deleting on reminder table
-
 import UIKit
+import RealmSwift
 
-class RemindersViewController: UIViewController {
+protocol AddReminderViewControllerProtocol: class {
+    func reloadTable()
+}
+
+class RemindersViewController: UIViewController, AddReminderViewControllerProtocol {
     
     @IBOutlet weak var remindersTableViewOutlet: UITableView!
     
+    var arrayOfReminders = [ReminderModel]()
     
+    var tableViewIsHidden = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
+        remindersTableViewOutlet.delegate = self
+        remindersTableViewOutlet.dataSource = self
+        
         remindersTableViewOutlet.isHidden = true
+        
         let addReminderButton = UIButton(type: .system)
         addReminderButton.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         addReminderButton.setTitle("+", for: .normal)
@@ -33,6 +43,15 @@ class RemindersViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addReminderButton)
         
+        arrayOfReminders = Array(RealmDataManager.getRemindersFromRealm())
+        if arrayOfReminders.count != 0 {
+            tableViewIsHidden = false
+            remindersTableViewOutlet.isHidden = false
+        }
+        
+//        if arrayOfReminders.count == 0 {
+//            remindersTableViewOutlet.separatorStyle = .none
+//        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,16 +67,83 @@ class RemindersViewController: UIViewController {
         
         let refillsAndRemindersStoryboard = UIStoryboard(name: "RefillsAndReminders", bundle: nil)
         let addReminderViewController = refillsAndRemindersStoryboard.instantiateViewController(withIdentifier: "kAddReminderViewController") as? AddReminderViewController
+        addReminderViewController?.delegate = self
         navigationController?.pushViewController(addReminderViewController!, animated: false)
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
+    func reloadTable() {
+        arrayOfReminders = Array(RealmDataManager.getRemindersFromRealm())
+        remindersTableViewOutlet.reloadData()
+        tableViewIsHidden = false
+        remindersTableViewOutlet.isHidden = false
+//        remindersTableViewOutlet.separatorStyle = .singleLine
+    }
+}
+
+extension RemindersViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "ACTIVE:"
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionHeaderView = UIView()
+        
+        sectionHeaderView.backgroundColor = UIColor(red: 0.08, green: 0.08, blue: 0.08, alpha: 0.05)
+        
+        let sectionHeaderLabel = UILabel()
+        
+        sectionHeaderLabel.text = "ACTIVE:"
+        sectionHeaderLabel.textColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.4)
+        sectionHeaderLabel.font = UIFont(name: "Arial", size: 13)
+        sectionHeaderLabel.frame = CGRect(x: 15, y: 5, width: 100, height: 20)
+        sectionHeaderView.addSubview(sectionHeaderLabel)
+        
+        
+        return sectionHeaderView
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrayOfReminders.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableViewIsHidden == false {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "reminderCell", for: indexPath) as! ReminderTableViewCell
+            
+            cell.medicineNameLabelOutlet.text = arrayOfReminders[indexPath.row].medicineName
+            cell.reminderDateLabelOutlet.text = arrayOfReminders[indexPath.row].dateTimeDaysAndYears! + " " + arrayOfReminders[indexPath.row].dateTimeHoursAndMinutes!
+            
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let realm = try! Realm()
+            try! realm.write {
+                realm.delete(RealmDataManager.getRemindersFromRealm()[indexPath.row])
+            }
+            arrayOfReminders = Array(RealmDataManager.getRemindersFromRealm())
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+//            if arrayOfReminders.count == 0 {
+//                remindersTableViewOutlet.separatorStyle = .none
+//            } else {
+//                remindersTableViewOutlet.separatorStyle = .singleLine
+//            }
+        }
+    }
+    
     
 }
+
+extension RemindersViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+}
+

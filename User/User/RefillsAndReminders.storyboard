@@ -28,9 +28,43 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1is-aU-qA1">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BXX-gO-G7W">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="147" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BXX-gO-G7W">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reminderCell" rowHeight="80" id="6Y0-Ya-56g" customClass="ReminderTableViewCell" customModule="User" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Y0-Ya-56g" id="vVh-U1-NN1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="342" height="79.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MedicineName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZf-Mz-TPP">
+                                                            <rect key="frame" x="16" y="8" width="102.5" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ReminderDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fO3-EC-Az9">
+                                                            <rect key="frame" x="16" y="41" width="92" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="topMargin" secondItem="KZf-Mz-TPP" secondAttribute="top" id="3mM-Hm-aPx"/>
+                                                        <constraint firstAttribute="leadingMargin" secondItem="KZf-Mz-TPP" secondAttribute="leading" constant="-8" id="cLj-zO-5ar"/>
+                                                        <constraint firstAttribute="leadingMargin" secondItem="fO3-EC-Az9" secondAttribute="leading" constant="-8" id="d4y-ht-dRz"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="fO3-EC-Az9" secondAttribute="bottom" constant="13.5" id="j44-CO-H3S"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="medicineNameLabelOutlet" destination="KZf-Mz-TPP" id="tmf-yn-MwB"/>
+                                                    <outlet property="reminderDateLabelOutlet" destination="fO3-EC-Az9" id="ix7-pl-oLz"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -228,6 +262,9 @@
                                         <state key="normal" title="Save">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="saveReminderButtonTapped:" destination="qWD-J8-Wwu" eventType="touchUpInside" id="aay-r1-oip"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkBoxUnchecked.png" translatesAutoresizingMaskIntoConstraints="NO" id="IRw-TJ-yZ3">
                                         <rect key="frame" x="339" y="363" width="20" height="20"/>
@@ -326,15 +363,15 @@
                         <outlet property="checkImageMonthOutlet" destination="L08-Hy-J9y" id="mv8-yq-GaV"/>
                         <outlet property="checkImageWeekOutlet" destination="IRw-TJ-yZ3" id="4NW-az-jnV"/>
                         <outlet property="dateLabelOutlet" destination="e9b-lO-brJ" id="a08-JC-KHr"/>
+                        <outlet property="medicineNameTextFieldOutlet" destination="XKN-dW-Lp5" id="9vz-PY-9v0"/>
                         <outlet property="saveButtonOutlet" destination="dqh-L0-gRb" id="4lH-BV-XHc"/>
                         <outlet property="timeHoursLabelOutlet" destination="9bZ-em-0n9" id="hoM-Rk-52o"/>
-                        <outlet property="timeLabelOutlet" destination="9bZ-em-0n9" id="Oky-3B-HQM"/>
                         <outlet property="viewWithDateOutlet" destination="Nb3-nu-3UZ" id="Shv-Uh-EzF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCe-g7-1Q7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3532" y="-451.12443778110946"/>
+            <point key="canvasLocation" x="2751" y="-451"/>
         </scene>
         <!--Calendar Popup View Controller-->
         <scene sceneID="oFQ-Ht-oiK">
@@ -381,7 +418,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ta2-6E-Zra" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4266.3999999999996" y="-451.12443778110946"/>
+            <point key="canvasLocation" x="3486" y="-451"/>
         </scene>
         <!--Time Popup View Controller-->
         <scene sceneID="aKV-Vw-Aet">
@@ -429,7 +466,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7B-Qu-kgn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5112.8000000000002" y="-451.12443778110946"/>
+            <point key="canvasLocation" x="4214" y="-451"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cgf-nc-kVA">
@@ -448,24 +485,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DJ6-Gt-U8u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="845.60000000000002" y="-451.12443778110946"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="xqp-rm-h2z">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jFK-pA-93d" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eVZ-8Y-HsJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="qWD-J8-Wwu" kind="relationship" relationship="rootViewController" id="nBR-FN-SgH"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ndd-tC-VJP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2593" y="-451"/>
         </scene>
     </scenes>
     <resources>

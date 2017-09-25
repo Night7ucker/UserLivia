@@ -45,6 +45,10 @@ class RealmDataManager {
         return data
     }
 
-
+    static func getRemindersFromRealm() -> Results<ReminderModel> {
+        let realm = try! Realm()
+        let data = realm.objects(ReminderModel.self)
+        return data
+    }
     
 }
