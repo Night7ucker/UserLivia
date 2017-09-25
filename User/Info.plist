@@ -23,11 +23,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-<<<<<<< HEAD
 	<string>RefillsAndReminders</string>
-=======
-	<string>Orders Appointments Payments</string>
->>>>>>> 27bfdb682751fb219fec004cec745eddf59371e0
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

@@ -184,11 +184,8 @@
 				CEA61BB51F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard */,
 				CEABE4211F7662AC0041FAD5 /* RegistrationModule.storyboard */,
 				CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */,
-<<<<<<< HEAD
 				CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */,
-=======
 				7F5CB07C1F7902EF006E338C /* OrdersPageController.swift */,
->>>>>>> 27bfdb682751fb219fec004cec745eddf59371e0
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -503,12 +500,9 @@
 				CEABE4281F7676470041FAD5 /* FillRegistrationInfoViewController.swift in Sources */,
 				FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */,
 				FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */,
-<<<<<<< HEAD
 				FB6B62E51F78F0C400AAB2F0 /* GetTokensRequest.swift in Sources */,
-=======
 				CE40CA8C1F79132A003BC535 /* CalendarPopupViewController.swift in Sources */,
 				CE40CA8E1F793408003BC535 /* TimePopupViewController.swift in Sources */,
->>>>>>> ec1731364c7dcd4ccd95b64b30633a1c7791d7d5
 				FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */,
 				CEABE42B1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift in Sources */,
 				CEABE4301F769F4E0041FAD5 /* PersonTitleModel.swift in Sources */,
