@@ -126,6 +126,7 @@
                     <navigationItem key="navigationItem" id="edT-G2-nhi"/>
                     <connections>
                         <outlet property="confirmButtonOutlet" destination="08A-DZ-0me" id="DtO-eQ-1gz"/>
+                        <outlet property="personNumberLabelOutlet" destination="hZR-5p-y6E" id="j0O-wG-bEG"/>
                         <outlet property="sendCodeAgainLabelOutlet" destination="NSh-Xs-8gc" id="zBW-py-pDJ"/>
                         <outlet property="spaceLabelOutlet" destination="d4X-2M-Br2" id="SvT-3O-8tl"/>
                         <outlet property="textViewForCodeOutlet" destination="uyt-KO-Bih" id="0k9-7J-JcY"/>

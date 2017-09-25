@@ -92,4 +92,32 @@ extension MainScreenController : UITableViewDelegate{
         return 80
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        switch indexPath.row {
+        case 0:
+            let settingsStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: nil)
+            let settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "kMakeOrderViewController") as? MakeOrderViewController
+            self.navigationController?.pushViewController(settingsViewController!, animated: true)
+        case 1:
+            let settingsStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: nil)
+            let settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "kMakeOrderViewController") as? MakeOrderViewController
+            self.navigationController?.pushViewController(settingsViewController!, animated: true)
+        case 2:
+            print("2")
+        case 3:
+            print("3")
+        case 4:
+            print("4")
+        case 5:
+            print("5")
+            let settingsStoryboard = UIStoryboard(name: "Settings", bundle: nil)
+            let settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "kSettingsController") as? SettingsController
+            self.navigationController?.pushViewController(settingsViewController!, animated: true)
+        default:
+            break
+        }
+    }
+    
 }

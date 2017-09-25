@@ -263,6 +263,9 @@
                                         <state key="normal" title="Skip registration">
                                             <color key="titleColor" red="0.071210794150829315" green="0.29368728399276733" blue="0.83295702934265137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="iMz-Pv-HvG" kind="show" id="tDQ-cg-516"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="UVm-in-5td">
                                         <rect key="frame" x="43" y="268" width="44" height="31"/>
@@ -401,6 +404,14 @@
             </objects>
             <point key="canvasLocation" x="3548.8000000000002" y="-365.21739130434787"/>
         </scene>
+        <!--MainScreen-->
+        <scene sceneID="5We-OC-Bdi">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="kMainScreenController" storyboardName="MainScreen" id="iMz-Pv-HvG" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W2v-i1-rDP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3422" y="-110"/>
+        </scene>
         <!--RegistrationModule-->
         <scene sceneID="wGX-XK-pcR">
             <objects>
@@ -408,42 +419,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OPR-gt-nu9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1825" y="94"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="aoO-tZ-KKt">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wxn-hZ-PRr" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wLs-ye-48s">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ik8-TX-1Uc" kind="relationship" relationship="rootViewController" id="nTN-aL-pBV"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Cj-me-KUd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-106.40000000000001" y="53.523238380809602"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="tvf-a8-mis">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gzp-v7-ox8" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2qb-xI-Cb1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="lRg-nG-aKh" kind="relationship" relationship="rootViewController" id="qRl-ou-Xay"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NhJ-df-sej" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="692" y="814.54272863568224"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Sb9-1m-Bkh">

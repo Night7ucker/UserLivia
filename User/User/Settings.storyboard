@@ -13,7 +13,7 @@
         <!--Settings Controller-->
         <scene sceneID="EPE-OP-Uv0">
             <objects>
-                <viewController id="WoK-Le-uc2" customClass="SettingsController" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="kSettingsController" id="WoK-Le-uc2" customClass="SettingsController" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9nv-cv-KEY"/>
                         <viewControllerLayoutGuide type="bottom" id="fkV-gJ-pse"/>
@@ -39,7 +39,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="359" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ugi-hR-Jb0" id="cV4-0m-hkx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="80"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="79.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List of Prescriptions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvm-Uj-RHu">
@@ -85,7 +85,7 @@
                                                 <rect key="frame" x="0.0" y="108" width="359" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UYZ-Sd-VGP" id="H0K-rC-nXd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="80"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="79.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAQ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZiQ-kV-407">
