@@ -36,7 +36,6 @@ class RegistrationViewController: UIViewController{
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         let countryCodesObject = CountryCodesDataManager()
         countryCodesObject.getCountryCodes()
-        
         let urlBelarusFlagImage = "https://test.liviaapp.com/images/flags/32x32/by.png"
         countryCodeDataManagerObject.getImage(pictureUrl: urlBelarusFlagImage) { success, image in
             if success {
@@ -74,18 +73,31 @@ class RegistrationViewController: UIViewController{
     @IBAction func sendAuthCodeAction(_ sender: Any) {
         let phoneNumberObject = PhoneNumberModel()
         phoneNumberObject.phoneNumber = phoneNumberField.text!
+        if RealmDataManager.getIndexCountryFromRealm().count == 0 {
+            let indexOfBelarus = CountryCodesIndexModel()
+            indexOfBelarus.index = 2
+            RealmDataManager.writeIntoRealm(object: indexOfBelarus, realm: realm)
+        }
+
+        if RealmDataManager.getPhoneNumberFromRealm().count > 0 {
+            try! realm.write {
+            realm.delete(RealmDataManager.getPhoneNumberFromRealm())
+            }
+        }
         RealmDataManager.writeIntoRealm(object: phoneNumberObject, realm: realm)
         let countryCodeValue = String(countryCode.text!.characters.dropFirst())
         let getAuthCodeObject = GetAuthCode(number: phoneNumberField.text!, code: countryCodeValue)
         getAuthCodeObject.getAutCodeRequest()
-
-        
     }
     
+    
+
+
+ 
     deinit {
         token.stop()
     }
-    
+ 
     @IBAction func changePhoneCodeForCountryButtonTapped(_ sender: UIButton) {
 
     }

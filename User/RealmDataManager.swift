@@ -39,6 +39,11 @@ class RealmDataManager {
         let data = realm.objects(PhoneNumberModel.self)
         return data
     }
+    static func getTokensFromRealm() -> Results<TokensModel> {
+        let realm = try! Realm()
+        let data = realm.objects(TokensModel.self)
+        return data
+    }
 
 
     

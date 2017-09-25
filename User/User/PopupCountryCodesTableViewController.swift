@@ -62,7 +62,6 @@ extension PopupCountryCodesTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "countryCodeCell", for: indexPath) as! CountryCodeCell
         
-        
         cell.countryCodeLabelOutlet.text = "+" + RealmDataManager.getDataFromCountries()[indexPath.row].phoneCode!
         cell.countryNameLabelOutlet.text = RealmDataManager.getDataFromCountries()[indexPath.row].countryName
         let urlImage = "https://test.liviaapp.com" + RealmDataManager.getDataFromCountries()[indexPath.row].countryFlag!
@@ -71,9 +70,6 @@ extension PopupCountryCodesTableViewController: UITableViewDataSource {
                 cell.countryFlagImageViewOutlet.image = image
             }
         }
-        
-        
-        
         return cell
     }
 }

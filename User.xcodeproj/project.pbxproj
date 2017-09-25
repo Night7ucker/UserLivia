@@ -30,6 +30,8 @@
 		FB22C2311F77E73F000EED58 /* MainScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22C2301F77E73F000EED58 /* MainScreenCell.swift */; };
 		FB22C2331F77E752000EED58 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22C2321F77E752000EED58 /* CustomImageView.swift */; };
 		FB22C2351F77E91B000EED58 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22C2341F77E91B000EED58 /* MainScreenController.swift */; };
+		FB6B62E31F78F07100AAB2F0 /* TokensModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B62E21F78F07100AAB2F0 /* TokensModel.swift */; };
+		FB6B62E51F78F0C400AAB2F0 /* GetTokensRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B62E41F78F0C400AAB2F0 /* GetTokensRequest.swift */; };
 		FB727AB21F76C916002B511A /* CountryCodesIndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB727AB11F76C916002B511A /* CountryCodesIndexModel.swift */; };
 		FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB740D161F74F24900F6DD79 /* AppDelegate.swift */; };
 		FB740D1E1F74F24900F6DD79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB740D1D1F74F24900F6DD79 /* Assets.xcassets */; };
@@ -67,6 +69,8 @@
 		FB22C2301F77E73F000EED58 /* MainScreenCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainScreenCell.swift; path = User/User/MainScreenCell.swift; sourceTree = SOURCE_ROOT; };
 		FB22C2321F77E752000EED58 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomImageView.swift; path = User/User/CustomImageView.swift; sourceTree = SOURCE_ROOT; };
 		FB22C2341F77E91B000EED58 /* MainScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainScreenController.swift; path = User/User/MainScreenController.swift; sourceTree = SOURCE_ROOT; };
+		FB6B62E21F78F07100AAB2F0 /* TokensModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokensModel.swift; sourceTree = "<group>"; };
+		FB6B62E41F78F0C400AAB2F0 /* GetTokensRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTokensRequest.swift; sourceTree = "<group>"; };
 		FB727AB11F76C916002B511A /* CountryCodesIndexModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodesIndexModel.swift; sourceTree = "<group>"; };
 		FB740D131F74F24900F6DD79 /* User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB740D161F74F24900F6DD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -236,6 +240,15 @@
 			name = "Popup Title Module";
 			sourceTree = "<group>";
 		};
+		FB6B62E11F78F04800AAB2F0 /* AccessRefreshTokens */ = {
+			isa = PBXGroup;
+			children = (
+				FB6B62E21F78F07100AAB2F0 /* TokensModel.swift */,
+				FB6B62E41F78F0C400AAB2F0 /* GetTokensRequest.swift */,
+			);
+			name = AccessRefreshTokens;
+			sourceTree = "<group>";
+		};
 		FB740D0A1F74F24900F6DD79 = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +291,7 @@
 		FB958B851F752BBC0065B49C /* RegisterModel */ = {
 			isa = PBXGroup;
 			children = (
+				FB6B62E11F78F04800AAB2F0 /* AccessRefreshTokens */,
 				FBA44C0D1F77B87800687544 /* Get Auth Code */,
 				FB958B861F752C4D0065B49C /* CountryCodesModel.swift */,
 				FB958B881F752D000065B49C /* CountryDataManager.swift */,
@@ -444,10 +458,12 @@
 				CEA61BD11F756D9400BA1AED /* RegistrationViewController.swift in Sources */,
 				FB22C2331F77E752000EED58 /* CustomImageView.swift in Sources */,
 				FB727AB21F76C916002B511A /* CountryCodesIndexModel.swift in Sources */,
+				FB6B62E31F78F07100AAB2F0 /* TokensModel.swift in Sources */,
 				CEABE42E1F769B980041FAD5 /* PersonTitleTableViewCell.swift in Sources */,
 				CEABE4281F7676470041FAD5 /* FillRegistrationInfoViewController.swift in Sources */,
 				FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */,
 				FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */,
+				FB6B62E51F78F0C400AAB2F0 /* GetTokensRequest.swift in Sources */,
 				FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */,
 				CEABE42B1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift in Sources */,
 				CEABE4301F769F4E0041FAD5 /* PersonTitleModel.swift in Sources */,

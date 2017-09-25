@@ -22,7 +22,7 @@ class GetAuthCode{
 
     }
     
-    let id = "2125d2a0-5c85-3aa8-92d8-27944101880c" //UIDevice.current.identifierForVendor!.uuidString
+    let id = UIDevice.current.identifierForVendor!.uuidString//"2125d2a0-5c85-3aa8-92d8-27944101880c"
     
     let url = "https://test.liviaapp.com/api/auth"
     

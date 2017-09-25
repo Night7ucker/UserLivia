@@ -39,10 +39,11 @@ class FillRegistrationInfoViewController: UIViewController {
         title = "Registration Fields"
         
         
-        try! realm.write {
-            realm.deleteAll()
+         if RealmDataManager.getPersonTitleFromRealm().count > 0 {
+            try! realm.write {
+                realm.delete(RealmDataManager.getPersonTitleFromRealm())
+            }
         }
-
         nextButtonOutlet.layer.cornerRadius = 2
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
@@ -50,16 +51,10 @@ class FillRegistrationInfoViewController: UIViewController {
         token = realm.addNotificationBlock { (notifcation, realm) -> Void in
             
             if RealmDataManager.getPersonTitleFromRealm().count > 0 {
-            self.personTitleLabelOutlet.text = RealmDataManager.getPersonTitleFromRealm()[0].title
+                self.personTitleLabelOutlet.text = RealmDataManager.getPersonTitleFromRealm()[0].title
             }
-           
-               //
-            
- 
-            
         }
- 
-        // Do any additional setup after loading the view.
+
     }
 
     override func didReceiveMemoryWarning() {
