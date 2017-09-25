@@ -107,7 +107,7 @@ extension MainScreenController : UITableViewDelegate{
             self.navigationController?.pushViewController(settingsViewController!, animated: true)
         case 1:
             let settingsStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: nil)
-            let settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "kMakeOrderViewController") as? MakeOrderViewController
+            let settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as? SearchForItemsViewController
             self.navigationController?.pushViewController(settingsViewController!, animated: true)
         case 2:
             print("2")
