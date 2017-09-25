@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		7FBAFBB61F77D9D700BEB7F1 /* MainScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBAFBA91F77D9D700BEB7F1 /* MainScreen.storyboard */; };
 		7FBAFBB71F77D9D700BEB7F1 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBAFBAA1F77D9D700BEB7F1 /* Settings.storyboard */; };
+		CE40CA801F78E619003BC535 /* RefillsAndReminders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */; };
+		CE40CA821F78E87D003BC535 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA811F78E87D003BC535 /* RemindersViewController.swift */; };
+		CE40CA851F78F2ED003BC535 /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA841F78F2ED003BC535 /* AddReminderViewController.swift */; };
+		CE40CA8C1F79132A003BC535 /* CalendarPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA8B1F79132A003BC535 /* CalendarPopupViewController.swift */; };
+		CE40CA8E1F793408003BC535 /* TimePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA8D1F793408003BC535 /* TimePopupViewController.swift */; };
 		CE5F4BEC1F77CC19009CBA5D /* Orders Appointments Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */; };
 		CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA61BAB1F756D9400BA1AED /* MainViewsStoryboard.storyboard */; };
 		CEA61BCA1F756D9400BA1AED /* CountryCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA61BAD1F756D9400BA1AED /* CountryCodeCell.swift */; };
@@ -46,6 +51,11 @@
 		7FBAFBA91F77D9D700BEB7F1 /* MainScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainScreen.storyboard; sourceTree = "<group>"; };
 		7FBAFBAA1F77D9D700BEB7F1 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		9EA6723FDEE4071DE9039A46 /* Pods_User.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_User.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RefillsAndReminders.storyboard; sourceTree = "<group>"; };
+		CE40CA811F78E87D003BC535 /* RemindersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
+		CE40CA841F78F2ED003BC535 /* AddReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
+		CE40CA8B1F79132A003BC535 /* CalendarPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPopupViewController.swift; sourceTree = "<group>"; };
+		CE40CA8D1F793408003BC535 /* TimePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePopupViewController.swift; sourceTree = "<group>"; };
 		CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Orders Appointments Payments.storyboard"; sourceTree = "<group>"; };
 		CEA61BAC1F756D9400BA1AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainViewsStoryboard.storyboard; sourceTree = "<group>"; };
 		CEA61BAD1F756D9400BA1AED /* CountryCodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodeCell.swift; sourceTree = "<group>"; };
@@ -129,6 +139,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CE40CA831F78E881003BC535 /* RemindersModoule */ = {
+			isa = PBXGroup;
+			children = (
+				CE40CA811F78E87D003BC535 /* RemindersViewController.swift */,
+				CE40CA841F78F2ED003BC535 /* AddReminderViewController.swift */,
+				CE40CA881F790D72003BC535 /* CalendarPopupModule */,
+			);
+			name = RemindersModoule;
+			sourceTree = "<group>";
+		};
+		CE40CA881F790D72003BC535 /* CalendarPopupModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE40CA8B1F79132A003BC535 /* CalendarPopupViewController.swift */,
+				CE40CA8D1F793408003BC535 /* TimePopupViewController.swift */,
+			);
+			name = CalendarPopupModule;
+			sourceTree = "<group>";
+		};
 		CEA61BA61F756D9400BA1AED /* Interface Module */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +178,7 @@
 				CEA61BB51F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard */,
 				CEABE4211F7662AC0041FAD5 /* RegistrationModule.storyboard */,
 				CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */,
+				CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -188,6 +218,7 @@
 				7FBAFBBC1F77DAAF00BEB7F1 /* MainMenuModule */,
 				CEA61BE11F756E1800BA1AED /* MakeOrderModule */,
 				CEABE41E1F764DFE0041FAD5 /* Over The Counter Products Module */,
+				CE40CA831F78E881003BC535 /* RemindersModoule */,
 			);
 			name = "User Functionality Module";
 			sourceTree = "<group>";
@@ -362,6 +393,7 @@
 				CE5F4BEC1F77CC19009CBA5D /* Orders Appointments Payments.storyboard in Resources */,
 				CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */,
 				7FBAFBB61F77D9D700BEB7F1 /* MainScreen.storyboard in Resources */,
+				CE40CA801F78E619003BC535 /* RefillsAndReminders.storyboard in Resources */,
 				7FBAFBB71F77D9D700BEB7F1 /* Settings.storyboard in Resources */,
 				FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */,
 				CEABE4221F7662AC0041FAD5 /* RegistrationModule.storyboard in Resources */,
@@ -435,6 +467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE40CA851F78F2ED003BC535 /* AddReminderViewController.swift in Sources */,
 				FB958B891F752D000065B49C /* CountryDataManager.swift in Sources */,
 				CEABE4201F7650CC0041FAD5 /* CityTableViewCell.swift in Sources */,
 				CEA61BCF1F756D9400BA1AED /* MakeOrderViewController.swift in Sources */,
@@ -442,12 +475,15 @@
 				CEA61BD01F756D9400BA1AED /* PopupCountryCodesTableViewController.swift in Sources */,
 				FBA44C111F77C71B00687544 /* PhoneNumberModel.swift in Sources */,
 				CEA61BD11F756D9400BA1AED /* RegistrationViewController.swift in Sources */,
+				CE40CA821F78E87D003BC535 /* RemindersViewController.swift in Sources */,
 				FB22C2331F77E752000EED58 /* CustomImageView.swift in Sources */,
 				FB727AB21F76C916002B511A /* CountryCodesIndexModel.swift in Sources */,
 				CEABE42E1F769B980041FAD5 /* PersonTitleTableViewCell.swift in Sources */,
 				CEABE4281F7676470041FAD5 /* FillRegistrationInfoViewController.swift in Sources */,
 				FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */,
 				FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */,
+				CE40CA8C1F79132A003BC535 /* CalendarPopupViewController.swift in Sources */,
+				CE40CA8E1F793408003BC535 /* TimePopupViewController.swift in Sources */,
 				FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */,
 				CEABE42B1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift in Sources */,
 				CEABE4301F769F4E0041FAD5 /* PersonTitleModel.swift in Sources */,

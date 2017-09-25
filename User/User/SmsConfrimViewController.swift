@@ -5,9 +5,6 @@
 //  Created by User on 9/23/17.
 //  Copyright © 2017 BAMFAdmin. All rights reserved.
 //
-// timer, constraints
-
-//RealmDataManager.getPhoneNumberFromRealm()[0].phoneNumber! get phone number
 
 import UIKit
 import RealmSwift

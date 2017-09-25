@@ -5,12 +5,6 @@
 //  Created by User on 9/23/17.
 //  Copyright © 2017 BAMFAdmin. All rights reserved.
 //
-// todo:
-// popup for person title (doctor or other)
-// get images from somewhere
-// add fucntionality on check button
-// add functionality on link terms and conditions
-// make next button blue color when all fields are set
 
 import UIKit
 import RealmSwift
@@ -74,7 +68,7 @@ class FillRegistrationInfoViewController: UIViewController {
 
     @IBAction func check18YearsOldButtonTapped(_ sender: UIButton) {
         if agreeWithTermsIsChecked {
-            check18YearsOldImageViewOutlet.image = UIImage(named: "checkBoxUncheked.png")
+            check18YearsOldImageViewOutlet.image = UIImage(named: "checkBoxUnchecked.png")
             agreeWithTermsIsChecked = false
         } else {
             check18YearsOldImageViewOutlet.image = UIImage(named: "checkBoxChecked.png")
@@ -85,7 +79,7 @@ class FillRegistrationInfoViewController: UIViewController {
     
     @IBAction func agreeWithTermsButtonTapped(_ sender: UIButton) {
         if yearsOld18IsChecked {
-            checkTermsAndConditionsImageViewOutlet.image = UIImage(named: "checkBoxUncheked.png")
+            checkTermsAndConditionsImageViewOutlet.image = UIImage(named: "checkBoxUnchecked.png")
             yearsOld18IsChecked = false
         } else {
             checkTermsAndConditionsImageViewOutlet.image = UIImage(named: "checkBoxChecked.png")
