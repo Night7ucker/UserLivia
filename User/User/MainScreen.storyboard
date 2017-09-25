@@ -65,7 +65,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="359" height="70"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r77-YP-egC" id="fkN-Yq-vQe">
-                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="69.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="70"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make Order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAa-jI-YOD">
@@ -116,6 +116,51 @@
                                                     <outlet property="mainIcon" destination="V66-vO-RfQ" id="C7M-VD-RwX"/>
                                                     <outlet property="mainLabel" destination="MAa-jI-YOD" id="ZMq-sR-vhu"/>
                                                     <outlet property="mainScreenImage" destination="1wx-hl-k24" id="P99-66-xrt"/>
+                                                </connections>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mainScreenSecondCell" rowHeight="70" id="cOL-5b-aja" customClass="MainScreenCell" customModule="User" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="98" width="359" height="70"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cOL-5b-aja" id="dIb-83-2Wp">
+                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="70"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BeR-JH-Nnb" customClass="CustomImageView" customModule="User" customModuleProvider="target">
+                                                            <rect key="frame" x="8" y="18" width="35" height="35"/>
+                                                            <color key="backgroundColor" red="0.019848848329999998" green="0.7380829632" blue="0.53444504719999997" alpha="0.78636023119999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="35" id="RXx-73-NBW"/>
+                                                                <constraint firstAttribute="height" constant="35" id="fe5-Yg-Y3v"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OE3-bl-rgo">
+                                                            <rect key="frame" x="16" y="26" width="19" height="19"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminders &amp; Results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4e-Lt-kl5">
+                                                            <rect key="frame" x="51" y="25" width="156" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="89" id="cvh-K6-HlU"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                                            <color key="textColor" red="0.13688174989999999" green="0.29242929429999998" blue="0.31922192259999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="U4e-Lt-kl5" firstAttribute="leading" secondItem="dIb-83-2Wp" secondAttribute="leadingMargin" constant="43" id="5fp-Bh-qi6"/>
+                                                        <constraint firstItem="U4e-Lt-kl5" firstAttribute="top" secondItem="dIb-83-2Wp" secondAttribute="topMargin" constant="17" id="R7t-9b-eCL"/>
+                                                        <constraint firstItem="BeR-JH-Nnb" firstAttribute="top" secondItem="dIb-83-2Wp" secondAttribute="topMargin" constant="10" id="WUy-L9-j2S"/>
+                                                        <constraint firstItem="OE3-bl-rgo" firstAttribute="centerX" secondItem="BeR-JH-Nnb" secondAttribute="centerX" id="Y5o-21-7yP"/>
+                                                        <constraint firstItem="OE3-bl-rgo" firstAttribute="centerY" secondItem="BeR-JH-Nnb" secondAttribute="centerY" id="fKU-Xq-1N4"/>
+                                                        <constraint firstItem="U4e-Lt-kl5" firstAttribute="leading" secondItem="OE3-bl-rgo" secondAttribute="trailing" constant="16" id="h0H-5o-cTd"/>
+                                                        <constraint firstAttribute="leadingMargin" secondItem="BeR-JH-Nnb" secondAttribute="leading" id="ltY-i1-J1u"/>
+                                                        <constraint firstItem="OE3-bl-rgo" firstAttribute="top" secondItem="dIb-83-2Wp" secondAttribute="topMargin" constant="18" id="t35-5B-mee"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="mainIcon" destination="OE3-bl-rgo" id="PMX-IB-VXe"/>
+                                                    <outlet property="mainLabel" destination="U4e-Lt-kl5" id="CCY-F8-abr"/>
+                                                    <outlet property="mainScreenImage" destination="BeR-JH-Nnb" id="2SR-9V-k4M"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
