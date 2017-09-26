@@ -38,6 +38,7 @@ class CountryCodesDataManager{
                 realmObject.phoneCode = element["phone_country_code"] as? String
                 
                RealmDataManager.writeIntoRealm(object: realmObject, realm: realm)
+
             }
         }
 

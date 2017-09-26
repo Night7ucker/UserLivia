@@ -9,14 +9,16 @@
 import UIKit
 import RealmSwift
 
-class FillRegistrationInfoViewController: UIViewController {
+class FillRegistrationInfoViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     var token = NotificationToken()
     let realm = try! Realm()
     
     var yearsOld18IsChecked = false
     var agreeWithTermsIsChecked = false
-
+    var imagePicker = UIImagePickerController()
+    
+    @IBOutlet var photoImageView: UIImageView!
     @IBOutlet weak var personTitleLabelOutlet: UILabel!
     @IBOutlet weak var firstNameTextFieldOutlet: UITextField!
     @IBOutlet weak var lastNameTextFieldOutlet: UITextField!
@@ -93,14 +95,24 @@ class FillRegistrationInfoViewController: UIViewController {
             print("male")
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func addPhotoAction(_ sender: UIButton) {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            print("Button capture")
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum;
+            imagePicker.allowsEditing = false
+            
+            self.present(imagePicker, animated: true, completion: nil)
+        }
     }
-    */
-
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        photoImageView.image = selectedImage
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+ 
 }

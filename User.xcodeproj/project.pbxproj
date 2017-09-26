@@ -38,6 +38,8 @@
 		FB22C2311F77E73F000EED58 /* MainScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22C2301F77E73F000EED58 /* MainScreenCell.swift */; };
 		FB22C2331F77E752000EED58 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22C2321F77E752000EED58 /* CustomImageView.swift */; };
 		FB22C2351F77E91B000EED58 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22C2341F77E91B000EED58 /* MainScreenController.swift */; };
+		FB5FC54E1F7A44CD00F8658A /* UploadImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5FC54D1F7A44CD00F8658A /* UploadImageRequest.swift */; };
+		FB5FC5501F7A44DE00F8658A /* UploadImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5FC54F1F7A44DE00F8658A /* UploadImageModel.swift */; };
 		FB6B62E31F78F07100AAB2F0 /* TokensModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B62E21F78F07100AAB2F0 /* TokensModel.swift */; };
 		FB6B62E51F78F0C400AAB2F0 /* GetTokensRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B62E41F78F0C400AAB2F0 /* GetTokensRequest.swift */; };
 		FB727AB21F76C916002B511A /* CountryCodesIndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB727AB11F76C916002B511A /* CountryCodesIndexModel.swift */; };
@@ -85,6 +87,8 @@
 		FB22C2301F77E73F000EED58 /* MainScreenCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainScreenCell.swift; path = User/User/MainScreenCell.swift; sourceTree = SOURCE_ROOT; };
 		FB22C2321F77E752000EED58 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomImageView.swift; path = User/User/CustomImageView.swift; sourceTree = SOURCE_ROOT; };
 		FB22C2341F77E91B000EED58 /* MainScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainScreenController.swift; path = User/User/MainScreenController.swift; sourceTree = SOURCE_ROOT; };
+		FB5FC54D1F7A44CD00F8658A /* UploadImageRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadImageRequest.swift; sourceTree = "<group>"; };
+		FB5FC54F1F7A44DE00F8658A /* UploadImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadImageModel.swift; sourceTree = "<group>"; };
 		FB6B62E21F78F07100AAB2F0 /* TokensModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokensModel.swift; sourceTree = "<group>"; };
 		FB6B62E41F78F0C400AAB2F0 /* GetTokensRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTokensRequest.swift; sourceTree = "<group>"; };
 		FB727AB11F76C916002B511A /* CountryCodesIndexModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodesIndexModel.swift; sourceTree = "<group>"; };
@@ -279,6 +283,23 @@
 			name = "Popup Title Module";
 			sourceTree = "<group>";
 		};
+		FB5FC54B1F7A44A400F8658A /* RegisterUser */ = {
+			isa = PBXGroup;
+			children = (
+				FB5FC54C1F7A44B700F8658A /* UploadImage */,
+			);
+			name = RegisterUser;
+			sourceTree = "<group>";
+		};
+		FB5FC54C1F7A44B700F8658A /* UploadImage */ = {
+			isa = PBXGroup;
+			children = (
+				FB5FC54D1F7A44CD00F8658A /* UploadImageRequest.swift */,
+				FB5FC54F1F7A44DE00F8658A /* UploadImageModel.swift */,
+			);
+			name = UploadImage;
+			sourceTree = "<group>";
+		};
 		FB6B62E11F78F04800AAB2F0 /* AccessRefreshTokens */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,6 +351,7 @@
 		FB958B851F752BBC0065B49C /* RegisterModel */ = {
 			isa = PBXGroup;
 			children = (
+				FB5FC54B1F7A44A400F8658A /* RegisterUser */,
 				FB6B62E11F78F04800AAB2F0 /* AccessRefreshTokens */,
 				FBA44C0D1F77B87800687544 /* Get Auth Code */,
 				FB958B861F752C4D0065B49C /* CountryCodesModel.swift */,
@@ -510,11 +532,13 @@
 				FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */,
 				FB6B62E51F78F0C400AAB2F0 /* GetTokensRequest.swift in Sources */,
 				CE40CA8C1F79132A003BC535 /* CalendarPopupViewController.swift in Sources */,
+				FB5FC54E1F7A44CD00F8658A /* UploadImageRequest.swift in Sources */,
 				CE40CA8E1F793408003BC535 /* TimePopupViewController.swift in Sources */,
 				FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */,
 				CEABE42B1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift in Sources */,
 				CEABE4301F769F4E0041FAD5 /* PersonTitleModel.swift in Sources */,
 				FB22C2351F77E91B000EED58 /* MainScreenController.swift in Sources */,
+				FB5FC5501F7A44DE00F8658A /* UploadImageModel.swift in Sources */,
 				CEA61BCE1F756D9400BA1AED /* MakeOrderCellTableViewCell.swift in Sources */,
 				CEABE4251F76689B0041FAD5 /* SmsConfrimViewController.swift in Sources */,
 				FB22C2311F77E73F000EED58 /* MainScreenCell.swift in Sources */,
