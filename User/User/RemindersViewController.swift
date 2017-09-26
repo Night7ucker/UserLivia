@@ -13,7 +13,11 @@ protocol AddReminderViewControllerProtocol: class {
     func reloadTable()
 }
 
-class RemindersViewController: UIViewController, AddReminderViewControllerProtocol {
+protocol EditReminderViewControllerDelegate: class {
+    func reloadTableAfterEditing()
+}
+
+class RemindersViewController: UIViewController, AddReminderViewControllerProtocol, EditReminderViewControllerDelegate {
     
     @IBOutlet weak var remindersTableViewOutlet: UITableView!
     
@@ -49,9 +53,9 @@ class RemindersViewController: UIViewController, AddReminderViewControllerProtoc
             remindersTableViewOutlet.isHidden = false
         }
         
-//        if arrayOfReminders.count == 0 {
-//            remindersTableViewOutlet.separatorStyle = .none
-//        }
+        if arrayOfReminders.count == 0 {
+            remindersTableViewOutlet.separatorStyle = .none
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,7 +80,7 @@ class RemindersViewController: UIViewController, AddReminderViewControllerProtoc
         remindersTableViewOutlet.reloadData()
         tableViewIsHidden = false
         remindersTableViewOutlet.isHidden = false
-//        remindersTableViewOutlet.separatorStyle = .singleLine
+        remindersTableViewOutlet.separatorStyle = .singleLine
     }
 }
 
@@ -130,14 +134,29 @@ extension RemindersViewController: UITableViewDataSource {
             }
             arrayOfReminders = Array(RealmDataManager.getRemindersFromRealm())
             tableView.deleteRows(at: [indexPath], with: .automatic)
-//            if arrayOfReminders.count == 0 {
-//                remindersTableViewOutlet.separatorStyle = .none
-//            } else {
-//                remindersTableViewOutlet.separatorStyle = .singleLine
-//            }
+            if arrayOfReminders.count == 0 {
+                remindersTableViewOutlet.separatorStyle = .none
+            }
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let transition = CATransition()
+        transition.duration = 0.4
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.type = kCATransitionFade
+        self.navigationController!.view.layer.add(transition, forKey: nil)
+        
+        let remindersStoryboard = UIStoryboard(name: "RefillsAndReminders", bundle: nil)
+        let editReminderViewController = remindersStoryboard.instantiateViewController(withIdentifier: "kEditReminderViewController") as? EditReminderViewController
+        editReminderViewController?.reminderIndex = indexPath.row
+        editReminderViewController?.delegate = self
+        navigationController?.pushViewController(editReminderViewController!, animated: false)
+    }
+    
+    func reloadTableAfterEditing() {
+        remindersTableViewOutlet.reloadData()
+    }
     
 }
 

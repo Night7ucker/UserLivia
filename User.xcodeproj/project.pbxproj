@@ -33,6 +33,7 @@
 		CEABE42B1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE42A1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift */; };
 		CEABE42E1F769B980041FAD5 /* PersonTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE42D1F769B980041FAD5 /* PersonTitleTableViewCell.swift */; };
 		CEABE4301F769F4E0041FAD5 /* PersonTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE42F1F769F4E0041FAD5 /* PersonTitleModel.swift */; };
+		CEF436EE1F7A2B5100E31AA8 /* EditReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF436ED1F7A2B5100E31AA8 /* EditReminderViewController.swift */; };
 		D1A8AFAF7B974F868E6BDCF7 /* Pods_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA6723FDEE4071DE9039A46 /* Pods_User.framework */; };
 		FB22C22F1F77E6BE000EED58 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22C22E1F77E6BE000EED58 /* SettingsController.swift */; };
 		FB22C2311F77E73F000EED58 /* MainScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22C2301F77E73F000EED58 /* MainScreenCell.swift */; };
@@ -80,6 +81,7 @@
 		CEABE42A1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupTitleForPersonViewController.swift; sourceTree = "<group>"; };
 		CEABE42D1F769B980041FAD5 /* PersonTitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTitleTableViewCell.swift; sourceTree = "<group>"; };
 		CEABE42F1F769F4E0041FAD5 /* PersonTitleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTitleModel.swift; sourceTree = "<group>"; };
+		CEF436ED1F7A2B5100E31AA8 /* EditReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditReminderViewController.swift; sourceTree = "<group>"; };
 		D54A04BC4E2A4BD6D4442D1C /* Pods-User.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User.debug.xcconfig"; path = "Pods/Target Support Files/Pods-User/Pods-User.debug.xcconfig"; sourceTree = "<group>"; };
 		FB22C22E1F77E6BE000EED58 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsController.swift; path = User/User/SettingsController.swift; sourceTree = SOURCE_ROOT; };
 		FB22C2301F77E73F000EED58 /* MainScreenCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainScreenCell.swift; path = User/User/MainScreenCell.swift; sourceTree = SOURCE_ROOT; };
@@ -155,6 +157,7 @@
 				CE40CA811F78E87D003BC535 /* RemindersViewController.swift */,
 				CE95905B1F79473800536DF7 /* ReminderTableViewCell.swift */,
 				CE40CA841F78F2ED003BC535 /* AddReminderViewController.swift */,
+				CEF436ED1F7A2B5100E31AA8 /* EditReminderViewController.swift */,
 				CE40CA881F790D72003BC535 /* CalendarPopupModule */,
 			);
 			name = RemindersModoule;
@@ -498,6 +501,7 @@
 				CEA61BD01F756D9400BA1AED /* PopupCountryCodesTableViewController.swift in Sources */,
 				CE95905A1F7945DA00536DF7 /* ReminderModel.swift in Sources */,
 				FBA44C111F77C71B00687544 /* PhoneNumberModel.swift in Sources */,
+				CEF436EE1F7A2B5100E31AA8 /* EditReminderViewController.swift in Sources */,
 				CEA61BD11F756D9400BA1AED /* RegistrationViewController.swift in Sources */,
 				CE40CA821F78E87D003BC535 /* RemindersViewController.swift in Sources */,
 				FB22C2331F77E752000EED58 /* CustomImageView.swift in Sources */,
