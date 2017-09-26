@@ -95,6 +95,7 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
             let registrationStoryboard = UIStoryboard(name: "RegistrationModule", bundle: nil)
             let smsConfirmViewController = registrationStoryboard.instantiateViewController(withIdentifier: "kSmsConfrimViewController") as? SmsConfrimViewController
             smsConfirmViewController?.delegate = self
+            smsConfirmViewController?.indexOfCountry = indexOfCountry
             navigationController?.pushViewController(smsConfirmViewController!, animated: true)
             canSendNewCode = false
             
@@ -140,11 +141,6 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
             let popupContriesControllerr = segue.destination as! PopupCountryCodesTableViewController
             
             popupContriesControllerr.delegate = self
-        }
-        if segue.identifier == "showSmsGetCode" {
-            let smsGetCodeViewController = segue.destination as! SmsConfrimViewController
-            
-            smsGetCodeViewController.indexOfCountry = indexOfCountry
         }
     }
     

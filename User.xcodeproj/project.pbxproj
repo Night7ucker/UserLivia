@@ -16,6 +16,10 @@
 		CE40CA8C1F79132A003BC535 /* CalendarPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA8B1F79132A003BC535 /* CalendarPopupViewController.swift */; };
 		CE40CA8E1F793408003BC535 /* TimePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA8D1F793408003BC535 /* TimePopupViewController.swift */; };
 		CE5F4BEC1F77CC19009CBA5D /* Orders Appointments Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */; };
+		CE798D1E1F7A7D7D00FDF83D /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */; };
+		CE798D201F7A81BF00FDF83D /* EditingProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */; };
+		CE798D231F7A828400FDF83D /* TermsAndConditions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */; };
+		CE798D251F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE798D241F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift */; };
 		CE95905A1F7945DA00536DF7 /* ReminderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9590591F7945DA00536DF7 /* ReminderModel.swift */; };
 		CE95905C1F79473800536DF7 /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95905B1F79473800536DF7 /* ReminderTableViewCell.swift */; };
 		CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA61BAB1F756D9400BA1AED /* MainViewsStoryboard.storyboard */; };
@@ -65,6 +69,10 @@
 		CE40CA8B1F79132A003BC535 /* CalendarPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPopupViewController.swift; sourceTree = "<group>"; };
 		CE40CA8D1F793408003BC535 /* TimePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePopupViewController.swift; sourceTree = "<group>"; };
 		CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Orders Appointments Payments.storyboard"; sourceTree = "<group>"; };
+		CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
+		CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingProfileViewController.swift; sourceTree = "<group>"; };
+		CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TermsAndConditions.storyboard; sourceTree = "<group>"; };
+		CE798D241F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsWebViewViewController.swift; sourceTree = "<group>"; };
 		CE9590591F7945DA00536DF7 /* ReminderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderModel.swift; sourceTree = "<group>"; };
 		CE95905B1F79473800536DF7 /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
 		CEA61BAC1F756D9400BA1AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainViewsStoryboard.storyboard; sourceTree = "<group>"; };
@@ -153,7 +161,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		CE40CA831F78E881003BC535 /* RemindersModoule */ = {
+		CE40CA831F78E881003BC535 /* RemindersModule */ = {
 			isa = PBXGroup;
 			children = (
 				CE40CA811F78E87D003BC535 /* RemindersViewController.swift */,
@@ -162,7 +170,7 @@
 				CEF436ED1F7A2B5100E31AA8 /* EditReminderViewController.swift */,
 				CE40CA881F790D72003BC535 /* CalendarPopupModule */,
 			);
-			name = RemindersModoule;
+			name = RemindersModule;
 			sourceTree = "<group>";
 		};
 		CE40CA881F790D72003BC535 /* CalendarPopupModule */ = {
@@ -172,6 +180,14 @@
 				CE40CA8D1F793408003BC535 /* TimePopupViewController.swift */,
 			);
 			name = CalendarPopupModule;
+			sourceTree = "<group>";
+		};
+		CE798D211F7A81C200FDF83D /* EditingProfileModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */,
+			);
+			name = EditingProfileModule;
 			sourceTree = "<group>";
 		};
 		CEA61BA61F756D9400BA1AED /* Interface Module */ = {
@@ -196,6 +212,8 @@
 				CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */,
 				CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */,
 				7F5CB07C1F7902EF006E338C /* OrdersPageController.swift */,
+				CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */,
+				CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -235,7 +253,8 @@
 				7FBAFBBC1F77DAAF00BEB7F1 /* MainMenuModule */,
 				CEA61BE11F756E1800BA1AED /* MakeOrderModule */,
 				CEABE41E1F764DFE0041FAD5 /* Over The Counter Products Module */,
-				CE40CA831F78E881003BC535 /* RemindersModoule */,
+				CE40CA831F78E881003BC535 /* RemindersModule */,
+				CE798D211F7A81C200FDF83D /* EditingProfileModule */,
 			);
 			name = "User Functionality Module";
 			sourceTree = "<group>";
@@ -270,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				CEABE4271F7676470041FAD5 /* FillRegistrationInfoViewController.swift */,
+				CE798D241F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift */,
 				CEABE42C1F769B7D0041FAD5 /* Popup Title Module */,
 			);
 			name = "Registration Info Module";
@@ -441,6 +461,8 @@
 				CE40CA801F78E619003BC535 /* RefillsAndReminders.storyboard in Resources */,
 				7FBAFBB71F77D9D700BEB7F1 /* Settings.storyboard in Resources */,
 				FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */,
+				CE798D1E1F7A7D7D00FDF83D /* EditProfile.storyboard in Resources */,
+				CE798D231F7A828400FDF83D /* TermsAndConditions.storyboard in Resources */,
 				CEABE4221F7662AC0041FAD5 /* RegistrationModule.storyboard in Resources */,
 				FB740D1E1F74F24900F6DD79 /* Assets.xcassets in Resources */,
 				CEA61BD21F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard in Resources */,
@@ -514,6 +536,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE798D251F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift in Sources */,
 				CE40CA851F78F2ED003BC535 /* AddReminderViewController.swift in Sources */,
 				FB958B891F752D000065B49C /* CountryDataManager.swift in Sources */,
 				CEABE4201F7650CC0041FAD5 /* CityTableViewCell.swift in Sources */,
@@ -537,6 +560,7 @@
 				FB5FC54E1F7A44CD00F8658A /* UploadImageRequest.swift in Sources */,
 				CE40CA8E1F793408003BC535 /* TimePopupViewController.swift in Sources */,
 				FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */,
+				CE798D201F7A81BF00FDF83D /* EditingProfileViewController.swift in Sources */,
 				CEABE42B1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift in Sources */,
 				CEABE4301F769F4E0041FAD5 /* PersonTitleModel.swift in Sources */,
 				FB22C2351F77E91B000EED58 /* MainScreenController.swift in Sources */,
