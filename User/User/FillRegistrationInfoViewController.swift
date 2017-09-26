@@ -96,19 +96,37 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
         }
     }
     @IBAction func addPhotoAction(_ sender: UIButton) {
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
             print("Button capture")
             
             imagePicker.delegate = self
             imagePicker.sourceType = .savedPhotosAlbum;
             imagePicker.allowsEditing = false
-            
             self.present(imagePicker, animated: true, completion: nil)
+    
         }
     }
+    
+    
+    @IBAction func registerUserAction(_ sender: UIButton) {
+        
+    }
+    
+    var imageStr = ""
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         photoImageView.image = selectedImage
+        
+        let queue = OperationQueue()
+        
+        queue.addOperation {
+            let imageData = UIImagePNGRepresentation(selectedImage)! as NSData
+            self.imageStr = imageData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+            queue.addOperation {
+                let obj = UploadImageRequest()
+                obj.uploadImage(imageString: self.imageStr)
+            }
+        }
         dismiss(animated: true, completion: nil)
     }
     

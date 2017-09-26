@@ -7,5 +7,9 @@
 //
 
 import Foundation
+import RealmSwift
 
+class UploadImageModel: Object {
+    dynamic var imageUrl: String?
+}
 
