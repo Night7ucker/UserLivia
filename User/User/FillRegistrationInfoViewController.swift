@@ -35,11 +35,8 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
     override func viewDidLoad() {
         super.viewDidLoad()
         
-<<<<<<< HEAD
-        
         title = "Registration Fields"
         print(indexOfCountry)
-=======
         navigationController?.navigationBar.barTintColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
         
         navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
@@ -56,7 +53,6 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
         let titleLabelBarButton = UIBarButtonItem(customView: titleLabel)
         
         navigationItem.leftBarButtonItem = titleLabelBarButton
->>>>>>> c2d821391ef4dfbac1c42ebc91046b491769c397
         
         if RealmDataManager.getPersonTitleFromRealm().count > 0 {
             try! realm.write {
