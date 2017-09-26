@@ -65,6 +65,14 @@ class EditReminderViewController: UIViewController, CalendarPopupViewControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.barTintColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
+        
+        navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
+        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        navigationController?.navigationBar.layer.shadowRadius = 4.0
+        navigationController?.navigationBar.layer.shadowOpacity = 0.5
+        navigationController?.navigationBar.layer.masksToBounds = false
+        
         saveButtonOutlet.layer.cornerRadius = 2
         saveButtonOutlet.backgroundColor = lightBluecolor
         

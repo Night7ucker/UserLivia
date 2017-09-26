@@ -147,6 +147,14 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
     func timeToSentNewCode() {
         canSendNewCode = true
     }
+    
+    
+    @IBAction func skipRegistrationButtonTapped(_ sender: UIButton) {
+        let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
+        let mainScreenController = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as? MainScreenController
+        mainScreenController?.userIsRegistred = false
+        navigationController?.pushViewController(mainScreenController!, animated: true)
+    }
 }
 
 

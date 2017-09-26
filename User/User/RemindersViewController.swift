@@ -28,12 +28,35 @@ class RemindersViewController: UIViewController, AddReminderViewControllerProtoc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        navigationController?.navigationBar.barTintColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
+        
+        navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
+        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        navigationController?.navigationBar.layer.shadowRadius = 4.0
+        navigationController?.navigationBar.layer.shadowOpacity = 0.5
+        navigationController?.navigationBar.layer.masksToBounds = false
         
         remindersTableViewOutlet.delegate = self
         remindersTableViewOutlet.dataSource = self
         
         remindersTableViewOutlet.isHidden = true
+        
+        let backButton = UIButton(type: .system)
+        backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        backButton.setTitle("", for: .normal)
+        
+        backButton.setBackgroundImage(UIImage(named: "backButtonImage"), for: .normal)
+        backButton.addTarget(self, action: #selector(backButtonTapped(_:)), for: .touchUpInside)
+        
+        let backButtonBarButton = UIBarButtonItem(customView: backButton)
+        
+        let titleLabel = UILabel()
+        titleLabel.text = "Reminders"
+        titleLabel.textColor = .white
+        titleLabel.frame = CGRect(x: 0, y: 0, width: 150, height: 30)
+        let titleLabelBarButton = UIBarButtonItem(customView: titleLabel)
+        
+        navigationItem.setLeftBarButtonItems([backButtonBarButton, titleLabelBarButton], animated: true)
         
         let addReminderButton = UIButton(type: .system)
         addReminderButton.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
@@ -155,6 +178,10 @@ extension RemindersViewController: UITableViewDataSource {
     
     func reloadTableAfterEditing() {
         remindersTableViewOutlet.reloadData()
+    }
+    
+    func backButtonTapped(_ sender: UIButton) {
+        navigationController?.popViewController(animated: false)
     }
     
 }

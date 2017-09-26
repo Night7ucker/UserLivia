@@ -28,15 +28,12 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
     @IBOutlet weak var check18YearsOldImageViewOutlet: UIImageView!
     @IBOutlet weak var checkTermsAndConditionsImageViewOutlet: UIImageView!
     @IBOutlet weak var nextButtonOutlet: UIButton!
-    @IBOutlet weak var openTermsLinkButtonOutlet: UIButton!
     
     var indexOfCountry = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Registration Fields"
-        print(indexOfCountry)
         navigationController?.navigationBar.barTintColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
         
         navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
@@ -147,6 +144,10 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
                             }
         }
         
+        let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
+        let mainScreenController = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as? MainScreenController
+        mainScreenController?.userIsRegistred = true
+        navigationController?.pushViewController(mainScreenController!, animated: true)
     }
     
     var imageStr = ""
@@ -168,6 +169,11 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
     }
     
     
+    @IBAction func termsAndConditionsLinkTapped(_ sender: UIButton) {
+        let termsAndConditions = UIStoryboard(name: "TermsAndConditions", bundle: nil)
+        let termsAndConditionsViewController = termsAndConditions.instantiateViewController(withIdentifier: "kTermsAndConditionsWebViewViewController") as? TermsAndConditionsWebViewViewController
+        navigationController?.pushViewController(termsAndConditionsViewController!, animated: true)
+    }
     
     
 }

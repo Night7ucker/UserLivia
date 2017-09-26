@@ -11,22 +11,33 @@ import UIKit
 class MainScreenController: UIViewController {
     
     
+    @IBOutlet weak var fullNameLabelOutlet: UILabel!
     
+    @IBOutlet weak var userProfileImageOutlet: CustomImageView!
     
     @IBOutlet weak var personImage: CustomImageView!
     
     @IBOutlet weak var mainScreenTableView: UITableView!
     
+    var userIsRegistred  = false
+    let countryCodesDataManagerObject = CountryCodesDataManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if userIsRegistred == false {
+            fullNameLabelOutlet.isHidden = true
+        } else {
+            // get picture from server
+//            countryCodesDataManagerObject.getImage(pictureUrl:  onCompletion: <#T##(Bool, UIImage?) -> Void#>)
+        }
         
         personImage.layer.borderWidth = 3.0
         personImage.layer.borderColor = UIColor.white.cgColor
         
         mainScreenTableView.delegate = self
         mainScreenTableView.dataSource = self
-        mainScreenTableView.layer.cornerRadius = 5.0
+        mainScreenTableView.layer.cornerRadius = 10.0
         
         
     }
@@ -40,6 +51,11 @@ class MainScreenController: UIViewController {
     }
     
     
+    @IBAction func editProfileButtontTapped(_ sender: UIButton) {
+        let editProfileStoryboard = UIStoryboard(name: "EditProfile", bundle: nil)
+        let editProfileViewController = editProfileStoryboard.instantiateViewController(withIdentifier: "kEditingProfileViewController") as? EditingProfileViewController
+        self.navigationController?.pushViewController(editProfileViewController!, animated: false)
+    }
     
 }
 
@@ -98,6 +114,8 @@ extension MainScreenController : UITableViewDataSource{
         
         return cell
     }
+    
+    
 }
 extension MainScreenController : UITableViewDelegate{
     
@@ -114,13 +132,15 @@ extension MainScreenController : UITableViewDelegate{
             let settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "kMakeOrderViewController") as? MakeOrderViewController
             self.navigationController?.pushViewController(settingsViewController!, animated: true)
         case 1:
-            let settingsStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: nil)
-            let settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as? SearchForItemsViewController
+            let mainViewStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: nil)
+            let settingsViewController = mainViewStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as? SearchForItemsViewController
             self.navigationController?.pushViewController(settingsViewController!, animated: true)
         case 2:
             print("2")
         case 3:
-            print("3")
+            let refillsAndRemindersStoryboard = UIStoryboard(name: "RefillsAndReminders", bundle: nil)
+            let settingsViewController = refillsAndRemindersStoryboard.instantiateViewController(withIdentifier: "kRemindersViewController") as? RemindersViewController
+            self.navigationController?.pushViewController(settingsViewController!, animated: true)
         case 4:
             print("4")
         case 5:
@@ -132,5 +152,7 @@ extension MainScreenController : UITableViewDelegate{
             break
         }
     }
+    
+    
     
 }

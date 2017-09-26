@@ -57,6 +57,8 @@ class SmsConfrimViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        wrongAuthCodeView.isHidden = true
+        
         Timer.scheduledTimer(timeInterval: 120.0, target: self, selector: #selector(timerForCodeSendingPassed), userInfo: nil, repeats: false)
         
         navigationController?.navigationBar.barTintColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
@@ -158,6 +160,7 @@ class SmsConfrimViewController: UIViewController {
                 }
             } else {
                 self.wrongAuthCodeView.isHidden = false
+                Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.hideErrorView), userInfo: nil, repeats: false)
             }
         }
     }
@@ -183,5 +186,9 @@ class SmsConfrimViewController: UIViewController {
     
     func timerForCodeSendingPassed() {
         delegate.timeToSentNewCode()
+    }
+    
+    func hideErrorView() {
+        wrongAuthCodeView.isHidden = true
     }
 }
