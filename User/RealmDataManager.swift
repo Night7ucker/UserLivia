@@ -44,5 +44,10 @@ class RealmDataManager {
         let data = realm.objects(ReminderModel.self)
         return data
     }
+    static func getImageUrlFromRealm() -> Results<UploadImageModel> {
+        let realm = try! Realm()
+        let data = realm.objects(UploadImageModel.self)
+        return data
+    }
     
 }

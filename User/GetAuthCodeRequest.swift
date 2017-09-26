@@ -43,7 +43,7 @@ class GetAuthCode{
         ]
         
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-            
+            print(response.result.value!)
         }
     }
     
