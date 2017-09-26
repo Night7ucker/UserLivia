@@ -33,11 +33,17 @@ class SmsConfrimViewController: UIViewController {
     
     @IBOutlet weak var personNumberLabelOutlet: UILabel!
     
+    
+    
+    @IBOutlet var wrongAuthCodeView: UIView!
+    
+    var indexOfCountry = Int()
+    
     var seconds = 120
     var timer = Timer()
     var isTimerRunning = false
     
-    @IBOutlet var wrongAuthCodeView: UIView!
+    
     let lightGray = UIColor(red: 230, green: 230, blue: 230, alpha: 1)
     let lightBlue = UIColor(red: 0, green: 128, blue: 255, alpha: 1)
     
@@ -46,8 +52,39 @@ class SmsConfrimViewController: UIViewController {
 
     let realm = try! Realm()
     
+    var delegate: SmsConfrimViewControllerDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Timer.scheduledTimer(timeInterval: 120.0, target: self, selector: #selector(timerForCodeSendingPassed), userInfo: nil, repeats: false)
+        
+        navigationController?.navigationBar.barTintColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
+        
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        self.navigationController?.navigationBar.layer.shadowRadius = 4.0
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.5
+        self.navigationController?.navigationBar.layer.masksToBounds = false
+        
+        let backButton = UIButton(type: .system)
+        backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        backButton.setTitle("", for: .normal)
+        
+        backButton.setBackgroundImage(UIImage(named: "backButtonImage"), for: .normal)
+        backButton.addTarget(self, action: #selector(backButtonTapped(_:)), for: .touchUpInside)
+        
+        let backButtonBarButton = UIBarButtonItem(customView: backButton)
+        
+        let titleLabel = UILabel()
+        titleLabel.text = "After Call Prompt"
+        titleLabel.textColor = .white
+        titleLabel.frame = CGRect(x: 0, y: 0, width: 150, height: 30)
+        let titleLabelBarButton = UIBarButtonItem(customView: titleLabel)
+        
+        navigationItem.setLeftBarButtonItems([backButtonBarButton, titleLabelBarButton], animated: true)
+        
+        
         self.wrongAuthCodeView.isHidden = true
         timerButtonOutlet.isHidden = true
         timerLabelOutlet.backgroundColor = lightGrayColor
@@ -59,13 +96,14 @@ class SmsConfrimViewController: UIViewController {
         timerButtonOutlet.layer.cornerRadius = 2
         
         if RealmDataManager.getPhoneNumberFromRealm().count != 0 {
-            let phoneCodeValue = String(describing: RealmDataManager.getDataFromCountries()[RealmDataManager.getIndexCountryFromRealm()[0].index].phoneCode!)
-            personNumberLabelOutlet.text = "+"+phoneCodeValue+RealmDataManager.getPhoneNumberFromRealm()[0].phoneNumber!
+            let phoneCodeValue = String(describing: RealmDataManager.getDataFromCountries()[indexOfCountry].phoneCode!)
+            personNumberLabelOutlet.text = "+" + phoneCodeValue + RealmDataManager.getPhoneNumberFromRealm()[0].phoneNumber!
         }
         
         if isTimerRunning == false {
             runTimer()
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -102,7 +140,7 @@ class SmsConfrimViewController: UIViewController {
     @IBAction func confirmAuthCodeAction(_ sender: UIButton) {
         let phoneNumber = RealmDataManager.getPhoneNumberFromRealm()[0].phoneNumber!
         let authCode = textViewForCodeOutlet.text!
-        let phoneCode = String(describing: RealmDataManager.getDataFromCountries()[RealmDataManager.getIndexCountryFromRealm()[0].index].phoneCode!)
+        let phoneCode = String(describing: RealmDataManager.getDataFromCountries()[indexOfCountry].phoneCode!)
         let getTokenObject = GetTokensRequest(phoneNumber: phoneNumber, phoneCode: phoneCode, authCode: authCode)
         getTokenObject.confirmAuthCode() { success in
             if success {
@@ -131,7 +169,7 @@ class SmsConfrimViewController: UIViewController {
         seconds = 120
         runTimer()
         timerButtonOutlet.isHidden = true
-        let phoneCode = String(describing: RealmDataManager.getDataFromCountries()[RealmDataManager.getIndexCountryFromRealm()[0].index].phoneCode!)
+        let phoneCode = String(describing: RealmDataManager.getDataFromCountries()[indexOfCountry].phoneCode!)
         let getAuthCodeObject = GetAuthCode(number: RealmDataManager.getPhoneNumberFromRealm()[0].phoneNumber!, code: phoneCode)
         getAuthCodeObject.getAutCodeRequest()
         
@@ -139,5 +177,13 @@ class SmsConfrimViewController: UIViewController {
 
     deinit {
         timer.invalidate()
+    }
+    
+    func backButtonTapped(_ sender: UIButton) {
+        navigationController?.popViewController(animated: false)
+    }
+    
+    func timerForCodeSendingPassed() {
+        delegate.timeToSentNewCode()
     }
 }

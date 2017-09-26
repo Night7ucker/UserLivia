@@ -17,6 +17,9 @@ class PopupCountryCodesTableViewController: UIViewController{
     let countryCodeDataManagerObject = CountryCodesDataManager()
     
     var array:[RealmDataManager] = []
+    
+    var delegate: PopupCountryCodesTableViewControllerDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,20 +79,7 @@ extension PopupCountryCodesTableViewController: UITableViewDataSource {
 
 extension PopupCountryCodesTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let realm = try! Realm()
-        if RealmDataManager.getIndexCountryFromRealm().count != 0 {
-            try! realm.write {
-                realm.delete(RealmDataManager.getIndexCountryFromRealm()[0])
-            }
-        }
-        let indexOfCountry = CountryCodesIndexModel()
-        indexOfCountry.index = indexPath.row
-       
-
-        
-        RealmDataManager.writeIntoRealm(object: indexOfCountry, realm: realm)
-        
+        delegate.sendCountryInfo(index: indexPath.row)
         
         dismiss(animated: false, completion: nil)
     }

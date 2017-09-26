@@ -11,7 +11,15 @@
 import UIKit
 import RealmSwift
 
-class RegistrationViewController: UIViewController{
+protocol PopupCountryCodesTableViewControllerDelegate: class {
+    func sendCountryInfo(index: Int)
+}
+
+protocol SmsConfrimViewControllerDelegate: class {
+    func timeToSentNewCode()
+}
+
+class RegistrationViewController: UIViewController, PopupCountryCodesTableViewControllerDelegate, SmsConfrimViewControllerDelegate {
     
     @IBOutlet weak var nextButtonOutlet: UIButton!
     @IBOutlet weak var mainWhiteViewOutlet: UIView!
@@ -23,16 +31,21 @@ class RegistrationViewController: UIViewController{
     
     @IBOutlet var phoneNumberField: UITextField!
     
+    @IBOutlet weak var errorViewOutlet: UIView!
+    
     var token = NotificationToken()
     let realm = try! Realm()
     let countryCodeDataManagerObject = CountryCodesDataManager()
-
     
+    var indexOfCountry = 2
     
+    var canSendNewCode = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        phoneNumberField.delegate = self
+        //        phoneNumberField.delegate = self
+        navigationController?.isNavigationBarHidden = true
+        errorViewOutlet.isHidden = true
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         let countryCodesObject = CountryCodesDataManager()
         countryCodesObject.getCountryCodes()
@@ -44,64 +57,100 @@ class RegistrationViewController: UIViewController{
         }
         countryName.text = "Belarus"
         countryCode.text = "+375"
+        //            let indexOfCountry = RealmDataManager.getIndexCountryFromRealm()
         
-        token = realm.addNotificationBlock { (notifcation, realm) -> Void in
-            let indexOfCountry = RealmDataManager.getIndexCountryFromRealm()
-            if indexOfCountry.count > 0 {
-                let countryObject = RealmDataManager.getDataFromCountries()[indexOfCountry[0].index]
-                
-                self.countryCode.text = "+" + countryObject.phoneCode!
-                self.countryName.text = countryObject.countryName
-                let urlImage = "https://test.liviaapp.com" + countryObject.countryFlag!
-                self.countryCodeDataManagerObject.getImage(pictureUrl: urlImage) { success, image in
-                    if success {
-                        self.countryImage.image = image
-                    }
-                }
-            }
-        }
         nextButtonOutlet.layer.cornerRadius = 2
         mainWhiteViewOutlet.layer.cornerRadius = 10
         skipRegistrationButtonOutlet.layer.cornerRadius = 2
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func sendAuthCodeAction(_ sender: Any) {
-        let phoneNumberObject = PhoneNumberModel()
-        phoneNumberObject.phoneNumber = phoneNumberField.text!
-        if RealmDataManager.getIndexCountryFromRealm().count == 0 {
-            let indexOfBelarus = CountryCodesIndexModel()
-            indexOfBelarus.index = 2
-            RealmDataManager.writeIntoRealm(object: indexOfBelarus, realm: realm)
-        }
-
-        if RealmDataManager.getPhoneNumberFromRealm().count > 0 {
-            try! realm.write {
-            realm.delete(RealmDataManager.getPhoneNumberFromRealm())
+        if canSendNewCode {
+            let phoneNumberObject = PhoneNumberModel()
+            phoneNumberObject.phoneNumber = phoneNumberField.text!
+            
+            if RealmDataManager.getPhoneNumberFromRealm().count > 0 {
+                try! realm.write {
+                    realm.delete(RealmDataManager.getPhoneNumberFromRealm())
+                }
             }
+            RealmDataManager.writeIntoRealm(object: phoneNumberObject, realm: realm)
+            let countryCodeValue = String(countryCode.text!.characters.dropFirst())
+            let getAuthCodeObject = GetAuthCode(number: phoneNumberField.text!, code: countryCodeValue)
+            getAuthCodeObject.getAutCodeRequest()
+            
+            let registrationStoryboard = UIStoryboard(name: "RegistrationModule", bundle: nil)
+            let smsConfirmViewController = registrationStoryboard.instantiateViewController(withIdentifier: "kSmsConfrimViewController") as? SmsConfrimViewController
+            smsConfirmViewController?.delegate = self
+            navigationController?.pushViewController(smsConfirmViewController!, animated: true)
+            canSendNewCode = false
+            
+        } else {
+            errorViewOutlet.isHidden = false
+            Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(hideErrorView), userInfo: nil, repeats: false)
+            return
         }
-        RealmDataManager.writeIntoRealm(object: phoneNumberObject, realm: realm)
-        let countryCodeValue = String(countryCode.text!.characters.dropFirst())
-        let getAuthCodeObject = GetAuthCode(number: phoneNumberField.text!, code: countryCodeValue)
-        getAuthCodeObject.getAutCodeRequest()
+        
     }
     
     
-
-
- 
+    func hideErrorView() {
+        errorViewOutlet.isHidden = true
+    }
+    
+    
     deinit {
         token.stop()
     }
- 
+    
     @IBAction func changePhoneCodeForCountryButtonTapped(_ sender: UIButton) {
-
+        
     }
     
+    func sendCountryInfo(index: Int) {
+        indexOfCountry = index
+        let countryObject = RealmDataManager.getDataFromCountries()[indexOfCountry]
+        
+        countryCode.text = "+" + countryObject.phoneCode!
+        countryName.text = countryObject.countryName
+        let urlImage = "https://test.liviaapp.com" + countryObject.countryFlag!
+        countryCodeDataManagerObject.getImage(pictureUrl: urlImage) { success, image in
+            if success {
+                self.countryImage.image = image
+            }
+        }
+    }
+    
+    // showPopupContries
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPopupContries" {
+            let popupContriesControllerr = segue.destination as! PopupCountryCodesTableViewController
+            
+            popupContriesControllerr.delegate = self
+        }
+        if segue.identifier == "showSmsGetCode" {
+            let smsGetCodeViewController = segue.destination as! SmsConfrimViewController
+            
+            smsGetCodeViewController.indexOfCountry = indexOfCountry
+        }
+    }
+    
+    func timeToSentNewCode() {
+        canSendNewCode = true
+    }
 }
 
 
@@ -113,5 +162,4 @@ extension RegistrationViewController: UITextFieldDelegate  {
             currentString.replacingCharacters(in: range, with: string) as NSString
         return newString.length <= maxLength
     }
-
 }
