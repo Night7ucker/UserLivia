@@ -49,5 +49,10 @@ class RealmDataManager {
         let data = realm.objects(UploadImageModel.self)
         return data
     }
+    static func getUserDataFromRealm() -> Results<RegistrationUserModel> {
+        let realm = try! Realm()
+        let data = realm.objects(RegistrationUserModel.self)
+        return data
+    }
     
 }

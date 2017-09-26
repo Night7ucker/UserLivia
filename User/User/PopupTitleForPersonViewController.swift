@@ -99,7 +99,7 @@ extension PopupTitleForPersonViewController: UITableViewDelegate {
 
         if firstPersonTitle.count != 0 {
             try! realm.write {
-                realm.deleteAll()
+                realm.delete(RealmDataManager.getPersonTitleFromRealm())
             }
         }
         let cell = tableView.cellForRow(at: indexPath) as? PersonTitleTableViewCell

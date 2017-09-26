@@ -17,6 +17,7 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
     var yearsOld18IsChecked = false
     var agreeWithTermsIsChecked = false
     var imagePicker = UIImagePickerController()
+    var sex = "Female"
     
     @IBOutlet var photoImageView: UIImageView!
     @IBOutlet weak var personTitleLabelOutlet: UILabel!
@@ -29,30 +30,36 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
     @IBOutlet weak var nextButtonOutlet: UIButton!
     @IBOutlet weak var openTermsLinkButtonOutlet: UIButton!
     
+    var indexOfCountry = Int()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         title = "Registration Fields"
+        print(indexOfCountry)
         
-        
-         if RealmDataManager.getPersonTitleFromRealm().count > 0 {
+        if RealmDataManager.getPersonTitleFromRealm().count > 0 {
             try! realm.write {
                 realm.delete(RealmDataManager.getPersonTitleFromRealm())
             }
         }
+        let titlePersonObject = PersonTitleModel()
+        titlePersonObject.title = "Dr."
+        RealmDataManager.writeIntoRealm(object: titlePersonObject, realm: realm)
         nextButtonOutlet.layer.cornerRadius = 2
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-       
+        
         token = realm.addNotificationBlock { (notifcation, realm) -> Void in
             
             if RealmDataManager.getPersonTitleFromRealm().count > 0 {
                 self.personTitleLabelOutlet.text = RealmDataManager.getPersonTitleFromRealm()[0].title
             }
         }
-
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -62,7 +69,7 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
     deinit {
         token.stop()
     }
-
+    
     @IBAction func check18YearsOldButtonTapped(_ sender: UIButton) {
         if agreeWithTermsIsChecked {
             check18YearsOldImageViewOutlet.image = UIImage(named: "checkBoxUnchecked.png")
@@ -90,9 +97,9 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
     
     @IBAction func changeSexSegmentedControl(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            print("female")
+            sex = "Female"
         } else if sender.selectedSegmentIndex == 1 {
-            print("male")
+            sex = "Male"
         }
     }
     @IBAction func addPhotoAction(_ sender: UIButton) {
@@ -103,12 +110,27 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
             imagePicker.sourceType = .savedPhotosAlbum;
             imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true, completion: nil)
-    
+            
         }
     }
     
     
     @IBAction func registerUserAction(_ sender: UIButton) {
+        
+        let userRegistrationObject = RegistrationUserRequest()
+        userRegistrationObject.uploadImage(fName: firstNameTextFieldOutlet.text!,
+                        lName: lastNameTextFieldOutlet.text!,
+                        age: ageTextFieldOutlet.text!,
+                        sex: sex,
+                        mail: emailTextFieldOutlet.text!,
+                        imageUrl: RealmDataManager.getImageUrlFromRealm()[0].imageUrl!,
+                        codeIndex: indexOfCountry) { success in
+                            if success {
+                                let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
+                                let mainScreenViewController = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as? MainScreenController
+                                self.navigationController?.pushViewController(mainScreenViewController!, animated: true)
+                            }
+        }
         
     }
     
@@ -132,5 +154,5 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
     
     
     
- 
+    
 }

@@ -29,7 +29,7 @@ class UploadImageRequest{
             "LiviaApp-Token": RealmDataManager.getTokensFromRealm()[0].accessToken!
         ]
 
-        print(RealmDataManager.getTokensFromRealm()[0].accessToken!)
+
         
         
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
@@ -46,7 +46,7 @@ class UploadImageRequest{
                 let imageUrlObject = UploadImageModel()
                 imageUrlObject.imageUrl = res as? String
                 RealmDataManager.writeIntoRealm(object: imageUrlObject, realm: realm)
-                print(response.result.value!)
+
             }
  
             

@@ -94,7 +94,6 @@ class SmsConfrimViewController: UIViewController {
         sendCodeAgainLabelOutlet.layer.cornerRadius = 2
         confirmButtonOutlet.layer.cornerRadius = 2
         timerButtonOutlet.layer.cornerRadius = 2
-        
         if RealmDataManager.getPhoneNumberFromRealm().count != 0 {
             let phoneCodeValue = String(describing: RealmDataManager.getDataFromCountries()[indexOfCountry].phoneCode!)
             personNumberLabelOutlet.text = "+" + phoneCodeValue + RealmDataManager.getPhoneNumberFromRealm()[0].phoneNumber!
@@ -144,8 +143,6 @@ class SmsConfrimViewController: UIViewController {
         let getTokenObject = GetTokensRequest(phoneNumber: phoneNumber, phoneCode: phoneCode, authCode: authCode)
         getTokenObject.confirmAuthCode() { success in
             if success {
-              
-
                 switch RealmDataManager.getTokensFromRealm()[0].userStatus! {
                 case UserStatus.active.rawValue:
                     let MainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
@@ -154,10 +151,10 @@ class SmsConfrimViewController: UIViewController {
                 case UserStatus.registrationInProgress.rawValue:
                     let RegistrationModuleStoryboard = UIStoryboard(name: "RegistrationModule", bundle: Bundle.main)
                     let RegistrationController = RegistrationModuleStoryboard.instantiateViewController(withIdentifier: "kFillRegistrationInfoViewController") as! FillRegistrationInfoViewController
+                    RegistrationController.indexOfCountry = self.indexOfCountry
                     self.navigationController?.pushViewController(RegistrationController, animated: true)
                 default: return
                 }
-//                 +375 296205222
             } else {
                 self.wrongAuthCodeView.isHidden = false
             }

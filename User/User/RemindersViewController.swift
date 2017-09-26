@@ -28,7 +28,7 @@ class RemindersViewController: UIViewController, AddReminderViewControllerProtoc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+
         
         remindersTableViewOutlet.delegate = self
         remindersTableViewOutlet.dataSource = self
