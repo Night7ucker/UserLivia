@@ -36,11 +36,13 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
     
     @IBOutlet weak var dateLabelOutlet: UILabel!
     
-    @IBOutlet weak var timeLabelOutlet: UILabel!
-    
     @IBOutlet weak var timeHoursLabelOutlet: UILabel!
     
     @IBOutlet weak var medicineNameTextFieldOutlet: UITextField!
+    
+    
+    @IBOutlet weak var poupErrorViewOutlet: UIView!
+    
     
     let lightBluecolor = UIColor(red: CGFloat(0/255.0), green: CGFloat(128/255.0), blue: CGFloat(255/255.0), alpha: CGFloat(1.0))
     
@@ -50,8 +52,6 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
     var week4ReminderCheckButtonTapped = false
     var monthReminderCheckButtonTapped = false
     
-    var lastTrueBoolean = false
-    
     var delegate: AddReminderViewControllerProtocol!
     
     override func viewDidLoad() {
@@ -59,7 +59,9 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
         
         viewWithDateOutlet.layer.borderWidth = 0.5
         saveButtonOutlet.backgroundColor = lightBluecolor
+        saveButtonOutlet.layer.cornerRadius = 2
         
+        poupErrorViewOutlet.isHidden = true
         
         let backButton = UIButton(type: .system)
         backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
@@ -246,8 +248,12 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
         return nil
     }
     
-    
     @IBAction func saveReminderButtonTapped(_ sender: UIButton) {
+        if medicineNameTextFieldOutlet.text == "" {
+            poupErrorViewOutlet.isHidden = false
+            Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(dismissAlert), userInfo: nil, repeats: false)
+            return
+        }
         let checkBoxIndex = getTrueCheckIndex(week1Checkbox: weekReminderCheckButtonTapped, week2Checkbox: week2ReminderCheckButtonTapped, week3Checkbox: week3ReminderCheckButtonTapped, week4Checkbox: week4ReminderCheckButtonTapped, monthCheckbox: monthReminderCheckButtonTapped)
         let reminderModelObject = ReminderModel()
         if checkBoxIndex != nil {
@@ -263,6 +269,9 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
         navigationController?.popViewController(animated: true)
     }
     
+    func dismissAlert() {
+        poupErrorViewOutlet.isHidden = true
+    }
 }
 
 //class PaddingLabel: UILabel {

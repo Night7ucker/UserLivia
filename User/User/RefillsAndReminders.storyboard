@@ -97,6 +97,312 @@
             </objects>
             <point key="canvasLocation" x="1784.8" y="-451.12443778110946"/>
         </scene>
+        <!--Edit Reminder View Controller-->
+        <scene sceneID="FDl-qM-CBl">
+            <objects>
+                <viewController storyboardIdentifier="kEditReminderViewController" id="Mae-UC-xhl" customClass="EditReminderViewController" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="en9-ze-XQa"/>
+                        <viewControllerLayoutGuide type="bottom" id="I50-D1-bbN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ehd-Jr-ZIx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="backgroundWithPluses" translatesAutoresizingMaskIntoConstraints="NO" id="m0r-gh-xLx">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOC-EJ-YFp">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Medicine name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UB0-Tv-f9f">
+                                        <rect key="frame" x="16" y="8" width="161" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="161" id="S3n-Y1-QEg"/>
+                                            <constraint firstAttribute="height" constant="21" id="tnp-nI-rzw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DZG-nT-Uzb">
+                                        <rect key="frame" x="15" y="49" width="343" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="343" id="7hn-ID-Zvp"/>
+                                            <constraint firstAttribute="height" constant="21" id="UVT-uU-6xZ"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5M-W8-aou">
+                                        <rect key="frame" x="16" y="76" width="343" height="1"/>
+                                        <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="343" id="Ila-sK-hPl"/>
+                                            <constraint firstAttribute="height" constant="1" id="pp7-Dp-RSB"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bellPicture" translatesAutoresizingMaskIntoConstraints="NO" id="Qap-8L-qMS">
+                                        <rect key="frame" x="113" y="129" width="148" height="111"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="111" id="aNY-md-N64"/>
+                                            <constraint firstAttribute="width" constant="148" id="rq1-e9-b0x"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoD-Xa-IP8">
+                                        <rect key="frame" x="148" y="248" width="78" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="CGr-w6-1kE"/>
+                                            <constraint firstAttribute="width" constant="78" id="tfR-n4-1oC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z8e-Dx-4XC">
+                                        <rect key="frame" x="-13" y="283" width="401" height="63"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25.09.2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UeS-cv-hP4">
+                                                <rect key="frame" x="25" y="37" width="85" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bottomArrow" translatesAutoresizingMaskIntoConstraints="NO" id="xLJ-ye-dB7">
+                                                <rect key="frame" x="137" y="27" width="13" height="9"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bottomArrow" translatesAutoresizingMaskIntoConstraints="NO" id="lA7-07-6fd">
+                                                <rect key="frame" x="354" y="27" width="13" height="9"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7e4-FI-rDq">
+                                                <rect key="frame" x="212" y="8" width="38" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10:58 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOb-bV-rqT">
+                                                <rect key="frame" x="212" y="37" width="74" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47S-vb-bAE">
+                                                <rect key="frame" x="25" y="8" width="78" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hgh-PS-Pv0">
+                                                <rect key="frame" x="13" y="-9" width="152" height="80"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="dayAndMonthPopupButtonTapped:" destination="Mae-UC-xhl" eventType="touchUpInside" id="mU7-UU-SyM"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATA-eU-rvR">
+                                                <rect key="frame" x="205" y="-9" width="183" height="80"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="hoursAndMinutesPopupButtonTapped:" destination="Mae-UC-xhl" eventType="touchUpInside" id="pae-ss-q6l"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Week reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDm-3x-67a">
+                                        <rect key="frame" x="13" y="363" width="116" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reminder every 2 weeks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYd-GR-dLJ">
+                                        <rect key="frame" x="13" y="393" width="187" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reminder every 3 weeks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xf2-cK-Owo">
+                                        <rect key="frame" x="13" y="423" width="187" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reminder every 4 weeks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="li8-jF-Ea2">
+                                        <rect key="frame" x="13" y="453" width="187" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Montly reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJ8-Pn-BZz">
+                                        <rect key="frame" x="13" y="483" width="125" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpX-b4-oAw">
+                                        <rect key="frame" x="13" y="609" width="346" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Nad-Sa-Xfo"/>
+                                            <constraint firstAttribute="width" constant="346" id="xby-KW-B31"/>
+                                        </constraints>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="Mae-UC-xhl" eventType="touchUpInside" id="NYN-K2-R2n"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkBoxUnchecked.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mkg-8k-N7b">
+                                        <rect key="frame" x="339" y="363" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkBoxUnchecked.png" translatesAutoresizingMaskIntoConstraints="NO" id="ikG-XP-JfC">
+                                        <rect key="frame" x="339" y="393" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkBoxUnchecked.png" translatesAutoresizingMaskIntoConstraints="NO" id="fiW-OD-hZF">
+                                        <rect key="frame" x="339" y="423" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkBoxUnchecked.png" translatesAutoresizingMaskIntoConstraints="NO" id="v2w-nE-p5l">
+                                        <rect key="frame" x="339" y="453" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkBoxUnchecked.png" translatesAutoresizingMaskIntoConstraints="NO" id="jF0-rh-2AH">
+                                        <rect key="frame" x="339" y="483" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z59-MR-Khv">
+                                        <rect key="frame" x="13" y="363" width="346" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="weekReminderButtonTapped:" destination="Mae-UC-xhl" eventType="touchUpInside" id="3KD-bq-KNT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kw6-jP-PM7">
+                                        <rect key="frame" x="8" y="393" width="346" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="week2ReminderButtonTapped:" destination="Mae-UC-xhl" eventType="touchUpInside" id="TuK-rM-Zgr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11i-zL-UO2">
+                                        <rect key="frame" x="12" y="423" width="346" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="week3ReminderButtonTapped:" destination="Mae-UC-xhl" eventType="touchUpInside" id="9XD-eB-FnV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9oQ-aU-bDG">
+                                        <rect key="frame" x="12" y="454" width="346" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="week4RemiderButtonTapped:" destination="Mae-UC-xhl" eventType="touchUpInside" id="T3E-PI-cU8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOD-kN-tmN">
+                                        <rect key="frame" x="12" y="484" width="346" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="monthReminderButtonTapped:" destination="Mae-UC-xhl" eventType="touchUpInside" id="rAZ-iU-Foo"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k7a-8g-CZH">
+                                        <rect key="frame" x="-13" y="8" width="401" height="69"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Medicine name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70k-M9-rwh">
+                                                <rect key="frame" x="30" y="0.0" width="117" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnu-lP-ziz">
+                                                <rect key="frame" x="330" y="23" width="22" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" backgroundImage="deleteCrossReminder"/>
+                                                <connections>
+                                                    <action selector="deleteReminderNameTapped:" destination="Mae-UC-xhl" eventType="touchUpInside" id="WAc-Ss-tZx"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxA-aJ-8tS">
+                                                <rect key="frame" x="30" y="36" width="322" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="DZG-nT-Uzb" firstAttribute="top" secondItem="wOC-EJ-YFp" secondAttribute="top" constant="49" id="0J0-Jy-wNl"/>
+                                    <constraint firstItem="Qap-8L-qMS" firstAttribute="top" secondItem="wOC-EJ-YFp" secondAttribute="top" constant="129" id="7uW-nR-z0e"/>
+                                    <constraint firstItem="DZG-nT-Uzb" firstAttribute="leading" secondItem="wOC-EJ-YFp" secondAttribute="leading" constant="15" id="9LA-RO-7r1"/>
+                                    <constraint firstAttribute="trailing" secondItem="tpX-b4-oAw" secondAttribute="trailing" constant="16" id="IgV-ef-gMV"/>
+                                    <constraint firstItem="VoD-Xa-IP8" firstAttribute="top" secondItem="wOC-EJ-YFp" secondAttribute="top" constant="248" id="LWP-Oj-ad3"/>
+                                    <constraint firstAttribute="trailing" secondItem="DZG-nT-Uzb" secondAttribute="trailing" constant="17" id="Mpq-1k-AtL"/>
+                                    <constraint firstItem="VoD-Xa-IP8" firstAttribute="leading" secondItem="wOC-EJ-YFp" secondAttribute="leading" constant="148" id="PBs-Tw-jmS"/>
+                                    <constraint firstItem="UB0-Tv-f9f" firstAttribute="leading" secondItem="wOC-EJ-YFp" secondAttribute="leading" constant="16" id="ROK-s7-gtz"/>
+                                    <constraint firstItem="Qap-8L-qMS" firstAttribute="leading" secondItem="wOC-EJ-YFp" secondAttribute="leading" constant="113" id="UfT-g9-P3L"/>
+                                    <constraint firstItem="D5M-W8-aou" firstAttribute="top" secondItem="wOC-EJ-YFp" secondAttribute="top" constant="76" id="Wga-Sr-AaW"/>
+                                    <constraint firstItem="D5M-W8-aou" firstAttribute="leading" secondItem="wOC-EJ-YFp" secondAttribute="leading" constant="16" id="bgI-9L-TUl"/>
+                                    <constraint firstAttribute="bottom" secondItem="tpX-b4-oAw" secondAttribute="bottom" constant="8" id="fLV-ff-yFt"/>
+                                    <constraint firstAttribute="trailing" secondItem="D5M-W8-aou" secondAttribute="trailing" constant="16" id="gT4-q3-W8T"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qap-8L-qMS" secondAttribute="trailing" constant="114" id="tVI-ws-OuI"/>
+                                    <constraint firstItem="tpX-b4-oAw" firstAttribute="leading" secondItem="wOC-EJ-YFp" secondAttribute="leading" constant="13" id="uG2-PT-Exa"/>
+                                    <constraint firstItem="UB0-Tv-f9f" firstAttribute="top" secondItem="wOC-EJ-YFp" secondAttribute="top" constant="8" id="wMZ-0D-xmB"/>
+                                    <constraint firstAttribute="trailing" secondItem="VoD-Xa-IP8" secondAttribute="trailing" constant="149" id="yvo-xi-0aJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wOC-EJ-YFp" firstAttribute="trailing" secondItem="m0r-gh-xLx" secondAttribute="trailing" id="3Bl-PX-OJb"/>
+                            <constraint firstItem="wOC-EJ-YFp" firstAttribute="bottom" secondItem="I50-D1-bbN" secondAttribute="top" id="4UP-t8-mt0"/>
+                            <constraint firstItem="wOC-EJ-YFp" firstAttribute="leading" secondItem="Ehd-Jr-ZIx" secondAttribute="leading" id="f7M-EV-359"/>
+                            <constraint firstItem="wOC-EJ-YFp" firstAttribute="bottom" secondItem="m0r-gh-xLx" secondAttribute="bottom" id="wHZ-CB-gH8"/>
+                            <constraint firstItem="wOC-EJ-YFp" firstAttribute="leading" secondItem="m0r-gh-xLx" secondAttribute="leading" id="wvq-MG-928"/>
+                            <constraint firstItem="wOC-EJ-YFp" firstAttribute="top" secondItem="en9-ze-XQa" secondAttribute="bottom" id="x2A-St-GON"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dayAndMonthDateOutlet" destination="UeS-cv-hP4" id="TTz-6g-kxi"/>
+                        <outlet property="enterMedicineNameTextOutlet" destination="UB0-Tv-f9f" id="J23-vB-sHv"/>
+                        <outlet property="grayLineUnderTextFieldOutlet" destination="D5M-W8-aou" id="HZT-ci-5cI"/>
+                        <outlet property="minutesAndHoursDateOutlet" destination="TOb-bV-rqT" id="1BX-IF-c86"/>
+                        <outlet property="monthCheckboxOutlet" destination="jF0-rh-2AH" id="HnJ-bx-puV"/>
+                        <outlet property="reminderNameLabelOutlet" destination="hxA-aJ-8tS" id="skv-5u-lUw"/>
+                        <outlet property="reminderNameViewOutlet" destination="k7a-8g-CZH" id="5dk-lz-4aQ"/>
+                        <outlet property="saveButtonOutlet" destination="tpX-b4-oAw" id="6Va-U2-VeD"/>
+                        <outlet property="textFieldOutlet" destination="DZG-nT-Uzb" id="f4W-Cc-osh"/>
+                        <outlet property="week2CheckboxOutlet" destination="ikG-XP-JfC" id="oC7-w9-pQa"/>
+                        <outlet property="week3CheckboxOutlet" destination="fiW-OD-hZF" id="wz9-BX-gxY"/>
+                        <outlet property="week4CheckboxOutlet" destination="v2w-nE-p5l" id="uAd-El-Wby"/>
+                        <outlet property="weekCheckboxOutlet" destination="Mkg-8k-N7b" id="CYJ-x9-e6N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qkR-3j-Cjr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1992.8" y="249.62518740629687"/>
+        </scene>
         <!--Add Reminder View Controller-->
         <scene sceneID="paZ-7N-M5N">
             <objects>
@@ -321,6 +627,20 @@
                                             <action selector="monthReminderCheckButtonTapped:" destination="qWD-J8-Wwu" eventType="touchUpInside" id="Vg0-F0-N2e"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hPT-kg-i8p">
+                                        <rect key="frame" x="0.0" y="565" width="375" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Empty drug name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6C-qR-4Di">
+                                                <rect key="frame" x="21" y="8" width="136" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -364,6 +684,7 @@
                         <outlet property="checkImageWeekOutlet" destination="IRw-TJ-yZ3" id="4NW-az-jnV"/>
                         <outlet property="dateLabelOutlet" destination="e9b-lO-brJ" id="a08-JC-KHr"/>
                         <outlet property="medicineNameTextFieldOutlet" destination="XKN-dW-Lp5" id="9vz-PY-9v0"/>
+                        <outlet property="poupErrorViewOutlet" destination="hPT-kg-i8p" id="LwT-ax-amn"/>
                         <outlet property="saveButtonOutlet" destination="dqh-L0-gRb" id="4lH-BV-XHc"/>
                         <outlet property="timeHoursLabelOutlet" destination="9bZ-em-0n9" id="hoM-Rk-52o"/>
                         <outlet property="viewWithDateOutlet" destination="Nb3-nu-3UZ" id="Shv-Uh-EzF"/>
@@ -371,7 +692,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCe-g7-1Q7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2751" y="-451"/>
+            <point key="canvasLocation" x="2749.5999999999999" y="-451.12443778110946"/>
         </scene>
         <!--Calendar Popup View Controller-->
         <scene sceneID="oFQ-Ht-oiK">
@@ -492,5 +813,6 @@
         <image name="bellPicture" width="382" height="287"/>
         <image name="bottomArrow" width="39" height="23"/>
         <image name="checkBoxUnchecked.png" width="2000" height="2000"/>
+        <image name="deleteCrossReminder" width="70" height="69"/>
     </resources>
 </document>
