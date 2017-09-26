@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class PopupTitleForPersonViewController: UIViewController {
+class PopupTitleForPersonViewController: UIViewController, UIImagePickerControllerDelegate {
 
     
     

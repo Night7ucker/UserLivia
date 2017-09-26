@@ -40,7 +40,6 @@ class RemindersViewController: UIViewController, AddReminderViewControllerProtoc
         addReminderButton.setTitle("+", for: .normal)
         addReminderButton.titleLabel?.font = UIFont(name: "Arial", size: 45)
         addReminderButton.titleLabel?.font = UIFont.systemFont(ofSize: 34, weight: UIFontWeightThin)
-        
         addReminderButton.setTitleColor(.white, for: .normal)
         addReminderButton.titleEdgeInsets = UIEdgeInsetsMake(5, 25, 0, 0)
         addReminderButton.addTarget(self, action: #selector(addTapped(_ :)), for: .touchUpInside)
