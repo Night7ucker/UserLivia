@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.5.1)
+  - NVActivityIndicatorView (4.0.0):
+    - NVActivityIndicatorView/Presenter (= 4.0.0)
+  - NVActivityIndicatorView/Presenter (4.0.0)
   - PageMenu (2.0.0)
   - Realm (2.10.1):
     - Realm/Headers (= 2.10.1)
@@ -9,15 +12,17 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - NVActivityIndicatorView
   - PageMenu
   - RealmSwift
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  NVActivityIndicatorView: 54c9b93b6f25a4f467512680c0c90c09a1095cf2
   PageMenu: 9c38fd7e0d9ef4b1408320f55bb907bbc0e538dc
   Realm: fc7a317a5c2c9ba91f5f235ede4e2ea76e9eba0c
   RealmSwift: 505ed6c15942a2e76f5cfa78a8667cfa997ee75b
 
-PODFILE CHECKSUM: 088d364f93b1d0c1b68df1e7b6eb77cc30c284cc
+PODFILE CHECKSUM: 932798f46b4ffa4d7c68ed79b3a6f9f0bc9a308b
 
 COCOAPODS: 1.3.1

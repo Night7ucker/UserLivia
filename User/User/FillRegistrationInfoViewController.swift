@@ -140,6 +140,10 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
     
     
     @IBAction func registerUserAction(_ sender: UIButton) {
+        let loadingAnimationStoryboard = UIStoryboard(name: "LoadingAnimation", bundle: Bundle.main)
+        let loadingAnimationController = loadingAnimationStoryboard.instantiateViewController(withIdentifier: "kLoadingAnimationViewController") as! LoadingAnimationViewController
+        present(loadingAnimationController, animated: false, completion: nil)
+        
         let userRegistrationObject = RegistrationUserRequest()
         userRegistrationObject.uploadImage(prefixName: personTitleLabelOutlet.text!,
                                            fName: firstNameTextFieldOutlet.text!,
@@ -153,6 +157,7 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
                                                 let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
                                                 let mainScreenViewController = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as? MainScreenController
                                                 mainScreenViewController?.userIsRegistred = true
+                                                loadingAnimationController.dismiss(animated: false, completion: nil)
                                                 self.navigationController?.pushViewController(mainScreenViewController!, animated: true)
                                             }
         }
