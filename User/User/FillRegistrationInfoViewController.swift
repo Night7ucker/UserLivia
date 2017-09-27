@@ -141,6 +141,7 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
     
     @IBAction func registerUserAction(_ sender: UIButton) {
         let userRegistrationObject = RegistrationUserRequest()
+<<<<<<< HEAD
         userRegistrationObject.uploadImage(prefixName: personTitleLabelOutlet.text!,
                                            fName: firstNameTextFieldOutlet.text!,
                                            lName: lastNameTextFieldOutlet.text!,
@@ -156,6 +157,23 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
                                                 self.navigationController?.pushViewController(mainScreenViewController!, animated: true)
                                             }
         }
+=======
+        userRegistrationObject.uploadImage(fName: firstNameTextFieldOutlet.text!,
+                        lName: lastNameTextFieldOutlet.text!,
+                        age: ageTextFieldOutlet.text!,
+                        sex: sex,
+                        mail: emailTextFieldOutlet.text!,
+                        imageUrl: RealmDataManager.getImageUrlFromRealm()[0].imageUrl!,
+                        codeIndex: indexOfCountry) { success in
+                            if success {
+                                let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
+                                let mainScreenViewController = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as? MainScreenController
+                                mainScreenViewController?.userIsRegistred = true
+                                self.navigationController?.pushViewController(mainScreenViewController!, animated: true)
+                            }
+        }
+
+>>>>>>> 7aa3860750aa50aaafed5e85d96406f83c285a97
     }
     
     var imageStr = ""

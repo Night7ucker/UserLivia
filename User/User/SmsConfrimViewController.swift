@@ -150,6 +150,7 @@ class SmsConfrimViewController: UIViewController {
                 case UserStatus.active.rawValue:
                     let MainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
                     let MainScreenController = MainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as! MainScreenController
+                    MainScreenController.userIsRegistred = true
                     self.navigationController?.pushViewController(MainScreenController, animated: true)
                 case UserStatus.registrationInProgress.rawValue:
                     let RegistrationModuleStoryboard = UIStoryboard(name: "RegistrationModule", bundle: Bundle.main)

@@ -21,5 +21,4 @@ class RegistrationUserModel: Object {
     dynamic var age: String?
     dynamic var sex: String?
     dynamic var online: String?
- 
 }

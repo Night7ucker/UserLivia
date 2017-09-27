@@ -57,6 +57,8 @@
 		FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B8C1F755D820065B49C /* RealmDataManager.swift */; };
 		FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA44C0E1F77B8BC00687544 /* GetAuthCodeRequest.swift */; };
 		FBA44C111F77C71B00687544 /* PhoneNumberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA44C101F77C71B00687544 /* PhoneNumberModel.swift */; };
+		FBD74BA51F7B84BA00FA2BFE /* GetUserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD74BA41F7B84BA00FA2BFE /* GetUserProfileModel.swift */; };
+		FBD74BA71F7B84C300FA2BFE /* GetUserProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD74BA61F7B84C300FA2BFE /* GetUserProfileRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +116,8 @@
 		FB958B8C1F755D820065B49C /* RealmDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
 		FBA44C0E1F77B8BC00687544 /* GetAuthCodeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAuthCodeRequest.swift; sourceTree = "<group>"; };
 		FBA44C101F77C71B00687544 /* PhoneNumberModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberModel.swift; sourceTree = "<group>"; };
+		FBD74BA41F7B84BA00FA2BFE /* GetUserProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserProfileModel.swift; sourceTree = "<group>"; };
+		FBD74BA61F7B84C300FA2BFE /* GetUserProfileRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserProfileRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +390,7 @@
 		FB958B851F752BBC0065B49C /* RegisterModel */ = {
 			isa = PBXGroup;
 			children = (
+				FBD74BA31F7B849C00FA2BFE /* GetUserProfile */,
 				FB5FC54B1F7A44A400F8658A /* RegisterUser */,
 				FB6B62E11F78F04800AAB2F0 /* AccessRefreshTokens */,
 				FBA44C0D1F77B87800687544 /* Get Auth Code */,
@@ -405,6 +410,15 @@
 				FBA44C101F77C71B00687544 /* PhoneNumberModel.swift */,
 			);
 			name = "Get Auth Code";
+			sourceTree = "<group>";
+		};
+		FBD74BA31F7B849C00FA2BFE /* GetUserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				FBD74BA41F7B84BA00FA2BFE /* GetUserProfileModel.swift */,
+				FBD74BA61F7B84C300FA2BFE /* GetUserProfileRequest.swift */,
+			);
+			name = GetUserProfile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -561,6 +575,7 @@
 				FBA44C111F77C71B00687544 /* PhoneNumberModel.swift in Sources */,
 				CEF436EE1F7A2B5100E31AA8 /* EditReminderViewController.swift in Sources */,
 				CEA61BD11F756D9400BA1AED /* RegistrationViewController.swift in Sources */,
+				FBD74BA51F7B84BA00FA2BFE /* GetUserProfileModel.swift in Sources */,
 				CE40CA821F78E87D003BC535 /* RemindersViewController.swift in Sources */,
 				FB22C2331F77E752000EED58 /* CustomImageView.swift in Sources */,
 				FB6B62E31F78F07100AAB2F0 /* TokensModel.swift in Sources */,
@@ -580,6 +595,7 @@
 				CEABE4301F769F4E0041FAD5 /* PersonTitleModel.swift in Sources */,
 				FB22C2351F77E91B000EED58 /* MainScreenController.swift in Sources */,
 				FB5FC5501F7A44DE00F8658A /* UploadImageModel.swift in Sources */,
+				FBD74BA71F7B84C300FA2BFE /* GetUserProfileRequest.swift in Sources */,
 				CEA61BCE1F756D9400BA1AED /* MakeOrderCellTableViewCell.swift in Sources */,
 				FB5FC5531F7A83A800F8658A /* RegistrationUserModel.swift in Sources */,
 				CEABE4251F76689B0041FAD5 /* SmsConfrimViewController.swift in Sources */,
