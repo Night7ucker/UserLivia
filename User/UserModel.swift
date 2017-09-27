@@ -17,9 +17,9 @@ class UserModel: Object {
     dynamic var countryName: String?
     dynamic var phoneNumber: String?
     dynamic var namePrefix: String?
-    dynamic var firstName: String?	
+    dynamic var firstName: String?
     dynamic var lastName: String?
-    dynamic var age: String?
+    dynamic var age: String?	
     dynamic var sex: String?
     dynamic var online: String?
 }

@@ -46,13 +46,11 @@ class EditingProfileViewController: UIViewController, PopupTitleForPersonViewCon
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         let backButton = UIButton(type: .system)
         backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
         backButton.setTitle("", for: .normal)
         backButton.setBackgroundImage(UIImage(named: "backButtonImage"), for: .normal)
         backButton.addTarget(self, action: #selector(backButtonTapped(_:)), for: .touchUpInside)
-
         let backButtonBarButton = UIBarButtonItem(customView: backButton)
         
         let titleLabel = UILabel()
@@ -134,8 +132,11 @@ class EditingProfileViewController: UIViewController, PopupTitleForPersonViewCon
             realmObjectToSave[0].age = userAgeTextFieldOutlet.text
             realmObjectToSave[0].email = userEmailTextFieldOutlet.text
             realmObjectToSave[0].sex = sex
-            realmObjectToSave[0].avatar = RealmDataManager.getImageUrlFromRealm()[0].imageUrl!
+            if RealmDataManager.getImageUrlFromRealm().count > 0 {
+                realmObjectToSave[0].avatar = RealmDataManager.getImageUrlFromRealm()[0].imageUrl!
+            }
         }
+        
             let obj = EditUserProfileRequest()
             obj.editUserFunc { (success) in
                 if success {

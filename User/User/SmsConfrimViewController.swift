@@ -164,6 +164,7 @@ class SmsConfrimViewController: UIViewController {
             } else {
                 self.wrongAuthCodeView.isHidden = false
                 Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.hideErrorView), userInfo: nil, repeats: false)
+                loadingAnimationController.dismiss(animated: false, completion: nil)
             }
         }
     }
