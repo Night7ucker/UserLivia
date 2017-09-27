@@ -225,11 +225,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkBoxUnchecked.png" translatesAutoresizingMaskIntoConstraints="NO" id="O2t-wF-65U">
-                                        <rect key="frame" x="16" y="485" width="25" height="25"/>
+                                        <rect key="frame" x="16" y="486" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkBoxUnchecked.png" translatesAutoresizingMaskIntoConstraints="NO" id="hcV-t2-4UI">
-                                        <rect key="frame" x="16" y="516" width="25" height="25"/>
+                                        <rect key="frame" x="16" y="518" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I am over 18 years old" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mox-VI-LS7">
@@ -260,13 +260,6 @@
                                         <color key="textColor" red="0.61381496760704402" green="0.75640683549845522" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vx7-LW-XLo" userLabel="Agree With Terms Button">
-                                        <rect key="frame" x="16" y="519" width="122" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <action selector="agreeWithTermsButtonTapped:" destination="Jid-Ke-xCJ" eventType="touchUpInside" id="R3c-3f-QX5"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iss-SR-3VQ">
                                         <rect key="frame" x="142" y="520" width="169" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -319,7 +312,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWe-wk-Cvg" userLabel="18 Years Old Button">
-                                        <rect key="frame" x="16" y="485" width="203" height="25"/>
+                                        <rect key="frame" x="17" y="485" width="203" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="check18YearsOldButtonTapped:" destination="Jid-Ke-xCJ" eventType="touchUpInside" id="U4E-qi-Bsi"/>
@@ -347,6 +340,13 @@
                                         </state>
                                         <connections>
                                             <action selector="addPhotoAction:" destination="Jid-Ke-xCJ" eventType="touchUpInside" id="H6Z-m5-dDk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vx7-LW-XLo" userLabel="Agree With Terms Button">
+                                        <rect key="frame" x="16" y="517" width="122" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="agreeWithTermsButtonTapped:" destination="Jid-Ke-xCJ" eventType="touchUpInside" id="R3c-3f-QX5"/>
                                         </connections>
                                     </button>
                                 </subviews>
