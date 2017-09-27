@@ -1,8 +1,8 @@
 //
-//  RegistrationUserModel.swift
+//  UserModelModel.swift
 //  User
 //
-//  Created by BAMFAdmin on 26.09.17.
+//  Created by User on 9/27/17.
 //  Copyright © 2017 BAMFAdmin. All rights reserved.
 //
 
@@ -17,7 +17,7 @@ class UserModel: Object {
     dynamic var countryName: String?
     dynamic var phoneNumber: String?
     dynamic var namePrefix: String?
-    dynamic var firstName: String?
+    dynamic var firstName: String?	
     dynamic var lastName: String?
     dynamic var age: String?
     dynamic var sex: String?
