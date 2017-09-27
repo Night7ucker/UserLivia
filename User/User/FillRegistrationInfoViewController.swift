@@ -140,14 +140,11 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
                             if success {
                                 let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
                                 let mainScreenViewController = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as? MainScreenController
+                                mainScreenViewController?.userIsRegistred = true
                                 self.navigationController?.pushViewController(mainScreenViewController!, animated: true)
                             }
         }
-        
-        let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
-        let mainScreenController = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as? MainScreenController
-        mainScreenController?.userIsRegistred = true
-        navigationController?.pushViewController(mainScreenController!, animated: true)
+
     }
     
     var imageStr = ""

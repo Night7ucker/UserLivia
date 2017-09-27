@@ -24,12 +24,26 @@ class MainScreenController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
+        let baseImageUrl = "https://test.liviaapp.com"
         if userIsRegistred == false {
             fullNameLabelOutlet.isHidden = true
         } else {
-            // get picture from server
-//            countryCodesDataManagerObject.getImage(pictureUrl:  onCompletion: <#T##(Bool, UIImage?) -> Void#>)
+            
+            let obj = GetUserProfileRequest()
+            obj.GetUserProfileFunc(completion: { (success) in
+                if success {
+                    self.fullNameLabelOutlet.text = UserProfile.namePrefix!+" "+UserProfile.firstName!+" "+UserProfile.lastName!
+                    let fullImageUrl = baseImageUrl+UserProfile.avatar!
+                    let object = CountryCodesDataManager()
+                    object.getImage(pictureUrl: fullImageUrl) { success, image in
+                        if success {
+                            self.personImage.image = image
+                        }
+                    }
+                    
+                }
+            })          
         }
         
         personImage.layer.borderWidth = 3.0
