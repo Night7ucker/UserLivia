@@ -8,23 +8,22 @@
 
 import Foundation
 import Alamofire
+import RealmSwift
 
 class GetCitiesRequest {
     
-    static func getCities(completion: @escaping(Bool, [City]) -> Void) {
+    static func getCities(completion: @escaping (Bool) -> Void) {
         let headers = [
             "LiviaApp-language": "en",
             "LiviaApp-timezone": "180",
             "LiviaApp-APIVersion": "2.0"
         ]
         
-        let url = "https://test.liviaapp.com/api/city?active=1&offset=0&limit=20&search="
+        let url = "https://test.liviaapp.com/api/city?active=1&offset=0&limit=40&search="
         
         
         
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-            
-            var citiesArray = [City]()
             
             guard let result = response.result.value as? [String : AnyObject] else{ return }
             guard let body = result["body"] as? [[String : AnyObject]] else { return }
@@ -38,11 +37,12 @@ class GetCitiesRequest {
                 cityObject.cityName = city
                 cityObject.countryName = country
                 
-                citiesArray.append(cityObject)
+                let realm = try! Realm()
+                RealmDataManager.writeIntoRealm(object: cityObject, realm: realm)
 
             }
             
-            completion(true, citiesArray)
+            completion(true)
             
 //            guard let listOfCities = body["list_of_countries"] as? [[String: AnyObject]] else{ return }
             
@@ -76,17 +76,4 @@ class GetCitiesRequest {
     }
 }
 
-class City {
-    var cityName: String?
-    var countryName: String?
-    
-    static func formSectionsForCities(citiesArray: [City]) -> [String] {
-        var arrayOfSections = [String]()
-        for city in citiesArray {
-            if arrayOfSections.contains(city.countryName!) == false {
-                arrayOfSections.append(city.countryName!)
-            }
-        }
-        return arrayOfSections
-    }
-}
+

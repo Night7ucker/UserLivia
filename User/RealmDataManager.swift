@@ -54,5 +54,10 @@ class RealmDataManager {
         let data = realm.objects(UserModel.self)
         return data
     }
+    static func getCitiesNamesFromRealm() -> Results<City> {
+        let realm = try! Realm()
+        let data = realm.objects(City.self)
+        return data
+    }
     
 }

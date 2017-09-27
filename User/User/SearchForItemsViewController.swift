@@ -14,20 +14,22 @@ class SearchForItemsViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var citiesForSearchingTalbeView: UITableView!
     @IBOutlet weak var textForSearchFieldOutlet: UITextField!
     
-    let sectionsNames = ["Albania", "Australia", "Belarus", "Poland", "Ukraine"]
-    
     var arrayOfCitiesFromServer = [City]()
     var arrayOfSections = [String]()
+    
+    var arrayOfCountriesAndCitiesForCountry = [ String: [String] ]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GetCitiesRequest.getCities { success, arrayOfCities in
+        GetCitiesRequest.getCities { success in
             if success {
-                self.arrayOfCitiesFromServer = arrayOfCities
-                self.arrayOfSections = City.formSectionsForCities(citiesArray: self.arrayOfCitiesFromServer)
-                
+                self.arrayOfCitiesFromServer = Array(RealmDataManager.getCitiesNamesFromRealm())
+                self.arrayOfSections = City.formSectionsForCities()
+                self.citiesForSearchingTalbeView.reloadData()
+                self.arrayOfCountriesAndCitiesForCountry = self.formDictionaryOfCountriesAndCities()
+                print(self.arrayOfCountriesAndCitiesForCountry)
             }
         }
         
@@ -71,6 +73,32 @@ class SearchForItemsViewController: UIViewController, UISearchBarDelegate {
     func backButtonTapped(_ sender: UIButton) {
         navigationController?.popViewController(animated: false)
     }
+    
+    func formDictionaryOfCountriesAndCities() -> [ String : [String] ] {
+        let arrayOfCitiesFromRealm = Array(RealmDataManager.getCitiesNamesFromRealm())
+        var previousSection = String()
+        var section = String()
+        var arrayOfCities = [String]()
+        var dictionaryOfCountriesAndCities = [ String: [String]]()
+        previousSection = (arrayOfCitiesFromRealm.first?.countryName)!
+        for object in arrayOfCitiesFromRealm {
+            
+            if arrayOfCities.contains(object.cityName!) == false {
+                arrayOfCities.append(object.cityName!)
+                section = object.countryName!
+                if section != previousSection {
+                    print(previousSection)
+                    print(arrayOfCities)
+                    dictionaryOfCountriesAndCities[previousSection] = arrayOfCities
+                    arrayOfCities = [String]()
+                    previousSection = section
+                }
+            }
+            previousSection = object.countryName!
+        }
+//        print(dictionaryOfCountriesAndCities)
+        return dictionaryOfCountriesAndCities
+    }
 
 }
 
@@ -78,22 +106,23 @@ extension SearchForItemsViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return sectionsNames.count
+        return arrayOfSections.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionsNames[section]
+        return arrayOfSections[section]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 10
+        return arrayOfCitiesFromServer.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cityNameCell", for: indexPath) as! CityTableViewCell
-        
-        cell.cityNameLabelOutlet.text = "Minsk"
+        if arrayOfCitiesFromServer[indexPath.row].countryName != arrayOfSections[indexPath.section] {
+            
+        }
+        cell.cityNameLabelOutlet.text = arrayOfCitiesFromServer[indexPath.row].cityName
         
         return cell
     }
@@ -118,5 +147,11 @@ extension SearchForItemsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == tableView.indexPathsForVisibleRows?.last?.row {
+            print("last visible row loaded")
+        }
     }
 }
