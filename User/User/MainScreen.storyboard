@@ -140,10 +140,10 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Egor Yanukovich" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65M-px-LEN">
-                                <rect key="frame" x="111" y="39" width="127" height="21"/>
+                                <rect key="frame" x="111" y="39" width="248" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="1Nk-hQ-23U"/>
-                                    <constraint firstAttribute="width" constant="127" id="9iB-FX-cPK"/>
+                                    <constraint firstAttribute="width" constant="248" id="9iB-FX-cPK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

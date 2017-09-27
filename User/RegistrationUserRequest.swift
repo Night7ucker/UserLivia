@@ -13,7 +13,7 @@ import RealmSwift
 
 class RegistrationUserRequest{
     
-    func uploadImage(prefixName: String, fName: String, lName: String, age: String, sex: String, mail: String, imageUrl: String, codeIndex: Int, completion: @escaping (Bool) -> Void)  {
+    func registerUserFunc(prefixName: String, fName: String, lName: String, age: String, sex: String, mail: String, imageUrl: String, codeIndex: Int, completion: @escaping (Bool) -> Void)  {
       
             let url = "https://test.liviaapp.com/api/auth"
             let parameters: Parameters = [
@@ -47,18 +47,18 @@ class RegistrationUserRequest{
                     }
                 }
                 guard let result = response.result.value as? [String: AnyObject] else{ return }
-                let userModelObject = RegistrationUserModel()
+                let userModelObject = UserModel()
                 userModelObject.id = result["id"] as? String
-                userModelObject.userRole = result["user_role"] as? String
                 userModelObject.avatar = result["avatar"] as? String
                 userModelObject.email = result["email"] as? String
-                userModelObject.countryCode = result["country_code"] as? String
+                userModelObject.countryCode = result["phone_code"] as? String
                 userModelObject.namePrefix = result["name_prefix"] as? String
                 userModelObject.firstName = result["first_name"] as? String
                 userModelObject.lastName = result["last_name"] as? String
                 userModelObject.age = result["age"] as? String
                 userModelObject.sex = result["sex"] as? String
                 userModelObject.online = result["online"] as? String
+                userModelObject.phoneNumber = result["phone_number"] as? String
                 RealmDataManager.writeIntoRealm(object: userModelObject, realm: realm)
                 completion(true)
             }

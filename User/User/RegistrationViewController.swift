@@ -42,8 +42,10 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
     var canSendNewCode = true
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        //        phoneNumberField.delegate = self
+
+        phoneNumberField.delegate = self
         navigationController?.isNavigationBarHidden = true
         errorViewOutlet.isHidden = true
         print(Realm.Configuration.defaultConfiguration.fileURL!)
@@ -57,7 +59,6 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
         }
         countryName.text = "Belarus"
         countryCode.text = "+375"
-        //            let indexOfCountry = RealmDataManager.getIndexCountryFromRealm()
         
         nextButtonOutlet.layer.cornerRadius = 2
         mainWhiteViewOutlet.layer.cornerRadius = 10

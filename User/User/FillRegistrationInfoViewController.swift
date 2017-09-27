@@ -141,7 +141,7 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
     
     @IBAction func registerUserAction(_ sender: UIButton) {
         let userRegistrationObject = RegistrationUserRequest()
-        userRegistrationObject.uploadImage(prefixName: personTitleLabelOutlet.text!,
+        userRegistrationObject.registerUserFunc(prefixName: personTitleLabelOutlet.text!,
                                            fName: firstNameTextFieldOutlet.text!,
                                            lName: lastNameTextFieldOutlet.text!,
                                            age: ageTextFieldOutlet.text!,

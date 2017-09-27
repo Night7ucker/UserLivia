@@ -209,12 +209,12 @@
                                     <action selector="userChangeTitleButtonTapped:" destination="NN4-2H-KYU" eventType="touchUpInside" id="66G-wY-vVu"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera-icon" translatesAutoresizingMaskIntoConstraints="NO" id="sCj-ji-Chd">
-                                <rect key="frame" x="136" y="83" width="102" height="99"/>
+                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="sCj-ji-Chd" customClass="CustomImageView" customModule="User" customModuleProvider="target">
+                                <rect key="frame" x="138" y="83" width="99" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Xh-sg-CLT">
-                                <rect key="frame" x="136" y="83" width="102" height="99"/>
+                                <rect key="frame" x="138" y="83" width="99" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="changeUserPictureButtonTapped:" destination="NN4-2H-KYU" eventType="touchUpInside" id="ojg-sz-T8b"/>
@@ -226,6 +226,7 @@
                     <navigationItem key="navigationItem" id="Mxy-M6-Lek"/>
                     <connections>
                         <outlet property="userAgeTextFieldOutlet" destination="WyN-BC-RJl" id="qQi-99-kjw"/>
+                        <outlet property="userAvatarImageOutlet" destination="sCj-ji-Chd" id="Mrj-aa-Qaq"/>
                         <outlet property="userCityLabelOutlet" destination="j3b-fj-1mQ" id="hQ4-p2-zF6"/>
                         <outlet property="userCountryImageViewOutlet" destination="t0G-sY-XJz" id="R3r-8K-rN6"/>
                         <outlet property="userCountryLabelOutlet" destination="kyr-Ea-Hme" id="Nfk-FE-45i"/>
@@ -244,6 +245,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera-icon" width="70" height="70"/>
+        <image name="camera" width="512" height="512"/>
     </resources>
 </document>

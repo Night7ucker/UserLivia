@@ -9,12 +9,13 @@
 import Foundation
 import RealmSwift
 
-class RegistrationUserModel: Object {
+class UserModel: Object {
     dynamic var id: String?
-    dynamic var userRole: String?
     dynamic var avatar: String?
     dynamic var email: String?
     dynamic var countryCode: String?
+    dynamic var countryName: String?
+    dynamic var phoneNumber: String?
     dynamic var namePrefix: String?
     dynamic var firstName: String?
     dynamic var lastName: String?

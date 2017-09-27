@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import RealmSwift
 
 protocol PopupTitleForPersonViewControllerDelegate: class {
     func trasferUsetTitle(personTitle: String)
 }
 
-class EditingProfileViewController: UIViewController, PopupTitleForPersonViewControllerDelegate {
+class EditingProfileViewController: UIViewController, PopupTitleForPersonViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    @IBOutlet var userAvatarImageOutlet: UIImageView!
     
     @IBOutlet weak var userTitleLabelOutlet: UILabel!
     
@@ -39,7 +41,8 @@ class EditingProfileViewController: UIViewController, PopupTitleForPersonViewCon
     
     @IBOutlet weak var userPhoneNumberLabelOutlet: UILabel!
     
-    
+    var sex = "Female"
+    var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,10 +50,9 @@ class EditingProfileViewController: UIViewController, PopupTitleForPersonViewCon
         let backButton = UIButton(type: .system)
         backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
         backButton.setTitle("", for: .normal)
-        
         backButton.setBackgroundImage(UIImage(named: "backButtonImage"), for: .normal)
         backButton.addTarget(self, action: #selector(backButtonTapped(_:)), for: .touchUpInside)
-        
+
         let backButtonBarButton = UIBarButtonItem(customView: backButton)
         
         let titleLabel = UILabel()
@@ -79,7 +81,36 @@ class EditingProfileViewController: UIViewController, PopupTitleForPersonViewCon
         navigationController?.navigationBar.layer.shadowRadius = 4.0
         navigationController?.navigationBar.layer.shadowOpacity = 0.5
         navigationController?.navigationBar.layer.masksToBounds = false
-        // Do any additional setup after loading the view.
+        
+        userTitleLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].namePrefix!
+        userNameTextFieldOutlet.text = RealmDataManager.getUserDataFromRealm()[0].firstName!
+        userLastnameTextFieldOutlet.text = RealmDataManager.getUserDataFromRealm()[0].lastName!
+        userAgeTextFieldOutlet.text = RealmDataManager.getUserDataFromRealm()[0].age!
+        if RealmDataManager.getUserDataFromRealm()[0].sex == "Male" {
+            userSexSegmentedControlOutlet.selectedSegmentIndex = 1
+        } else {
+            userSexSegmentedControlOutlet.selectedSegmentIndex = 0
+        }
+        userEmailTextFieldOutlet.text = RealmDataManager.getUserDataFromRealm()[0].email!
+        userCountryLabelOutlet.text = "Belarus"
+            let countryImageObject = CountryCodesDataManager()
+            countryImageObject.getImage(pictureUrl: "https://test.liviaapp.com/images/flags/32x32/by.png") { success, image in
+                if success {
+                    self.userCountryImageViewOutlet.image = image
+                }
+        }
+        userCountryPhoneCodeLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].countryCode!
+        userPhoneNumberLabelOutlet.text =  RealmDataManager.getUserDataFromRealm()[0].phoneNumber!
+        
+        let avatarImageObject = CountryCodesDataManager()
+        let fullAvatarUrl = "https://test.liviaapp.com"+RealmDataManager.getUserDataFromRealm()[0].avatar!
+        avatarImageObject.getImage(pictureUrl: fullAvatarUrl) { success, image in
+            if success {
+                self.userAvatarImageOutlet.image = image
+            }
+        }
+
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,7 +123,29 @@ class EditingProfileViewController: UIViewController, PopupTitleForPersonViewCon
     }
     
     func confrimedTapped(_ sender: UIButton) {
-        print("confirmed")
+       
+        let realmObjectToSave = RealmDataManager.getUserDataFromRealm()
+        let realm = try! Realm()
+
+        try! realm.write {
+            realmObjectToSave[0].namePrefix = userTitleLabelOutlet.text
+            realmObjectToSave[0].firstName = userNameTextFieldOutlet.text
+            realmObjectToSave[0].lastName = userLastnameTextFieldOutlet.text
+            realmObjectToSave[0].age = userAgeTextFieldOutlet.text
+            realmObjectToSave[0].email = userEmailTextFieldOutlet.text
+            realmObjectToSave[0].sex = sex
+            realmObjectToSave[0].avatar = RealmDataManager.getImageUrlFromRealm()[0].imageUrl!
+        }
+            let obj = EditUserProfileRequest()
+            obj.editUserFunc { (success) in
+                if success {
+                    let MainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
+                    let MainScreenController = MainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as! MainScreenController
+                    MainScreenController.userIsRegistred = true
+                    self.navigationController?.pushViewController(MainScreenController, animated: true)
+                }
+        }
+       
     }
     
     
@@ -107,30 +160,49 @@ class EditingProfileViewController: UIViewController, PopupTitleForPersonViewCon
         userTitleLabelOutlet.text = personTitle
     }
 
-    
-    @IBAction func changeUserPictureButtonTapped(_ sender: UIButton) {
-    }
-    
-    
     @IBAction func changeSexSegmentedControl(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            print("female")
+            sex = "Female"
         case 1:
-            print("male")
+            sex = "Male"
         default:
             break
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func changeUserPictureButtonTapped(_ sender: UIButton) {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+            print("Button capture")
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum;
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+            
+        }
+        
     }
-    */
+    
+    var imageStr = ""
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        userAvatarImageOutlet.image = selectedImage
+    
+        let queue = OperationQueue()
+     
+        queue.addOperation {
+            let imageData = UIImagePNGRepresentation(selectedImage)! as NSData
+            self.imageStr = imageData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+            queue.addOperation {
+                let obj = UploadImageRequest()
+                obj.uploadImage(imageString: self.imageStr)
+            }
+        }
+ 
+        dismiss(animated: true, completion: nil)
+    }
+
+
 
 }

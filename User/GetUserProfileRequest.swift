@@ -30,21 +30,29 @@ class GetUserProfileRequest{
             print(response.result.value!)
             
             guard let result = response.result.value as? [String: AnyObject] else{ return }
-            UserProfile.avatar = result["avatar"] as? String
-            UserProfile.namePrefix = result["name_prefix"] as? String
-            UserProfile.firstName = result["first_name"] as? String
-            UserProfile.lastName = result["last_name"] as? String
-
+            let realm = try! Realm()
+            if RealmDataManager.getUserDataFromRealm().count > 0 {
+                try! realm.write {
+                    realm.delete(RealmDataManager.getUserDataFromRealm())
+                }
+            }
+            let userModelObject = UserModel()
+            userModelObject.id = result["id"] as? String
+            userModelObject.avatar = result["avatar"] as? String
+            userModelObject.email = result["email"] as? String
+            userModelObject.namePrefix = result["name_prefix"] as? String
+            userModelObject.firstName = result["first_name"] as? String
+            userModelObject.lastName = result["last_name"] as? String
+            userModelObject.age = result["age"] as? String
+            userModelObject.sex = result["sex"] as? String
+            userModelObject.online = result["online"] as? String
+            userModelObject.countryCode = result["phone_code"] as? String
+            userModelObject.phoneNumber = result["phone_number"] as? String
+            RealmDataManager.writeIntoRealm(object: userModelObject, realm: realm)
             completion(true)
         }
         
     }
 }
 
-class UserProfile {
-    static var avatar: String?
-    static var namePrefix: String?
-    static var firstName: String?
-    static var lastName: String?
-}
 
