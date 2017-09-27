@@ -633,12 +633,9 @@
 				FB5FC5501F7A44DE00F8658A /* UploadImageModel.swift in Sources */,
 				FBD74BA71F7B84C300FA2BFE /* GetUserProfileRequest.swift in Sources */,
 				CEA61BCE1F756D9400BA1AED /* MakeOrderCellTableViewCell.swift in Sources */,
-<<<<<<< HEAD
 				FB5FC5531F7A83A800F8658A /* UserModel.swift in Sources */,
-=======
 				FB5FC5531F7A83A800F8658A /* RegistrationUserModel.swift in Sources */,
 				CEB75F1C1F7BA8A100986F1D /* GetCitiesRequest.swift in Sources */,
->>>>>>> 2a41ea88913f1b6503e57b60f9402d286d17b217
 				CEABE4251F76689B0041FAD5 /* SmsConfrimViewController.swift in Sources */,
 				FB22C2311F77E73F000EED58 /* MainScreenCell.swift in Sources */,
 				CEA61BCA1F756D9400BA1AED /* CountryCodeCell.swift in Sources */,
