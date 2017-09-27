@@ -260,6 +260,13 @@
                                         <color key="textColor" red="0.61381496760704402" green="0.75640683549845522" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vx7-LW-XLo" userLabel="Agree With Terms Button">
+                                        <rect key="frame" x="16" y="517" width="122" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="agreeWithTermsButtonTapped:" destination="Jid-Ke-xCJ" eventType="touchUpInside" id="R3c-3f-QX5"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iss-SR-3VQ">
                                         <rect key="frame" x="142" y="520" width="169" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -272,7 +279,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="changeTitleButtonTapped:" destination="Jid-Ke-xCJ" eventType="touchUpInside" id="Ehn-Kl-Ga7"/>
-                                            <segue destination="8rz-Gr-rcE" kind="presentation" id="067-Qs-Jg1"/>
+                                            <segue destination="8rz-Gr-rcE" kind="presentation" identifier="showPopupWithTitlesForRegistration" id="067-Qs-Jg1"/>
                                         </connections>
                                     </button>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cei-Ck-o5a">
@@ -322,7 +329,9 @@
                                         <rect key="frame" x="16" y="575" width="343" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Next"/>
+                                        <state key="normal" title="Next">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="registerUserAction:" destination="Jid-Ke-xCJ" eventType="touchUpInside" id="RMW-cO-QAa"/>
                                         </connections>
@@ -342,13 +351,14 @@
                                             <action selector="addPhotoAction:" destination="Jid-Ke-xCJ" eventType="touchUpInside" id="H6Z-m5-dDk"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vx7-LW-XLo" userLabel="Agree With Terms Button">
-                                        <rect key="frame" x="16" y="517" width="122" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Next" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKe-Zs-wMF">
+                                        <rect key="frame" x="16" y="575" width="342" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <action selector="agreeWithTermsButtonTapped:" destination="Jid-Ke-xCJ" eventType="touchUpInside" id="R3c-3f-QX5"/>
-                                        </connections>
-                                    </button>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.01280110701918602" green="0.42607775330543518" blue="0.97565227746963501" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -369,6 +379,7 @@
                         <outlet property="firstNameTextFieldOutlet" destination="EaR-Zc-Lau" id="Z5g-zd-aIa"/>
                         <outlet property="lastNameTextFieldOutlet" destination="vwa-Qe-erl" id="8lN-Y4-uQ5"/>
                         <outlet property="nextButtonOutlet" destination="CsD-Gd-Lyz" id="dWQ-F5-Vhi"/>
+                        <outlet property="nextLabelOutlet" destination="DKe-Zs-wMF" id="3Hz-CU-sFG"/>
                         <outlet property="personTitleLabelOutlet" destination="nlP-Vu-BsP" id="LvQ-wE-rk0"/>
                         <outlet property="photoImageView" destination="k3T-6y-Yz8" id="pbU-mI-0ML"/>
                     </connections>

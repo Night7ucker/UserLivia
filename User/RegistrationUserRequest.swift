@@ -13,7 +13,7 @@ import RealmSwift
 
 class RegistrationUserRequest{
     
-    func uploadImage(fName: String, lName: String, age: String, sex: String, mail: String, imageUrl: String, codeIndex: Int, completion: @escaping (Bool) -> Void)  {
+    func uploadImage(prefixName: String, fName: String, lName: String, age: String, sex: String, mail: String, imageUrl: String, codeIndex: Int, completion: @escaping (Bool) -> Void)  {
       
             let url = "https://test.liviaapp.com/api/auth"
             let parameters: Parameters = [
@@ -21,7 +21,7 @@ class RegistrationUserRequest{
                 "country_code": "by",
                 "avatar": imageUrl,
                 "name_prefix": RealmDataManager.getPersonTitleFromRealm()[0].title!,
-                "first_name": fName,
+                "first_name": prefixName,
                 "last_name": lName,
                 "age": age,
                 "sex": sex,

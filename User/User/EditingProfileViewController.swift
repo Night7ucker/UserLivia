@@ -8,8 +8,39 @@
 
 import UIKit
 
-class EditingProfileViewController: UIViewController {
+protocol PopupTitleForPersonViewControllerDelegate: class {
+    func trasferUsetTitle(personTitle: String)
+}
 
+class EditingProfileViewController: UIViewController, PopupTitleForPersonViewControllerDelegate {
+    
+    
+    @IBOutlet weak var userTitleLabelOutlet: UILabel!
+    
+    @IBOutlet weak var userNameTextFieldOutlet: UITextField!
+    
+    @IBOutlet weak var userLastnameTextFieldOutlet: UITextField!
+    
+    @IBOutlet weak var userCityLabelOutlet: UILabel!
+    
+
+    @IBOutlet weak var userAgeTextFieldOutlet: UITextField!
+    
+    @IBOutlet weak var userSexSegmentedControlOutlet: UISegmentedControl!
+    
+    @IBOutlet weak var userEmailTextFieldOutlet: UITextField!
+    
+    
+    @IBOutlet weak var userCountryLabelOutlet: UILabel!
+    
+    @IBOutlet weak var userCountryImageViewOutlet: UIImageView!
+    
+    @IBOutlet weak var userCountryPhoneCodeLabelOutlet: UILabel!
+    
+    @IBOutlet weak var userPhoneNumberLabelOutlet: UILabel!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -63,7 +94,35 @@ class EditingProfileViewController: UIViewController {
     func confrimedTapped(_ sender: UIButton) {
         print("confirmed")
     }
+    
+    
+    @IBAction func userChangeTitleButtonTapped(_ sender: UIButton) {
+        let registrationModule = UIStoryboard(name: "RegistrationModule", bundle: nil)
+        let popupTitleForPersonViewController = registrationModule.instantiateViewController(withIdentifier: "kPopupTitleForPersonViewController") as? PopupTitleForPersonViewController
+        popupTitleForPersonViewController?.delegate = self
+        present(popupTitleForPersonViewController!, animated: false, completion: nil)
+    }
+    
+    func trasferUsetTitle(personTitle: String) {
+        userTitleLabelOutlet.text = personTitle
+    }
 
+    
+    @IBAction func changeUserPictureButtonTapped(_ sender: UIButton) {
+    }
+    
+    
+    @IBAction func changeSexSegmentedControl(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            print("female")
+        case 1:
+            print("male")
+        default:
+            break
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
