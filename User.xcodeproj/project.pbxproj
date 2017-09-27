@@ -61,6 +61,8 @@
 		FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B8C1F755D820065B49C /* RealmDataManager.swift */; };
 		FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA44C0E1F77B8BC00687544 /* GetAuthCodeRequest.swift */; };
 		FBA44C111F77C71B00687544 /* PhoneNumberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA44C101F77C71B00687544 /* PhoneNumberModel.swift */; };
+		FBD6BB181F7C1402007741DC /* SearchDrugs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBD6BB171F7C1402007741DC /* SearchDrugs.storyboard */; };
+		FBD6BB1B1F7C161C007741DC /* GetDrugsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BB1A1F7C161C007741DC /* GetDrugsViewController.swift */; };
 		FBD74BA71F7B84C300FA2BFE /* GetUserProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD74BA61F7B84C300FA2BFE /* GetUserProfileRequest.swift */; };
 		FBD74BAA1F7B90B300FA2BFE /* EditUserProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD74BA91F7B90B300FA2BFE /* EditUserProfileRequest.swift */; };
 /* End PBXBuildFile section */
@@ -124,6 +126,8 @@
 		FB958B8C1F755D820065B49C /* RealmDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
 		FBA44C0E1F77B8BC00687544 /* GetAuthCodeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAuthCodeRequest.swift; sourceTree = "<group>"; };
 		FBA44C101F77C71B00687544 /* PhoneNumberModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberModel.swift; sourceTree = "<group>"; };
+		FBD6BB171F7C1402007741DC /* SearchDrugs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchDrugs.storyboard; sourceTree = "<group>"; };
+		FBD6BB1A1F7C161C007741DC /* GetDrugsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetDrugsViewController.swift; sourceTree = "<group>"; };
 		FBD74BA61F7B84C300FA2BFE /* GetUserProfileRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserProfileRequest.swift; sourceTree = "<group>"; };
 		FBD74BA91F7B90B300FA2BFE /* EditUserProfileRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserProfileRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -232,6 +236,7 @@
 				CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */,
 				CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */,
 				CE7B30291F7B906E0023472F /* LoadingAnimation.storyboard */,
+				FBD6BB171F7C1402007741DC /* SearchDrugs.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 		CEA61BE11F756E1800BA1AED /* MakeOrderModule */ = {
 			isa = PBXGroup;
 			children = (
+				FBD6BB191F7C156A007741DC /* GetDrugsModule */,
 				CEA61BB11F756D9400BA1AED /* MakeOrderCellTableViewCell.swift */,
 				CEA61BB21F756D9400BA1AED /* MakeOrderViewController.swift */,
 			);
@@ -440,6 +446,14 @@
 			name = "Get Auth Code";
 			sourceTree = "<group>";
 		};
+		FBD6BB191F7C156A007741DC /* GetDrugsModule */ = {
+			isa = PBXGroup;
+			children = (
+				FBD6BB1A1F7C161C007741DC /* GetDrugsViewController.swift */,
+			);
+			name = GetDrugsModule;
+			sourceTree = "<group>";
+		};
 		FBD74BA31F7B849C00FA2BFE /* GetUserProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +535,7 @@
 			files = (
 				CE5F4BEC1F77CC19009CBA5D /* Orders Appointments Payments.storyboard in Resources */,
 				CE7B302A1F7B906E0023472F /* LoadingAnimation.storyboard in Resources */,
+				FBD6BB181F7C1402007741DC /* SearchDrugs.storyboard in Resources */,
 				CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */,
 				7FBAFBB61F77D9D700BEB7F1 /* MainScreen.storyboard in Resources */,
 				CE40CA801F78E619003BC535 /* RefillsAndReminders.storyboard in Resources */,
@@ -613,6 +628,7 @@
 				CE95905A1F7945DA00536DF7 /* ReminderModel.swift in Sources */,
 				FBA44C111F77C71B00687544 /* PhoneNumberModel.swift in Sources */,
 				CEF436EE1F7A2B5100E31AA8 /* EditReminderViewController.swift in Sources */,
+				FBD6BB1B1F7C161C007741DC /* GetDrugsViewController.swift in Sources */,
 				CEA61BD11F756D9400BA1AED /* RegistrationViewController.swift in Sources */,
 				CE40CA821F78E87D003BC535 /* RemindersViewController.swift in Sources */,
 				FB22C2331F77E752000EED58 /* CustomImageView.swift in Sources */,

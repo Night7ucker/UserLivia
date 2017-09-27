@@ -65,27 +65,36 @@ extension MakeOrderViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        switch indexPath.row {
+        case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "makeOrderCell", for: indexPath) as! MakeOrderCellTableViewCell
             
             cell.makeOrderTopMenuLabelOutlet.text = "Take a Photo of Prescription"
             cell.makeOrderBottomMenuLabelOutlet.text = "GENERATE ORDER FROM YOUR PHOTO"
             cell.makeOrderIconImageOutlet.image = UIImage(named: "makeOrderPhoto")
             cell.imageInsideImageMakeOrderOutlet.image = UIImage(named: "cameraFromMakeOrder")
-            
             return cell
-        } else if indexPath.row == 1 {
+        case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "makeOrderCell", for: indexPath) as! MakeOrderCellTableViewCell
-            // number of drugs must be from server
             cell.makeOrderTopMenuLabelOutlet.text = "Search for medicines / items"
             cell.makeOrderBottomMenuLabelOutlet.text = "SEARCH FROM 1003 DRUGS"
             cell.makeOrderIconImageOutlet.image = UIImage(named: "makeOrderPhoto")
             cell.imageInsideImageMakeOrderOutlet.image = UIImage(named: "searchFromMakeOrder")
-            
             return cell
+        default:
+            return UITableViewCell()
         }
-        return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath.row == 1){
+            let GetDrugsStoryboard = UIStoryboard(name: "SearchDrugs", bundle: nil)
+            let GetDrugsViewController = GetDrugsStoryboard.instantiateViewController(withIdentifier: "SearchDrugsStoryboardId") as? GetDrugsViewController
+            navigationController?.pushViewController(GetDrugsViewController!, animated: true)
+
+        }
+    }
+    
     
     func backButtonTapped(_ sender: UIButton) {
         navigationController?.popViewController(animated: false)

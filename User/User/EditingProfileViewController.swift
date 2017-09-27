@@ -46,6 +46,7 @@ class EditingProfileViewController: UIViewController, PopupTitleForPersonViewCon
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let backButton = UIButton(type: .system)
         backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
         backButton.setTitle("", for: .normal)
