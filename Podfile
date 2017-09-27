@@ -8,5 +8,6 @@ target 'User' do
   pod 'Alamofire'
   pod 'RealmSwift'
   pod 'PageMenu'
+  pod 'NVActivityIndicatorView'  
   
 end

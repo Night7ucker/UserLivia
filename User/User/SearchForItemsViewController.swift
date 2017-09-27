@@ -16,9 +16,20 @@ class SearchForItemsViewController: UIViewController, UISearchBarDelegate {
     
     let sectionsNames = ["Albania", "Australia", "Belarus", "Poland", "Ukraine"]
     
+    var arrayOfCitiesFromServer = [City]()
+    var arrayOfSections = [String]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        GetCitiesRequest.getCities { success, arrayOfCities in
+            if success {
+                self.arrayOfCitiesFromServer = arrayOfCities
+                self.arrayOfSections = City.formSectionsForCities(citiesArray: self.arrayOfCitiesFromServer)
+                
+            }
+        }
         
         navigationController?.navigationBar.barTintColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
         

@@ -43,10 +43,6 @@ class SmsConfrimViewController: UIViewController {
     var timer = Timer()
     var isTimerRunning = false
     
-    
-    let lightGray = UIColor(red: 230, green: 230, blue: 230, alpha: 1)
-    let lightBlue = UIColor(red: 0, green: 128, blue: 255, alpha: 1)
-    
     let lightGrayColor = UIColor( red: CGFloat(230/255.0), green: CGFloat(230/255.0), blue: CGFloat(230/255.0), alpha: CGFloat(1.0) )
     let lightBluecolor = UIColor( red: CGFloat(0/255.0), green: CGFloat(128/255.0), blue: CGFloat(255/255.0), alpha: CGFloat(1.0) )
     
@@ -140,6 +136,10 @@ class SmsConfrimViewController: UIViewController {
 
     
     @IBAction func confirmAuthCodeAction(_ sender: UIButton) {
+        let loadingAnimationStoryboard = UIStoryboard(name: "LoadingAnimation", bundle: Bundle.main)
+        let loadingAnimationController = loadingAnimationStoryboard.instantiateViewController(withIdentifier: "kLoadingAnimationViewController") as! LoadingAnimationViewController
+        present(loadingAnimationController, animated: false, completion: nil)
+        
         let phoneNumber = RealmDataManager.getPhoneNumberFromRealm()[0].phoneNumber!
         let authCode = textViewForCodeOutlet.text!
         let phoneCode = String(describing: RealmDataManager.getDataFromCountries()[indexOfCountry].phoneCode!)
@@ -151,11 +151,13 @@ class SmsConfrimViewController: UIViewController {
                     let MainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
                     let MainScreenController = MainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as! MainScreenController
                     MainScreenController.userIsRegistred = true
+                    loadingAnimationController.dismiss(animated: false, completion: nil)
                     self.navigationController?.pushViewController(MainScreenController, animated: true)
                 case UserStatus.registrationInProgress.rawValue:
                     let RegistrationModuleStoryboard = UIStoryboard(name: "RegistrationModule", bundle: Bundle.main)
                     let RegistrationController = RegistrationModuleStoryboard.instantiateViewController(withIdentifier: "kFillRegistrationInfoViewController") as! FillRegistrationInfoViewController
                     RegistrationController.indexOfCountry = self.indexOfCountry
+                    loadingAnimationController.dismiss(animated: false, completion: nil)
                     self.navigationController?.pushViewController(RegistrationController, animated: true)
                 default: return
                 }

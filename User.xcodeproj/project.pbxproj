@@ -20,6 +20,7 @@
 		CE798D201F7A81BF00FDF83D /* EditingProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */; };
 		CE798D231F7A828400FDF83D /* TermsAndConditions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */; };
 		CE798D251F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE798D241F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift */; };
+		CE7B302A1F7B906E0023472F /* LoadingAnimation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7B30291F7B906E0023472F /* LoadingAnimation.storyboard */; };
 		CE95905A1F7945DA00536DF7 /* ReminderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9590591F7945DA00536DF7 /* ReminderModel.swift */; };
 		CE95905C1F79473800536DF7 /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95905B1F79473800536DF7 /* ReminderTableViewCell.swift */; };
 		CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA61BAB1F756D9400BA1AED /* MainViewsStoryboard.storyboard */; };
@@ -37,6 +38,8 @@
 		CEABE42B1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE42A1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift */; };
 		CEABE42E1F769B980041FAD5 /* PersonTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE42D1F769B980041FAD5 /* PersonTitleTableViewCell.swift */; };
 		CEABE4301F769F4E0041FAD5 /* PersonTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE42F1F769F4E0041FAD5 /* PersonTitleModel.swift */; };
+		CEB75F191F7B921D00986F1D /* LoadingAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB75F181F7B921D00986F1D /* LoadingAnimationViewController.swift */; };
+		CEB75F1C1F7BA8A100986F1D /* GetCitiesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB75F1B1F7BA8A100986F1D /* GetCitiesRequest.swift */; };
 		CEF436EE1F7A2B5100E31AA8 /* EditReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF436ED1F7A2B5100E31AA8 /* EditReminderViewController.swift */; };
 		D1A8AFAF7B974F868E6BDCF7 /* Pods_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA6723FDEE4071DE9039A46 /* Pods_User.framework */; };
 		FB22C22F1F77E6BE000EED58 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22C22E1F77E6BE000EED58 /* SettingsController.swift */; };
@@ -77,6 +80,7 @@
 		CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingProfileViewController.swift; sourceTree = "<group>"; };
 		CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TermsAndConditions.storyboard; sourceTree = "<group>"; };
 		CE798D241F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsWebViewViewController.swift; sourceTree = "<group>"; };
+		CE7B30291F7B906E0023472F /* LoadingAnimation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoadingAnimation.storyboard; sourceTree = "<group>"; };
 		CE9590591F7945DA00536DF7 /* ReminderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderModel.swift; sourceTree = "<group>"; };
 		CE95905B1F79473800536DF7 /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
 		CEA61BAC1F756D9400BA1AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainViewsStoryboard.storyboard; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 		CEABE42A1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupTitleForPersonViewController.swift; sourceTree = "<group>"; };
 		CEABE42D1F769B980041FAD5 /* PersonTitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTitleTableViewCell.swift; sourceTree = "<group>"; };
 		CEABE42F1F769F4E0041FAD5 /* PersonTitleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTitleModel.swift; sourceTree = "<group>"; };
+		CEB75F181F7B921D00986F1D /* LoadingAnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingAnimationViewController.swift; sourceTree = "<group>"; };
+		CEB75F1B1F7BA8A100986F1D /* GetCitiesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCitiesRequest.swift; sourceTree = "<group>"; };
 		CEF436ED1F7A2B5100E31AA8 /* EditReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditReminderViewController.swift; sourceTree = "<group>"; };
 		D54A04BC4E2A4BD6D4442D1C /* Pods-User.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User.debug.xcconfig"; path = "Pods/Target Support Files/Pods-User/Pods-User.debug.xcconfig"; sourceTree = "<group>"; };
 		FB22C22E1F77E6BE000EED58 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsController.swift; path = User/User/SettingsController.swift; sourceTree = SOURCE_ROOT; };
@@ -204,6 +210,7 @@
 				CEA61BE01F756DCF00BA1AED /* Storyboards */,
 				CEABE41B1F764D950041FAD5 /* User Functionality Module */,
 				CEA61BE21F756E4000BA1AED /* Registration Module */,
+				CEB75F1A1F7B922000986F1D /* LoadingAnimation */,
 			);
 			name = "Interface Module";
 			path = User;
@@ -222,6 +229,7 @@
 				7F5CB07C1F7902EF006E338C /* OrdersPageController.swift */,
 				CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */,
 				CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */,
+				CE7B30291F7B906E0023472F /* LoadingAnimation.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -312,6 +320,22 @@
 			name = "Popup Title Module";
 			sourceTree = "<group>";
 		};
+		CEB75F1A1F7B922000986F1D /* LoadingAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				CEB75F181F7B921D00986F1D /* LoadingAnimationViewController.swift */,
+			);
+			name = LoadingAnimation;
+			sourceTree = "<group>";
+		};
+		CEB75F1D1F7BA8A300986F1D /* GetCitiesRequest */ = {
+			isa = PBXGroup;
+			children = (
+				CEB75F1B1F7BA8A100986F1D /* GetCitiesRequest.swift */,
+			);
+			name = GetCitiesRequest;
+			sourceTree = "<group>";
+		};
 		FB5FC54B1F7A44A400F8658A /* RegisterUser */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +418,7 @@
 				FB5FC54B1F7A44A400F8658A /* RegisterUser */,
 				FB6B62E11F78F04800AAB2F0 /* AccessRefreshTokens */,
 				FBA44C0D1F77B87800687544 /* Get Auth Code */,
+				CEB75F1D1F7BA8A300986F1D /* GetCitiesRequest */,
 				FB958B861F752C4D0065B49C /* CountryCodesModel.swift */,
 				FB958B881F752D000065B49C /* CountryDataManager.swift */,
 				FB958B8C1F755D820065B49C /* RealmDataManager.swift */,
@@ -492,6 +517,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE5F4BEC1F77CC19009CBA5D /* Orders Appointments Payments.storyboard in Resources */,
+				CE7B302A1F7B906E0023472F /* LoadingAnimation.storyboard in Resources */,
 				CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */,
 				7FBAFBB61F77D9D700BEB7F1 /* MainScreen.storyboard in Resources */,
 				CE40CA801F78E619003BC535 /* RefillsAndReminders.storyboard in Resources */,
@@ -516,6 +542,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-User/Pods-User-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/PageMenu/PageMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -523,6 +550,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PageMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -586,6 +614,7 @@
 				CE40CA821F78E87D003BC535 /* RemindersViewController.swift in Sources */,
 				FB22C2331F77E752000EED58 /* CustomImageView.swift in Sources */,
 				FB6B62E31F78F07100AAB2F0 /* TokensModel.swift in Sources */,
+				CEB75F191F7B921D00986F1D /* LoadingAnimationViewController.swift in Sources */,
 				CEABE42E1F769B980041FAD5 /* PersonTitleTableViewCell.swift in Sources */,
 				CEABE4281F7676470041FAD5 /* FillRegistrationInfoViewController.swift in Sources */,
 				CE95905C1F79473800536DF7 /* ReminderTableViewCell.swift in Sources */,
@@ -604,7 +633,12 @@
 				FB5FC5501F7A44DE00F8658A /* UploadImageModel.swift in Sources */,
 				FBD74BA71F7B84C300FA2BFE /* GetUserProfileRequest.swift in Sources */,
 				CEA61BCE1F756D9400BA1AED /* MakeOrderCellTableViewCell.swift in Sources */,
+<<<<<<< HEAD
 				FB5FC5531F7A83A800F8658A /* UserModel.swift in Sources */,
+=======
+				FB5FC5531F7A83A800F8658A /* RegistrationUserModel.swift in Sources */,
+				CEB75F1C1F7BA8A100986F1D /* GetCitiesRequest.swift in Sources */,
+>>>>>>> 2a41ea88913f1b6503e57b60f9402d286d17b217
 				CEABE4251F76689B0041FAD5 /* SmsConfrimViewController.swift in Sources */,
 				FB22C2311F77E73F000EED58 /* MainScreenCell.swift in Sources */,
 				CEA61BCA1F756D9400BA1AED /* CountryCodeCell.swift in Sources */,

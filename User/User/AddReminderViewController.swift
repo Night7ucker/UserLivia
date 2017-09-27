@@ -44,7 +44,7 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
     @IBOutlet weak var poupErrorViewOutlet: UIView!
     
     
-    let lightBluecolor = UIColor(red: CGFloat(0/255.0), green: CGFloat(128/255.0), blue: CGFloat(255/255.0), alpha: CGFloat(1.0))
+    let lightBlueColor = UIColor(red: CGFloat(0/255.0), green: CGFloat(128/255.0), blue: CGFloat(255/255.0), alpha: CGFloat(1.0))
     
     var weekReminderCheckButtonTapped = true
     var week2ReminderCheckButtonTapped = false
@@ -66,7 +66,7 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
         navigationController?.navigationBar.layer.masksToBounds = false
         
         viewWithDateOutlet.layer.borderWidth = 0.5
-        saveButtonOutlet.backgroundColor = lightBluecolor
+        saveButtonOutlet.backgroundColor = lightBlueColor
         saveButtonOutlet.layer.cornerRadius = 2
         
         poupErrorViewOutlet.isHidden = true
