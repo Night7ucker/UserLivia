@@ -17,6 +17,7 @@
 		CE40CA8E1F793408003BC535 /* TimePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA8D1F793408003BC535 /* TimePopupViewController.swift */; };
 		CE5F4BEC1F77CC19009CBA5D /* Orders Appointments Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */; };
 		CE68E2F91F7C03AC002EE618 /* CityNameRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E2F81F7C03AC002EE618 /* CityNameRealmModel.swift */; };
+		CE6D40E61F7CF23D00C30EFA /* ReminderRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D40E51F7CF23D00C30EFA /* ReminderRequests.swift */; };
 		CE798D1E1F7A7D7D00FDF83D /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */; };
 		CE798D201F7A81BF00FDF83D /* EditingProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */; };
 		CE798D231F7A828400FDF83D /* TermsAndConditions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */; };
@@ -81,6 +82,7 @@
 		CE40CA8D1F793408003BC535 /* TimePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePopupViewController.swift; sourceTree = "<group>"; };
 		CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Orders Appointments Payments.storyboard"; sourceTree = "<group>"; };
 		CE68E2F81F7C03AC002EE618 /* CityNameRealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityNameRealmModel.swift; sourceTree = "<group>"; };
+		CE6D40E51F7CF23D00C30EFA /* ReminderRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderRequests.swift; sourceTree = "<group>"; };
 		CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
 		CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingProfileViewController.swift; sourceTree = "<group>"; };
 		CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TermsAndConditions.storyboard; sourceTree = "<group>"; };
@@ -202,6 +204,15 @@
 				CE40CA8D1F793408003BC535 /* TimePopupViewController.swift */,
 			);
 			name = CalendarPopupModule;
+			sourceTree = "<group>";
+		};
+		CE6D40E71F7CF24100C30EFA /* ReminderRequests */ = {
+			isa = PBXGroup;
+			children = (
+				CE6D40E51F7CF23D00C30EFA /* ReminderRequests.swift */,
+				CE9590591F7945DA00536DF7 /* ReminderModel.swift */,
+			);
+			name = ReminderRequests;
 			sourceTree = "<group>";
 		};
 		CE798D211F7A81C200FDF83D /* EditingProfileModule */ = {
@@ -430,11 +441,11 @@
 				FB6B62E11F78F04800AAB2F0 /* AccessRefreshTokens */,
 				FBA44C0D1F77B87800687544 /* Get Auth Code */,
 				CEB75F1D1F7BA8A300986F1D /* GetCitiesRequest */,
+				CE6D40E71F7CF24100C30EFA /* ReminderRequests */,
 				FB958B861F752C4D0065B49C /* CountryCodesModel.swift */,
 				FB958B881F752D000065B49C /* CountryDataManager.swift */,
 				FB958B8C1F755D820065B49C /* RealmDataManager.swift */,
 				CEABE42F1F769F4E0041FAD5 /* PersonTitleModel.swift */,
-				CE9590591F7945DA00536DF7 /* ReminderModel.swift */,
 			);
 			name = RegisterModel;
 			sourceTree = "<group>";
@@ -621,6 +632,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6D40E61F7CF23D00C30EFA /* ReminderRequests.swift in Sources */,
 				CE798D251F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift in Sources */,
 				CE40CA851F78F2ED003BC535 /* AddReminderViewController.swift in Sources */,
 				FB958B891F752D000065B49C /* CountryDataManager.swift in Sources */,

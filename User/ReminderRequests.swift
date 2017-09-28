@@ -1,8 +1,8 @@
 //
-//  GetCitiesRequest.swift
+//  ReminderRequests.swift
 //  User
 //
-//  Created by User on 9/27/17.
+//  Created by User on 9/28/17.
 //  Copyright © 2017 BAMFAdmin. All rights reserved.
 //
 
@@ -10,7 +10,16 @@ import Foundation
 import Alamofire
 import RealmSwift
 
-class GetCitiesRequest {
+class ReminderRequests {
+    
+//    static func addReminder() {
+//        let headers = [
+//            
+//        ]
+//        
+//        let url = "https://admin.liviaapp.com/api/reminder"
+//        
+//    }
     
     static func getCities(offsetForCities: Int, completion: @escaping (Bool) -> Void) {
         let headers = [
@@ -39,7 +48,7 @@ class GetCitiesRequest {
                 
                 let realm = try! Realm()
                 RealmDataManager.writeIntoRealm(object: cityObject, realm: realm)
-
+                
             }
             completion(true)
         }
