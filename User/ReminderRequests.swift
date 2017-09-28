@@ -12,14 +12,14 @@ import RealmSwift
 
 class ReminderRequests {
     
-//    static func addReminder() {
+    static func addReminder() {
 //        let headers = [
 //            
 //        ]
-//        
-//        let url = "https://admin.liviaapp.com/api/reminder"
-//        
-//    }
+        
+        let url = "https://admin.liviaapp.com/api/reminder"
+        
+    }
     
     static func getCities(offsetForCities: Int, completion: @escaping (Bool) -> Void) {
         let headers = [
