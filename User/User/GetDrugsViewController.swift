@@ -49,6 +49,8 @@ class GetDrugsViewController: UIViewController, UITextFieldDelegate {
         let headers = [
             "Content-Type": "application/json",
             "LiviaApp-language": "en",
+            "LiviaApp-country": RealmDataManager.getUserDataFromRealm()[0].countryCode!,
+            "LiviaApp-city": RealmDataManager.getUserDataFromRealm()[0].cityId!,
             "LiviaApp-APIVersion": "2.0",
             "LiviaApp-Token": "6289faef06329fa14086a8497201a8d17ad23a40"
         ]

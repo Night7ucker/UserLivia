@@ -81,7 +81,7 @@ class EditingProfileViewController: UIViewController, PopupTitleForPersonViewCon
         navigationController?.navigationBar.layer.shadowRadius = 4.0
         navigationController?.navigationBar.layer.shadowOpacity = 0.5
         navigationController?.navigationBar.layer.masksToBounds = false
-       // userCityLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].cityName!+", "+RealmDataManager.getUserDataFromRealm()[0].countryName!
+        
         userTitleLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].namePrefix!
         userNameTextFieldOutlet.text = RealmDataManager.getUserDataFromRealm()[0].firstName!
         userLastnameTextFieldOutlet.text = RealmDataManager.getUserDataFromRealm()[0].lastName!
@@ -112,7 +112,11 @@ class EditingProfileViewController: UIViewController, PopupTitleForPersonViewCon
 
         
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        userCityLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].cityName!+", "+RealmDataManager.getUserDataFromRealm()[0].countryName!
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         

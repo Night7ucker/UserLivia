@@ -183,10 +183,7 @@ extension SearchForItemsViewController: UITableViewDataSource {
         let obj = EditUserCityRequest()
         obj.editUserFunc { (success) in
             if success {
-                let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
-                let mainScreenViewController = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as? MainScreenController
-                mainScreenViewController?.userIsRegistred = true
-                self.navigationController?.pushViewController(mainScreenViewController!, animated: true)
+                self.navigationController?.popViewController(animated: false)
             }
         }
 
