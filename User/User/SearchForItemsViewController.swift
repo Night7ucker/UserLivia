@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SearchForItemsViewController: UIViewController, UISearchBarDelegate {
-
-
+    
+    
     @IBOutlet weak var citiesForSearchingTalbeView: UITableView!
     @IBOutlet weak var textForSearchFieldOutlet: UITextField!
     
@@ -19,17 +20,31 @@ class SearchForItemsViewController: UIViewController, UISearchBarDelegate {
     
     var arrayOfCountriesAndCitiesForCountry = [ String: [String] ]()
     
+    var offsetForCities = 0
+    
+    struct CountriesAndCities {
+        var country: String!
+        var city: [String]!
+    }
+    
+    var  countriesAndCitiesArray = [CountriesAndCities]()
+    
+    var ifSearchStarted = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GetCitiesRequest.getCities { success in
+        textForSearchFieldOutlet.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(RealmDataManager.getCitiesNamesFromRealm())
+        }
+        
+        GetCitiesRequest.getCities(offsetForCities: offsetForCities) { success in
             if success {
-                self.arrayOfCitiesFromServer = Array(RealmDataManager.getCitiesNamesFromRealm())
-                self.arrayOfSections = City.formSectionsForCities()
+                self.countriesAndCitiesArray = self.formDictionaryOfCountriesAndCities()
                 self.citiesForSearchingTalbeView.reloadData()
-                self.arrayOfCountriesAndCitiesForCountry = self.formDictionaryOfCountriesAndCities()
-                print(self.arrayOfCountriesAndCitiesForCountry)
             }
         }
         
@@ -62,7 +77,7 @@ class SearchForItemsViewController: UIViewController, UISearchBarDelegate {
         citiesForSearchingTalbeView.dataSource = self
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
@@ -74,64 +89,92 @@ class SearchForItemsViewController: UIViewController, UISearchBarDelegate {
         navigationController?.popViewController(animated: false)
     }
     
-    func formDictionaryOfCountriesAndCities() -> [ String : [String] ] {
+    func formDictionaryOfCountriesAndCities() -> [CountriesAndCities] {
         let arrayOfCitiesFromRealm = Array(RealmDataManager.getCitiesNamesFromRealm())
         var previousSection = String()
         var section = String()
         var arrayOfCities = [String]()
-        var dictionaryOfCountriesAndCities = [ String: [String]]()
+        var countriesAndCitiesArray = [CountriesAndCities]()
+        var ifFirstSection = true
         previousSection = (arrayOfCitiesFromRealm.first?.countryName)!
         for object in arrayOfCitiesFromRealm {
-            
             if arrayOfCities.contains(object.cityName!) == false {
-                arrayOfCities.append(object.cityName!)
                 section = object.countryName!
                 if section != previousSection {
-                    print(previousSection)
-                    print(arrayOfCities)
-                    dictionaryOfCountriesAndCities[previousSection] = arrayOfCities
+                    countriesAndCitiesArray.append(CountriesAndCities(country: previousSection, city: arrayOfCities))
                     arrayOfCities = [String]()
                     previousSection = section
                 }
+                arrayOfCities.append(object.cityName!)
+                if (arrayOfCitiesFromRealm.last == object && previousSection != section) ||
+                    (arrayOfCitiesFromRealm.last == object && ifFirstSection) {
+                    countriesAndCitiesArray.append(CountriesAndCities(country: section, city: arrayOfCities))
+                    ifFirstSection = false
+                }
+                
             }
-            previousSection = object.countryName!
         }
-//        print(dictionaryOfCountriesAndCities)
-        return dictionaryOfCountriesAndCities
+        return countriesAndCitiesArray
     }
-
+    
+    func textFieldDidChange(_ sender: UITextField) {
+        ifSearchStarted = true
+        GetCitiesRequest.getCitiesForSearchRequest(searchStringForCities: sender.text!) { success in
+            self.countriesAndCitiesArray = self.formDictionaryOfCountriesAndCities()
+            self.citiesForSearchingTalbeView.reloadData()
+            if sender.text == "" {
+                self.ifSearchStarted = false
+            }
+        }
+    }
+    
 }
 
 extension SearchForItemsViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return arrayOfSections.count
+        return countriesAndCitiesArray.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return arrayOfSections[section]
+        return countriesAndCitiesArray[section].country
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayOfCitiesFromServer.count
+        return countriesAndCitiesArray[section].city.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cityNameCell", for: indexPath) as! CityTableViewCell
-        if arrayOfCitiesFromServer[indexPath.row].countryName != arrayOfSections[indexPath.section] {
-            
-        }
-        cell.cityNameLabelOutlet.text = arrayOfCitiesFromServer[indexPath.row].cityName
+        
+        cell.cityNameLabelOutlet.text = countriesAndCitiesArray[indexPath.section].city[indexPath.row]
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCityWithCountry = City()
+        let cell = tableView.cellForRow(at: indexPath) as? CityTableViewCell
+        selectedCityWithCountry.countryName = countriesAndCitiesArray[indexPath.section].country
+        selectedCityWithCountry.cityName = cell?.cityNameLabelOutlet.text
+        
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(RealmDataManager.getCitiesNamesFromRealm())
+            realm.add(selectedCityWithCountry)
+        }
+        
+        let mainScreenStoryoard = UIStoryboard(name: "MainScreen", bundle: nil)
+        let mainScreenViewController = mainScreenStoryoard.instantiateViewController(withIdentifier: "kMainScreenController") as? MainScreenController
+        navigationController?.pushViewController(mainScreenViewController!, animated: false)
     }
 }
 
 extension SearchForItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
-//        headerView.backgroundColor = UIColor.lightGray
+        //        headerView.backgroundColor = UIColor.lightGray
         
         let headerLabel = UILabel(frame: CGRect(x: 16, y: 0, width:
             tableView.bounds.size.width, height: tableView.bounds.size.height))
@@ -149,9 +192,31 @@ extension SearchForItemsViewController: UITableViewDelegate {
         return 40
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == tableView.indexPathsForVisibleRows?.last?.row {
-            print("last visible row loaded")
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        var isOneScrollBottom = true
+        
+        let reloadTableActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+        
+        reloadTableActivityIndicator.color = .gray
+        reloadTableActivityIndicator.center = view.center
+        
+        let  height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if distanceFromBottom < height && isOneScrollBottom && ifSearchStarted == false {
+            isOneScrollBottom = false
+            reloadTableActivityIndicator.startAnimating()
+            view.addSubview(reloadTableActivityIndicator)
+            offsetForCities += 20
+            GetCitiesRequest.getCities(offsetForCities: offsetForCities) { success in
+                if success {
+                    let arrayOfCitiesAndCountries = self.formDictionaryOfCountriesAndCities()
+                    self.countriesAndCitiesArray = arrayOfCitiesAndCountries
+                    self.citiesForSearchingTalbeView.reloadData()
+                    isOneScrollBottom = true
+                    reloadTableActivityIndicator.stopAnimating()
+                }
+            }
         }
     }
 }
