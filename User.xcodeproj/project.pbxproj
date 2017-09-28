@@ -18,6 +18,7 @@
 		CE5F4BEC1F77CC19009CBA5D /* Orders Appointments Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */; };
 		CE68E2F91F7C03AC002EE618 /* CityNameRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E2F81F7C03AC002EE618 /* CityNameRealmModel.swift */; };
 		CE6D40E61F7CF23D00C30EFA /* ReminderRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D40E51F7CF23D00C30EFA /* ReminderRequests.swift */; };
+		CE6D40E91F7D00A000C30EFA /* SelectOrderType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6D40E81F7D00A000C30EFA /* SelectOrderType.storyboard */; };
 		CE798D1E1F7A7D7D00FDF83D /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */; };
 		CE798D201F7A81BF00FDF83D /* EditingProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */; };
 		CE798D231F7A828400FDF83D /* TermsAndConditions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */; };
@@ -42,6 +43,9 @@
 		CEABE4301F769F4E0041FAD5 /* PersonTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE42F1F769F4E0041FAD5 /* PersonTitleModel.swift */; };
 		CEB75F191F7B921D00986F1D /* LoadingAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB75F181F7B921D00986F1D /* LoadingAnimationViewController.swift */; };
 		CEB75F1C1F7BA8A100986F1D /* GetCitiesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB75F1B1F7BA8A100986F1D /* GetCitiesRequest.swift */; };
+		CEBA08831F7D02D100CBFC43 /* SelectOrderTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA08821F7D02D100CBFC43 /* SelectOrderTypeViewController.swift */; };
+		CEBA08861F7D0D5400CBFC43 /* SelectOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA08851F7D0D5400CBFC43 /* SelectOrderCell.swift */; };
+		CEBA08881F7D232500CBFC43 /* CollapsibleSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA08871F7D232500CBFC43 /* CollapsibleSections.swift */; };
 		CEC6318B1F7BCDEB0024AFC1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6318A1F7BCDEB0024AFC1 /* UserModel.swift */; };
 		CEF436EE1F7A2B5100E31AA8 /* EditReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF436ED1F7A2B5100E31AA8 /* EditReminderViewController.swift */; };
 		D1A8AFAF7B974F868E6BDCF7 /* Pods_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA6723FDEE4071DE9039A46 /* Pods_User.framework */; };
@@ -83,6 +87,7 @@
 		CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Orders Appointments Payments.storyboard"; sourceTree = "<group>"; };
 		CE68E2F81F7C03AC002EE618 /* CityNameRealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityNameRealmModel.swift; sourceTree = "<group>"; };
 		CE6D40E51F7CF23D00C30EFA /* ReminderRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderRequests.swift; sourceTree = "<group>"; };
+		CE6D40E81F7D00A000C30EFA /* SelectOrderType.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SelectOrderType.storyboard; sourceTree = "<group>"; };
 		CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
 		CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingProfileViewController.swift; sourceTree = "<group>"; };
 		CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TermsAndConditions.storyboard; sourceTree = "<group>"; };
@@ -107,6 +112,9 @@
 		CEABE42F1F769F4E0041FAD5 /* PersonTitleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTitleModel.swift; sourceTree = "<group>"; };
 		CEB75F181F7B921D00986F1D /* LoadingAnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingAnimationViewController.swift; sourceTree = "<group>"; };
 		CEB75F1B1F7BA8A100986F1D /* GetCitiesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCitiesRequest.swift; sourceTree = "<group>"; };
+		CEBA08821F7D02D100CBFC43 /* SelectOrderTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectOrderTypeViewController.swift; sourceTree = "<group>"; };
+		CEBA08851F7D0D5400CBFC43 /* SelectOrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectOrderCell.swift; sourceTree = "<group>"; };
+		CEBA08871F7D232500CBFC43 /* CollapsibleSections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapsibleSections.swift; sourceTree = "<group>"; };
 		CEC6318A1F7BCDEB0024AFC1 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		CEF436ED1F7A2B5100E31AA8 /* EditReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditReminderViewController.swift; sourceTree = "<group>"; };
 		D54A04BC4E2A4BD6D4442D1C /* Pods-User.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User.debug.xcconfig"; path = "Pods/Target Support Files/Pods-User/Pods-User.debug.xcconfig"; sourceTree = "<group>"; };
@@ -250,6 +258,7 @@
 				CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */,
 				CE7B30291F7B906E0023472F /* LoadingAnimation.storyboard */,
 				FBD6BB171F7C1402007741DC /* SearchDrugs.storyboard */,
+				CE6D40E81F7D00A000C30EFA /* SelectOrderType.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -258,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				FBD6BB191F7C156A007741DC /* GetDrugsModule */,
+				CEBA08841F7D02D400CBFC43 /* SelectOrderTypeModule */,
 				CEA61BB11F756D9400BA1AED /* MakeOrderCellTableViewCell.swift */,
 				CEA61BB21F756D9400BA1AED /* MakeOrderViewController.swift */,
 			);
@@ -356,6 +366,16 @@
 				CE68E2F81F7C03AC002EE618 /* CityNameRealmModel.swift */,
 			);
 			name = GetCitiesRequest;
+			sourceTree = "<group>";
+		};
+		CEBA08841F7D02D400CBFC43 /* SelectOrderTypeModule */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA08821F7D02D100CBFC43 /* SelectOrderTypeViewController.swift */,
+				CEBA08851F7D0D5400CBFC43 /* SelectOrderCell.swift */,
+				CEBA08871F7D232500CBFC43 /* CollapsibleSections.swift */,
+			);
+			name = SelectOrderTypeModule;
 			sourceTree = "<group>";
 		};
 		FB5FC54B1F7A44A400F8658A /* RegisterUser */ = {
@@ -552,6 +572,7 @@
 				FBD6BB181F7C1402007741DC /* SearchDrugs.storyboard in Resources */,
 				CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */,
 				7FBAFBB61F77D9D700BEB7F1 /* MainScreen.storyboard in Resources */,
+				CE6D40E91F7D00A000C30EFA /* SelectOrderType.storyboard in Resources */,
 				CE40CA801F78E619003BC535 /* RefillsAndReminders.storyboard in Resources */,
 				7FBAFBB71F77D9D700BEB7F1 /* Settings.storyboard in Resources */,
 				FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */,
@@ -640,9 +661,12 @@
 				CEA61BCF1F756D9400BA1AED /* MakeOrderViewController.swift in Sources */,
 				FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */,
 				CEA61BD01F756D9400BA1AED /* PopupCountryCodesTableViewController.swift in Sources */,
+				CEBA08881F7D232500CBFC43 /* CollapsibleSections.swift in Sources */,
+				CEBA08831F7D02D100CBFC43 /* SelectOrderTypeViewController.swift in Sources */,
 				CE95905A1F7945DA00536DF7 /* ReminderModel.swift in Sources */,
 				FBA44C111F77C71B00687544 /* PhoneNumberModel.swift in Sources */,
 				CEF436EE1F7A2B5100E31AA8 /* EditReminderViewController.swift in Sources */,
+				CEBA08861F7D0D5400CBFC43 /* SelectOrderCell.swift in Sources */,
 				FBD6BB1B1F7C161C007741DC /* GetDrugsViewController.swift in Sources */,
 				CEA61BD11F756D9400BA1AED /* RegistrationViewController.swift in Sources */,
 				CE40CA821F78E87D003BC535 /* RemindersViewController.swift in Sources */,

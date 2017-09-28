@@ -82,8 +82,6 @@ class SmsConfrimViewController: UIViewController {
         
         navigationItem.setLeftBarButtonItems([backButtonBarButton, titleLabelBarButton], animated: true)
         
-        print(indexOfCountry)
-        
         self.wrongAuthCodeView.isHidden = true
         timerButtonOutlet.isHidden = true
         timerLabelOutlet.backgroundColor = lightGrayColor
