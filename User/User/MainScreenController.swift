@@ -24,12 +24,11 @@ class MainScreenController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        let baseImageUrl = "https://test.liviaapp.com"
+
         if userIsRegistred == false {
             fullNameLabelOutlet.isHidden = true
         } else {
-            
+            let baseImageUrl = "https://test.liviaapp.com"
             let obj = GetUserProfileRequest()
             obj.GetUserProfileFunc(completion: { (success) in
                 if success {

@@ -14,7 +14,17 @@ import RealmSwift
 class RegistrationUserRequest{
     
     func registerUserFunc(prefixName: String, fName: String, lName: String, age: String, sex: String, mail: String, imageUrl: String, codeIndex: Int, completion: @escaping (Bool) -> Void)  {
-      
+        print(prefixName)
+        print(fName)
+        print(lName)
+        print(age)
+        print(sex)
+        print(mail)
+        print(imageUrl)
+        print(codeIndex)
+        print(RealmDataManager.getDataFromCountries()[codeIndex].phoneCode!)
+        print(RealmDataManager.getPhoneNumberFromRealm()[0].phoneNumber!)
+        
             let url = "https://test.liviaapp.com/api/auth"
             let parameters: Parameters = [
                 "user_role": "4",
@@ -39,7 +49,7 @@ class RegistrationUserRequest{
             ]
             
             Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-                
+                print(response.result.value!)
                 let realm = try! Realm()
                 if RealmDataManager.getUserDataFromRealm().count > 0 {
                     try! realm.write {
@@ -51,14 +61,14 @@ class RegistrationUserRequest{
                 userModelObject.id = result["id"] as? String
                 userModelObject.avatar = result["avatar"] as? String
                 userModelObject.email = result["email"] as? String
-                userModelObject.countryCode = result["phone_code"] as? String
                 userModelObject.namePrefix = result["name_prefix"] as? String
                 userModelObject.firstName = result["first_name"] as? String
                 userModelObject.lastName = result["last_name"] as? String
                 userModelObject.age = result["age"] as? String
                 userModelObject.sex = result["sex"] as? String
                 userModelObject.online = result["online"] as? String
-                userModelObject.phoneNumber = result["phone_number"] as? String
+                userModelObject.phoneCode = RealmDataManager.getDataFromCountries()[codeIndex].phoneCode!
+                userModelObject.phoneNumber = RealmDataManager.getPhoneNumberFromRealm()[0].phoneNumber!
                 RealmDataManager.writeIntoRealm(object: userModelObject, realm: realm)
                 completion(true)
             }

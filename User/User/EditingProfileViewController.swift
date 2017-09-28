@@ -81,7 +81,7 @@ class EditingProfileViewController: UIViewController, PopupTitleForPersonViewCon
         navigationController?.navigationBar.layer.shadowRadius = 4.0
         navigationController?.navigationBar.layer.shadowOpacity = 0.5
         navigationController?.navigationBar.layer.masksToBounds = false
-        
+       // userCityLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].cityName!+", "+RealmDataManager.getUserDataFromRealm()[0].countryName!
         userTitleLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].namePrefix!
         userNameTextFieldOutlet.text = RealmDataManager.getUserDataFromRealm()[0].firstName!
         userLastnameTextFieldOutlet.text = RealmDataManager.getUserDataFromRealm()[0].lastName!
@@ -99,7 +99,7 @@ class EditingProfileViewController: UIViewController, PopupTitleForPersonViewCon
                     self.userCountryImageViewOutlet.image = image
                 }
         }
-        userCountryPhoneCodeLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].countryCode!
+        userCountryPhoneCodeLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].phoneCode
         userPhoneNumberLabelOutlet.text =  RealmDataManager.getUserDataFromRealm()[0].phoneNumber!
         
         let avatarImageObject = CountryCodesDataManager()
@@ -115,7 +115,7 @@ class EditingProfileViewController: UIViewController, PopupTitleForPersonViewCon
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
     func backButtonTapped(_ sender: UIButton) {
@@ -165,7 +165,9 @@ class EditingProfileViewController: UIViewController, PopupTitleForPersonViewCon
     
     
     @IBAction func changeCityAction(_ sender: UIButton) {
-        
+        let ChooseCityStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: Bundle.main)
+        let ChooseCityController = ChooseCityStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as! SearchForItemsViewController
+        self.navigationController?.pushViewController(ChooseCityController, animated: true)
     }
 
     @IBAction func changeSexSegmentedControl(_ sender: UISegmentedControl) {

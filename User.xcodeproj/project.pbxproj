@@ -61,6 +61,7 @@
 		FB958B891F752D000065B49C /* CountryDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B881F752D000065B49C /* CountryDataManager.swift */; };
 		FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B8C1F755D820065B49C /* RealmDataManager.swift */; };
 		FB9D4FFD1F7CDE3E001F3F95 /* DrugPageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9D4FFC1F7CDE3E001F3F95 /* DrugPageButton.swift */; };
+		FB9D50001F7D1BE5001F3F95 /* EditUserCityRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9D4FFF1F7D1BE5001F3F95 /* EditUserCityRequest.swift */; };
 		FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA44C0E1F77B8BC00687544 /* GetAuthCodeRequest.swift */; };
 		FBA44C111F77C71B00687544 /* PhoneNumberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA44C101F77C71B00687544 /* PhoneNumberModel.swift */; };
 		FBD6BB181F7C1402007741DC /* SearchDrugs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBD6BB171F7C1402007741DC /* SearchDrugs.storyboard */; };
@@ -128,6 +129,7 @@
 		FB958B881F752D000065B49C /* CountryDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDataManager.swift; sourceTree = "<group>"; };
 		FB958B8C1F755D820065B49C /* RealmDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
 		FB9D4FFC1F7CDE3E001F3F95 /* DrugPageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugPageButton.swift; sourceTree = "<group>"; };
+		FB9D4FFF1F7D1BE5001F3F95 /* EditUserCityRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserCityRequest.swift; sourceTree = "<group>"; };
 		FBA44C0E1F77B8BC00687544 /* GetAuthCodeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAuthCodeRequest.swift; sourceTree = "<group>"; };
 		FBA44C101F77C71B00687544 /* PhoneNumberModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberModel.swift; sourceTree = "<group>"; };
 		FBD6BB171F7C1402007741DC /* SearchDrugs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchDrugs.storyboard; sourceTree = "<group>"; };
@@ -450,6 +452,14 @@
 			name = RegisterModel;
 			sourceTree = "<group>";
 		};
+		FB9D4FFE1F7D1BD0001F3F95 /* EditUserCity */ = {
+			isa = PBXGroup;
+			children = (
+				FB9D4FFF1F7D1BE5001F3F95 /* EditUserCityRequest.swift */,
+			);
+			name = EditUserCity;
+			sourceTree = "<group>";
+		};
 		FBA44C0D1F77B87800687544 /* Get Auth Code */ = {
 			isa = PBXGroup;
 			children = (
@@ -471,6 +481,7 @@
 		FBD74BA31F7B849C00FA2BFE /* GetUserProfile */ = {
 			isa = PBXGroup;
 			children = (
+				FB9D4FFE1F7D1BD0001F3F95 /* EditUserCity */,
 				FBD74BA81F7B90A300FA2BFE /* EditUserProfile */,
 				FBD74BA61F7B84C300FA2BFE /* GetUserProfileRequest.swift */,
 			);
@@ -651,6 +662,7 @@
 				CEB75F191F7B921D00986F1D /* LoadingAnimationViewController.swift in Sources */,
 				CEABE42E1F769B980041FAD5 /* PersonTitleTableViewCell.swift in Sources */,
 				CEABE4281F7676470041FAD5 /* FillRegistrationInfoViewController.swift in Sources */,
+				FB9D50001F7D1BE5001F3F95 /* EditUserCityRequest.swift in Sources */,
 				CE95905C1F79473800536DF7 /* ReminderTableViewCell.swift in Sources */,
 				FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */,
 				FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */,

@@ -24,10 +24,9 @@ class EditUserProfileRequest{
             "last_name": RealmDataManager.getUserDataFromRealm()[0].lastName!,
             "age": RealmDataManager.getUserDataFromRealm()[0].age!,
             "sex": RealmDataManager.getUserDataFromRealm()[0].sex!,
-            "phone_code": RealmDataManager.getUserDataFromRealm()[0].countryCode!,
+            "phone_code": RealmDataManager.getUserDataFromRealm()[0].phoneCode!,
             "phone_number": RealmDataManager.getUserDataFromRealm()[0].phoneNumber!,
             "email": RealmDataManager.getUserDataFromRealm()[0].email!
-            
             ]
         let headers = [
             "Content-Type": "application/json",
@@ -38,7 +37,6 @@ class EditUserProfileRequest{
         ]
         
         Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-
             completion(true)
         }
         

@@ -12,6 +12,9 @@ import RealmSwift
 class City: Object {
     dynamic var cityName: String?
     dynamic var countryName: String?
+    dynamic var countryId: String?
+    dynamic var cityId: String?
+    dynamic var countryCode: String?
     
     static func formSectionsForCities() -> [String] {
         var arrayOfSections = [String]()

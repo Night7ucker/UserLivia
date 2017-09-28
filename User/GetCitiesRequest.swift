@@ -29,13 +29,12 @@ class GetCitiesRequest {
             guard let body = result["body"] as? [[String : AnyObject]] else { return }
             
             for element in body {
-                let country = element["country"] as? String
-                let city = element["name"] as? String
-                
                 let cityObject = City()
-                
-                cityObject.cityName = city
-                cityObject.countryName = country
+                cityObject.countryName = element["country"] as? String
+                cityObject.cityName = element["name"] as? String
+                cityObject.cityId = element["id"] as? String
+                cityObject.countryId = element["country_id"] as? String
+                cityObject.countryCode = element["country_code"] as? String
                 
                 let realm = try! Realm()
                 RealmDataManager.writeIntoRealm(object: cityObject, realm: realm)
@@ -70,13 +69,12 @@ class GetCitiesRequest {
             guard let body = result["body"] as? [[String : AnyObject]] else { return }
             
             for element in body {
-                let country = element["country"] as? String
-                let city = element["name"] as? String
-                
                 let cityObject = City()
-                
-                cityObject.cityName = city
-                cityObject.countryName = country
+                cityObject.countryName = element["country"] as? String
+                cityObject.cityName = element["name"] as? String
+                cityObject.cityId = element["id"] as? String
+                cityObject.countryId = element["country_id"] as? String
+                cityObject.countryCode = element["country_code"] as? String
                 
                 let realm = try! Realm()
                 RealmDataManager.writeIntoRealm(object: cityObject, realm: realm)

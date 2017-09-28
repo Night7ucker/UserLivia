@@ -19,7 +19,7 @@ class SearchForItemsViewController: UIViewController, UISearchBarDelegate {
     var arrayOfSections = [String]()
     
     var arrayOfCountriesAndCitiesForCountry = [ String: [String] ]()
-    
+    let realm = try! Realm()
     var offsetForCities = 0
     
     struct CountriesAndCities {
@@ -36,10 +36,12 @@ class SearchForItemsViewController: UIViewController, UISearchBarDelegate {
         
         textForSearchFieldOutlet.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
-        let realm = try! Realm()
-        try! realm.write {
-            realm.delete(RealmDataManager.getCitiesNamesFromRealm())
+        if RealmDataManager.getCitiesNamesFromRealm().count > 0 {
+            try! realm.write {
+                realm.delete(RealmDataManager.getCitiesNamesFromRealm())
+            }
         }
+
         
         GetCitiesRequest.getCities(offsetForCities: offsetForCities) { success in
             if success {
@@ -111,7 +113,6 @@ class SearchForItemsViewController: UIViewController, UISearchBarDelegate {
                     countriesAndCitiesArray.append(CountriesAndCities(country: section, city: arrayOfCities))
                     ifFirstSection = false
                 }
-                
             }
         }
         return countriesAndCitiesArray
@@ -154,30 +155,51 @@ extension SearchForItemsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
         let selectedCityWithCountry = City()
         let cell = tableView.cellForRow(at: indexPath) as? CityTableViewCell
         selectedCityWithCountry.countryName = countriesAndCitiesArray[indexPath.section].country
         selectedCityWithCountry.cityName = cell?.cityNameLabelOutlet.text
         
-        let realm = try! Realm()
-        try! realm.write {
-            realm.delete(RealmDataManager.getCitiesNamesFromRealm())
-            realm.add(selectedCityWithCountry)
+        let arrayWithputChoosedCity = RealmDataManager.getCitiesNamesFromRealm()
+        for element in arrayWithputChoosedCity {
+            if element.cityName != selectedCityWithCountry.cityName {
+                try! realm.write {
+                    realm.delete(element)
+                }
+            }
         }
         
-        let mainScreenStoryoard = UIStoryboard(name: "MainScreen", bundle: nil)
-        let mainScreenViewController = mainScreenStoryoard.instantiateViewController(withIdentifier: "kMainScreenController") as? MainScreenController
-        navigationController?.pushViewController(mainScreenViewController!, animated: false)
+        let realmAddCityInfo = RealmDataManager.getUserDataFromRealm()
+
+        try! realm.write {
+            realmAddCityInfo[0].cityName = RealmDataManager.getCitiesNamesFromRealm()[0].cityName!
+            realmAddCityInfo[0].countryName = RealmDataManager.getCitiesNamesFromRealm()[0].countryName!
+            realmAddCityInfo[0].cityId = RealmDataManager.getCitiesNamesFromRealm()[0].cityId!
+            realmAddCityInfo[0].countryId = RealmDataManager.getCitiesNamesFromRealm()[0].countryId!
+            realmAddCityInfo[0].countryCode = RealmDataManager.getCitiesNamesFromRealm()[0].countryCode!
+        }
+        let obj = EditUserCityRequest()
+        obj.editUserFunc { (success) in
+            if success {
+                let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
+                let mainScreenViewController = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as? MainScreenController
+                mainScreenViewController?.userIsRegistred = true
+                self.navigationController?.pushViewController(mainScreenViewController!, animated: true)
+            }
+        }
+
     }
 }
-
+//296205222
+//293968682
 extension SearchForItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
-        //        headerView.backgroundColor = UIColor.lightGray
         
         let headerLabel = UILabel(frame: CGRect(x: 16, y: 0, width:
-            tableView.bounds.size.width, height: tableView.bounds.size.height))
+        tableView.bounds.size.width, height: tableView.bounds.size.height))
         headerLabel.font = UIFont(name: "Verdana", size: 10)
         headerLabel.font = UIFont.boldSystemFont(ofSize: 10)
         headerLabel.textColor = UIColor.gray

@@ -154,14 +154,19 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
                                            imageUrl: RealmDataManager.getImageUrlFromRealm()[0].imageUrl!,
                                            codeIndex: indexOfCountry) { success in
                                             if success {
-                                                let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
-                                                let mainScreenViewController = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as? MainScreenController
-                                                mainScreenViewController?.userIsRegistred = true
+                                                let ChooseCityStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: Bundle.main)
+                                                let ChooseCityController = ChooseCityStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as! SearchForItemsViewController
                                                 loadingAnimationController.dismiss(animated: false, completion: nil)
-                                                self.navigationController?.pushViewController(mainScreenViewController!, animated: true)
+                                                self.navigationController?.pushViewController(ChooseCityController, animated: true)
                                             }
+//                                                let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
+//                                                let mainScreenViewController = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as? MainScreenController
+//                                                mainScreenViewController?.userIsRegistred = true
+//                                                loadingAnimationController.dismiss(animated: false, completion: nil)
+//                                                self.navigationController?.pushViewController(mainScreenViewController!, animated: true)
+                                            
         }
-
+        
     }
     
     var imageStr = ""
