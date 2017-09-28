@@ -25,6 +25,7 @@ class EditingProfileViewController: UIViewController, PopupTitleForPersonViewCon
     
     @IBOutlet weak var userCityLabelOutlet: UILabel!
     
+    @IBOutlet var changeCityButtonOutlet: UIButton!
 
     @IBOutlet weak var userAgeTextFieldOutlet: UITextField!
     
@@ -160,6 +161,11 @@ class EditingProfileViewController: UIViewController, PopupTitleForPersonViewCon
     
     func trasferUsetTitle(personTitle: String) {
         userTitleLabelOutlet.text = personTitle
+    }
+    
+    
+    @IBAction func changeCityAction(_ sender: UIButton) {
+        
     }
 
     @IBAction func changeSexSegmentedControl(_ sender: UISegmentedControl) {

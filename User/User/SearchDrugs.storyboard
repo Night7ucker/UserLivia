@@ -56,10 +56,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ueh-uU-hWU">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ueh-uU-hWU" customClass="DrugPageButton" customModule="User" customModuleProvider="target">
                                 <rect key="frame" x="16" y="153" width="343" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -70,7 +70,6 @@
                     <connections>
                         <outlet property="drugNameButtonOutlet" destination="Ueh-uU-hWU" id="DUX-rH-huw"/>
                         <outlet property="drugNameTextFieldOutlet" destination="dLO-QZ-bnz" id="SIU-8V-pPX"/>
-                        <outlet property="goToDrugPageAction" destination="Ueh-uU-hWU" id="IAo-PQ-TSp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEF-jb-lr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
