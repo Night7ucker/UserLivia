@@ -89,7 +89,7 @@ extension MakeOrderViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (indexPath.row == 1){
             let GetDrugsStoryboard = UIStoryboard(name: "SearchDrugs", bundle: nil)
-            let GetDrugsViewController = GetDrugsStoryboard.instantiateViewController(withIdentifier: "SearchDrugsStoryboardId") as? GetDrugsViewController
+            let GetDrugsViewController = GetDrugsStoryboard.instantiateViewController(withIdentifier: "kSearchDrugsStoryboardId") as? GetDrugsViewController
             navigationController?.pushViewController(GetDrugsViewController!, animated: true)
 
         }

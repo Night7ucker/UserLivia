@@ -28,7 +28,7 @@
         <!--Get Drugs View Controller-->
         <scene sceneID="Hmk-0h-4oY">
             <objects>
-                <viewController storyboardIdentifier="SearchDrugsStoryboardId" id="F52-rz-h2d" customClass="GetDrugsViewController" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="kSearchDrugsStoryboardId" id="F52-rz-h2d" customClass="GetDrugsViewController" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XFW-z8-kPQ"/>
                         <viewControllerLayoutGuide type="bottom" id="f9A-nd-pMq"/>
@@ -56,22 +56,37 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ueh-uU-hWU" customClass="DrugPageButton" customModule="User" customModuleProvider="target">
-                                <rect key="frame" x="16" y="153" width="343" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eoL-t2-ugM">
-                                <rect key="frame" x="16" y="289" width="343" height="128"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eoL-t2-ugM" customClass="DrugsView" customModule="User" customModuleProvider="target">
+                                <rect key="frame" x="16" y="178" width="343" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jli-Fg-EZ3">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jli-Fg-EZ3">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="drugsCell" id="snd-bc-fZz" customClass="DrugsInfoTableViewCell" customModule="User" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="343" height="64"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="snd-bc-fZz" id="vxq-7s-qPM">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="63.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIO-L7-taz">
+                                                            <rect key="frame" x="8" y="21" width="327" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <connections>
+                                                    <outlet property="drugsName" destination="uIO-L7-taz" id="IWY-yZ-2sA"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -80,8 +95,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="drugNameButtonOutlet" destination="Ueh-uU-hWU" id="DUX-rH-huw"/>
                         <outlet property="drugNameTextFieldOutlet" destination="dLO-QZ-bnz" id="SIU-8V-pPX"/>
+                        <outlet property="drugsListView" destination="eoL-t2-ugM" id="B6d-JA-P58"/>
+                        <outlet property="tableView" destination="jli-Fg-EZ3" id="0n1-Ec-Us6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEF-jb-lr1" userLabel="First Responder" sceneMemberID="firstResponder"/>

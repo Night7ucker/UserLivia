@@ -9,19 +9,23 @@
 import UIKit
 import Alamofire
 
+
+
 class GetDrugsViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var drugNameTextFieldOutlet: UITextField!
     
-    @IBOutlet var drugNameButtonOutlet: UIButton!
-    var drugId = ""
+    @IBOutlet var drugsListView: UIView!
+    @IBOutlet var tableView: UITableView!
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        drugsListView.isHidden = true
+        tableView.delegate = self
+        tableView.dataSource = self
         drugNameTextFieldOutlet.delegate = self
-        drugNameButtonOutlet.isHidden = true
         drugNameTextFieldOutlet.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
 
@@ -31,44 +35,49 @@ class GetDrugsViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidChange(_ textField: UITextField) {
-        if(drugNameTextFieldOutlet.text!.characters.count > 2) {
-            drugNameButtonOutlet.isHidden = false
-            drugNameButtonOutlet.setTitle(drugNameTextFieldOutlet.text, for: .normal)
-            findDrugs()
-        }
-    }
-    
-    
-    func findDrugs() {
-        
-        let url = "https://test.liviaapp.com/api/search?search_type=drug"
-        
-        let parameters: Parameters = [
-            "name": drugNameTextFieldOutlet.text!
-        ]
-        let headers = [
-            "Content-Type": "application/json",
-            "LiviaApp-language": "en",
-            "LiviaApp-country": RealmDataManager.getUserDataFromRealm()[0].countryCode!,
-            "LiviaApp-city": RealmDataManager.getUserDataFromRealm()[0].cityId!,
-            "LiviaApp-APIVersion": "2.0",
-            "LiviaApp-Token": "6289faef06329fa14086a8497201a8d17ad23a40"
-        ]
-        
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-            print(response.result.value!)
-            guard let result = response.result.value as? [String : AnyObject] else{ return }
-            
-            guard let tmp = result["body"] as? [[String: AnyObject]] else{ return }
-            
-            for element in tmp {
-                self.drugId = (element["id"] as? String)!
-                print(self.drugId)
-            }
-            
-        }
-        
-    }
- 
 
+        if(drugNameTextFieldOutlet.text!.characters.count > 2) {
+            drugsListView.isHidden = false
+            let obj = GetDrugsRequest()
+            obj.findDrugs(drugName: drugNameTextFieldOutlet.text!, completion: { (success) in
+                if success {
+                    self.tableView.reloadData()
+                }
+                
+            })
+
+        }
+    }
+    
+    
+
+ 
 }
+
+extension GetDrugsViewController: UITableViewDataSource {
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return RealmDataManager.getDrugsFromRealm().count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "drugsCell", for: indexPath) as! DrugsInfoTableViewCell
+
+        cell.drugsName.text = RealmDataManager.getDrugsFromRealm()[indexPath.row].name
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+}
+
+extension GetDrugsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64
+    }
+}
+

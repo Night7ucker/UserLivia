@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DrugPageButton: UIButton {
+class DrugsView: UIView {
 
     var shadowLayer: CAShapeLayer!
     
