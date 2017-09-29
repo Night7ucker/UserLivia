@@ -44,7 +44,7 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
     @IBOutlet weak var poupErrorViewOutlet: UIView!
     
     
-    let lightBluecolor = UIColor(red: CGFloat(0/255.0), green: CGFloat(128/255.0), blue: CGFloat(255/255.0), alpha: CGFloat(1.0))
+    let lightBlueColor = UIColor(red: CGFloat(0/255.0), green: CGFloat(128/255.0), blue: CGFloat(255/255.0), alpha: CGFloat(1.0))
     
     var weekReminderCheckButtonTapped = true
     var week2ReminderCheckButtonTapped = false
@@ -52,13 +52,24 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
     var week4ReminderCheckButtonTapped = false
     var monthReminderCheckButtonTapped = false
     
+    var dayDateBeforeFormating = String()
+    var hourDateBeforeFormating = String()
+    
     var delegate: AddReminderViewControllerProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.barTintColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
+        
+        navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
+        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        navigationController?.navigationBar.layer.shadowRadius = 4.0
+        navigationController?.navigationBar.layer.shadowOpacity = 0.5
+        navigationController?.navigationBar.layer.masksToBounds = false
+        
         viewWithDateOutlet.layer.borderWidth = 0.5
-        saveButtonOutlet.backgroundColor = lightBluecolor
+        saveButtonOutlet.backgroundColor = lightBlueColor
         saveButtonOutlet.layer.cornerRadius = 2
         
         poupErrorViewOutlet.isHidden = true
@@ -210,8 +221,10 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
         
         formatter.dateFormat = "dd.MM.yyyy"
         dateLabelOutlet.text = formatter.string(from: data)
+        
+        formatter.dateFormat = "yyyy-MM-dd"
+        dayDateBeforeFormating = formatter.string(from: data)
     }
-    
     
     @IBAction func timePopupButtonTapped(_ sender: UIButton) {
         let settingsStoryboard = UIStoryboard(name: "RefillsAndReminders", bundle: nil)
@@ -225,12 +238,22 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
         let calendar = Calendar.current
         
         let hour = calendar.component(.hour, from: data)
-        let minutes = calendar.component(.minute, from: data)
-        if minutes < 10 {
-            timeHoursLabelOutlet.text = String(hour) + ":" + "0" + String(minutes)
-        } else {
-            timeHoursLabelOutlet.text = String(hour) + ":" + String(minutes)
+        let minute = calendar.component(.minute, from: data)
+        let second = calendar.component(.second, from: data)
+        
+        var hours = String(hour)
+        if hour < 10 {
+            hours = "0" + String(hour)
         }
+        var minutes = String(minute)
+        if minute < 10 {
+            minutes = "0" + String(minute)
+        }
+        var seconds = String(second)
+        if second < 10 {
+            seconds = "0" + String(second)
+        }
+        hourDateBeforeFormating = hours + ":" + minutes + ":" + seconds + "+03:00"
     }
     
     func getTrueCheckIndex(week1Checkbox: Bool, week2Checkbox: Bool, week3Checkbox: Bool, week4Checkbox: Bool, monthCheckbox: Bool) -> Int? {
@@ -242,13 +265,60 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
         checkBoxArray.append(monthCheckbox)
         for boolean in checkBoxArray {
             if boolean == true {
-                return checkBoxArray.index(of: boolean)
+                return checkBoxArray.index(of: boolean)! + 1
             }
         }
         return nil
     }
     
     @IBAction func saveReminderButtonTapped(_ sender: UIButton) {
+        if dayDateBeforeFormating == "" {
+            let date = Date()
+            let calendar = Calendar.current
+            
+            let year = calendar.component(.year, from: date)
+            let month = calendar.component(.month, from: date)
+            let day = calendar.component(.day, from: date)
+            
+            var years = String(year)
+            if year < 10 {
+                years = "0" + String(year)
+            }
+            var months = String(month)
+            if month < 10 {
+                months = "0" + String(month)
+            }
+            var days = String(day)
+            if day < 10 {
+                days = "0" + String(day)
+            }
+            dayDateBeforeFormating = years + "-" + months + "-" + days
+        }
+        if hourDateBeforeFormating == "" {
+            hourDateBeforeFormating = String(describing: Calendar.current)
+            let date = Date()
+            let calendar = Calendar.current
+            
+            let hour = calendar.component(.hour, from: date)
+            let minute = calendar.component(.minute, from: date)
+            let second = calendar.component(.second, from: date)
+            
+            var hours = String(hour)
+            if hour < 10 {
+                hours = "0" + String(hour)
+            }
+            var minutes = String(minute)
+            if minute < 10 {
+                minutes = "0" + String(minute)
+            }
+            var seconds = String(second)
+            if second < 10 {
+                seconds = "0" + String(second)
+            }
+            
+            hourDateBeforeFormating = hours + ":" + minutes + ":" + seconds + "+03:00"
+        }
+        let finalDateBeforeFromating = dayDateBeforeFormating + "T" + hourDateBeforeFormating
         if medicineNameTextFieldOutlet.text == "" {
             poupErrorViewOutlet.isHidden = false
             Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(dismissAlert), userInfo: nil, repeats: false)
@@ -262,9 +332,13 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
         reminderModelObject.dateTimeDaysAndYears = dateLabelOutlet.text
         reminderModelObject.dateTimeHoursAndMinutes = timeHoursLabelOutlet.text
         reminderModelObject.medicineName = medicineNameTextFieldOutlet.text
+        reminderModelObject.dateForRequest = finalDateBeforeFromating
         let realm = try! Realm()
         RealmDataManager.writeIntoRealm(object: reminderModelObject, realm: realm)
         delegate.reloadTable()
+        ReminderRequests.addReminder { success in
+            
+        }
         
         navigationController?.popViewController(animated: true)
     }

@@ -763,7 +763,7 @@
                                         <date key="date" timeIntervalSinceReferenceDate="528036698.44393301">
                                             <!--2017-09-25 12:51:38 +0000-->
                                         </date>
-                                        <locale key="locale" localeIdentifier="be"/>
+                                        <locale key="locale" localeIdentifier="en_KE"/>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tyR-vb-HI2">
                                         <rect key="frame" x="0.0" y="237" width="343" height="53"/>

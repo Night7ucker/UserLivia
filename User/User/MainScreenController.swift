@@ -8,30 +8,86 @@
 
 import UIKit
 
-class MainScreenController: UIViewController {
+protocol SigninViewControllerDelegate: class {
+    func pushToRegistrationViewController()
+}
+
+class MainScreenController: UIViewController, SigninViewControllerDelegate {
     
     
+    @IBOutlet weak var fullNameLabelOutlet: UILabel!
     
+    @IBOutlet weak var userProfileImageOutlet: CustomImageView!
     
     @IBOutlet weak var personImage: CustomImageView!
     
     @IBOutlet weak var mainScreenTableView: UITableView!
     
+    var userIsRegistred  = false
+    let countryCodesDataManagerObject = CountryCodesDataManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if userIsRegistred == false {
+            fullNameLabelOutlet.isHidden = true
+        } else {
+            let baseImageUrl = "https://test.liviaapp.com"
+            let obj = GetUserProfileRequest()
+            obj.GetUserProfileFunc(completion: { (success) in
+                if success {
+                    self.fullNameLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].namePrefix!+" "+RealmDataManager.getUserDataFromRealm()[0].firstName!+" "+RealmDataManager.getUserDataFromRealm()[0].lastName!
+                    let fullImageUrl = baseImageUrl+RealmDataManager.getUserDataFromRealm()[0].avatar!
+                    let object = CountryCodesDataManager()
+                    object.getImage(pictureUrl: fullImageUrl) { success, image in
+                        if success {
+                            self.personImage.image = image
+                        }
+                    }
+                    
+                }
+            })
+        }
         
         personImage.layer.borderWidth = 3.0
         personImage.layer.borderColor = UIColor.white.cgColor
         
         mainScreenTableView.delegate = self
         mainScreenTableView.dataSource = self
-        mainScreenTableView.layer.cornerRadius = 5.0
+        mainScreenTableView.layer.cornerRadius = 10.0
         
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
+    }
+    
+    
+    @IBAction func editProfileButtontTapped(_ sender: UIButton) {
+        
+        if RealmDataManager.getTokensFromRealm().count == 0 {
+            let signinViewStoryboard = UIStoryboard(name: "SigninViewStoryboard", bundle: nil)
+            let signinViewController = signinViewStoryboard.instantiateViewController(withIdentifier: "kSigninViewController") as? SigninViewController
+            signinViewController?.delegate = self
+            present(signinViewController!, animated: false, completion: nil)
+        } else {
+            let editProfileStoryboard = UIStoryboard(name: "EditProfile", bundle: nil)
+            let editProfileViewController = editProfileStoryboard.instantiateViewController(withIdentifier: "kEditingProfileViewController") as? EditingProfileViewController
+            self.navigationController?.pushViewController(editProfileViewController!, animated: false)
+        }
+        
+    }
+    
+    func pushToRegistrationViewController() {
+        let mainViewStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: nil)
+        let registrationViewController = mainViewStoryboard.instantiateViewController(withIdentifier: "kRegistrationViewController") as? RegistrationViewController
+        navigationController?.pushViewController(registrationViewController!, animated: false)
+    }
     
 }
 
@@ -90,6 +146,8 @@ extension MainScreenController : UITableViewDataSource{
         
         return cell
     }
+    
+    
 }
 extension MainScreenController : UITableViewDelegate{
     
@@ -106,13 +164,32 @@ extension MainScreenController : UITableViewDelegate{
             let settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "kMakeOrderViewController") as? MakeOrderViewController
             self.navigationController?.pushViewController(settingsViewController!, animated: true)
         case 1:
-            let settingsStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: nil)
-            let settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as? SearchForItemsViewController
-            self.navigationController?.pushViewController(settingsViewController!, animated: true)
+            if RealmDataManager.getTokensFromRealm().count == 0 {
+                let ChooseCityStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: Bundle.main)
+                let ChooseCityController = ChooseCityStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as! SearchForItemsViewController
+                ChooseCityController.checkIsRegistered = false
+                self.navigationController?.pushViewController(ChooseCityController, animated: true)
+            } else {
+                let mainViewStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: nil)
+                let settingsViewController = mainViewStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as? SearchForItemsViewController
+                self.navigationController?.pushViewController(settingsViewController!, animated: true)
+            }
+            
+            
         case 2:
             print("2")
         case 3:
-            print("3")
+            if RealmDataManager.getTokensFromRealm().count == 0 {
+                let signinViewStoryboard = UIStoryboard(name: "SigninViewStoryboard", bundle: nil)
+                let signinViewController = signinViewStoryboard.instantiateViewController(withIdentifier: "kSigninViewController") as? SigninViewController
+                signinViewController?.delegate = self
+                present(signinViewController!, animated: false, completion: nil)
+            } else {
+                let refillsAndRemindersStoryboard = UIStoryboard(name: "RefillsAndReminders", bundle: nil)
+                let settingsViewController = refillsAndRemindersStoryboard.instantiateViewController(withIdentifier: "kRemindersViewController") as? RemindersViewController
+                self.navigationController?.pushViewController(settingsViewController!, animated: true)
+            }
+            
         case 4:
             print("4")
         case 5:
@@ -124,5 +201,7 @@ extension MainScreenController : UITableViewDelegate{
             break
         }
     }
+    
+    
     
 }

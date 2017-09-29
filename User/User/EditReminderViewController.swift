@@ -60,10 +60,20 @@ class EditReminderViewController: UIViewController, CalendarPopupViewControllerD
     
     var ifCheckBoxChanged = false
     
+    let reminderRequestManager = ReminderRequests()
+    
     let lightBluecolor = UIColor(red: CGFloat(0/255.0), green: CGFloat(128/255.0), blue: CGFloat(255/255.0), alpha: CGFloat(1.0))
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.barTintColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
+        
+        navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
+        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        navigationController?.navigationBar.layer.shadowRadius = 4.0
+        navigationController?.navigationBar.layer.shadowOpacity = 0.5
+        navigationController?.navigationBar.layer.masksToBounds = false
         
         saveButtonOutlet.layer.cornerRadius = 2
         saveButtonOutlet.backgroundColor = lightBluecolor
@@ -96,21 +106,22 @@ class EditReminderViewController: UIViewController, CalendarPopupViewControllerD
         checkboxesCheckedArray.append(week4ReminderCheckButtonTapped)
         checkboxesCheckedArray.append(monthReminderCheckButtonTapped)
         
-        checkboxesCheckedArray[reminderObjectFromRealm.checkBoxIndex] = true
+        checkboxesCheckedArray[reminderObjectFromRealm.checkBoxIndex - 1] = true
         switch reminderObjectFromRealm.checkBoxIndex {
-        case 0:
-            weekCheckboxOutlet.image = UIImage(named: "checkBoxChecked.png")
         case 1:
-            week2CheckboxOutlet.image = UIImage(named: "checkBoxChecked.png")
+            weekCheckboxOutlet.image = UIImage(named: "checkBoxChecked.png")
         case 2:
-            week3CheckboxOutlet.image = UIImage(named: "checkBoxChecked.png")
+            week2CheckboxOutlet.image = UIImage(named: "checkBoxChecked.png")
         case 3:
-            week4CheckboxOutlet.image = UIImage(named: "checkBoxChecked.png")
+            week3CheckboxOutlet.image = UIImage(named: "checkBoxChecked.png")
         case 4:
+            week4CheckboxOutlet.image = UIImage(named: "checkBoxChecked.png")
+        case 5:
             monthCheckboxOutlet.image = UIImage(named: "checkBoxChecked.png")
         default:
             break
         }
+        
         dayAndMonthDateOutlet.text = reminderObjectFromRealm.dateTimeDaysAndYears
         minutesAndHoursDateOutlet.text = reminderObjectFromRealm.dateTimeHoursAndMinutes
         reminderNameLabelOutlet.text = reminderObjectFromRealm.medicineName
@@ -233,6 +244,9 @@ class EditReminderViewController: UIViewController, CalendarPopupViewControllerD
             realmObjectToSave.dateTimeHoursAndMinutes = minutesAndHoursDateOutlet.text
             realmObjectToSave.dateTimeDaysAndYears = dayAndMonthDateOutlet.text
         }
+        print(reminderObjectFromRealm)
+        
+        ReminderRequests.editReminder(reminderID: reminderObjectFromRealm.id!, reminderStartDate: realmObjectToSave.dateForRequest!, reminderDrugName: realmObjectToSave.medicineName!, reminderChekboxIndex: String(realmObjectToSave.checkBoxIndex))
         
         let transition = CATransition()
         transition.duration = 0.4
@@ -288,7 +302,7 @@ class EditReminderViewController: UIViewController, CalendarPopupViewControllerD
         checksBoolArray.append(monthCheckboxBool)
         for boolean in checksBoolArray {
             if boolean == true {
-                return checksBoolArray.index(of: boolean)
+                return checksBoolArray.index(of: boolean)! + 1
             }
         }
         return nil

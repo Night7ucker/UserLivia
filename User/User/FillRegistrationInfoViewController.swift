@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class FillRegistrationInfoViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class FillRegistrationInfoViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, PopupTitleForPersonViewControllerDelegate {
     
     var token = NotificationToken()
     let realm = try! Realm()
@@ -17,6 +17,9 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
     var yearsOld18IsChecked = false
     var agreeWithTermsIsChecked = false
     var imagePicker = UIImagePickerController()
+    var sex = "Female"
+    
+    let lightBluecolor = UIColor(red: CGFloat(0/255.0), green: CGFloat(128/255.0), blue: CGFloat(255/255.0), alpha: CGFloat(1.0))
     
     @IBOutlet var photoImageView: UIImageView!
     @IBOutlet weak var personTitleLabelOutlet: UILabel!
@@ -27,42 +30,48 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
     @IBOutlet weak var check18YearsOldImageViewOutlet: UIImageView!
     @IBOutlet weak var checkTermsAndConditionsImageViewOutlet: UIImageView!
     @IBOutlet weak var nextButtonOutlet: UIButton!
-    @IBOutlet weak var openTermsLinkButtonOutlet: UIButton!
+    
+    @IBOutlet weak var nextLabelOutlet: UILabel!
+    
+    
+    var indexOfCountry = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Registration Fields"
+        navigationController?.navigationBar.barTintColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
         
+        navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
+        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        navigationController?.navigationBar.layer.shadowRadius = 4.0
+        navigationController?.navigationBar.layer.shadowOpacity = 0.5
+        navigationController?.navigationBar.layer.masksToBounds = false
         
-         if RealmDataManager.getPersonTitleFromRealm().count > 0 {
-            try! realm.write {
-                realm.delete(RealmDataManager.getPersonTitleFromRealm())
-            }
-        }
+        let titleLabel = UILabel()
+        titleLabel.text = "Create profile"
+        titleLabel.textColor = .white
+        titleLabel.frame = CGRect(x: 0, y: 0, width: 150, height: 30)
+        
+        let titleLabelBarButton = UIBarButtonItem(customView: titleLabel)
+        
+        navigationItem.leftBarButtonItem = titleLabelBarButton
+        
+        personTitleLabelOutlet.text = "Dr."
+        
         nextButtonOutlet.layer.cornerRadius = 2
+        nextButtonOutlet.backgroundColor = lightBluecolor
+        nextButtonOutlet.isHidden = true
+        nextLabelOutlet.layer.cornerRadius = 2
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-       
-        token = realm.addNotificationBlock { (notifcation, realm) -> Void in
-            
-            if RealmDataManager.getPersonTitleFromRealm().count > 0 {
-                self.personTitleLabelOutlet.text = RealmDataManager.getPersonTitleFromRealm()[0].title
-            }
-        }
-
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
-    deinit {
-        token.stop()
-    }
-
     @IBAction func check18YearsOldButtonTapped(_ sender: UIButton) {
         if agreeWithTermsIsChecked {
             check18YearsOldImageViewOutlet.image = UIImage(named: "checkBoxUnchecked.png")
@@ -70,6 +79,13 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
         } else {
             check18YearsOldImageViewOutlet.image = UIImage(named: "checkBoxChecked.png")
             agreeWithTermsIsChecked = true
+        }
+        if checkIfCheksAreSet(check18YearsOld: yearsOld18IsChecked, checkAgreeWithTermsAndConditions: agreeWithTermsIsChecked) {
+            nextLabelOutlet.isHidden = true
+            nextButtonOutlet.isHidden = false
+        } else {
+            nextLabelOutlet.isHidden = false
+            nextButtonOutlet.isHidden = true
         }
     }
     
@@ -82,7 +98,22 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
             checkTermsAndConditionsImageViewOutlet.image = UIImage(named: "checkBoxChecked.png")
             yearsOld18IsChecked = true
         }
+        if checkIfCheksAreSet(check18YearsOld: yearsOld18IsChecked, checkAgreeWithTermsAndConditions: agreeWithTermsIsChecked) {
+            nextLabelOutlet.isHidden = true
+            nextButtonOutlet.isHidden = false
+        } else {
+            nextLabelOutlet.isHidden = false
+            nextButtonOutlet.isHidden = true
+        }
     }
+    
+    func checkIfCheksAreSet(check18YearsOld: Bool, checkAgreeWithTermsAndConditions: Bool) -> Bool {
+        if check18YearsOld == false || checkAgreeWithTermsAndConditions == false {
+            return false
+        }
+        return true
+    }
+    
     
     @IBAction func changeTitleButtonTapped(_ sender: UIButton) {
         
@@ -90,9 +121,9 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
     
     @IBAction func changeSexSegmentedControl(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            print("female")
+            sex = "Female"
         } else if sender.selectedSegmentIndex == 1 {
-            print("male")
+            sex = "Male"
         }
     }
     @IBAction func addPhotoAction(_ sender: UIButton) {
@@ -103,12 +134,38 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
             imagePicker.sourceType = .savedPhotosAlbum;
             imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true, completion: nil)
-    
+            
         }
     }
     
     
     @IBAction func registerUserAction(_ sender: UIButton) {
+        let loadingAnimationStoryboard = UIStoryboard(name: "LoadingAnimation", bundle: Bundle.main)
+        let loadingAnimationController = loadingAnimationStoryboard.instantiateViewController(withIdentifier: "kLoadingAnimationViewController") as! LoadingAnimationViewController
+        present(loadingAnimationController, animated: false, completion: nil)
+        
+        let userRegistrationObject = RegistrationUserRequest()
+        userRegistrationObject.registerUserFunc(prefixName: personTitleLabelOutlet.text!,
+                                           fName: firstNameTextFieldOutlet.text!,
+                                           lName: lastNameTextFieldOutlet.text!,
+                                           age: ageTextFieldOutlet.text!,
+                                           sex: sex,
+                                           mail: emailTextFieldOutlet.text!,
+                                           imageUrl: RealmDataManager.getImageUrlFromRealm()[0].imageUrl!,
+                                           codeIndex: indexOfCountry) { success in
+                                            if success {
+                                                let ChooseCityStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: Bundle.main)
+                                                let ChooseCityController = ChooseCityStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as! SearchForItemsViewController
+                                                loadingAnimationController.dismiss(animated: false, completion: nil)
+                                                self.navigationController?.pushViewController(ChooseCityController, animated: true)
+                                            }
+//                                                let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
+//                                                let mainScreenViewController = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as? MainScreenController
+//                                                mainScreenViewController?.userIsRegistred = true
+//                                                loadingAnimationController.dismiss(animated: false, completion: nil)
+//                                                self.navigationController?.pushViewController(mainScreenViewController!, animated: true)
+                                            
+        }
         
     }
     
@@ -131,6 +188,23 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
     }
     
     
+    @IBAction func termsAndConditionsLinkTapped(_ sender: UIButton) {
+        let termsAndConditions = UIStoryboard(name: "TermsAndConditions", bundle: nil)
+        let termsAndConditionsViewController = termsAndConditions.instantiateViewController(withIdentifier: "kTermsAndConditionsWebViewViewController") as? TermsAndConditionsWebViewViewController
+        navigationController?.pushViewController(termsAndConditionsViewController!, animated: true)
+    }
     
- 
+    func trasferUsetTitle(personTitle: String) {
+        personTitleLabelOutlet.text = personTitle
+    }
+    
+    // showPopupWithTitlesForRegistration
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPopupWithTitlesForRegistration" {
+            let popupTitleForPersonViewController = segue.destination as? PopupTitleForPersonViewController
+            popupTitleForPersonViewController?.delegate = self
+        }
+    }
+    
 }

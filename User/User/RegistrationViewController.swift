@@ -21,6 +21,8 @@ protocol SmsConfrimViewControllerDelegate: class {
 
 class RegistrationViewController: UIViewController, PopupCountryCodesTableViewControllerDelegate, SmsConfrimViewControllerDelegate {
     
+    let lightBlueColor = UIColor(red: CGFloat(121/255.0), green: CGFloat(181/255.0), blue: CGFloat(208/255.0), alpha: CGFloat(1.0))
+    
     @IBOutlet weak var nextButtonOutlet: UIButton!
     @IBOutlet weak var mainWhiteViewOutlet: UIView!
     @IBOutlet weak var skipRegistrationButtonOutlet: UIButton!
@@ -33,7 +35,6 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
     
     @IBOutlet weak var errorViewOutlet: UIView!
     
-    var token = NotificationToken()
     let realm = try! Realm()
     let countryCodeDataManagerObject = CountryCodesDataManager()
     
@@ -42,8 +43,10 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
     var canSendNewCode = true
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        //        phoneNumberField.delegate = self
+        nextButtonOutlet.backgroundColor = lightBlueColor
+        phoneNumberField.delegate = self
         navigationController?.isNavigationBarHidden = true
         errorViewOutlet.isHidden = true
         print(Realm.Configuration.defaultConfiguration.fileURL!)
@@ -57,11 +60,11 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
         }
         countryName.text = "Belarus"
         countryCode.text = "+375"
-        //            let indexOfCountry = RealmDataManager.getIndexCountryFromRealm()
         
         nextButtonOutlet.layer.cornerRadius = 2
         mainWhiteViewOutlet.layer.cornerRadius = 10
         skipRegistrationButtonOutlet.layer.cornerRadius = 2
+        skipRegistrationButtonOutlet.setTitleColor(lightBlueColor, for: .normal)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -77,6 +80,13 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
         // Dispose of any resources that can be recreated.
     }
     
+//    deinit {
+//        let realm = try! Realm()
+//        try! realm.write {
+//            realm.delete(RealmDataManager.getDataFromCountries())
+//        }
+//    }
+    
     @IBAction func sendAuthCodeAction(_ sender: Any) {
         if canSendNewCode {
             let phoneNumberObject = PhoneNumberModel()
@@ -88,6 +98,7 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
                 }
             }
             RealmDataManager.writeIntoRealm(object: phoneNumberObject, realm: realm)
+            
             let countryCodeValue = String(countryCode.text!.characters.dropFirst())
             let getAuthCodeObject = GetAuthCode(number: phoneNumberField.text!, code: countryCodeValue)
             getAuthCodeObject.getAutCodeRequest()
@@ -95,6 +106,7 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
             let registrationStoryboard = UIStoryboard(name: "RegistrationModule", bundle: nil)
             let smsConfirmViewController = registrationStoryboard.instantiateViewController(withIdentifier: "kSmsConfrimViewController") as? SmsConfrimViewController
             smsConfirmViewController?.delegate = self
+            smsConfirmViewController?.indexOfCountry = indexOfCountry
             navigationController?.pushViewController(smsConfirmViewController!, animated: true)
             canSendNewCode = false
             
@@ -112,10 +124,6 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
     }
     
     
-    deinit {
-        token.stop()
-    }
-    
     @IBAction func changePhoneCodeForCountryButtonTapped(_ sender: UIButton) {
         
     }
@@ -123,7 +131,6 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
     func sendCountryInfo(index: Int) {
         indexOfCountry = index
         let countryObject = RealmDataManager.getDataFromCountries()[indexOfCountry]
-        
         countryCode.text = "+" + countryObject.phoneCode!
         countryName.text = countryObject.countryName
         let urlImage = "https://test.liviaapp.com" + countryObject.countryFlag!
@@ -141,15 +148,18 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
             
             popupContriesControllerr.delegate = self
         }
-        if segue.identifier == "showSmsGetCode" {
-            let smsGetCodeViewController = segue.destination as! SmsConfrimViewController
-            
-            smsGetCodeViewController.indexOfCountry = indexOfCountry
-        }
     }
     
     func timeToSentNewCode() {
         canSendNewCode = true
+    }
+    
+    
+    @IBAction func skipRegistrationButtonTapped(_ sender: UIButton) {
+        let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
+        let mainScreenController = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as? MainScreenController
+        mainScreenController?.userIsRegistred = false
+        navigationController?.pushViewController(mainScreenController!, animated: true)
     }
 }
 

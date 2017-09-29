@@ -14,4 +14,6 @@ class ReminderModel: Object {
     dynamic var dateTimeDaysAndYears: String?
     dynamic var dateTimeHoursAndMinutes: String?
     dynamic var checkBoxIndex = -1
+    dynamic var dateForRequest: String?
+    dynamic var id: String?
 }

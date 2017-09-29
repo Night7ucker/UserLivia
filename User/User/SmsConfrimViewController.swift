@@ -43,13 +43,9 @@ class SmsConfrimViewController: UIViewController {
     var timer = Timer()
     var isTimerRunning = false
     
-    
-    let lightGray = UIColor(red: 230, green: 230, blue: 230, alpha: 1)
-    let lightBlue = UIColor(red: 0, green: 128, blue: 255, alpha: 1)
-    
     let lightGrayColor = UIColor( red: CGFloat(230/255.0), green: CGFloat(230/255.0), blue: CGFloat(230/255.0), alpha: CGFloat(1.0) )
     let lightBluecolor = UIColor( red: CGFloat(0/255.0), green: CGFloat(128/255.0), blue: CGFloat(255/255.0), alpha: CGFloat(1.0) )
-
+    
     let realm = try! Realm()
     
     var delegate: SmsConfrimViewControllerDelegate!
@@ -57,15 +53,17 @@ class SmsConfrimViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        wrongAuthCodeView.isHidden = true
+        
         Timer.scheduledTimer(timeInterval: 120.0, target: self, selector: #selector(timerForCodeSendingPassed), userInfo: nil, repeats: false)
         
         navigationController?.navigationBar.barTintColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
         
-        self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
-        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        self.navigationController?.navigationBar.layer.shadowRadius = 4.0
-        self.navigationController?.navigationBar.layer.shadowOpacity = 0.5
-        self.navigationController?.navigationBar.layer.masksToBounds = false
+        navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
+        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        navigationController?.navigationBar.layer.shadowRadius = 4.0
+        navigationController?.navigationBar.layer.shadowOpacity = 0.5
+        navigationController?.navigationBar.layer.masksToBounds = false
         
         let backButton = UIButton(type: .system)
         backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
@@ -84,7 +82,6 @@ class SmsConfrimViewController: UIViewController {
         
         navigationItem.setLeftBarButtonItems([backButtonBarButton, titleLabelBarButton], animated: true)
         
-        
         self.wrongAuthCodeView.isHidden = true
         timerButtonOutlet.isHidden = true
         timerLabelOutlet.backgroundColor = lightGrayColor
@@ -94,7 +91,6 @@ class SmsConfrimViewController: UIViewController {
         sendCodeAgainLabelOutlet.layer.cornerRadius = 2
         confirmButtonOutlet.layer.cornerRadius = 2
         timerButtonOutlet.layer.cornerRadius = 2
-        
         if RealmDataManager.getPhoneNumberFromRealm().count != 0 {
             let phoneCodeValue = String(describing: RealmDataManager.getDataFromCountries()[indexOfCountry].phoneCode!)
             personNumberLabelOutlet.text = "+" + phoneCodeValue + RealmDataManager.getPhoneNumberFromRealm()[0].phoneNumber!
@@ -138,28 +134,35 @@ class SmsConfrimViewController: UIViewController {
 
     
     @IBAction func confirmAuthCodeAction(_ sender: UIButton) {
+        let loadingAnimationStoryboard = UIStoryboard(name: "LoadingAnimation", bundle: Bundle.main)
+        let loadingAnimationController = loadingAnimationStoryboard.instantiateViewController(withIdentifier: "kLoadingAnimationViewController") as! LoadingAnimationViewController
+        present(loadingAnimationController, animated: false, completion: nil)
+        
         let phoneNumber = RealmDataManager.getPhoneNumberFromRealm()[0].phoneNumber!
         let authCode = textViewForCodeOutlet.text!
         let phoneCode = String(describing: RealmDataManager.getDataFromCountries()[indexOfCountry].phoneCode!)
         let getTokenObject = GetTokensRequest(phoneNumber: phoneNumber, phoneCode: phoneCode, authCode: authCode)
         getTokenObject.confirmAuthCode() { success in
             if success {
-              
-
                 switch RealmDataManager.getTokensFromRealm()[0].userStatus! {
                 case UserStatus.active.rawValue:
                     let MainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
                     let MainScreenController = MainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as! MainScreenController
+                    MainScreenController.userIsRegistred = true
+                    loadingAnimationController.dismiss(animated: false, completion: nil)
                     self.navigationController?.pushViewController(MainScreenController, animated: true)
                 case UserStatus.registrationInProgress.rawValue:
                     let RegistrationModuleStoryboard = UIStoryboard(name: "RegistrationModule", bundle: Bundle.main)
                     let RegistrationController = RegistrationModuleStoryboard.instantiateViewController(withIdentifier: "kFillRegistrationInfoViewController") as! FillRegistrationInfoViewController
+                    RegistrationController.indexOfCountry = self.indexOfCountry
+                    loadingAnimationController.dismiss(animated: false, completion: nil)
                     self.navigationController?.pushViewController(RegistrationController, animated: true)
                 default: return
                 }
-//                 +375 296205222
             } else {
                 self.wrongAuthCodeView.isHidden = false
+                Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.hideErrorView), userInfo: nil, repeats: false)
+                loadingAnimationController.dismiss(animated: false, completion: nil)
             }
         }
     }
@@ -185,5 +188,9 @@ class SmsConfrimViewController: UIViewController {
     
     func timerForCodeSendingPassed() {
         delegate.timeToSentNewCode()
+    }
+    
+    func hideErrorView() {
+        wrongAuthCodeView.isHidden = true
     }
 }

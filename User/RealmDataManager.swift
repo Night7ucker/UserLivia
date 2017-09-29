@@ -49,5 +49,25 @@ class RealmDataManager {
         let data = realm.objects(UploadImageModel.self)
         return data
     }
+    static func getUserDataFromRealm() -> Results<UserModel> {
+        let realm = try! Realm()
+        let data = realm.objects(UserModel.self)
+        return data
+    }
+    static func getCitiesNamesFromRealm() -> Results<City> {
+        let realm = try! Realm()
+        let data = realm.objects(City.self)
+        return data
+    }
+    static func getDrugsFromRealm() -> Results<GetDrugsModel> {
+        let realm = try! Realm()
+        let data = realm.objects(GetDrugsModel.self)
+        return data
+    }
+    static func getDrugsDescriptionFromRealm() -> Results<DrugsDescriptionModel> {
+        let realm = try! Realm()
+        let data = realm.objects(DrugsDescriptionModel.self)
+        return data
+    }
     
 }

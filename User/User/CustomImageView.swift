@@ -24,7 +24,6 @@ class CustomImageView: UIImageView {
     
     func setup()
     {
-        //Do onetime setup of the shape layer.
         layer.cornerRadius = frame.size.width/2
         layer.masksToBounds = true
     }
