@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F5CB07D1F7902EF006E338C /* OrdersPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5CB07C1F7902EF006E338C /* OrdersPageController.swift */; };
+		7F2F05EA1F7D08150068964B /* OrderStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F05E91F7D08150068964B /* OrderStatusCell.swift */; };
+		7F3536451F7BB3970084AACA /* OrdersStatusesPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3536441F7BB3970084AACA /* OrdersStatusesPopupController.swift */; };
+		7F6137F31F7B7E3500629AA7 /* OrdersPaymentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6137F21F7B7E3500629AA7 /* OrdersPaymentsController.swift */; };
+		7F6137F51F7B7F7C00629AA7 /* OrderPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6137F41F7B7F7C00629AA7 /* OrderPageCell.swift */; };
+		7F6137F71F7B7F9400629AA7 /* PaymentPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6137F61F7B7F9400629AA7 /* PaymentPageCell.swift */; };
 		7FBAFBB61F77D9D700BEB7F1 /* MainScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBAFBA91F77D9D700BEB7F1 /* MainScreen.storyboard */; };
 		7FBAFBB71F77D9D700BEB7F1 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBAFBAA1F77D9D700BEB7F1 /* Settings.storyboard */; };
+		7FE995421F7A96B200E31AA2 /* OrdersPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE995411F7A96B200E31AA2 /* OrdersPageController.swift */; };
+		7FE9954C1F7AAC8500E31AA2 /* PaymentsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE9954B1F7AAC8500E31AA2 /* PaymentsPageController.swift */; };
 		CE40CA801F78E619003BC535 /* RefillsAndReminders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */; };
 		CE40CA821F78E87D003BC535 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA811F78E87D003BC535 /* RemindersViewController.swift */; };
 		CE40CA851F78F2ED003BC535 /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA841F78F2ED003BC535 /* AddReminderViewController.swift */; };
@@ -55,9 +61,15 @@
 
 /* Begin PBXFileReference section */
 		6AADFDFA54C039FDAC2628CA /* Pods-User.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User.release.xcconfig"; path = "Pods/Target Support Files/Pods-User/Pods-User.release.xcconfig"; sourceTree = "<group>"; };
-		7F5CB07C1F7902EF006E338C /* OrdersPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersPageController.swift; sourceTree = "<group>"; };
+		7F2F05E91F7D08150068964B /* OrderStatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderStatusCell.swift; sourceTree = "<group>"; };
+		7F3536441F7BB3970084AACA /* OrdersStatusesPopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersStatusesPopupController.swift; sourceTree = "<group>"; };
+		7F6137F21F7B7E3500629AA7 /* OrdersPaymentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersPaymentsController.swift; sourceTree = "<group>"; };
+		7F6137F41F7B7F7C00629AA7 /* OrderPageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderPageCell.swift; sourceTree = "<group>"; };
+		7F6137F61F7B7F9400629AA7 /* PaymentPageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentPageCell.swift; sourceTree = "<group>"; };
 		7FBAFBA91F77D9D700BEB7F1 /* MainScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainScreen.storyboard; sourceTree = "<group>"; };
 		7FBAFBAA1F77D9D700BEB7F1 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		7FE995411F7A96B200E31AA2 /* OrdersPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersPageController.swift; sourceTree = "<group>"; };
+		7FE9954B1F7AAC8500E31AA2 /* PaymentsPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentsPageController.swift; sourceTree = "<group>"; };
 		9EA6723FDEE4071DE9039A46 /* Pods_User.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_User.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RefillsAndReminders.storyboard; sourceTree = "<group>"; };
 		CE40CA811F78E87D003BC535 /* RemindersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +148,20 @@
 			path = ../../../../user/User;
 			sourceTree = "<group>";
 		};
+		7FE995371F7A905200E31AA2 /* OrdersPaymentsModule */ = {
+			isa = PBXGroup;
+			children = (
+				7F6137F21F7B7E3500629AA7 /* OrdersPaymentsController.swift */,
+				7FE9954B1F7AAC8500E31AA2 /* PaymentsPageController.swift */,
+				7FE995411F7A96B200E31AA2 /* OrdersPageController.swift */,
+				7F6137F41F7B7F7C00629AA7 /* OrderPageCell.swift */,
+				7F6137F61F7B7F9400629AA7 /* PaymentPageCell.swift */,
+				7F3536441F7BB3970084AACA /* OrdersStatusesPopupController.swift */,
+				7F2F05E91F7D08150068964B /* OrderStatusCell.swift */,
+			);
+			name = OrdersPaymentsModule;
+			sourceTree = "<group>";
+		};
 		A60317FA6321E05DCD3F5A73 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,7 +221,6 @@
 				CEABE4211F7662AC0041FAD5 /* RegistrationModule.storyboard */,
 				CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */,
 				CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */,
-				7F5CB07C1F7902EF006E338C /* OrdersPageController.swift */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -231,6 +256,7 @@
 		CEABE41B1F764D950041FAD5 /* User Functionality Module */ = {
 			isa = PBXGroup;
 			children = (
+				7FE995371F7A905200E31AA2 /* OrdersPaymentsModule */,
 				7FBAFBBD1F77DAE500BEB7F1 /* SettingsMenuModule */,
 				7FBAFBBC1F77DAAF00BEB7F1 /* MainMenuModule */,
 				CEA61BE11F756E1800BA1AED /* MakeOrderModule */,
@@ -531,12 +557,19 @@
 				CEABE4281F7676470041FAD5 /* FillRegistrationInfoViewController.swift in Sources */,
 				CE95905C1F79473800536DF7 /* ReminderTableViewCell.swift in Sources */,
 				FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */,
+				7F6137F31F7B7E3500629AA7 /* OrdersPaymentsController.swift in Sources */,
 				FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */,
 				FB6B62E51F78F0C400AAB2F0 /* GetTokensRequest.swift in Sources */,
+				7FE9954C1F7AAC8500E31AA2 /* PaymentsPageController.swift in Sources */,
 				CE40CA8C1F79132A003BC535 /* CalendarPopupViewController.swift in Sources */,
 				FB5FC54E1F7A44CD00F8658A /* UploadImageRequest.swift in Sources */,
+				7F6137F71F7B7F9400629AA7 /* PaymentPageCell.swift in Sources */,
+				7F2F05EA1F7D08150068964B /* OrderStatusCell.swift in Sources */,
+				7F3536451F7BB3970084AACA /* OrdersStatusesPopupController.swift in Sources */,
+				7FE995421F7A96B200E31AA2 /* OrdersPageController.swift in Sources */,
 				CE40CA8E1F793408003BC535 /* TimePopupViewController.swift in Sources */,
 				FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */,
+				7F6137F51F7B7F7C00629AA7 /* OrderPageCell.swift in Sources */,
 				CEABE42B1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift in Sources */,
 				CEABE4301F769F4E0041FAD5 /* PersonTitleModel.swift in Sources */,
 				FB22C2351F77E91B000EED58 /* MainScreenController.swift in Sources */,
@@ -545,7 +578,6 @@
 				CEABE4251F76689B0041FAD5 /* SmsConfrimViewController.swift in Sources */,
 				FB22C2311F77E73F000EED58 /* MainScreenCell.swift in Sources */,
 				CEA61BCA1F756D9400BA1AED /* CountryCodeCell.swift in Sources */,
-				7F5CB07D1F7902EF006E338C /* OrdersPageController.swift in Sources */,
 				FB22C22F1F77E6BE000EED58 /* SettingsController.swift in Sources */,
 				CEABE41D1F764DF80041FAD5 /* SearchForItemsViewController.swift in Sources */,
 			);
