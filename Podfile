@@ -8,6 +8,7 @@ target 'User' do
   pod 'Alamofire'
   pod 'RealmSwift'
   pod 'PageMenu'
-  pod 'NVActivityIndicatorView'  
+  pod 'NVActivityIndicatorView'
+  pod 'CollapsibleTableSectionViewController'
   
 end
