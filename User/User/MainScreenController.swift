@@ -162,7 +162,7 @@ extension MainScreenController : UITableViewDelegate{
         case 0:
             let settingsStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: nil)
             let settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "kMakeOrderViewController") as? MakeOrderViewController
-            self.navigationController?.pushViewController(settingsViewController!, animated: true)
+            navigationController?.pushViewController(settingsViewController!, animated: true)
         case 1:
             let ChooseCityStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: Bundle.main)
             let ChooseCityController = ChooseCityStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as! SearchForItemsViewController
@@ -173,7 +173,9 @@ extension MainScreenController : UITableViewDelegate{
             self.navigationController?.pushViewController(ChooseCityController, animated: true)
             
         case 2:
-            print("2")
+            let ordersAppointmentsPayments = UIStoryboard(name: "Orders Appointments Payments", bundle: nil)
+            let ordersPaymentsController = ordersAppointmentsPayments.instantiateViewController(withIdentifier: "kOrdersPaymentsController") as? OrdersPaymentsController
+            navigationController?.pushViewController(ordersPaymentsController!, animated: true)
         case 3:
             if RealmDataManager.getTokensFromRealm().count == 0 {
                 let signinViewStoryboard = UIStoryboard(name: "SigninViewStoryboard", bundle: nil)
