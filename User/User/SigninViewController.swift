@@ -8,12 +8,16 @@
 
 import UIKit
 
+
+
 class SigninViewController: UIViewController {
 
     @IBOutlet weak var signinButtonOutlet: UIButton!
     
     
     @IBOutlet weak var continueButtonOutlet: UIButton!
+    
+    var delegate: SigninViewControllerDelegate!
     
     let lightBlueColor = UIColor(red: CGFloat(121/255.0), green: CGFloat(181/255.0), blue: CGFloat(208/255.0), alpha: CGFloat(1.0))
     
@@ -34,14 +38,15 @@ class SigninViewController: UIViewController {
     
     
     @IBAction func signinButtonTapped(_ sender: UIButton) {
-        let mainViewStoryboard = UIStoryboard(name: "MainViewStoryboard", bundle: nil)
-        let registrationViewController = mainViewStoryboard.instantiateViewController(withIdentifier: "kRegistrationViewController") as? RegistrationViewController
-        navigationController?.pushViewController(registrationViewController!, animated: true)
+        delegate.pushToRegistrationViewController()
+        dismiss(animated: false, completion: nil)
     }
     
     @IBAction func continueButtonTapped(_ sender: UIButton) {
-        navigationController?.popViewController(animated: false)
+        dismiss(animated: false, completion: nil)
     }
+    
+    
 
     /*
     // MARK: - Navigation

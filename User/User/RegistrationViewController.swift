@@ -35,7 +35,6 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
     
     @IBOutlet weak var errorViewOutlet: UIView!
     
-    var token = NotificationToken()
     let realm = try! Realm()
     let countryCodeDataManagerObject = CountryCodesDataManager()
     
@@ -81,6 +80,13 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
         // Dispose of any resources that can be recreated.
     }
     
+//    deinit {
+//        let realm = try! Realm()
+//        try! realm.write {
+//            realm.delete(RealmDataManager.getDataFromCountries())
+//        }
+//    }
+    
     @IBAction func sendAuthCodeAction(_ sender: Any) {
         if canSendNewCode {
             let phoneNumberObject = PhoneNumberModel()
@@ -117,10 +123,6 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
         errorViewOutlet.isHidden = true
     }
     
-    
-    deinit {
-        token.stop()
-    }
     
     @IBAction func changePhoneCodeForCountryButtonTapped(_ sender: UIButton) {
         
