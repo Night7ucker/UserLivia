@@ -25,8 +25,20 @@ class RemindersViewController: UIViewController, AddReminderViewControllerProtoc
     
     var tableViewIsHidden = true
     
+    let reminderRequestManager = ReminderRequests()
+    
+    let lightGrayColor = UIColor( red: CGFloat(230/255.0), green: CGFloat(230/255.0), blue: CGFloat(230/255.0), alpha: CGFloat(1.0) )
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        reminderRequestManager.getAllReminders { success in
+            self.arrayOfReminders = Array(RealmDataManager.getRemindersFromRealm())
+            self.remindersTableViewOutlet.reloadData()
+            self.tableViewIsHidden = false
+            self.remindersTableViewOutlet.isHidden = false
+            self.remindersTableViewOutlet.separatorStyle = .singleLine
+        }
         
         navigationController?.navigationBar.barTintColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
         
@@ -104,6 +116,13 @@ class RemindersViewController: UIViewController, AddReminderViewControllerProtoc
         remindersTableViewOutlet.isHidden = false
         remindersTableViewOutlet.separatorStyle = .singleLine
     }
+    
+    deinit {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(RealmDataManager.getRemindersFromRealm())
+        }
+    }
 }
 
 extension RemindersViewController: UITableViewDataSource {
@@ -118,7 +137,7 @@ extension RemindersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeaderView = UIView()
         
-        sectionHeaderView.backgroundColor = UIColor(red: 0.08, green: 0.08, blue: 0.08, alpha: 0.05)
+        sectionHeaderView.backgroundColor = lightGrayColor
         
         let sectionHeaderLabel = UILabel()
         
@@ -150,6 +169,7 @@ extension RemindersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            ReminderRequests.deleteReminder(reminderID: RealmDataManager.getRemindersFromRealm()[indexPath.row].id!)
             let realm = try! Realm()
             try! realm.write {
                 realm.delete(RealmDataManager.getRemindersFromRealm()[indexPath.row])
