@@ -17,7 +17,7 @@ class SearchForItemsViewController: UIViewController, UISearchBarDelegate {
     
     var arrayOfCitiesFromServer = [City]()
     var arrayOfSections = [String]()
-    
+    var checkIsRegistered = true
     var arrayOfCountriesAndCitiesForCountry = [ String: [String] ]()
     let realm = try! Realm()
     var offsetForCities = 0
@@ -156,41 +156,47 @@ extension SearchForItemsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
-        let selectedCityWithCountry = City()
-        let cell = tableView.cellForRow(at: indexPath) as? CityTableViewCell
-        selectedCityWithCountry.countryName = countriesAndCitiesArray[indexPath.section].country
-        selectedCityWithCountry.cityName = cell?.cityNameLabelOutlet.text
-        
-        let arrayWithputChoosedCity = RealmDataManager.getCitiesNamesFromRealm()
-        for element in arrayWithputChoosedCity {
-            if element.cityName != selectedCityWithCountry.cityName {
-                try! realm.write {
-                    realm.delete(element)
+        if checkIsRegistered == true {
+            let selectedCityWithCountry = City()
+            let cell = tableView.cellForRow(at: indexPath) as? CityTableViewCell
+            selectedCityWithCountry.countryName = countriesAndCitiesArray[indexPath.section].country
+            selectedCityWithCountry.cityName = cell?.cityNameLabelOutlet.text
+            
+            let arrayWithputChoosedCity = RealmDataManager.getCitiesNamesFromRealm()
+            for element in arrayWithputChoosedCity {
+                if element.cityName != selectedCityWithCountry.cityName {
+                    try! realm.write {
+                        realm.delete(element)
+                    }
                 }
             }
+            
+            let realmAddCityInfo = RealmDataManager.getUserDataFromRealm()
+            
+            try! realm.write {
+                realmAddCityInfo[0].cityName = RealmDataManager.getCitiesNamesFromRealm()[0].cityName!
+                realmAddCityInfo[0].countryName = RealmDataManager.getCitiesNamesFromRealm()[0].countryName!
+                realmAddCityInfo[0].cityId = RealmDataManager.getCitiesNamesFromRealm()[0].cityId!
+                realmAddCityInfo[0].countryId = RealmDataManager.getCitiesNamesFromRealm()[0].countryId!
+                realmAddCityInfo[0].countryCode = RealmDataManager.getCitiesNamesFromRealm()[0].countryCode!
+            }
+            let obj = EditUserCityRequest()
+            obj.editUserFunc { (success) in
+                if success {
+                    self.navigationController?.popViewController(animated: false)
+                }
+            }
+        } else {
+            let GetDrugsStoryboard = UIStoryboard(name: "SearchDrugs", bundle: nil)
+            let GetDrugsViewController = GetDrugsStoryboard.instantiateViewController(withIdentifier: "kSearchDrugsStoryboardId") as? GetDrugsViewController
+            navigationController?.pushViewController(GetDrugsViewController!, animated: true)
         }
         
-        let realmAddCityInfo = RealmDataManager.getUserDataFromRealm()
 
-        try! realm.write {
-            realmAddCityInfo[0].cityName = RealmDataManager.getCitiesNamesFromRealm()[0].cityName!
-            realmAddCityInfo[0].countryName = RealmDataManager.getCitiesNamesFromRealm()[0].countryName!
-            realmAddCityInfo[0].cityId = RealmDataManager.getCitiesNamesFromRealm()[0].cityId!
-            realmAddCityInfo[0].countryId = RealmDataManager.getCitiesNamesFromRealm()[0].countryId!
-            realmAddCityInfo[0].countryCode = RealmDataManager.getCitiesNamesFromRealm()[0].countryCode!
-        }
-        let obj = EditUserCityRequest()
-        obj.editUserFunc { (success) in
-            if success {
-                self.navigationController?.popViewController(animated: false)
-            }
-        }
 
     }
 }
-//296205222
-//293968682
+
 extension SearchForItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
