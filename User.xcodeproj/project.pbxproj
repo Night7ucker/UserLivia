@@ -10,6 +10,8 @@
 		7F5CB07D1F7902EF006E338C /* OrdersPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5CB07C1F7902EF006E338C /* OrdersPageController.swift */; };
 		7FBAFBB61F77D9D700BEB7F1 /* MainScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBAFBA91F77D9D700BEB7F1 /* MainScreen.storyboard */; };
 		7FBAFBB71F77D9D700BEB7F1 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBAFBAA1F77D9D700BEB7F1 /* Settings.storyboard */; };
+		CE01762E1F7EA2CF00EE6777 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01762D1F7EA2CF00EE6777 /* SigninViewController.swift */; };
+		CE0176301F7EA2DF00EE6777 /* SigninViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE01762F1F7EA2DF00EE6777 /* SigninViewStoryboard.storyboard */; };
 		CE40CA801F78E619003BC535 /* RefillsAndReminders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */; };
 		CE40CA821F78E87D003BC535 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA811F78E87D003BC535 /* RemindersViewController.swift */; };
 		CE40CA851F78F2ED003BC535 /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA841F78F2ED003BC535 /* AddReminderViewController.swift */; };
@@ -86,6 +88,8 @@
 		7FBAFBA91F77D9D700BEB7F1 /* MainScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainScreen.storyboard; sourceTree = "<group>"; };
 		7FBAFBAA1F77D9D700BEB7F1 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		9EA6723FDEE4071DE9039A46 /* Pods_User.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_User.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE01762D1F7EA2CF00EE6777 /* SigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		CE01762F1F7EA2DF00EE6777 /* SigninViewStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SigninViewStoryboard.storyboard; sourceTree = "<group>"; };
 		CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RefillsAndReminders.storyboard; sourceTree = "<group>"; };
 		CE40CA811F78E87D003BC535 /* RemindersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		CE40CA841F78F2ED003BC535 /* AddReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
@@ -251,7 +255,7 @@
 				CEA61BE01F756DCF00BA1AED /* Storyboards */,
 				CEABE41B1F764D950041FAD5 /* User Functionality Module */,
 				CEA61BE21F756E4000BA1AED /* Registration Module */,
-				CEB75F1A1F7B922000986F1D /* LoadingAnimation */,
+				CEB75F1A1F7B922000986F1D /* LoadingAndSignInViews */,
 			);
 			name = "Interface Module";
 			path = User;
@@ -273,6 +277,7 @@
 				CE7B30291F7B906E0023472F /* LoadingAnimation.storyboard */,
 				FBD6BB171F7C1402007741DC /* SearchDrugs.storyboard */,
 				CE6D40E81F7D00A000C30EFA /* SelectOrderType.storyboard */,
+				CE01762F1F7EA2DF00EE6777 /* SigninViewStoryboard.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -365,12 +370,13 @@
 			name = "Popup Title Module";
 			sourceTree = "<group>";
 		};
-		CEB75F1A1F7B922000986F1D /* LoadingAnimation */ = {
+		CEB75F1A1F7B922000986F1D /* LoadingAndSignInViews */ = {
 			isa = PBXGroup;
 			children = (
 				CEB75F181F7B921D00986F1D /* LoadingAnimationViewController.swift */,
+				CE01762D1F7EA2CF00EE6777 /* SigninViewController.swift */,
 			);
-			name = LoadingAnimation;
+			name = LoadingAndSignInViews;
 			sourceTree = "<group>";
 		};
 		CEB75F1D1F7BA8A300986F1D /* GetCitiesRequest */ = {
@@ -616,6 +622,7 @@
 				CE798D1E1F7A7D7D00FDF83D /* EditProfile.storyboard in Resources */,
 				CE798D231F7A828400FDF83D /* TermsAndConditions.storyboard in Resources */,
 				CEABE4221F7662AC0041FAD5 /* RegistrationModule.storyboard in Resources */,
+				CE0176301F7EA2DF00EE6777 /* SigninViewStoryboard.storyboard in Resources */,
 				FB740D1E1F74F24900F6DD79 /* Assets.xcassets in Resources */,
 				CEA61BD21F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard in Resources */,
 			);
@@ -721,6 +728,7 @@
 				CE95905C1F79473800536DF7 /* ReminderTableViewCell.swift in Sources */,
 				FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */,
 				FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */,
+				CE01762E1F7EA2CF00EE6777 /* SigninViewController.swift in Sources */,
 				FB6B62E51F78F0C400AAB2F0 /* GetTokensRequest.swift in Sources */,
 				FB9D4FFD1F7CDE3E001F3F95 /* DrugsView.swift in Sources */,
 				FB5FC5551F7A83B500F8658A /* RegistrationUserRequest.swift in Sources */,
