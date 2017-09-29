@@ -48,7 +48,6 @@
 		CEABE4281F7676470041FAD5 /* FillRegistrationInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE4271F7676470041FAD5 /* FillRegistrationInfoViewController.swift */; };
 		CEABE42B1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE42A1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift */; };
 		CEABE42E1F769B980041FAD5 /* PersonTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE42D1F769B980041FAD5 /* PersonTitleTableViewCell.swift */; };
-		CEABE4301F769F4E0041FAD5 /* PersonTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE42F1F769F4E0041FAD5 /* PersonTitleModel.swift */; };
 		CEB75F191F7B921D00986F1D /* LoadingAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB75F181F7B921D00986F1D /* LoadingAnimationViewController.swift */; };
 		CEB75F1C1F7BA8A100986F1D /* GetCitiesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB75F1B1F7BA8A100986F1D /* GetCitiesRequest.swift */; };
 		CEBA08831F7D02D100CBFC43 /* SelectOrderTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA08821F7D02D100CBFC43 /* SelectOrderTypeViewController.swift */; };
@@ -132,7 +131,6 @@
 		CEABE4271F7676470041FAD5 /* FillRegistrationInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillRegistrationInfoViewController.swift; sourceTree = "<group>"; };
 		CEABE42A1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupTitleForPersonViewController.swift; sourceTree = "<group>"; };
 		CEABE42D1F769B980041FAD5 /* PersonTitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTitleTableViewCell.swift; sourceTree = "<group>"; };
-		CEABE42F1F769F4E0041FAD5 /* PersonTitleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTitleModel.swift; sourceTree = "<group>"; };
 		CEB75F181F7B921D00986F1D /* LoadingAnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingAnimationViewController.swift; sourceTree = "<group>"; };
 		CEB75F1B1F7BA8A100986F1D /* GetCitiesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCitiesRequest.swift; sourceTree = "<group>"; };
 		CEBA08821F7D02D100CBFC43 /* SelectOrderTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectOrderTypeViewController.swift; sourceTree = "<group>"; };
@@ -279,8 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				CEA61BE01F756DCF00BA1AED /* Storyboards */,
-				CEABE41B1F764D950041FAD5 /* User Functionality Module */,
-				CEA61BE21F756E4000BA1AED /* Registration Module */,
+				CEABE41B1F764D950041FAD5 /* UserFunctionalityModule */,
+				CEA61BE21F756E4000BA1AED /* RegistrationModule */,
 				CEB75F1A1F7B922000986F1D /* LoadingAndSignInViews */,
 			);
 			name = "Interface Module";
@@ -297,7 +295,6 @@
 				CEABE4211F7662AC0041FAD5 /* RegistrationModule.storyboard */,
 				CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */,
 				CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */,
-				7F5CB07C1F7902EF006E338C /* OrdersPageController.swift */,
 				CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */,
 				CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */,
 				CE7B30291F7B906E0023472F /* LoadingAnimation.storyboard */,
@@ -319,14 +316,14 @@
 			name = MakeOrderModule;
 			sourceTree = "<group>";
 		};
-		CEA61BE21F756E4000BA1AED /* Registration Module */ = {
+		CEA61BE21F756E4000BA1AED /* RegistrationModule */ = {
 			isa = PBXGroup;
 			children = (
-				CEABE4231F76687F0041FAD5 /* Sms Get Number Module */,
-				CEABE4261F76689D0041FAD5 /* Sms Confirm Module */,
-				CEABE4291F76764A0041FAD5 /* Registration Info Module */,
+				CEABE4231F76687F0041FAD5 /* SmsGetNumberModule */,
+				CEABE4261F76689D0041FAD5 /* SmsConfirmModule */,
+				CEABE4291F76764A0041FAD5 /* RegistrationInfoModule */,
 			);
-			name = "Registration Module";
+			name = RegistrationModule;
 			sourceTree = "<group>";
 		};
 		CEA61BE31F756E4E00BA1AED /* Popup Module */ = {
@@ -338,54 +335,54 @@
 			name = "Popup Module";
 			sourceTree = "<group>";
 		};
-		CEABE41B1F764D950041FAD5 /* User Functionality Module */ = {
+		CEABE41B1F764D950041FAD5 /* UserFunctionalityModule */ = {
 			isa = PBXGroup;
 			children = (
 				7FE995371F7A905200E31AA2 /* OrdersPaymentsModule */,
 				7FBAFBBD1F77DAE500BEB7F1 /* SettingsMenuModule */,
 				7FBAFBBC1F77DAAF00BEB7F1 /* MainMenuModule */,
 				CEA61BE11F756E1800BA1AED /* MakeOrderModule */,
-				CEABE41E1F764DFE0041FAD5 /* Over The Counter Products Module */,
+				CEABE41E1F764DFE0041FAD5 /* OverTheCounterProductsModule */,
 				CE40CA831F78E881003BC535 /* RemindersModule */,
 				CE798D211F7A81C200FDF83D /* EditingProfileModule */,
 			);
-			name = "User Functionality Module";
+			name = UserFunctionalityModule;
 			sourceTree = "<group>";
 		};
-		CEABE41E1F764DFE0041FAD5 /* Over The Counter Products Module */ = {
+		CEABE41E1F764DFE0041FAD5 /* OverTheCounterProductsModule */ = {
 			isa = PBXGroup;
 			children = (
 				CEABE41C1F764DF80041FAD5 /* SearchForItemsViewController.swift */,
 				CEABE41F1F7650CC0041FAD5 /* CityTableViewCell.swift */,
 			);
-			name = "Over The Counter Products Module";
+			name = OverTheCounterProductsModule;
 			sourceTree = "<group>";
 		};
-		CEABE4231F76687F0041FAD5 /* Sms Get Number Module */ = {
+		CEABE4231F76687F0041FAD5 /* SmsGetNumberModule */ = {
 			isa = PBXGroup;
 			children = (
 				CEA61BB41F756D9400BA1AED /* RegistrationViewController.swift */,
 				CEA61BE31F756E4E00BA1AED /* Popup Module */,
 			);
-			name = "Sms Get Number Module";
+			name = SmsGetNumberModule;
 			sourceTree = "<group>";
 		};
-		CEABE4261F76689D0041FAD5 /* Sms Confirm Module */ = {
+		CEABE4261F76689D0041FAD5 /* SmsConfirmModule */ = {
 			isa = PBXGroup;
 			children = (
 				CEABE4241F76689B0041FAD5 /* SmsConfrimViewController.swift */,
 			);
-			name = "Sms Confirm Module";
+			name = SmsConfirmModule;
 			sourceTree = "<group>";
 		};
-		CEABE4291F76764A0041FAD5 /* Registration Info Module */ = {
+		CEABE4291F76764A0041FAD5 /* RegistrationInfoModule */ = {
 			isa = PBXGroup;
 			children = (
 				CEABE4271F7676470041FAD5 /* FillRegistrationInfoViewController.swift */,
 				CE798D241F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift */,
 				CEABE42C1F769B7D0041FAD5 /* Popup Title Module */,
 			);
-			name = "Registration Info Module";
+			name = RegistrationInfoModule;
 			sourceTree = "<group>";
 		};
 		CEABE42C1F769B7D0041FAD5 /* Popup Title Module */ = {
@@ -425,13 +422,30 @@
 			name = SelectOrderTypeModule;
 			sourceTree = "<group>";
 		};
-		FB5FC54B1F7A44A400F8658A /* RegisterUser */ = {
+		CEC15DF61F7EBA9800858114 /* CountryCodesRequests */ = {
+			isa = PBXGroup;
+			children = (
+				FB958B861F752C4D0065B49C /* CountryCodesModel.swift */,
+				FB958B881F752D000065B49C /* CountryDataManager.swift */,
+			);
+			name = CountryCodesRequests;
+			sourceTree = "<group>";
+		};
+		CEC15DF71F7EBB0600858114 /* RealmDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				FB958B8C1F755D820065B49C /* RealmDataManager.swift */,
+			);
+			name = RealmDataManager;
+			sourceTree = "<group>";
+		};
+		FB5FC54B1F7A44A400F8658A /* RegisterUserRequests */ = {
 			isa = PBXGroup;
 			children = (
 				FB5FC5511F7A839300F8658A /* UserRegistration */,
 				FB5FC54C1F7A44B700F8658A /* UploadImage */,
 			);
-			name = RegisterUser;
+			name = RegisterUserRequests;
 			sourceTree = "<group>";
 		};
 		FB5FC54C1F7A44B700F8658A /* UploadImage */ = {
@@ -452,16 +466,16 @@
 			name = UserRegistration;
 			sourceTree = "<group>";
 		};
-		FB6B62E11F78F04800AAB2F0 /* AccessRefreshTokens */ = {
+		FB6B62E11F78F04800AAB2F0 /* GetTokensRequests */ = {
 			isa = PBXGroup;
 			children = (
 				FB6B62E21F78F07100AAB2F0 /* TokensModel.swift */,
 				FB6B62E41F78F0C400AAB2F0 /* GetTokensRequest.swift */,
 			);
-			name = AccessRefreshTokens;
+			name = GetTokensRequests;
 			sourceTree = "<group>";
 		};
-		FB6BB3141F7E362D00165BB2 /* DrugsModel */ = {
+		FB6BB3141F7E362D00165BB2 /* DrugsModelRequets */ = {
 			isa = PBXGroup;
 			children = (
 				FB6BB3151F7E364800165BB2 /* GetDrugsModel.swift */,
@@ -469,7 +483,7 @@
 				FB6BB31B1F7E652100165BB2 /* DrugsDescriptionModel.swift */,
 				FB6BB31D1F7E653000165BB2 /* DrugsDescriptionRequest.swift */,
 			);
-			name = DrugsModel;
+			name = DrugsModelRequets;
 			sourceTree = "<group>";
 		};
 		FB740D0A1F74F24900F6DD79 = {
@@ -494,7 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				CEA61BA61F756D9400BA1AED /* Interface Module */,
-				FB958B851F752BBC0065B49C /* RegisterModel */,
+				FB958B851F752BBC0065B49C /* Model */,
 				FB740D281F74F26200F6DD79 /* Supporting Files */,
 			);
 			path = User;
@@ -511,22 +525,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FB958B851F752BBC0065B49C /* RegisterModel */ = {
+		FB958B851F752BBC0065B49C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FB6BB3141F7E362D00165BB2 /* DrugsModel */,
-				FBD74BA31F7B849C00FA2BFE /* GetUserProfile */,
-				FB5FC54B1F7A44A400F8658A /* RegisterUser */,
-				FB6B62E11F78F04800AAB2F0 /* AccessRefreshTokens */,
-				FBA44C0D1F77B87800687544 /* Get Auth Code */,
+				FB6BB3141F7E362D00165BB2 /* DrugsModelRequets */,
+				FBD74BA31F7B849C00FA2BFE /* GetUserProfileRequests */,
+				FB5FC54B1F7A44A400F8658A /* RegisterUserRequests */,
+				FB6B62E11F78F04800AAB2F0 /* GetTokensRequests */,
+				FBA44C0D1F77B87800687544 /* GetAuthCodeRequests */,
 				CEB75F1D1F7BA8A300986F1D /* GetCitiesRequest */,
 				CE6D40E71F7CF24100C30EFA /* ReminderRequests */,
-				FB958B861F752C4D0065B49C /* CountryCodesModel.swift */,
-				FB958B881F752D000065B49C /* CountryDataManager.swift */,
-				FB958B8C1F755D820065B49C /* RealmDataManager.swift */,
-				CEABE42F1F769F4E0041FAD5 /* PersonTitleModel.swift */,
+				CEC15DF61F7EBA9800858114 /* CountryCodesRequests */,
+				CEC15DF71F7EBB0600858114 /* RealmDataManager */,
 			);
-			name = RegisterModel;
+			name = Model;
 			sourceTree = "<group>";
 		};
 		FB9D4FFE1F7D1BD0001F3F95 /* EditUserCity */ = {
@@ -537,13 +549,13 @@
 			name = EditUserCity;
 			sourceTree = "<group>";
 		};
-		FBA44C0D1F77B87800687544 /* Get Auth Code */ = {
+		FBA44C0D1F77B87800687544 /* GetAuthCodeRequests */ = {
 			isa = PBXGroup;
 			children = (
 				FBA44C0E1F77B8BC00687544 /* GetAuthCodeRequest.swift */,
 				FBA44C101F77C71B00687544 /* PhoneNumberModel.swift */,
 			);
-			name = "Get Auth Code";
+			name = GetAuthCodeRequests;
 			sourceTree = "<group>";
 		};
 		FBD6BB191F7C156A007741DC /* GetDrugsModule */ = {
@@ -557,14 +569,14 @@
 			name = GetDrugsModule;
 			sourceTree = "<group>";
 		};
-		FBD74BA31F7B849C00FA2BFE /* GetUserProfile */ = {
+		FBD74BA31F7B849C00FA2BFE /* GetUserProfileRequests */ = {
 			isa = PBXGroup;
 			children = (
 				FB9D4FFE1F7D1BD0001F3F95 /* EditUserCity */,
 				FBD74BA81F7B90A300FA2BFE /* EditUserProfile */,
 				FBD74BA61F7B84C300FA2BFE /* GetUserProfileRequest.swift */,
 			);
-			name = GetUserProfile;
+			name = GetUserProfileRequests;
 			sourceTree = "<group>";
 		};
 		FBD74BA81F7B90A300FA2BFE /* EditUserProfile */ = {
@@ -774,7 +786,6 @@
 				7F6137F51F7B7F7C00629AA7 /* OrderPageCell.swift in Sources */,
 				CE798D201F7A81BF00FDF83D /* EditingProfileViewController.swift in Sources */,
 				CEABE42B1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift in Sources */,
-				CEABE4301F769F4E0041FAD5 /* PersonTitleModel.swift in Sources */,
 				CE68E2F91F7C03AC002EE618 /* CityNameRealmModel.swift in Sources */,
 				FB22C2351F77E91B000EED58 /* MainScreenController.swift in Sources */,
 				CEC6318B1F7BCDEB0024AFC1 /* UserModel.swift in Sources */,

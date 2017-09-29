@@ -22,12 +22,6 @@ class RealmDataManager {
         let data = realm.objects(CountryCodesModel.self)
         return data
     }
-
-    static func getPersonTitleFromRealm() -> Results<PersonTitleModel> {
-        let realm = try! Realm()
-        let data = realm.objects(PersonTitleModel.self)
-        return data
-    }
     static func getPhoneNumberFromRealm() -> Results<PhoneNumberModel> {
         let realm = try! Realm()
         let data = realm.objects(PhoneNumberModel.self)
