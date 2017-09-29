@@ -14,13 +14,10 @@
 		7F6137F71F7B7F9400629AA7 /* PaymentPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6137F61F7B7F9400629AA7 /* PaymentPageCell.swift */; };
 		7FBAFBB61F77D9D700BEB7F1 /* MainScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBAFBA91F77D9D700BEB7F1 /* MainScreen.storyboard */; };
 		7FBAFBB71F77D9D700BEB7F1 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBAFBAA1F77D9D700BEB7F1 /* Settings.storyboard */; };
-<<<<<<< HEAD
 		7FE995421F7A96B200E31AA2 /* OrdersPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE995411F7A96B200E31AA2 /* OrdersPageController.swift */; };
 		7FE9954C1F7AAC8500E31AA2 /* PaymentsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE9954B1F7AAC8500E31AA2 /* PaymentsPageController.swift */; };
-=======
 		CE01762E1F7EA2CF00EE6777 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01762D1F7EA2CF00EE6777 /* SigninViewController.swift */; };
 		CE0176301F7EA2DF00EE6777 /* SigninViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE01762F1F7EA2DF00EE6777 /* SigninViewStoryboard.storyboard */; };
->>>>>>> 0e841904bfd2512b0d3f0ddd2ff276c26f5f0424
 		CE40CA801F78E619003BC535 /* RefillsAndReminders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */; };
 		CE40CA821F78E87D003BC535 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA811F78E87D003BC535 /* RemindersViewController.swift */; };
 		CE40CA851F78F2ED003BC535 /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA841F78F2ED003BC535 /* AddReminderViewController.swift */; };
@@ -300,8 +297,6 @@
 				CEABE4211F7662AC0041FAD5 /* RegistrationModule.storyboard */,
 				CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */,
 				CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */,
-<<<<<<< HEAD
-=======
 				7F5CB07C1F7902EF006E338C /* OrdersPageController.swift */,
 				CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */,
 				CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */,
@@ -309,7 +304,6 @@
 				FBD6BB171F7C1402007741DC /* SearchDrugs.storyboard */,
 				CE6D40E81F7D00A000C30EFA /* SelectOrderType.storyboard */,
 				CE01762F1F7EA2DF00EE6777 /* SigninViewStoryboard.storyboard */,
->>>>>>> 0e841904bfd2512b0d3f0ddd2ff276c26f5f0424
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -764,12 +758,9 @@
 				FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */,
 				CE01762E1F7EA2CF00EE6777 /* SigninViewController.swift in Sources */,
 				FB6B62E51F78F0C400AAB2F0 /* GetTokensRequest.swift in Sources */,
-<<<<<<< HEAD
 				7FE9954C1F7AAC8500E31AA2 /* PaymentsPageController.swift in Sources */,
-=======
 				FB9D4FFD1F7CDE3E001F3F95 /* DrugsView.swift in Sources */,
 				FB5FC5551F7A83B500F8658A /* RegistrationUserRequest.swift in Sources */,
->>>>>>> 0e841904bfd2512b0d3f0ddd2ff276c26f5f0424
 				CE40CA8C1F79132A003BC535 /* CalendarPopupViewController.swift in Sources */,
 				FB6BB31C1F7E652100165BB2 /* DrugsDescriptionModel.swift in Sources */,
 				FB5FC54E1F7A44CD00F8658A /* UploadImageRequest.swift in Sources */,
@@ -780,11 +771,8 @@
 				CE40CA8E1F793408003BC535 /* TimePopupViewController.swift in Sources */,
 				FB6BB3161F7E364800165BB2 /* GetDrugsModel.swift in Sources */,
 				FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */,
-<<<<<<< HEAD
 				7F6137F51F7B7F7C00629AA7 /* OrderPageCell.swift in Sources */,
-=======
 				CE798D201F7A81BF00FDF83D /* EditingProfileViewController.swift in Sources */,
->>>>>>> 0e841904bfd2512b0d3f0ddd2ff276c26f5f0424
 				CEABE42B1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift in Sources */,
 				CEABE4301F769F4E0041FAD5 /* PersonTitleModel.swift in Sources */,
 				CE68E2F91F7C03AC002EE618 /* CityNameRealmModel.swift in Sources */,

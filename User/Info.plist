@@ -25,11 +25,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-<<<<<<< HEAD
-	<string>Orders Appointments Payments</string>
-=======
 	<string>MainViewsStoryboard</string>
->>>>>>> 0e841904bfd2512b0d3f0ddd2ff276c26f5f0424
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
