@@ -18,6 +18,7 @@ class SearchForItemsViewController: UIViewController, UISearchBarDelegate {
     var arrayOfCitiesFromServer = [City]()
     var arrayOfSections = [String]()
     var checkIsRegistered = true
+    var transitionFromMainController = false
     var arrayOfCountriesAndCitiesForCountry = [ String: [String] ]()
     let realm = try! Realm()
     var offsetForCities = 0
@@ -156,12 +157,17 @@ extension SearchForItemsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        if transitionFromMainController == true {
+            let GetDrugsStoryboard = UIStoryboard(name: "SearchDrugs", bundle: nil)
+            let GetDrugsViewController = GetDrugsStoryboard.instantiateViewController(withIdentifier: "kSearchDrugsStoryboardId") as? GetDrugsViewController
+            navigationController?.pushViewController(GetDrugsViewController!, animated: true)
+        } else {
+        
         if checkIsRegistered == true {
             let selectedCityWithCountry = City()
             let cell = tableView.cellForRow(at: indexPath) as? CityTableViewCell
             selectedCityWithCountry.countryName = countriesAndCitiesArray[indexPath.section].country
             selectedCityWithCountry.cityName = cell?.cityNameLabelOutlet.text
-            
             let arrayWithputChoosedCity = RealmDataManager.getCitiesNamesFromRealm()
             for element in arrayWithputChoosedCity {
                 if element.cityName != selectedCityWithCountry.cityName {
@@ -192,7 +198,7 @@ extension SearchForItemsViewController: UITableViewDataSource {
             navigationController?.pushViewController(GetDrugsViewController!, animated: true)
         }
         
-
+        }
 
     }
 }

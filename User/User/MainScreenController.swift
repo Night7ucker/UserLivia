@@ -164,17 +164,13 @@ extension MainScreenController : UITableViewDelegate{
             let settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "kMakeOrderViewController") as? MakeOrderViewController
             self.navigationController?.pushViewController(settingsViewController!, animated: true)
         case 1:
+            let ChooseCityStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: Bundle.main)
+            let ChooseCityController = ChooseCityStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as! SearchForItemsViewController
             if RealmDataManager.getTokensFromRealm().count == 0 {
-                let ChooseCityStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: Bundle.main)
-                let ChooseCityController = ChooseCityStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as! SearchForItemsViewController
                 ChooseCityController.checkIsRegistered = false
-                self.navigationController?.pushViewController(ChooseCityController, animated: true)
-            } else {
-                let mainViewStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: nil)
-                let settingsViewController = mainViewStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as? SearchForItemsViewController
-                self.navigationController?.pushViewController(settingsViewController!, animated: true)
             }
-            
+            ChooseCityController.transitionFromMainController = true
+            self.navigationController?.pushViewController(ChooseCityController, animated: true)
             
         case 2:
             print("2")
