@@ -64,5 +64,10 @@ class RealmDataManager {
         let data = realm.objects(GetDrugsModel.self)
         return data
     }
+    static func getDrugsDescriptionFromRealm() -> Results<DrugsDescriptionModel> {
+        let realm = try! Realm()
+        let data = realm.objects(DrugsDescriptionModel.self)
+        return data
+    }
     
 }

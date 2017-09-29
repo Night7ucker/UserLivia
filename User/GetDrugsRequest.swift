@@ -25,7 +25,7 @@ class GetDrugsRequest {
             "LiviaApp-country": "ke", //RealmDataManager.getUserDataFromRealm()[0].countryCode!,
             "LiviaApp-city": "200787", //RealmDataManager.getUserDataFromRealm()[0].cityId!,
             "LiviaApp-APIVersion": "2.0",
-            "LiviaApp-Token": "e707f5d2e10643e4f3507ca12920aff43495455e"
+            "LiviaApp-Token": "b7fce82439926f16875339b754db96e6ff8d040a"
         ]
         
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
@@ -39,13 +39,12 @@ class GetDrugsRequest {
                     realm.delete(RealmDataManager.getDrugsFromRealm())
                 }
             }
-            
             for element in body {
-                let obj = GetDrugsModel()
-                obj.id = element["id"] as? String
-                obj.name = element["name"] as? String
-                obj.type = (element["type"] as? Int)!
-                RealmDataManager.writeIntoRealm(object: obj, realm: realm)
+                let getDrugsObject = GetDrugsModel()
+                getDrugsObject.id = element["id"] as? String
+                getDrugsObject.name = element["name"] as? String
+                getDrugsObject.type = (element["type"] as? Int)!
+                RealmDataManager.writeIntoRealm(object: getDrugsObject, realm: realm)
             }
             completion(true)
             

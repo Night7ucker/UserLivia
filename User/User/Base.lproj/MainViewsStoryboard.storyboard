@@ -33,7 +33,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dM4-uN-e0j" id="bmx-af-HD2">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Az-Ll-OZC">
@@ -253,7 +253,7 @@
                                         <rect key="frame" x="8" y="408" width="327" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Skip registration">
-                                            <color key="titleColor" red="0.071210794150829315" green="0.29368728399276733" blue="0.83295702934265137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="skipRegistrationButtonTapped:" destination="36b-NT-WDT" eventType="touchUpInside" id="oWU-K1-qky"/>
@@ -305,7 +305,7 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Zs-qy-Usl">
                                         <rect key="frame" x="8" y="377" width="327" height="30"/>
-                                        <color key="backgroundColor" red="0.077425368130207062" green="0.40168237686157227" blue="0.78389471769332886" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.47450980392156861" green="0.70980392156862748" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="RVl-09-gNQ"/>
                                             <constraint firstAttribute="width" constant="327" id="nz8-C2-bwO"/>

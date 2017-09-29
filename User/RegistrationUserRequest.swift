@@ -14,16 +14,6 @@ import RealmSwift
 class RegistrationUserRequest{
     
     func registerUserFunc(prefixName: String, fName: String, lName: String, age: String, sex: String, mail: String, imageUrl: String, codeIndex: Int, completion: @escaping (Bool) -> Void)  {
-        print(prefixName)
-        print(fName)
-        print(lName)
-        print(age)
-        print(sex)
-        print(mail)
-        print(imageUrl)
-        print(codeIndex)
-        print(RealmDataManager.getDataFromCountries()[codeIndex].phoneCode!)
-        print(RealmDataManager.getPhoneNumberFromRealm()[0].phoneNumber!)
         
             let url = "https://test.liviaapp.com/api/auth"
             let parameters: Parameters = [
