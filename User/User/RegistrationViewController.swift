@@ -21,7 +21,7 @@ protocol SmsConfrimViewControllerDelegate: class {
 
 class RegistrationViewController: UIViewController, PopupCountryCodesTableViewControllerDelegate, SmsConfrimViewControllerDelegate {
     
-    let lightBlueColor = UIColor(red: CGFloat(0/255.0), green: CGFloat(128/255.0), blue: CGFloat(255/255.0), alpha: CGFloat(1.0))
+    let lightBlueColor = UIColor(red: CGFloat(121/255.0), green: CGFloat(181/255.0), blue: CGFloat(208/255.0), alpha: CGFloat(1.0))
     
     @IBOutlet weak var nextButtonOutlet: UIButton!
     @IBOutlet weak var mainWhiteViewOutlet: UIView!
@@ -46,7 +46,7 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        nextButtonOutlet.backgroundColor = UIColor(red: CGFloat(121/255.0), green: CGFloat(181/255.0), blue: CGFloat(208/255.0), alpha: CGFloat(1.0))
+        nextButtonOutlet.backgroundColor = lightBlueColor
         phoneNumberField.delegate = self
         navigationController?.isNavigationBarHidden = true
         errorViewOutlet.isHidden = true
@@ -65,6 +65,7 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
         nextButtonOutlet.layer.cornerRadius = 2
         mainWhiteViewOutlet.layer.cornerRadius = 10
         skipRegistrationButtonOutlet.layer.cornerRadius = 2
+        skipRegistrationButtonOutlet.setTitleColor(lightBlueColor, for: .normal)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
