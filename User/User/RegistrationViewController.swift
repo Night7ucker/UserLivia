@@ -41,8 +41,8 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
     var canSendNewCode = true
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
         nextButtonOutlet.backgroundColor = Colors.Root.lightBlueColor
         errorViewOutlet.isHidden = true
         nextButtonOutlet.layer.cornerRadius = 2

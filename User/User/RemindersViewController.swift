@@ -138,8 +138,7 @@ extension RemindersViewController: UITableViewDataSource {
         if tableViewIsHidden == false {
             let cell = tableView.dequeueReusableCell(withIdentifier: "reminderCell", for: indexPath) as! ReminderTableViewCell
             
-            cell.medicineNameLabelOutlet.text = arrayOfReminders[indexPath.row].medicineName
-            cell.reminderDateLabelOutlet.text = arrayOfReminders[indexPath.row].dateTimeDaysAndYears! + " " + arrayOfReminders[indexPath.row].dateTimeHoursAndMinutes!
+            cell.fillCellInfo(medicineName: arrayOfReminders[indexPath.row].medicineName!, remiderDate: arrayOfReminders[indexPath.row].dateTimeDaysAndYears! + " " + arrayOfReminders[indexPath.row].dateTimeHoursAndMinutes!)
             
             return cell
         }

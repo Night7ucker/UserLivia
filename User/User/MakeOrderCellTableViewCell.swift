@@ -25,5 +25,13 @@ class MakeOrderCellTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+}
 
+extension MakeOrderCellTableViewCell {
+    func fillCellInfo(topImage: UIImage, bottomImage: UIImage, topMenuLabelOutletText: String, bottomMenuLabelOutletText: String) {
+        self.makeOrderIconImageOutlet.image = topImage
+        self.imageInsideImageMakeOrderOutlet.image = bottomImage
+        self.makeOrderTopMenuLabelOutlet.text = topMenuLabelOutletText
+        self.makeOrderBottomMenuLabelOutlet.text = bottomMenuLabelOutletText
+    }
 }

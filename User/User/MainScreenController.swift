@@ -16,11 +16,8 @@ class MainScreenController: RootViewController, SigninViewControllerDelegate {
     
     
     @IBOutlet weak var fullNameLabelOutlet: UILabel!
-    
     @IBOutlet weak var userProfileImageOutlet: CustomImageView!
-    
     @IBOutlet weak var personImage: CustomImageView!
-    
     @IBOutlet weak var mainScreenTableView: UITableView!
     
     var userIsRegistred  = false
@@ -67,7 +64,6 @@ class MainScreenController: RootViewController, SigninViewControllerDelegate {
         navigationController?.isNavigationBarHidden = false
     }
     
-    
     @IBAction func editProfileButtontTapped(_ sender: UIButton) {
         
         if RealmDataManager.getTokensFromRealm().count == 0 {
@@ -110,36 +106,22 @@ extension MainScreenController : UITableViewDataSource{
             cell = tableView.dequeueReusableCell(withIdentifier: "mainScreenCell", for: indexPath) as! MainScreenCell
             switch indexPath.row {
             case 0:
-                cell.mainIcon.image = #imageLiteral(resourceName: "orderImage")
-                cell.mainLabel.text = "Make Order"
-                cell.detailLabel.text = "GENERATE ORDER"
-                
+                cell.fillCellInfo(mainIcon: #imageLiteral(resourceName: "orderImage"), mainLabel: "Make Order", detailLabel: "GENERATE ORDER")
             case 1:
-                cell.mainIcon.image = #imageLiteral(resourceName: "searchMedecine")
-                cell.mainLabel.text = "Over the Counter Products"
-                cell.detailLabel.text = "SEARCH FOR ITEMS"
-                
+                cell.fillCellInfo(mainIcon: #imageLiteral(resourceName: "searchMedecine"), mainLabel: "Over the Counter Products", detailLabel: "SEARCH FOR ITEMS")
             case 2:
-                cell.mainIcon.image = #imageLiteral(resourceName: "purchaseHistoryImage")
-                cell.mainLabel.text = "Orders Appointments Payments"
-                cell.detailLabel.text = "YOU HAVE 0 ORDERS"
+                cell.fillCellInfo(mainIcon: #imageLiteral(resourceName: "purchaseHistoryImage"), mainLabel: "Orders Appointments Payments", detailLabel: "YOU HAVE 0 ORDERS")
             case 4:
-                cell.mainIcon.image = #imageLiteral(resourceName: "inviteFriendsImage")
-                cell.mainLabel.text = "Invite Friends"
-                cell.detailLabel.text = "INVITE FROM CONTACTS"
-                
+                cell.fillCellInfo(mainIcon: #imageLiteral(resourceName: "inviteFriendsImage"), mainLabel: "Invite Friends", detailLabel: "INVITE FROM CONTACTS")
             case 5:
-                cell.mainIcon.image = #imageLiteral(resourceName: "settingsImage")
-                cell.mainLabel.text = "Settings"
-                cell.detailLabel.text = "APP SETTINGS"
-                
+                cell.fillCellInfo(mainIcon: #imageLiteral(resourceName: "settingsImage"), mainLabel: "Settings", detailLabel: "APP SETTINGS")
             default:
                 break
             }
         case 3:
             cell = tableView.dequeueReusableCell(withIdentifier: "mainScreenSecondCell", for: indexPath) as! MainScreenCell
-            cell.mainIcon.image = #imageLiteral(resourceName: "reminderImage")
-            cell.mainLabel.text = "Reminders & Results"
+            
+            cell.fillCellInfo(mainIcon: #imageLiteral(resourceName: "reminderImage"), mainLabel: "Reminders & Results")
         default:
             break
         }

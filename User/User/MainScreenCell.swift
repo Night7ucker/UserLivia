@@ -10,19 +10,22 @@ import UIKit
 
 class MainScreenCell: UITableViewCell {
     
-    
     @IBOutlet weak var mainScreenImage: CustomImageView!
-    
     @IBOutlet weak var mainIcon: UIImageView!
-    
     @IBOutlet weak var mainLabel: UILabel!
-    
     @IBOutlet weak var detailLabel: UILabel!
     
     override func awakeFromNib()  {
         super.awakeFromNib()
-        // Initialization code
     }
-    
-    
+}
+
+extension MainScreenCell {
+    func fillCellInfo(mainIcon: UIImage, mainLabel: String, detailLabel: String = "") {
+        self.mainIcon.image = mainIcon
+        self.mainLabel.text = mainLabel
+        if detailLabel != "" {
+            self.detailLabel.text = detailLabel
+        }
+    }
 }

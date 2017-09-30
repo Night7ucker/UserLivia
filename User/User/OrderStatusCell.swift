@@ -11,7 +11,6 @@ import UIKit
 class OrderStatusCell: UITableViewCell {
     
     @IBOutlet weak var orderFilterDescrLabel: UILabel!
-
     @IBOutlet weak var orderCheckImage: UIImageView!
     
     override func awakeFromNib() {
@@ -19,4 +18,11 @@ class OrderStatusCell: UITableViewCell {
         // Initialization code
     }
 
+}
+
+extension OrderStatusCell {
+    func fillCellInfo(orderFilterDescription: String, orderCheckImage: UIImage) {
+        self.orderFilterDescrLabel.text = orderFilterDescription
+        self.orderCheckImage.image = orderCheckImage
+    }
 }

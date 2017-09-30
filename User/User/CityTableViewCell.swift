@@ -9,8 +9,6 @@
 import UIKit
 
 class CityTableViewCell: UITableViewCell {
-
-    
     
     @IBOutlet weak var cityNameLabelOutlet: UILabel!
     
@@ -25,4 +23,10 @@ class CityTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+extension CityTableViewCell {
+    func fillCellInfo(cityName: String) {
+        self.cityNameLabelOutlet.text = cityName
+    }
 }

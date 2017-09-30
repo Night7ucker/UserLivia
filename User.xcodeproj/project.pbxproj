@@ -210,12 +210,9 @@
 			isa = PBXGroup;
 			children = (
 				7F6137F21F7B7E3500629AA7 /* OrdersPaymentsController.swift */,
-				7FE9954B1F7AAC8500E31AA2 /* PaymentsPageController.swift */,
-				7FE995411F7A96B200E31AA2 /* OrdersPageController.swift */,
-				7F6137F41F7B7F7C00629AA7 /* OrderPageCell.swift */,
-				7F6137F61F7B7F9400629AA7 /* PaymentPageCell.swift */,
-				7F3536441F7BB3970084AACA /* OrdersStatusesPopupController.swift */,
-				7F2F05E91F7D08150068964B /* OrderStatusCell.swift */,
+				CE3A42811F7F9F300016A0C7 /* PaymentsPageModule */,
+				CE3A427F1F7F9EAC0016A0C7 /* OrdersPageModule */,
+				CE3A42821F7F9FE70016A0C7 /* OrderStatusModule */,
 			);
 			name = OrdersPaymentsModule;
 			sourceTree = "<group>";
@@ -243,6 +240,33 @@
 				CE3A427C1F7F83430016A0C7 /* RootViewController.swift */,
 			);
 			name = RootViewController;
+			sourceTree = "<group>";
+		};
+		CE3A427F1F7F9EAC0016A0C7 /* OrdersPageModule */ = {
+			isa = PBXGroup;
+			children = (
+				7FE995411F7A96B200E31AA2 /* OrdersPageController.swift */,
+				7F6137F41F7B7F7C00629AA7 /* OrderPageCell.swift */,
+			);
+			name = OrdersPageModule;
+			sourceTree = "<group>";
+		};
+		CE3A42811F7F9F300016A0C7 /* PaymentsPageModule */ = {
+			isa = PBXGroup;
+			children = (
+				7FE9954B1F7AAC8500E31AA2 /* PaymentsPageController.swift */,
+				7F6137F61F7B7F9400629AA7 /* PaymentPageCell.swift */,
+			);
+			name = PaymentsPageModule;
+			sourceTree = "<group>";
+		};
+		CE3A42821F7F9FE70016A0C7 /* OrderStatusModule */ = {
+			isa = PBXGroup;
+			children = (
+				7F3536441F7BB3970084AACA /* OrdersStatusesPopupController.swift */,
+				7F2F05E91F7D08150068964B /* OrderStatusCell.swift */,
+			);
+			name = OrderStatusModule;
 			sourceTree = "<group>";
 		};
 		CE40CA831F78E881003BC535 /* RemindersModule */ = {

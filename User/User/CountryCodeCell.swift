@@ -11,7 +11,6 @@ import UIKit
 class CountryCodeCell: UITableViewCell {
 
     @IBOutlet weak var countryNameLabelOutlet: UILabel!
-
     @IBOutlet weak var countryFlagImageViewOutlet: UIImageView!
     @IBOutlet weak var countryCodeLabelOutlet: UILabel!
     override func awakeFromNib() {
@@ -25,4 +24,11 @@ class CountryCodeCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+extension CountryCodeCell {
+    func fillCellInfo(countryName: String, countryCode: String) {
+        self.countryNameLabelOutlet.text = countryName
+        self.countryCodeLabelOutlet.text = countryCode
+    }
 }

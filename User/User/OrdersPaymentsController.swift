@@ -14,7 +14,7 @@ protocol SavePopoverDataDelegate {
 }
 
 
-class OrdersPaymentsController: UIViewController, CAPSPageMenuDelegate{
+class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate{
     var pageMenu : CAPSPageMenu?
     var controllerArray : [UIViewController] = []
     
@@ -28,23 +28,38 @@ class OrdersPaymentsController: UIViewController, CAPSPageMenuDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar
+        addBackButtonAndTitleToNavigationBar(title: "Status")
+        navigationItem.rightBarButtonItem?.tintColor = .white
+        
         navigationController?.navigationBar.clipsToBounds = true
                
         let controllerOne = self.newColoredViewController(name: "ordersPageVC")
         controllerOne.title = "ORDERS"
+//        let titleView = UIView()
+//        
+//        let titleLabel = UILabel()
+//        titleLabel.text = "ORDERS"
+//        titleLabel.font = UIFont(name: titleLabel.font.fontName, size: 14)
+//        titleLabel.textColor = .white
+//        titleLabel.frame = CGRect(x: 15, y: 15, width: 60, height: 20)
+//        
+//        titleView.addSubview(titleLabel)
+//        
+//        controllerOne.navigationItem.titleView = titleView
+        
         controllerArray.append(controllerOne)
         
         let controllerTwo = self.newColoredViewController(name: "paymentsPageVC")
         controllerTwo.title = "PAYMENTS"
         controllerArray.append(controllerTwo)
         
-        let newColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
-        navigationController?.navigationBar.barTintColor = newColor
+        
         
         //Custom CAPSPageMenu
         let parameters: [CAPSPageMenuOption] = [
             .menuHeight(39),
-            .scrollMenuBackgroundColor((newColor)),
+            .scrollMenuBackgroundColor((Colors.Root.greenColorForNavigationBar)),
             .menuItemSeparatorWidth(10.0),
             .enableHorizontalBounce(false),
             .useMenuLikeSegmentedControl(true),
@@ -84,6 +99,7 @@ class OrdersPaymentsController: UIViewController, CAPSPageMenuDelegate{
         }
         else{
             navigationItem.rightBarButtonItem?.title = "⇅"
+            navigationItem.rightBarButtonItem?.tintColor = .white
             navigationItem.rightBarButtonItem?.isEnabled = true
         }
     }

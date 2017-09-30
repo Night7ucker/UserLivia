@@ -43,17 +43,14 @@ extension MakeOrderViewController: UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "makeOrderCell", for: indexPath) as! MakeOrderCellTableViewCell
             
-            cell.makeOrderTopMenuLabelOutlet.text = "Take a Photo of Prescription"
-            cell.makeOrderBottomMenuLabelOutlet.text = "GENERATE ORDER FROM YOUR PHOTO"
-            cell.makeOrderIconImageOutlet.image = UIImage(named: "makeOrderPhoto")
-            cell.imageInsideImageMakeOrderOutlet.image = UIImage(named: "cameraFromMakeOrder")
+            cell.fillCellInfo(topImage: UIImage(named: "makeOrderPhoto")!, bottomImage: UIImage(named: "cameraFromMakeOrder")!, topMenuLabelOutletText: "Take a Photo of Prescription", bottomMenuLabelOutletText: "GENERATE ORDER FROM YOUR PHOTO")
+
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "makeOrderCell", for: indexPath) as! MakeOrderCellTableViewCell
-            cell.makeOrderTopMenuLabelOutlet.text = "Search for medicines / items"
-            cell.makeOrderBottomMenuLabelOutlet.text = "SEARCH FROM 1003 DRUGS"
-            cell.makeOrderIconImageOutlet.image = UIImage(named: "makeOrderPhoto")
-            cell.imageInsideImageMakeOrderOutlet.image = UIImage(named: "searchFromMakeOrder")
+            
+            cell.fillCellInfo(topImage: UIImage(named: "makeOrderPhoto")!, bottomImage: UIImage(named: "searchFromMakeOrder")!, topMenuLabelOutletText: "Search for medicines / items", bottomMenuLabelOutletText: "SEARCH FROM 1003 DRUGS")
+
             return cell
         default:
             return UITableViewCell()

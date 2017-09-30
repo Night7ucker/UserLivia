@@ -10,8 +10,6 @@ import UIKit
 import RealmSwift
 
 class PopupTitleForPersonViewController: UIViewController, UIImagePickerControllerDelegate {
-
-    
     
     @IBOutlet weak var personsTitleTableView: UITableView!
     
@@ -19,7 +17,6 @@ class PopupTitleForPersonViewController: UIViewController, UIImagePickerControll
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         personsTitleTableView.layer.cornerRadius = 1
         
@@ -52,27 +49,18 @@ extension PopupTitleForPersonViewController: UITableViewDataSource {
         switch indexPath.row {
         case 0:
             cell.personTitleLabelOutlet.text = "Dr."
-            
-            return cell
         case 1:
             cell.personTitleLabelOutlet.text = "Mr."
-            
-            return cell
         case 2:
             cell.personTitleLabelOutlet.text = "Ms."
-            
-            return cell
         case 3:
             cell.personTitleLabelOutlet.text = "Mrs."
-            
-            return cell
         case 4:
             cell.personTitleLabelOutlet.text = "Prof."
-            
-            return cell
         default:
-            return UITableViewCell()
+            break
         }
+        return cell
     }
 }
 

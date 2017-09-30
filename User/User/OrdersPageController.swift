@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrdersPageController: UIViewController {
+class OrdersPageController: RootViewController {
 
     @IBOutlet weak var ordersPageTableView: UITableView!
     
@@ -17,7 +17,6 @@ class OrdersPageController: UIViewController {
         
         ordersPageTableView.delegate = self
         ordersPageTableView.dataSource = self
-        
     }
 
 }
@@ -25,14 +24,12 @@ class OrdersPageController: UIViewController {
 extension OrdersPageController : UITableViewDataSource{
      func numberOfSections(in tableView: UITableView) -> Int {
         //Here will be number of months, which has orders
-        let numberOfSections = 2
-        return numberOfSections
+        return 2
     }
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Here will be number of orders in one month
-        let numberOfRowsInSection = 1
-        return numberOfRowsInSection
+        return 1
         //will work only with data!!!!
         //        let numberOfRowsInSection: Int = 0
         //                if myArray.count > 0
@@ -55,8 +52,9 @@ extension OrdersPageController : UITableViewDataSource{
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : OrderPageCell = tableView.dequeueReusableCell(withIdentifier: "OrdersPageCell", for: indexPath) as! OrderPageCell
-        cell.orderDateAndIdLabel.text = "11.09.2017/100"
-        cell.orderStatusImage.image = #imageLiteral(resourceName: "orderStatusImage")
+        
+        cell.fillCellInfo(orderDate: "11.09.2017/100", orderStatusImage: #imageLiteral(resourceName: "orderStatusImage"))
+        
         return cell
     }
 }

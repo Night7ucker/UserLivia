@@ -59,6 +59,7 @@ class SmsConfrimViewController: RootViewController {
         timerLabelOutlet.layer.cornerRadius = 2
         sendCodeAgainLabelOutlet.layer.cornerRadius = 2
         confirmButtonOutlet.layer.cornerRadius = 2
+        confirmButtonOutlet.backgroundColor = Colors.Root.lightBlueColor
         timerButtonOutlet.layer.cornerRadius = 2
         
         if RealmDataManager.getPhoneNumberFromRealm().count != 0 {

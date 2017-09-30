@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrdersStatusesPopupController: UIViewController {
+class OrdersStatusesPopupController: RootViewController {
 
     var checkedBoxes = [Int](repeating: 20, count:15)
     
@@ -37,10 +37,7 @@ class OrdersStatusesPopupController: UIViewController {
     @IBAction func dismissAndSavePopup(_ sender: UIButton) {
         delegate.saveCheckBoxes(checkes: checkedBoxes)
         self.dismiss(animated: true, completion: nil)
-        
     }
-    
-    
 }
 
 extension OrdersStatusesPopupController : UITableViewDelegate{
@@ -64,8 +61,9 @@ extension OrdersStatusesPopupController : UITableViewDataSource{
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell : OrderStatusCell = tableView.dequeueReusableCell(withIdentifier: "OrderFilterCell", for: indexPath) as! OrderStatusCell
-        cell.orderFilterDescrLabel.text = "In process"
-        cell.orderCheckImage.image = #imageLiteral(resourceName: "orderUncheckedBox")
+        
+        cell.fillCellInfo(orderFilterDescription: "In process", orderCheckImage: #imageLiteral(resourceName: "orderUncheckedBox"))
+        
         if resultChecked.count > 0{
             for item in resultChecked{
                 if indexPath.row == item - 1{

@@ -16,9 +16,12 @@ class OrderPageCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
+}
 
-    
-
+extension OrderPageCell {
+    func fillCellInfo(orderDate: String, orderStatusImage: UIImage) {
+        self.orderDateAndIdLabel.text = orderDate
+        self.orderStatusImage.image = orderStatusImage
+    }
 }

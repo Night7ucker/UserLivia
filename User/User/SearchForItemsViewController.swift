@@ -121,7 +121,7 @@ extension SearchForItemsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cityNameCell", for: indexPath) as! CityTableViewCell
         
-        cell.cityNameLabelOutlet.text = countriesAndCitiesArray[indexPath.section].city[indexPath.row]
+        cell.fillCellInfo(cityName: countriesAndCitiesArray[indexPath.section].city[indexPath.row])
         
         return cell
     }
