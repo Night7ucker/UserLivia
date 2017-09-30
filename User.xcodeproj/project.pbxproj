@@ -33,6 +33,8 @@
 		CE798D231F7A828400FDF83D /* TermsAndConditions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */; };
 		CE798D251F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE798D241F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift */; };
 		CE7B302A1F7B906E0023472F /* LoadingAnimation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7B30291F7B906E0023472F /* LoadingAnimation.storyboard */; };
+		CE939B0A1F7FE77A00CCB533 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939B091F7FE77A00CCB533 /* TestViewController.swift */; };
+		CE939B0C1F7FF00900CCB533 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939B0B1F7FF00900CCB533 /* TestTableViewCell.swift */; };
 		CE95905A1F7945DA00536DF7 /* ReminderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9590591F7945DA00536DF7 /* ReminderModel.swift */; };
 		CE95905C1F79473800536DF7 /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95905B1F79473800536DF7 /* ReminderTableViewCell.swift */; };
 		CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA61BAB1F756D9400BA1AED /* MainViewsStoryboard.storyboard */; };
@@ -117,6 +119,8 @@
 		CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TermsAndConditions.storyboard; sourceTree = "<group>"; };
 		CE798D241F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsWebViewViewController.swift; sourceTree = "<group>"; };
 		CE7B30291F7B906E0023472F /* LoadingAnimation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoadingAnimation.storyboard; sourceTree = "<group>"; };
+		CE939B091F7FE77A00CCB533 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		CE939B0B1F7FF00900CCB533 /* TestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		CE9590591F7945DA00536DF7 /* ReminderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderModel.swift; sourceTree = "<group>"; };
 		CE95905B1F79473800536DF7 /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
 		CEA61BAC1F756D9400BA1AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainViewsStoryboard.storyboard; sourceTree = "<group>"; };
@@ -336,6 +340,8 @@
 				FBD6BB171F7C1402007741DC /* SearchDrugs.storyboard */,
 				CE6D40E81F7D00A000C30EFA /* SelectOrderType.storyboard */,
 				CE01762F1F7EA2DF00EE6777 /* SigninViewStoryboard.storyboard */,
+				CE939B091F7FE77A00CCB533 /* TestViewController.swift */,
+				CE939B0B1F7FF00900CCB533 /* TestTableViewCell.swift */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -797,6 +803,7 @@
 				CEBA08861F7D0D5400CBFC43 /* SelectOrderCell.swift in Sources */,
 				FBD6BB1B1F7C161C007741DC /* GetDrugsViewController.swift in Sources */,
 				CEA61BD11F756D9400BA1AED /* RegistrationViewController.swift in Sources */,
+				CE939B0A1F7FE77A00CCB533 /* TestViewController.swift in Sources */,
 				FB6BB31E1F7E653000165BB2 /* DrugsDescriptionRequest.swift in Sources */,
 				CE40CA821F78E87D003BC535 /* RemindersViewController.swift in Sources */,
 				FB22C2331F77E752000EED58 /* CustomImageView.swift in Sources */,
@@ -837,6 +844,7 @@
 				CEB75F1C1F7BA8A100986F1D /* GetCitiesRequest.swift in Sources */,
 				CEABE4251F76689B0041FAD5 /* SmsConfrimViewController.swift in Sources */,
 				FB22C2311F77E73F000EED58 /* MainScreenCell.swift in Sources */,
+				CE939B0C1F7FF00900CCB533 /* TestTableViewCell.swift in Sources */,
 				CEA61BCA1F756D9400BA1AED /* CountryCodeCell.swift in Sources */,
 				FB22C22F1F77E6BE000EED58 /* SettingsController.swift in Sources */,
 				FBD74BAA1F7B90B300FA2BFE /* EditUserProfileRequest.swift in Sources */,
