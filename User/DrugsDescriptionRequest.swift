@@ -47,7 +47,7 @@ class DrugsDescriptionRequest {
             drugsDescriptionObject.manufacturerCompany = result["manufacturer_company"] as? String
             drugsDescriptionObject.sideEffects = result["side_effects"] as? String 
             drugsDescriptionObject.name = result["name"] as? String
-            RealmDataManager.writeIntoRealm(object: drugsDescriptionObject, realm: realm)
+            RealmDataManager.writeIntoRealm(object: drugsDescriptionObject)
             completion(true)
         }
         

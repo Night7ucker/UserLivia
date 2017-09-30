@@ -14,7 +14,7 @@ class PopupCountryCodesTableViewController: RootViewController{
     
     @IBOutlet weak var countryCodesTableView: UITableView!
     
-    let countryCodeDataManagerObject = CountryCodesDataManager()
+    let countryCodeDataManagerObject = GetCountryCodesRequest()
     
     var array:[RealmDataManager] = []
     

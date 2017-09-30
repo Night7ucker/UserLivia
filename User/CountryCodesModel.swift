@@ -13,7 +13,7 @@ import RealmSwift
 import ObjectMapper_Realm
 
 
-class CountryInfoModel: Mappable {
+class MappedCountryCodesModel: Mappable {
     var CountryCodesModelArray: [CountryCodesModel]?
     
     required convenience init?(map: Map) {
@@ -24,7 +24,7 @@ class CountryInfoModel: Mappable {
         CountryCodesModelArray <- map["list_of_countries"]
     }
     
-    static func writeIntoRealm(response: DataResponse<CountryInfoModel>){
+    static func writeIntoRealm(response: DataResponse<MappedCountryCodesModel>){
         let result = response.result.value
         let realm = try! Realm()
         if let array = result?.CountryCodesModelArray {

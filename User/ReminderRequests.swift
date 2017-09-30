@@ -84,9 +84,8 @@ class ReminderRequests {
                 let date = self.formDateFromDateFromRequest(date: reminderObject.dateForRequest!)
                 reminderObject.dateTimeDaysAndYears = date.1
                 reminderObject.dateTimeHoursAndMinutes = date.0
-                
-                let realm = try! Realm()
-                RealmDataManager.writeIntoRealm(object: reminderObject, realm: realm)
+
+                RealmDataManager.writeIntoRealm(object: reminderObject)
             }
             
             completion(true)

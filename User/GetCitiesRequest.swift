@@ -35,9 +35,8 @@ class GetCitiesRequest {
                 cityObject.cityId = element["id"] as? String
                 cityObject.countryId = element["country_id"] as? String
                 cityObject.countryCode = element["country_code"] as? String
-                
-                let realm = try! Realm()
-                RealmDataManager.writeIntoRealm(object: cityObject, realm: realm)
+
+                RealmDataManager.writeIntoRealm(object: cityObject)
 
             }
             completion(true)
@@ -75,9 +74,8 @@ class GetCitiesRequest {
                 cityObject.cityId = element["id"] as? String
                 cityObject.countryId = element["country_id"] as? String
                 cityObject.countryCode = element["country_code"] as? String
-                
-                let realm = try! Realm()
-                RealmDataManager.writeIntoRealm(object: cityObject, realm: realm)
+
+                RealmDataManager.writeIntoRealm(object: cityObject)
                 
             }
             completion(true)

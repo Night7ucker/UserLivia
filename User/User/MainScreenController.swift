@@ -21,7 +21,7 @@ class MainScreenController: RootViewController, SigninViewControllerDelegate {
     @IBOutlet weak var mainScreenTableView: UITableView!
     
     var userIsRegistred  = false
-    let countryCodesDataManagerObject = CountryCodesDataManager()
+    let countryCodesDataManagerObject = GetCountryCodesRequest()
     
     override func viewDidLoad() {
         super.viewDidLoad()

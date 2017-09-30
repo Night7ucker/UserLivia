@@ -56,7 +56,7 @@ class GetTokensRequest{
                 realmTokensObject.userStatus = result["user_status"] as? String
                 realmTokensObject.accessToken = result["access_token"] as? String
                 realmTokensObject.refreshToken = result["refresh_token"] as? String
-                RealmDataManager.writeIntoRealm(object: realmTokensObject, realm: realm)
+                RealmDataManager.writeIntoRealm(object: realmTokensObject)
                 completion(true)
             }
         }

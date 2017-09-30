@@ -37,7 +37,7 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
     
     
     let realm = try! Realm()
-    let countryCodeDataManagerObject = CountryCodesDataManager()
+    let countryCodeDataManagerObject = GetCountryCodesRequest()
     
     var indexOfCountry = 2
     
@@ -68,7 +68,7 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        let countryCodesObject = CountryCodesDataManager()
+        let countryCodesObject = GetCountryCodesRequest()
         countryCodesObject.getCountryCodes()
         let urlBelarusFlagImage = "https://test.liviaapp.com/images/flags/32x32/by.png"
         getImage(pictureUrl: urlBelarusFlagImage) { success, image in
@@ -126,7 +126,7 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
                     realm.delete(RealmDataManager.getPhoneNumberFromRealm())
                 }
             }
-            RealmDataManager.writeIntoRealm(object: phoneNumberObject, realm: realm)
+            RealmDataManager.writeIntoRealm(object: phoneNumberObject)
             
             let countryCodeValue = String(countryCode.text!.characters.dropFirst())
             let getAuthCodeObject = GetAuthCode(number: phoneNumberField.text!, code: countryCodeValue)

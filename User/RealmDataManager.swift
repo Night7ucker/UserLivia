@@ -11,7 +11,8 @@ import RealmSwift
 
 class RealmDataManager {
     
-    static func writeIntoRealm(object: Object, realm: Realm) {
+    static func writeIntoRealm(object: Object) {
+        let realm = try! Realm()
         try! realm.write {
             realm.add(object)
         }

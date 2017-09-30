@@ -117,7 +117,6 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
         userCountryPhoneCodeLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].phoneCode
         userPhoneNumberLabelOutlet.text =  RealmDataManager.getUserDataFromRealm()[0].phoneNumber!
         
-        let avatarImageObject = CountryCodesDataManager()
         let fullAvatarUrl = "https://test.liviaapp.com"+RealmDataManager.getUserDataFromRealm()[0].avatar!
         getImage(pictureUrl: fullAvatarUrl) { success, image in
             if success {

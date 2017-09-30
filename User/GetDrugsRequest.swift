@@ -44,7 +44,7 @@ class GetDrugsRequest {
                 getDrugsObject.id = element["id"] as? String
                 getDrugsObject.name = element["name"] as? String
                 getDrugsObject.type = (element["type"] as? Int)!
-                RealmDataManager.writeIntoRealm(object: getDrugsObject, realm: realm)
+                RealmDataManager.writeIntoRealm(object: getDrugsObject)
             }
             completion(true)
             

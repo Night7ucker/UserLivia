@@ -12,7 +12,7 @@ import RealmSwift
 import AlamofireObjectMapper
 import ObjectMapper_Realm
 
-class CountryCodesDataManager{
+class GetCountryCodesRequest{
 
 
     
@@ -22,8 +22,8 @@ class CountryCodesDataManager{
             "Content-Type": "application/json",
             "LiviaApp-language": "en"
         ]
-        Alamofire.request(url, method: .get, headers: headers).responseObject { (response: DataResponse<CountryInfoModel>) in
-            CountryInfoModel.writeIntoRealm(response: response)
+        Alamofire.request(url, method: .get, headers: headers).responseObject { (response: DataResponse<MappedCountryCodesModel>) in
+            MappedCountryCodesModel.writeIntoRealm(response: response)
         }
     }
   
