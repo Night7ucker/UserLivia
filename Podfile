@@ -10,5 +10,7 @@ target 'User' do
   pod 'PageMenu'
   pod 'NVActivityIndicatorView'
   pod 'CollapsibleTableSectionViewController'
+  pod 'AlamofireObjectMapper', '~> 4.1'
+  pod 'ObjectMapper+Realm', '~> 0.5'  
   
 end
