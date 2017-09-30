@@ -17,7 +17,7 @@ protocol EditReminderViewControllerDelegate: class {
     func reloadTableAfterEditing()
 }
 
-class RemindersViewController: UIViewController, AddReminderViewControllerProtocol, EditReminderViewControllerDelegate {
+class RemindersViewController: RootViewController, AddReminderViewControllerProtocol, EditReminderViewControllerDelegate {
     
     @IBOutlet weak var remindersTableViewOutlet: UITableView!
     
@@ -27,10 +27,17 @@ class RemindersViewController: UIViewController, AddReminderViewControllerProtoc
     
     let reminderRequestManager = ReminderRequests()
     
-    let lightGrayColor = UIColor( red: CGFloat(230/255.0), green: CGFloat(230/255.0), blue: CGFloat(230/255.0), alpha: CGFloat(1.0) )
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureNavigationBar()
+        addBackButtonAndTitleToNavigationBar(title: "Reminders")
+        addPlusAddingButtonOnRightBarButtonItem()
+        
+        remindersTableViewOutlet.delegate = self
+        remindersTableViewOutlet.dataSource = self
+        
+        remindersTableViewOutlet.isHidden = true
         
         reminderRequestManager.getAllReminders { success in
             self.arrayOfReminders = Array(RealmDataManager.getRemindersFromRealm())
@@ -39,47 +46,6 @@ class RemindersViewController: UIViewController, AddReminderViewControllerProtoc
             self.remindersTableViewOutlet.isHidden = false
             self.remindersTableViewOutlet.separatorStyle = .singleLine
         }
-        
-        navigationController?.navigationBar.barTintColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
-        
-        navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
-        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        navigationController?.navigationBar.layer.shadowRadius = 4.0
-        navigationController?.navigationBar.layer.shadowOpacity = 0.5
-        navigationController?.navigationBar.layer.masksToBounds = false
-        
-        remindersTableViewOutlet.delegate = self
-        remindersTableViewOutlet.dataSource = self
-        
-        remindersTableViewOutlet.isHidden = true
-        
-        let backButton = UIButton(type: .system)
-        backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-        backButton.setTitle("", for: .normal)
-        
-        backButton.setBackgroundImage(UIImage(named: "backButtonImage"), for: .normal)
-        backButton.addTarget(self, action: #selector(backButtonTapped(_:)), for: .touchUpInside)
-        
-        let backButtonBarButton = UIBarButtonItem(customView: backButton)
-        
-        let titleLabel = UILabel()
-        titleLabel.text = "Reminders"
-        titleLabel.textColor = .white
-        titleLabel.frame = CGRect(x: 0, y: 0, width: 150, height: 30)
-        let titleLabelBarButton = UIBarButtonItem(customView: titleLabel)
-        
-        navigationItem.setLeftBarButtonItems([backButtonBarButton, titleLabelBarButton], animated: true)
-        
-        let addReminderButton = UIButton(type: .system)
-        addReminderButton.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        addReminderButton.setTitle("+", for: .normal)
-        addReminderButton.titleLabel?.font = UIFont(name: "Arial", size: 45)
-        addReminderButton.titleLabel?.font = UIFont.systemFont(ofSize: 34, weight: UIFontWeightThin)
-        addReminderButton.setTitleColor(.white, for: .normal)
-        addReminderButton.titleEdgeInsets = UIEdgeInsetsMake(5, 25, 0, 0)
-        addReminderButton.addTarget(self, action: #selector(addTapped(_ :)), for: .touchUpInside)
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addReminderButton)
         
         arrayOfReminders = Array(RealmDataManager.getRemindersFromRealm())
         if arrayOfReminders.count != 0 {
@@ -94,6 +60,19 @@ class RemindersViewController: UIViewController, AddReminderViewControllerProtoc
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    private func addPlusAddingButtonOnRightBarButtonItem() {
+        let addReminderButton = UIButton(type: .system)
+        addReminderButton.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        addReminderButton.setTitle("+", for: .normal)
+        addReminderButton.titleLabel?.font = UIFont(name: "Arial", size: 45)
+        addReminderButton.titleLabel?.font = UIFont.systemFont(ofSize: 34, weight: UIFontWeightThin)
+        addReminderButton.setTitleColor(.white, for: .normal)
+        addReminderButton.titleEdgeInsets = UIEdgeInsetsMake(5, 25, 0, 0)
+        addReminderButton.addTarget(self, action: #selector(addTapped(_ :)), for: .touchUpInside)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addReminderButton)
     }
     
     func addTapped(_ sender: UIButton) {
@@ -137,7 +116,7 @@ extension RemindersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeaderView = UIView()
         
-        sectionHeaderView.backgroundColor = lightGrayColor
+        sectionHeaderView.backgroundColor = Colors.Root.lightGrayColor
         
         let sectionHeaderLabel = UILabel()
         
@@ -199,11 +178,6 @@ extension RemindersViewController: UITableViewDataSource {
     func reloadTableAfterEditing() {
         remindersTableViewOutlet.reloadData()
     }
-    
-    func backButtonTapped(_ sender: UIButton) {
-        navigationController?.popViewController(animated: false)
-    }
-    
 }
 
 extension RemindersViewController: UITableViewDelegate {

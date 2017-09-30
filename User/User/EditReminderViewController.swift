@@ -9,40 +9,21 @@
 import UIKit
 import RealmSwift
 
-class EditReminderViewController: UIViewController, CalendarPopupViewControllerDelegate, TimePopupViewControllerDelegate {
+class EditReminderViewController: RootViewController, CalendarPopupViewControllerDelegate, TimePopupViewControllerDelegate {
     
     
     @IBOutlet weak var saveButtonOutlet: UIButton!
-    
     @IBOutlet weak var textFieldOutlet: UITextField!
-    
-    
     @IBOutlet weak var weekCheckboxOutlet: UIImageView!
-    
-    
     @IBOutlet weak var week2CheckboxOutlet: UIImageView!
-    
-    
     @IBOutlet weak var week3CheckboxOutlet: UIImageView!
-    
     @IBOutlet weak var week4CheckboxOutlet: UIImageView!
-    
     @IBOutlet weak var monthCheckboxOutlet: UIImageView!
-    
-    
-    
     @IBOutlet weak var dayAndMonthDateOutlet: UILabel!
-    
-    
     @IBOutlet weak var minutesAndHoursDateOutlet: UILabel!
-    
-    
     @IBOutlet weak var reminderNameViewOutlet: UIView!
-    
     @IBOutlet weak var reminderNameLabelOutlet: UILabel!
-    
     @IBOutlet weak var grayLineUnderTextFieldOutlet: UIView!
-    
     @IBOutlet weak var enterMedicineNameTextOutlet: UILabel!
     
     var weekReminderCheckButtonTapped = false
@@ -62,38 +43,14 @@ class EditReminderViewController: UIViewController, CalendarPopupViewControllerD
     
     let reminderRequestManager = ReminderRequests()
     
-    let lightBluecolor = UIColor(red: CGFloat(0/255.0), green: CGFloat(128/255.0), blue: CGFloat(255/255.0), alpha: CGFloat(1.0))
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.barTintColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
-        
-        navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
-        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        navigationController?.navigationBar.layer.shadowRadius = 4.0
-        navigationController?.navigationBar.layer.shadowOpacity = 0.5
-        navigationController?.navigationBar.layer.masksToBounds = false
+        configureNavigationBar()
+        addBackButtonAndTitleToNavigationBar(title: "Reminder details")
         
         saveButtonOutlet.layer.cornerRadius = 2
-        saveButtonOutlet.backgroundColor = lightBluecolor
-        
-        let backButton = UIButton(type: .system)
-        backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-        backButton.setTitle("", for: .normal)
-        
-        backButton.setBackgroundImage(UIImage(named: "backButtonImage"), for: .normal)
-        backButton.addTarget(self, action: #selector(backButtonTapped(_:)), for: .touchUpInside)
-        
-        let backButtonBarButton = UIBarButtonItem(customView: backButton)
-        
-        let titleLabel = UILabel()
-        titleLabel.text = "Reminder details"
-        titleLabel.textColor = .white
-        titleLabel.frame = CGRect(x: 0, y: 0, width: 150, height: 30)
-        let titleLabelBarButton = UIBarButtonItem(customView: titleLabel)
-        
-        navigationItem.setLeftBarButtonItems([backButtonBarButton, titleLabelBarButton], animated: true)
+        saveButtonOutlet.backgroundColor = Colors.Root.lightBlueColor
         
         reminderNameViewOutlet.layer.borderWidth = 0.5
         reminderNameViewOutlet.layer.borderColor = UIColor.black.cgColor
@@ -262,16 +219,6 @@ class EditReminderViewController: UIViewController, CalendarPopupViewControllerD
     
     @IBAction func deleteReminderNameTapped(_ sender: UIButton) {
         reminderNameViewOutlet.isHidden = true
-    }
-    
-    func backButtonTapped(_ sender: UIButton) {
-        let transition = CATransition()
-        transition.duration = 0.4
-        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        transition.type = kCATransitionFade
-        self.navigationController!.view.layer.add(transition, forKey: nil)
-        
-        navigationController?.popViewController(animated: false)
     }
     
     func trasferDataTime(data: Date) {

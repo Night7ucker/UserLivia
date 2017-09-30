@@ -8,38 +8,19 @@
 
 import UIKit
 
-class SettingsController: UIViewController {
+class SettingsController: RootViewController {
     
     @IBOutlet weak var settingsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backButton = UIButton(type: .system)
-        backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-        backButton.setTitle("", for: .normal)
-        
-        backButton.setBackgroundImage(UIImage(named: "backButtonImage"), for: .normal)
-        backButton.addTarget(self, action: #selector(backButtonTapped(_:)), for: .touchUpInside)
-        
-        let backButtonBarButton = UIBarButtonItem(customView: backButton)
-        
-        let titleLabel = UILabel()
-        titleLabel.text = "Settings"
-        titleLabel.textColor = .white
-        titleLabel.frame = CGRect(x: 0, y: 0, width: 150, height: 30)
-        let titleLabelBarButton = UIBarButtonItem(customView: titleLabel)
-        
-        navigationItem.setLeftBarButtonItems([backButtonBarButton, titleLabelBarButton], animated: true)
+        addBackButtonAndTitleToNavigationBar(title: "Settings")
         
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
         
         settingsTableView.layer.cornerRadius = 10.0
         
-    }
-    
-    func backButtonTapped(_ sender: UIButton) {
-        navigationController?.popViewController(animated: false)
     }
     
 }

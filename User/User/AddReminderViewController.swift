@@ -17,34 +17,19 @@ protocol TimePopupViewControllerDelegate: class {
     func trasferDataTime(data: Date)
 }
 
-class AddReminderViewController: UIViewController, CalendarPopupViewControllerDelegate, TimePopupViewControllerDelegate {
+class AddReminderViewController: RootViewController, CalendarPopupViewControllerDelegate, TimePopupViewControllerDelegate {
     
     @IBOutlet weak var viewWithDateOutlet: UIView!
     @IBOutlet weak var saveButtonOutlet: UIButton!
-    
     @IBOutlet weak var checkImageWeekOutlet: UIImageView!
-    
-    
     @IBOutlet weak var checkImage2WeekOutlet: UIImageView!
-    
     @IBOutlet weak var checkImage3WeekOutlet: UIImageView!
-    
     @IBOutlet weak var checkImage4WeekOutlet: UIImageView!
-    
     @IBOutlet weak var checkImageMonthOutlet: UIImageView!
-    
-    
     @IBOutlet weak var dateLabelOutlet: UILabel!
-    
     @IBOutlet weak var timeHoursLabelOutlet: UILabel!
-    
     @IBOutlet weak var medicineNameTextFieldOutlet: UITextField!
-    
-    
     @IBOutlet weak var poupErrorViewOutlet: UIView!
-    
-    
-    let lightBlueColor = UIColor(red: CGFloat(0/255.0), green: CGFloat(128/255.0), blue: CGFloat(255/255.0), alpha: CGFloat(1.0))
     
     var weekReminderCheckButtonTapped = true
     var week2ReminderCheckButtonTapped = false
@@ -60,36 +45,14 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.barTintColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
-        
-        navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
-        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        navigationController?.navigationBar.layer.shadowRadius = 4.0
-        navigationController?.navigationBar.layer.shadowOpacity = 0.5
-        navigationController?.navigationBar.layer.masksToBounds = false
+        configureNavigationBar()
+        addBackButtonAndTitleToNavigationBar(title: "Add reminder")
         
         viewWithDateOutlet.layer.borderWidth = 0.5
-        saveButtonOutlet.backgroundColor = lightBlueColor
+        saveButtonOutlet.backgroundColor = Colors.Root.lightBlueColor
         saveButtonOutlet.layer.cornerRadius = 2
         
         poupErrorViewOutlet.isHidden = true
-        
-        let backButton = UIButton(type: .system)
-        backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-        backButton.setTitle("", for: .normal)
-        
-        backButton.setBackgroundImage(UIImage(named: "backButtonImage"), for: .normal)
-        backButton.addTarget(self, action: #selector(backButtonTapped(_:)), for: .touchUpInside)
-        
-        let backButtonBarButton = UIBarButtonItem(customView: backButton)
-        
-        let titleLabel = UILabel()
-        titleLabel.text = "Add reminder"
-        titleLabel.textColor = .white
-        titleLabel.frame = CGRect(x: 0, y: 0, width: 150, height: 30)
-        let titleLabelBarButton = UIBarButtonItem(customView: titleLabel)
-        
-        navigationItem.setLeftBarButtonItems([backButtonBarButton, titleLabelBarButton], animated: true)
         
         let currentDate = Date()
         let formatter = DateFormatter()
@@ -111,19 +74,7 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-    func backButtonTapped(_ sender: Any) {
-        let transition = CATransition()
-        transition.duration = 0.4
-        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        transition.type = kCATransitionFade
-        self.navigationController!.view.layer.add(transition, forKey: nil)
-        
-        navigationController?.popViewController(animated: false)
-    }
-    
     
     @IBAction func weekReminderCheckButtonTapped(_ sender: UIButton) {
         if weekReminderCheckButtonTapped == false {
@@ -347,20 +298,3 @@ class AddReminderViewController: UIViewController, CalendarPopupViewControllerDe
         poupErrorViewOutlet.isHidden = true
     }
 }
-
-//class PaddingLabel: UILabel {
-//
-//    override func drawText(in rect: CGRect) {
-//        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
-//        super.drawText(in: UIEdgeInsetsInsetRect(rect, insets))
-//    }
-//
-//    override var intrinsicContentSize: CGSize {
-//        get {
-//            var contentSize = super.intrinsicContentSize
-//            contentSize.height += 10 + 10
-//            contentSize.width += 5 + 5
-//            return contentSize
-//        }
-//    }
-//}

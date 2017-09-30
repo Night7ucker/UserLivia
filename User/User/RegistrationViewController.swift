@@ -19,9 +19,7 @@ protocol SmsConfrimViewControllerDelegate: class {
     func timeToSentNewCode()
 }
 
-class RegistrationViewController: UIViewController, PopupCountryCodesTableViewControllerDelegate, SmsConfrimViewControllerDelegate {
-    
-    let lightBlueColor = UIColor(red: CGFloat(121/255.0), green: CGFloat(181/255.0), blue: CGFloat(208/255.0), alpha: CGFloat(1.0))
+class RegistrationViewController: RootViewController, PopupCountryCodesTableViewControllerDelegate, SmsConfrimViewControllerDelegate {
     
     @IBOutlet weak var nextButtonOutlet: UIButton!
     @IBOutlet weak var mainWhiteViewOutlet: UIView!
@@ -45,10 +43,17 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        nextButtonOutlet.backgroundColor = lightBlueColor
-        phoneNumberField.delegate = self
-        navigationController?.isNavigationBarHidden = true
+        nextButtonOutlet.backgroundColor = Colors.Root.lightBlueColor
         errorViewOutlet.isHidden = true
+        nextButtonOutlet.layer.cornerRadius = 2
+        mainWhiteViewOutlet.layer.cornerRadius = 10
+        skipRegistrationButtonOutlet.layer.cornerRadius = 2
+        skipRegistrationButtonOutlet.setTitleColor(Colors.Root.lightBlueColor, for: .normal)
+        
+        phoneNumberField.delegate = self
+        
+        navigationController?.isNavigationBarHidden = true
+        
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         let countryCodesObject = CountryCodesDataManager()
         countryCodesObject.getCountryCodes()
@@ -60,11 +65,6 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
         }
         countryName.text = "Belarus"
         countryCode.text = "+375"
-        
-        nextButtonOutlet.layer.cornerRadius = 2
-        mainWhiteViewOutlet.layer.cornerRadius = 10
-        skipRegistrationButtonOutlet.layer.cornerRadius = 2
-        skipRegistrationButtonOutlet.setTitleColor(lightBlueColor, for: .normal)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -77,15 +77,7 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-//    deinit {
-//        let realm = try! Realm()
-//        try! realm.write {
-//            realm.delete(RealmDataManager.getDataFromCountries())
-//        }
-//    }
     
     @IBAction func sendAuthCodeAction(_ sender: Any) {
         if canSendNewCode {
@@ -109,13 +101,11 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
             smsConfirmViewController?.indexOfCountry = indexOfCountry
             navigationController?.pushViewController(smsConfirmViewController!, animated: true)
             canSendNewCode = false
-            
         } else {
             errorViewOutlet.isHidden = false
             Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(hideErrorView), userInfo: nil, repeats: false)
             return
         }
-        
     }
     
     
@@ -141,7 +131,6 @@ class RegistrationViewController: UIViewController, PopupCountryCodesTableViewCo
         }
     }
     
-    // showPopupContries
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPopupContries" {
             let popupContriesControllerr = segue.destination as! PopupCountryCodesTableViewController

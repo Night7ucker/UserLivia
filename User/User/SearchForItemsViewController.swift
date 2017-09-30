@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class SearchForItemsViewController: UIViewController, UISearchBarDelegate {
+class SearchForItemsViewController: RootViewController, UISearchBarDelegate {
     
     
     @IBOutlet weak var citiesForSearchingTalbeView: UITableView!
@@ -30,10 +30,16 @@ class SearchForItemsViewController: UIViewController, UISearchBarDelegate {
     
     var  countriesAndCitiesArray = [CountriesAndCities]()
     
-    var ifSearchStarted = false
+    var isSearchStarted = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureNavigationBar()
+        addBackButtonAndTitleToNavigationBar(title: "My location")
+        
+        citiesForSearchingTalbeView.delegate = self
+        citiesForSearchingTalbeView.dataSource = self
         
         textForSearchFieldOutlet.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
@@ -42,7 +48,6 @@ class SearchForItemsViewController: UIViewController, UISearchBarDelegate {
                 realm.delete(RealmDataManager.getCitiesNamesFromRealm())
             }
         }
-
         
         GetCitiesRequest.getCities(offsetForCities: offsetForCities) { success in
             if success {
@@ -51,45 +56,12 @@ class SearchForItemsViewController: UIViewController, UISearchBarDelegate {
             }
         }
         
-        navigationController?.navigationBar.barTintColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
         
-        navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
-        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        navigationController?.navigationBar.layer.shadowRadius = 4.0
-        navigationController?.navigationBar.layer.shadowOpacity = 0.5
-        navigationController?.navigationBar.layer.masksToBounds = false
-        
-        let backButton = UIButton(type: .system)
-        backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-        backButton.setTitle("", for: .normal)
-        
-        backButton.setBackgroundImage(UIImage(named: "backButtonImage"), for: .normal)
-        backButton.addTarget(self, action: #selector(backButtonTapped(_:)), for: .touchUpInside)
-        
-        let backButtonBarButton = UIBarButtonItem(customView: backButton)
-        
-        let titleLabel = UILabel()
-        titleLabel.text = "My location"
-        titleLabel.textColor = .white
-        titleLabel.frame = CGRect(x: 0, y: 0, width: 150, height: 30)
-        let titleLabelBarButton = UIBarButtonItem(customView: titleLabel)
-        
-        navigationItem.setLeftBarButtonItems([backButtonBarButton, titleLabelBarButton], animated: true)
-        
-        citiesForSearchingTalbeView.delegate = self
-        citiesForSearchingTalbeView.dataSource = self
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
-        
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func backButtonTapped(_ sender: UIButton) {
-        navigationController?.popViewController(animated: false)
     }
     
     func formDictionaryOfCountriesAndCities() -> [CountriesAndCities] {
@@ -120,12 +92,12 @@ class SearchForItemsViewController: UIViewController, UISearchBarDelegate {
     }
     
     func textFieldDidChange(_ sender: UITextField) {
-        ifSearchStarted = true
+        isSearchStarted = true
         GetCitiesRequest.getCitiesForSearchRequest(searchStringForCities: sender.text!) { success in
             self.countriesAndCitiesArray = self.formDictionaryOfCountriesAndCities()
             self.citiesForSearchingTalbeView.reloadData()
             if sender.text == "" {
-                self.ifSearchStarted = false
+                self.isSearchStarted = false
             }
         }
     }
@@ -135,7 +107,6 @@ class SearchForItemsViewController: UIViewController, UISearchBarDelegate {
 extension SearchForItemsViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return countriesAndCitiesArray.count
     }
     
@@ -211,7 +182,7 @@ extension SearchForItemsViewController: UITableViewDelegate {
         tableView.bounds.size.width, height: tableView.bounds.size.height))
         headerLabel.font = UIFont(name: "Verdana", size: 10)
         headerLabel.font = UIFont.boldSystemFont(ofSize: 10)
-        headerLabel.textColor = UIColor.gray
+        headerLabel.textColor = .gray
         headerLabel.text = self.tableView(self.citiesForSearchingTalbeView, titleForHeaderInSection: section)?.uppercased()
         headerLabel.sizeToFit()
         headerView.addSubview(headerLabel)
@@ -234,7 +205,7 @@ extension SearchForItemsViewController: UITableViewDelegate {
         let  height = scrollView.frame.size.height
         let contentYoffset = scrollView.contentOffset.y
         let distanceFromBottom = scrollView.contentSize.height - contentYoffset
-        if distanceFromBottom < height && isOneScrollBottom && ifSearchStarted == false {
+        if distanceFromBottom < height && isOneScrollBottom && isSearchStarted == false {
             isOneScrollBottom = false
             reloadTableActivityIndicator.startAnimating()
             view.addSubview(reloadTableActivityIndicator)

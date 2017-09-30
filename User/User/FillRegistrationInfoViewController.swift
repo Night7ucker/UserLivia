@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class FillRegistrationInfoViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, PopupTitleForPersonViewControllerDelegate {
+class FillRegistrationInfoViewController: RootViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, PopupTitleForPersonViewControllerDelegate {
     
     var token = NotificationToken()
     let realm = try! Realm()
@@ -18,8 +18,6 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
     var agreeWithTermsIsChecked = false
     var imagePicker = UIImagePickerController()
     var sex = "Female"
-    
-    let lightBluecolor = UIColor(red: CGFloat(0/255.0), green: CGFloat(128/255.0), blue: CGFloat(255/255.0), alpha: CGFloat(1.0))
     
     @IBOutlet var photoImageView: UIImageView!
     @IBOutlet weak var personTitleLabelOutlet: UILabel!
@@ -30,7 +28,6 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
     @IBOutlet weak var check18YearsOldImageViewOutlet: UIImageView!
     @IBOutlet weak var checkTermsAndConditionsImageViewOutlet: UIImageView!
     @IBOutlet weak var nextButtonOutlet: UIButton!
-    
     @IBOutlet weak var nextLabelOutlet: UILabel!
     
     
@@ -39,27 +36,13 @@ class FillRegistrationInfoViewController: UIViewController, UINavigationControll
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.barTintColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
-        
-        navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
-        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        navigationController?.navigationBar.layer.shadowRadius = 4.0
-        navigationController?.navigationBar.layer.shadowOpacity = 0.5
-        navigationController?.navigationBar.layer.masksToBounds = false
-        
-        let titleLabel = UILabel()
-        titleLabel.text = "Create profile"
-        titleLabel.textColor = .white
-        titleLabel.frame = CGRect(x: 0, y: 0, width: 150, height: 30)
-        
-        let titleLabelBarButton = UIBarButtonItem(customView: titleLabel)
-        
-        navigationItem.leftBarButtonItem = titleLabelBarButton
+        configureNavigationBar()
+        createTitleInNavigtaionBar(title: "Create profile")
         
         personTitleLabelOutlet.text = "Dr."
         
         nextButtonOutlet.layer.cornerRadius = 2
-        nextButtonOutlet.backgroundColor = lightBluecolor
+        nextButtonOutlet.backgroundColor = Colors.Root.lightBlueColor
         nextButtonOutlet.isHidden = true
         nextLabelOutlet.layer.cornerRadius = 2
         

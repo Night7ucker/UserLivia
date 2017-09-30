@@ -12,7 +12,7 @@ protocol SigninViewControllerDelegate: class {
     func pushToRegistrationViewController()
 }
 
-class MainScreenController: UIViewController, SigninViewControllerDelegate {
+class MainScreenController: RootViewController, SigninViewControllerDelegate {
     
     
     @IBOutlet weak var fullNameLabelOutlet: UILabel!
@@ -191,10 +191,9 @@ extension MainScreenController : UITableViewDelegate{
         case 4:
             print("4")
         case 5:
-            print("5")
             let settingsStoryboard = UIStoryboard(name: "Settings", bundle: nil)
             let settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "kSettingsController") as? SettingsController
-            self.navigationController?.pushViewController(settingsViewController!, animated: true)
+            navigationController?.pushViewController(settingsViewController!, animated: true)
         default:
             break
         }
