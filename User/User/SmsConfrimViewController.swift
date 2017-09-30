@@ -48,6 +48,7 @@ class SmsConfrimViewController: RootViewController {
         
         Timer.scheduledTimer(timeInterval: 120.0, target: self, selector: #selector(timerForCodeSendingPassed), userInfo: nil, repeats: false)
         
+        hideKeyboardWhenTappedAround()
         configureNavigationBar()
         addBackButtonAndTitleToNavigationBar(title: "After Call Prompt")
         
@@ -62,6 +63,11 @@ class SmsConfrimViewController: RootViewController {
         confirmButtonOutlet.backgroundColor = Colors.Root.lightBlueColor
         timerButtonOutlet.layer.cornerRadius = 2
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        
+        
         if RealmDataManager.getPhoneNumberFromRealm().count != 0 {
             let phoneCodeValue = String(describing: RealmDataManager.getDataFromCountries()[indexOfCountry].phoneCode!)
             personNumberLabelOutlet.text = "+" + phoneCodeValue + RealmDataManager.getPhoneNumberFromRealm()[0].phoneNumber!
@@ -75,6 +81,22 @@ class SmsConfrimViewController: RootViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= 20
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += 20
+            }
+        }
     }
     
     func runTimer() {
@@ -105,14 +127,13 @@ class SmsConfrimViewController: RootViewController {
     @IBAction func confirmAuthCodeAction(_ sender: UIButton) {
         let loadingAnimationStoryboard = UIStoryboard(name: "LoadingAnimation", bundle: Bundle.main)
         let loadingAnimationController = loadingAnimationStoryboard.instantiateViewController(withIdentifier: "kLoadingAnimationViewController") as! LoadingAnimationViewController
-        present(loadingAnimationController, animated: false, completion: nil)
-        
         let phoneNumber = RealmDataManager.getPhoneNumberFromRealm()[0].phoneNumber!
         let authCode = textViewForCodeOutlet.text!
         let phoneCode = String(describing: RealmDataManager.getDataFromCountries()[indexOfCountry].phoneCode!)
         let getTokenObject = GetTokensRequest(phoneNumber: phoneNumber, phoneCode: phoneCode, authCode: authCode)
         getTokenObject.confirmAuthCode() { success in
             if success {
+                self.present(loadingAnimationController, animated: false, completion: nil)
                 switch RealmDataManager.getTokensFromRealm()[0].userStatus! {
                 case UserStatus.active.rawValue:
                     let MainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)

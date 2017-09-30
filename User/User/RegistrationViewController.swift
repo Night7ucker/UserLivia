@@ -33,6 +33,9 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
     
     @IBOutlet weak var errorViewOutlet: UIView!
     
+    @IBOutlet weak var wrongPhoneNumberViewOutlet: UIView!
+    
+    
     let realm = try! Realm()
     let countryCodeDataManagerObject = CountryCodesDataManager()
     
@@ -43,8 +46,11 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideKeyboardWhenTappedAround()
+        
         nextButtonOutlet.backgroundColor = Colors.Root.lightBlueColor
         errorViewOutlet.isHidden = true
+        wrongPhoneNumberViewOutlet.isHidden = true
         nextButtonOutlet.layer.cornerRadius = 2
         mainWhiteViewOutlet.layer.cornerRadius = 10
         skipRegistrationButtonOutlet.layer.cornerRadius = 2
@@ -53,6 +59,9 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
         phoneNumberField.delegate = self
         
         navigationController?.isNavigationBarHidden = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         let countryCodesObject = CountryCodesDataManager()
@@ -67,6 +76,8 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
         countryCode.text = "+375"
     }
     
+    
+    
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
     }
@@ -79,7 +90,29 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
         super.didReceiveMemoryWarning()
     }
     
+    func keyboardWillShow(notification: NSNotification) {
+        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= 37
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += 37
+            }
+        }
+    }
+    
     @IBAction func sendAuthCodeAction(_ sender: Any) {
+        let textFieldString = phoneNumberField.text! as NSString
+        if textFieldString.length < 9 {
+            wrongPhoneNumberViewOutlet.isHidden = false
+            Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(hideWrongPhoneNumberView), userInfo: nil, repeats: false)
+            return
+        }
         if canSendNewCode {
             let phoneNumberObject = PhoneNumberModel()
             phoneNumberObject.phoneNumber = phoneNumberField.text!
@@ -111,6 +144,10 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
     
     func hideErrorView() {
         errorViewOutlet.isHidden = true
+    }
+    
+    func hideWrongPhoneNumberView() {
+        wrongPhoneNumberViewOutlet.isHidden = true
     }
     
     

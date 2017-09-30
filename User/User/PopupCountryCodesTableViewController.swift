@@ -25,25 +25,14 @@ class PopupCountryCodesTableViewController: UIViewController{
         
         self.countryCodesTableView.layer.cornerRadius = 5
         self.countryCodesTableView.indicatorStyle = .default
-     /*
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissIfTappedOnView(_:)))
-        tap.delegate = self as? UIGestureRecognizerDelegate
-        self.view.addGestureRecognizer(tap)
-     */
+
         countryCodesTableView.delegate = self
         countryCodesTableView.dataSource = self
-        
-
-
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func dismissIfTappedOnView(_ sender: UITapGestureRecognizer) {
-     //   dismiss(animated: false, completion: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -53,12 +42,10 @@ class PopupCountryCodesTableViewController: UIViewController{
 
 extension PopupCountryCodesTableViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return RealmDataManager.getDataFromCountries().count
     }
     
