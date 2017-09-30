@@ -10,7 +10,7 @@ import UIKit
 import CoreGraphics
 import RealmSwift
 
-class PopupCountryCodesTableViewController: UIViewController{
+class PopupCountryCodesTableViewController: RootViewController{
     
     @IBOutlet weak var countryCodesTableView: UITableView!
     
@@ -55,7 +55,7 @@ extension PopupCountryCodesTableViewController: UITableViewDataSource {
         cell.fillCellInfo(countryName: RealmDataManager.getDataFromCountries()[indexPath.row].countryName!, countryCode: "+" + RealmDataManager.getDataFromCountries()[indexPath.row].phoneCode!)
         
         let urlImage = "https://test.liviaapp.com" + RealmDataManager.getDataFromCountries()[indexPath.row].countryFlag!
-        countryCodeDataManagerObject.getImage(pictureUrl: urlImage) { success, image in
+        getImage(pictureUrl: urlImage) { success, image in
             if success {
                 cell.countryFlagImageViewOutlet.image = image
             }

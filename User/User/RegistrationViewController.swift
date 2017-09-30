@@ -45,7 +45,11 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        try! realm.write {
+            realm.deleteAll()
+        }
+  
         hideKeyboardWhenTappedAround()
         
         nextButtonOutlet.backgroundColor = Colors.Root.lightBlueColor
@@ -67,7 +71,7 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
         let countryCodesObject = CountryCodesDataManager()
         countryCodesObject.getCountryCodes()
         let urlBelarusFlagImage = "https://test.liviaapp.com/images/flags/32x32/by.png"
-        countryCodeDataManagerObject.getImage(pictureUrl: urlBelarusFlagImage) { success, image in
+        getImage(pictureUrl: urlBelarusFlagImage) { success, image in
             if success {
                 self.countryImage.image = image
             }
@@ -161,7 +165,7 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
         countryCode.text = "+" + countryObject.phoneCode!
         countryName.text = countryObject.countryName
         let urlImage = "https://test.liviaapp.com" + countryObject.countryFlag!
-        countryCodeDataManagerObject.getImage(pictureUrl: urlImage) { success, image in
+        getImage(pictureUrl: urlImage) { success, image in
             if success {
                 self.countryImage.image = image
             }
