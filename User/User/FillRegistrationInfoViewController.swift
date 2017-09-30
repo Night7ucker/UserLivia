@@ -31,10 +31,77 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
     @IBOutlet weak var nextLabelOutlet: UILabel!
     
     
+    
+    @IBOutlet weak var enterYourNameErrorViewOutlet: UIView!
+    
+    @IBOutlet weak var enterYourNameErrorArrowOutlet: UILabel!
+    
+    @IBOutlet weak var enterYourNameExclamationPointOutlet: UILabel!
+    
+    @IBOutlet weak var enterYourNameRedCircleOutlet: UILabel!
+    
+    
+    @IBOutlet weak var enterYourSurnameViewOutlet: UIView!
+    
+    @IBOutlet weak var enterYourSurnameErrorArrowOutlet: UILabel!
+    
+    @IBOutlet weak var enterYourSurnameExclamationPointOutlet: UILabel!
+    
+    @IBOutlet weak var enterYourSurnameRedCircleOutlet: UILabel!
+    
+    
+    
+    @IBOutlet weak var enterYourAgeViewOutlet: UIView!
+    
+    
+    @IBOutlet weak var enterYourAgeErrorArrowOutlet: UILabel!
+    
+    @IBOutlet weak var enterYourAgeExclamationPointOutlet: UILabel!
+    
+    
+    @IBOutlet weak var enterYourAgeRedCircleOutlet: UILabel!
+    
+    @IBOutlet weak var wrongEmailViewOutlet: UIView!
+    
+    
+    @IBOutlet weak var wrongEmailErrorArrowOutlet: UILabel!
+    
+    @IBOutlet weak var wrongEmailExclamationPointOutlet: UILabel!
+    
+    @IBOutlet weak var wrongEmailRedCircle: UILabel!
+    
+    
+    
+    
+    
+//    336880185
+    
+    var isEmailTextField = false
+    
+    var nameFieldIsEmpty = false
+    var surnameFieldIsEmpty = false
+    var ageFieldIsEmpty = false
+    var emailFieldIsEmplty = false
+    
+    var nameFieldErrorAppear = false
+    var surnameFieldErrorAppear = false
+    var ageFieldErrorAppear = false
+    var emailFieldErrorAppear = false
+    
+    var arrayOfFields = [Bool]()
+    
     var indexOfCountry = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        arrayOfFields.append(nameFieldIsEmpty)
+        arrayOfFields.append(surnameFieldIsEmpty)
+        arrayOfFields.append(ageFieldIsEmpty)
+        arrayOfFields.append(emailFieldIsEmplty)
+        
+        setErrorViewsHidden()
+        hideKeyboardWhenTappedAround()
         
         configureNavigationBar()
         createTitleInNavigtaionBar(title: "Create profile")
@@ -46,6 +113,14 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
         nextButtonOutlet.isHidden = true
         nextLabelOutlet.layer.cornerRadius = 2
         
+        emailTextFieldOutlet.delegate = self
+        firstNameTextFieldOutlet.delegate = self
+        lastNameTextFieldOutlet.delegate = self
+        ageTextFieldOutlet.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
     }
@@ -53,6 +128,25 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            if isEmailTextField {
+                if self.view.frame.origin.y == 0{
+                    self.view.frame.origin.y -= 60
+                    isEmailTextField = false
+                }
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += 60
+            }
+        }
     }
     
     @IBAction func check18YearsOldButtonTapped(_ sender: UIButton) {
@@ -121,34 +215,97 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
         }
     }
     
+    func checkIfFieldsAreFilled() -> Bool {
+        var isFieldsFilled = true
+        if firstNameTextFieldOutlet.text == "" {
+            isFieldsFilled = false
+            nameFieldIsEmpty = true
+            enterYourNameExclamationPointOutlet.isHidden = false
+            enterYourNameErrorArrowOutlet.isHidden = false
+            enterYourNameRedCircleOutlet.isHidden = false
+            enterYourNameErrorViewOutlet.isHidden = false
+        }
+        if lastNameTextFieldOutlet.text == "" {
+            isFieldsFilled = false
+            surnameFieldIsEmpty = true
+            enterYourSurnameViewOutlet.isHidden = false
+            enterYourSurnameRedCircleOutlet.isHidden = false
+            enterYourSurnameErrorArrowOutlet.isHidden = false
+            enterYourSurnameExclamationPointOutlet.isHidden = false
+        }
+        if ageTextFieldOutlet.text == "" {
+            isFieldsFilled = false
+            ageFieldIsEmpty = true
+            enterYourAgeViewOutlet.isHidden = false
+            enterYourAgeRedCircleOutlet.isHidden = false
+            enterYourAgeErrorArrowOutlet.isHidden = false
+            enterYourAgeExclamationPointOutlet.isHidden = false
+        }
+        if emailTextFieldOutlet.text == "" {
+            isFieldsFilled = false
+            emailFieldIsEmplty = true
+            wrongEmailRedCircle.isHidden = false
+            wrongEmailViewOutlet.isHidden = false
+            wrongEmailErrorArrowOutlet.isHidden = false
+            wrongEmailExclamationPointOutlet.isHidden = false
+        }
+        return isFieldsFilled
+    }
+    
+    func getEmptyTextFields() -> [Bool] {
+        
+        var textFieldsAreFilled = [Bool]()
+        var emptyFields = [Bool]()
+        
+        textFieldsAreFilled.append(nameFieldIsEmpty)
+        textFieldsAreFilled.append(surnameFieldIsEmpty)
+        textFieldsAreFilled.append(ageFieldIsEmpty)
+        textFieldsAreFilled.append(emailFieldIsEmplty)
+        
+        for field in textFieldsAreFilled {
+            if field == false {
+                emptyFields.append(field)
+            }
+        }
+        
+        return emptyFields
+    }
     
     @IBAction func registerUserAction(_ sender: UIButton) {
-        let loadingAnimationStoryboard = UIStoryboard(name: "LoadingAnimation", bundle: Bundle.main)
-        let loadingAnimationController = loadingAnimationStoryboard.instantiateViewController(withIdentifier: "kLoadingAnimationViewController") as! LoadingAnimationViewController
-        present(loadingAnimationController, animated: false, completion: nil)
-        
-        let userRegistrationObject = RegistrationUserRequest()
-        userRegistrationObject.registerUserFunc(prefixName: personTitleLabelOutlet.text!,
-                                           fName: firstNameTextFieldOutlet.text!,
-                                           lName: lastNameTextFieldOutlet.text!,
-                                           age: ageTextFieldOutlet.text!,
-                                           sex: sex,
-                                           mail: emailTextFieldOutlet.text!,
-                                           imageUrl: RealmDataManager.getImageUrlFromRealm()[0].imageUrl!,
-                                           codeIndex: indexOfCountry) { success in
-                                            if success {
-                                                let ChooseCityStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: Bundle.main)
-                                                let ChooseCityController = ChooseCityStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as! SearchForItemsViewController
-                                                loadingAnimationController.dismiss(animated: false, completion: nil)
-                                                self.navigationController?.pushViewController(ChooseCityController, animated: true)
-                                            }
-//                                                let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
-//                                                let mainScreenViewController = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as? MainScreenController
-//                                                mainScreenViewController?.userIsRegistred = true
-//                                                loadingAnimationController.dismiss(animated: false, completion: nil)
-//                                                self.navigationController?.pushViewController(mainScreenViewController!, animated: true)
-                                            
+        if checkIfFieldsAreFilled() {
+            let loadingAnimationStoryboard = UIStoryboard(name: "LoadingAnimation", bundle: Bundle.main)
+            let loadingAnimationController = loadingAnimationStoryboard.instantiateViewController(withIdentifier: "kLoadingAnimationViewController") as! LoadingAnimationViewController
+            present(loadingAnimationController, animated: false, completion: nil)
+            
+            let userRegistrationObject = RegistrationUserRequest()
+            userRegistrationObject.registerUserFunc(prefixName: personTitleLabelOutlet.text!,
+                                                    fName: firstNameTextFieldOutlet.text!,
+                                                    lName: lastNameTextFieldOutlet.text!,
+                                                    age: ageTextFieldOutlet.text!,
+                                                    sex: sex,
+                                                    mail: emailTextFieldOutlet.text!,
+                                                    imageUrl: RealmDataManager.getImageUrlFromRealm()[0].imageUrl!,
+                                                    codeIndex: indexOfCountry) { success in
+                                                        if success {
+                                                            let ChooseCityStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: Bundle.main)
+                                                            let ChooseCityController = ChooseCityStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as! SearchForItemsViewController
+                                                            loadingAnimationController.dismiss(animated: false, completion: nil)
+                                                            self.navigationController?.pushViewController(ChooseCityController, animated: true)
+                                                        }
+                                                        //                                                let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
+                                                        //                                                let mainScreenViewController = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as? MainScreenController
+                                                        //                                                mainScreenViewController?.userIsRegistred = true
+                                                        //                                                loadingAnimationController.dismiss(animated: false, completion: nil)
+                                                        //                                                self.navigationController?.pushViewController(mainScreenViewController!, animated: true)
+                                                        
+            }
+        } else {
+            nameFieldErrorAppear = true
+            surnameFieldErrorAppear = true
+            ageFieldErrorAppear = true
+            emailFieldErrorAppear = true
         }
+        
         
     }
     
@@ -181,6 +338,28 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
         personTitleLabelOutlet.text = personTitle
     }
     
+    func setErrorViewsHidden() {
+        enterYourNameErrorViewOutlet.isHidden = true
+        enterYourNameRedCircleOutlet.isHidden = true
+        enterYourNameErrorArrowOutlet.isHidden = true
+        enterYourNameExclamationPointOutlet.isHidden = true
+        
+        enterYourSurnameViewOutlet.isHidden = true
+        enterYourSurnameRedCircleOutlet.isHidden = true
+        enterYourSurnameErrorArrowOutlet.isHidden = true
+        enterYourSurnameExclamationPointOutlet.isHidden = true
+        
+        enterYourAgeExclamationPointOutlet.isHidden = true
+        enterYourAgeErrorArrowOutlet.isHidden = true
+        enterYourAgeRedCircleOutlet.isHidden = true
+        enterYourAgeViewOutlet.isHidden = true
+        
+        wrongEmailRedCircle.isHidden = true
+        wrongEmailViewOutlet.isHidden = true
+        wrongEmailErrorArrowOutlet.isHidden = true
+        wrongEmailExclamationPointOutlet.isHidden = true
+    }
+    
     // showPopupWithTitlesForRegistration
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -190,4 +369,46 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
         }
     }
     
+}
+
+extension FillRegistrationInfoViewController: UITextFieldDelegate  {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == emailTextFieldOutlet {
+            isEmailTextField = true
+            if emailFieldErrorAppear {
+                wrongEmailExclamationPointOutlet.isHidden = true
+                wrongEmailErrorArrowOutlet.isHidden = true
+                wrongEmailViewOutlet.isHidden = true
+                wrongEmailRedCircle.isHidden = true
+                emailFieldErrorAppear = false
+            }
+        }
+        if textField == firstNameTextFieldOutlet {
+            if nameFieldErrorAppear {
+                enterYourNameErrorViewOutlet.isHidden = true
+                enterYourNameRedCircleOutlet.isHidden = true
+                enterYourNameErrorArrowOutlet.isHidden = true
+                enterYourNameExclamationPointOutlet.isHidden = true
+                nameFieldErrorAppear = false
+            }
+        }
+        if textField == ageTextFieldOutlet {
+            if ageFieldErrorAppear {
+                enterYourAgeExclamationPointOutlet.isHidden = true
+                enterYourAgeErrorArrowOutlet.isHidden = true
+                enterYourAgeRedCircleOutlet.isHidden = true
+                enterYourAgeViewOutlet.isHidden = true
+                ageFieldErrorAppear = false
+            }
+        }
+        if textField == lastNameTextFieldOutlet {
+            if surnameFieldErrorAppear {
+                enterYourSurnameExclamationPointOutlet.isHidden = true
+                enterYourSurnameErrorArrowOutlet.isHidden = true
+                enterYourSurnameRedCircleOutlet.isHidden = true
+                enterYourSurnameViewOutlet.isHidden = true
+                surnameFieldErrorAppear = false
+            }
+        }
+    }
 }

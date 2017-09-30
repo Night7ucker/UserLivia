@@ -125,34 +125,34 @@ class SmsConfrimViewController: RootViewController {
 
     
     @IBAction func confirmAuthCodeAction(_ sender: UIButton) {
-        let loadingAnimationStoryboard = UIStoryboard(name: "LoadingAnimation", bundle: Bundle.main)
-        let loadingAnimationController = loadingAnimationStoryboard.instantiateViewController(withIdentifier: "kLoadingAnimationViewController") as! LoadingAnimationViewController
+//        let loadingAnimationStoryboard = UIStoryboard(name: "LoadingAnimation", bundle: Bundle.main)
+//        let loadingAnimationController = loadingAnimationStoryboard.instantiateViewController(withIdentifier: "kLoadingAnimationViewController") as! LoadingAnimationViewController
         let phoneNumber = RealmDataManager.getPhoneNumberFromRealm()[0].phoneNumber!
         let authCode = textViewForCodeOutlet.text!
         let phoneCode = String(describing: RealmDataManager.getDataFromCountries()[indexOfCountry].phoneCode!)
         let getTokenObject = GetTokensRequest(phoneNumber: phoneNumber, phoneCode: phoneCode, authCode: authCode)
         getTokenObject.confirmAuthCode() { success in
             if success {
-                self.present(loadingAnimationController, animated: false, completion: nil)
+//                self.present(loadingAnimationController, animated: false, completion: nil)
                 switch RealmDataManager.getTokensFromRealm()[0].userStatus! {
                 case UserStatus.active.rawValue:
                     let MainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
                     let MainScreenController = MainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as! MainScreenController
                     MainScreenController.userIsRegistred = true
-                    loadingAnimationController.dismiss(animated: false, completion: nil)
+//                    loadingAnimationController.dismiss(animated: false, completion: nil)
                     self.navigationController?.pushViewController(MainScreenController, animated: true)
                 case UserStatus.registrationInProgress.rawValue:
                     let RegistrationModuleStoryboard = UIStoryboard(name: "RegistrationModule", bundle: Bundle.main)
                     let RegistrationController = RegistrationModuleStoryboard.instantiateViewController(withIdentifier: "kFillRegistrationInfoViewController") as! FillRegistrationInfoViewController
                     RegistrationController.indexOfCountry = self.indexOfCountry
-                    loadingAnimationController.dismiss(animated: false, completion: nil)
+//                    loadingAnimationController.dismiss(animated: false, completion: nil)
                     self.navigationController?.pushViewController(RegistrationController, animated: true)
                 default: return
                 }
             } else {
                 self.wrongAuthCodeView.isHidden = false
                 Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.hideErrorView), userInfo: nil, repeats: false)
-                loadingAnimationController.dismiss(animated: false, completion: nil)
+//                loadingAnimationController.dismiss(animated: false, completion: nil)
             }
         }
     }
