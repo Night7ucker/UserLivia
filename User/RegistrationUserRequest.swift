@@ -59,7 +59,7 @@ class RegistrationUserRequest{
                 userModelObject.online = result["online"] as? String
                 userModelObject.phoneCode = RealmDataManager.getDataFromCountries()[codeIndex].phoneCode!
                 userModelObject.phoneNumber = RealmDataManager.getPhoneNumberFromRealm()[0].phoneNumber!
-                RealmDataManager.writeIntoRealm(object: userModelObject, realm: realm)
+                RealmDataManager.writeIntoRealm(object: userModelObject)
                 completion(true)
             }
 

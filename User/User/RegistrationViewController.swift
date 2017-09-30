@@ -37,7 +37,7 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
     
     
     let realm = try! Realm()
-    let countryCodeDataManagerObject = CountryCodesDataManager()
+    let countryCodeDataManagerObject = GetCountryCodesRequest()
     
     var indexOfCountry = 2
     
@@ -45,7 +45,11 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        try! realm.write {
+            realm.deleteAll()
+        }
+  
         hideKeyboardWhenTappedAround()
         
         nextButtonOutlet.backgroundColor = Colors.Root.lightBlueColor
@@ -64,10 +68,10 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        let countryCodesObject = CountryCodesDataManager()
+        let countryCodesObject = GetCountryCodesRequest()
         countryCodesObject.getCountryCodes()
         let urlBelarusFlagImage = "https://test.liviaapp.com/images/flags/32x32/by.png"
-        countryCodeDataManagerObject.getImage(pictureUrl: urlBelarusFlagImage) { success, image in
+        getImage(pictureUrl: urlBelarusFlagImage) { success, image in
             if success {
                 self.countryImage.image = image
             }
@@ -122,7 +126,7 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
                     realm.delete(RealmDataManager.getPhoneNumberFromRealm())
                 }
             }
-            RealmDataManager.writeIntoRealm(object: phoneNumberObject, realm: realm)
+            RealmDataManager.writeIntoRealm(object: phoneNumberObject)
             
             let countryCodeValue = String(countryCode.text!.characters.dropFirst())
             let getAuthCodeObject = GetAuthCode(number: phoneNumberField.text!, code: countryCodeValue)
@@ -161,7 +165,7 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
         countryCode.text = "+" + countryObject.phoneCode!
         countryName.text = countryObject.countryName
         let urlImage = "https://test.liviaapp.com" + countryObject.countryFlag!
-        countryCodeDataManagerObject.getImage(pictureUrl: urlImage) { success, image in
+        getImage(pictureUrl: urlImage) { success, image in
             if success {
                 self.countryImage.image = image
             }

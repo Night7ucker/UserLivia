@@ -284,8 +284,7 @@ class AddReminderViewController: RootViewController, CalendarPopupViewController
         reminderModelObject.dateTimeHoursAndMinutes = timeHoursLabelOutlet.text
         reminderModelObject.medicineName = medicineNameTextFieldOutlet.text
         reminderModelObject.dateForRequest = finalDateBeforeFromating
-        let realm = try! Realm()
-        RealmDataManager.writeIntoRealm(object: reminderModelObject, realm: realm)
+        RealmDataManager.writeIntoRealm(object: reminderModelObject)
         delegate.reloadTable()
         ReminderRequests.addReminder { success in
             

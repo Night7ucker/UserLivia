@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class RootViewController: UIViewController {
     
@@ -77,6 +78,19 @@ class RootViewController: UIViewController {
         navigationController!.view.layer.add(transition, forKey: nil)
         
         navigationController?.popViewController(animated: false)
+    }
+    
+    func getImage(pictureUrl: String?, onCompletion: @escaping (Bool, UIImage?) -> Void) {
+        if let urlRequest = pictureUrl {
+            Alamofire.request(urlRequest).responseData(completionHandler: { (response) in
+                if response.error == nil, let imageData = response.data {
+                    let image = UIImage(data: imageData)!
+                    onCompletion(true, image)
+                } else {
+                    onCompletion(false, nil)
+                }
+            })
+        }
     }
 }
 

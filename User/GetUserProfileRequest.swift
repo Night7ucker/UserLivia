@@ -54,7 +54,7 @@ class GetUserProfileRequest{
             userModelObject.countryName = result["country_name"] as? String
             userModelObject.cityName = result["city_name"] as? String
             userModelObject.cityId = result["city_id"] as? String
-            RealmDataManager.writeIntoRealm(object: userModelObject, realm: realm)
+            RealmDataManager.writeIntoRealm(object: userModelObject)
             completion(true)
         }
         

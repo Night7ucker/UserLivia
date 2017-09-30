@@ -21,7 +21,7 @@ class MainScreenController: RootViewController, SigninViewControllerDelegate {
     @IBOutlet weak var mainScreenTableView: UITableView!
     
     var userIsRegistred  = false
-    let countryCodesDataManagerObject = CountryCodesDataManager()
+    let countryCodesDataManagerObject = GetCountryCodesRequest()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +35,7 @@ class MainScreenController: RootViewController, SigninViewControllerDelegate {
                 if success {
                     self.fullNameLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].namePrefix!+" "+RealmDataManager.getUserDataFromRealm()[0].firstName!+" "+RealmDataManager.getUserDataFromRealm()[0].lastName!
                     let fullImageUrl = baseImageUrl+RealmDataManager.getUserDataFromRealm()[0].avatar!
-                    let object = CountryCodesDataManager()
-                    object.getImage(pictureUrl: fullImageUrl) { success, image in
+                    self.getImage(pictureUrl: fullImageUrl) { success, image in
                         if success {
                             self.personImage.image = image
                         }

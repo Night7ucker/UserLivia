@@ -42,7 +42,7 @@ class UploadImageRequest{
                 }
                 let imageUrlObject = UploadImageModel()
                 imageUrlObject.imageUrl = res as? String
-                RealmDataManager.writeIntoRealm(object: imageUrlObject, realm: realm)
+                RealmDataManager.writeIntoRealm(object: imageUrlObject)
                 print(response.result.value!)
             }
          

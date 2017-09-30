@@ -78,7 +78,7 @@
 		FB740D1E1F74F24900F6DD79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB740D1D1F74F24900F6DD79 /* Assets.xcassets */; };
 		FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB740D1F1F74F24900F6DD79 /* LaunchScreen.storyboard */; };
 		FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B861F752C4D0065B49C /* CountryCodesModel.swift */; };
-		FB958B891F752D000065B49C /* CountryDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B881F752D000065B49C /* CountryDataManager.swift */; };
+		FB958B891F752D000065B49C /* GetCountryCodesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B881F752D000065B49C /* GetCountryCodesRequest.swift */; };
 		FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B8C1F755D820065B49C /* RealmDataManager.swift */; };
 		FB9D4FFD1F7CDE3E001F3F95 /* DrugsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9D4FFC1F7CDE3E001F3F95 /* DrugsView.swift */; };
 		FB9D50001F7D1BE5001F3F95 /* EditUserCityRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9D4FFF1F7D1BE5001F3F95 /* EditUserCityRequest.swift */; };
@@ -166,7 +166,7 @@
 		FB740D201F74F24900F6DD79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB740D221F74F24900F6DD79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB958B861F752C4D0065B49C /* CountryCodesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodesModel.swift; sourceTree = "<group>"; };
-		FB958B881F752D000065B49C /* CountryDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDataManager.swift; sourceTree = "<group>"; };
+		FB958B881F752D000065B49C /* GetCountryCodesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCountryCodesRequest.swift; sourceTree = "<group>"; };
 		FB958B8C1F755D820065B49C /* RealmDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
 		FB9D4FFC1F7CDE3E001F3F95 /* DrugsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugsView.swift; sourceTree = "<group>"; };
 		FB9D4FFF1F7D1BE5001F3F95 /* EditUserCityRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserCityRequest.swift; sourceTree = "<group>"; };
@@ -463,13 +463,13 @@
 			name = SelectOrderTypeModule;
 			sourceTree = "<group>";
 		};
-		CEC15DF61F7EBA9800858114 /* CountryCodesRequests */ = {
+		CEC15DF61F7EBA9800858114 /* GetCountryCodesRequest */ = {
 			isa = PBXGroup;
 			children = (
 				FB958B861F752C4D0065B49C /* CountryCodesModel.swift */,
-				FB958B881F752D000065B49C /* CountryDataManager.swift */,
+				FB958B881F752D000065B49C /* GetCountryCodesRequest.swift */,
 			);
-			name = CountryCodesRequests;
+			name = GetCountryCodesRequest;
 			sourceTree = "<group>";
 		};
 		CEC15DF71F7EBB0600858114 /* RealmDataManager */ = {
@@ -576,7 +576,7 @@
 				FBA44C0D1F77B87800687544 /* GetAuthCodeRequests */,
 				CEB75F1D1F7BA8A300986F1D /* GetCitiesRequest */,
 				CE6D40E71F7CF24100C30EFA /* ReminderRequests */,
-				CEC15DF61F7EBA9800858114 /* CountryCodesRequests */,
+				CEC15DF61F7EBA9800858114 /* GetCountryCodesRequest */,
 				CEC15DF71F7EBB0600858114 /* RealmDataManager */,
 			);
 			name = Model;
@@ -789,7 +789,7 @@
 				CE6D40E61F7CF23D00C30EFA /* ReminderRequests.swift in Sources */,
 				CE798D251F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift in Sources */,
 				CE40CA851F78F2ED003BC535 /* AddReminderViewController.swift in Sources */,
-				FB958B891F752D000065B49C /* CountryDataManager.swift in Sources */,
+				FB958B891F752D000065B49C /* GetCountryCodesRequest.swift in Sources */,
 				CEABE4201F7650CC0041FAD5 /* CityTableViewCell.swift in Sources */,
 				CEA61BCF1F756D9400BA1AED /* MakeOrderViewController.swift in Sources */,
 				FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */,

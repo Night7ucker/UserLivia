@@ -109,8 +109,7 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
         }
         userEmailTextFieldOutlet.text = RealmDataManager.getUserDataFromRealm()[0].email!
         userCountryLabelOutlet.text = "Belarus"
-            let countryImageObject = CountryCodesDataManager()
-            countryImageObject.getImage(pictureUrl: "https://test.liviaapp.com/images/flags/32x32/by.png") { success, image in
+            getImage(pictureUrl: "https://test.liviaapp.com/images/flags/32x32/by.png") { success, image in
                 if success {
                     self.userCountryImageViewOutlet.image = image
                 }
@@ -118,9 +117,8 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
         userCountryPhoneCodeLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].phoneCode
         userPhoneNumberLabelOutlet.text =  RealmDataManager.getUserDataFromRealm()[0].phoneNumber!
         
-        let avatarImageObject = CountryCodesDataManager()
         let fullAvatarUrl = "https://test.liviaapp.com"+RealmDataManager.getUserDataFromRealm()[0].avatar!
-        avatarImageObject.getImage(pictureUrl: fullAvatarUrl) { success, image in
+        getImage(pictureUrl: fullAvatarUrl) { success, image in
             if success {
                 self.userAvatarImageOutlet.image = image
             }
