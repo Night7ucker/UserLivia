@@ -29,6 +29,59 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
     @IBOutlet weak var userCountryPhoneCodeLabelOutlet: UILabel!
     @IBOutlet weak var userPhoneNumberLabelOutlet: UILabel!
     
+    
+    @IBOutlet weak var enterYourNameViewOutlet: UIView!
+    
+    @IBOutlet weak var enterYourNameErrorArrowOutlet: UILabel!
+    
+    @IBOutlet weak var enterYourNameExclamationPointOutlet: UILabel!
+    
+    @IBOutlet weak var enterYourNameRedCircleOutlet: UILabel!
+    
+    
+    
+    @IBOutlet weak var enterYourSurnameViewOutlet: UIView!
+    
+    
+    @IBOutlet weak var enterYourSurnameErrorArrowOutlet: UILabel!
+    
+    @IBOutlet weak var enterYourSurnameExclamationPointOutlet: UILabel!
+    
+    @IBOutlet weak var enterYourSurnameRedCircleOutlet: UILabel!
+    
+    
+    @IBOutlet weak var enterYourAgeViewOutlet: UIView!
+    
+    
+    @IBOutlet weak var enterYourAgeErrorArrowOutlet: UILabel!
+    
+    
+    @IBOutlet weak var enterYourAgeExclamationPointOutlet: UILabel!
+    
+    @IBOutlet weak var enterYourAgeRedCircleOutlet: UILabel!
+    
+    
+    
+    @IBOutlet weak var wrongEmailViewOutlet: UIView!
+    
+    
+    @IBOutlet weak var wrongEmailErrorArrowOutlet: UILabel!
+    
+    
+    @IBOutlet weak var wrongEmailExclamationPointOutlet: UILabel!
+    
+    @IBOutlet weak var wrongEmailRedCircleOutlet: UILabel!
+    
+    var nameFieldIsEmpty = false
+    var surnameFieldIsEmpty = false
+    var ageFieldIsEmpty = false
+    var emailFieldIsEmplty = false
+    
+    var nameFieldErrorAppear = false
+    var surnameFieldErrorAppear = false
+    var ageFieldErrorAppear = false
+    var emailFieldErrorAppear = false
+    
     var sex = "Female"
     var imagePicker = UIImagePickerController()
     
@@ -38,6 +91,12 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
         configureNavigationBar()
         addBackButtonAndTitleToNavigationBar(title: "My account")
         addCompleteChangesButtonAsRightBarButtonItem()
+        
+        userLastnameTextFieldOutlet.delegate = self
+        userNameTextFieldOutlet.delegate = self
+        userEmailTextFieldOutlet.delegate = self
+        userAgeTextFieldOutlet.delegate = self
+        setErrorViewsHidden()
         
         userTitleLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].namePrefix!
         userNameTextFieldOutlet.text = RealmDataManager.getUserDataFromRealm()[0].firstName!
@@ -94,22 +153,23 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
     }
     
     func confrimedTapped(_ sender: UIButton) {
-       
-        let realmObjectToSave = RealmDataManager.getUserDataFromRealm()
-        let realm = try! Realm()
-
-        try! realm.write {
-            realmObjectToSave[0].namePrefix = userTitleLabelOutlet.text
-            realmObjectToSave[0].firstName = userNameTextFieldOutlet.text
-            realmObjectToSave[0].lastName = userLastnameTextFieldOutlet.text
-            realmObjectToSave[0].age = userAgeTextFieldOutlet.text
-            realmObjectToSave[0].email = userEmailTextFieldOutlet.text
-            realmObjectToSave[0].sex = sex
-            if RealmDataManager.getImageUrlFromRealm().count > 0 {
-                realmObjectToSave[0].avatar = RealmDataManager.getImageUrlFromRealm()[0].imageUrl!
-            }
-        }
         
+        if checkIfFieldsAreFilled() {
+            let realmObjectToSave = RealmDataManager.getUserDataFromRealm()
+            let realm = try! Realm()
+            
+            try! realm.write {
+                realmObjectToSave[0].namePrefix = userTitleLabelOutlet.text
+                realmObjectToSave[0].firstName = userNameTextFieldOutlet.text
+                realmObjectToSave[0].lastName = userLastnameTextFieldOutlet.text
+                realmObjectToSave[0].age = userAgeTextFieldOutlet.text
+                realmObjectToSave[0].email = userEmailTextFieldOutlet.text
+                realmObjectToSave[0].sex = sex
+                if RealmDataManager.getImageUrlFromRealm().count > 0 {
+                    realmObjectToSave[0].avatar = RealmDataManager.getImageUrlFromRealm()[0].imageUrl!
+                }
+            }
+            
             let obj = EditUserProfileRequest()
             obj.editUserFunc { (success) in
                 if success {
@@ -118,8 +178,13 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
                     MainScreenController.userIsRegistred = true
                     self.navigationController?.pushViewController(MainScreenController, animated: true)
                 }
+            }
+        } else {
+            nameFieldErrorAppear = true
+            surnameFieldErrorAppear = true
+            ageFieldErrorAppear = true
+            emailFieldErrorAppear = true
         }
-       
     }
     
     
@@ -183,7 +248,106 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
  
         dismiss(animated: true, completion: nil)
     }
+    
+    func checkIfFieldsAreFilled() -> Bool {
+        var isFieldsFilled = true
+        if userNameTextFieldOutlet.text == "" {
+            isFieldsFilled = false
+            nameFieldIsEmpty = true
+            enterYourNameExclamationPointOutlet.isHidden = false
+            enterYourNameErrorArrowOutlet.isHidden = false
+            enterYourNameRedCircleOutlet.isHidden = false
+            enterYourNameViewOutlet.isHidden = false
+        }
+        if userLastnameTextFieldOutlet.text == "" {
+            isFieldsFilled = false
+            surnameFieldIsEmpty = true
+            enterYourSurnameViewOutlet.isHidden = false
+            enterYourSurnameRedCircleOutlet.isHidden = false
+            enterYourSurnameErrorArrowOutlet.isHidden = false
+            enterYourSurnameExclamationPointOutlet.isHidden = false
+        }
+        if userAgeTextFieldOutlet.text == "" {
+            isFieldsFilled = false
+            ageFieldIsEmpty = true
+            enterYourAgeViewOutlet.isHidden = false
+            enterYourAgeRedCircleOutlet.isHidden = false
+            enterYourAgeErrorArrowOutlet.isHidden = false
+            enterYourAgeExclamationPointOutlet.isHidden = false
+        }
+        if userEmailTextFieldOutlet.text == "" {
+            isFieldsFilled = false
+            emailFieldIsEmplty = true
+            wrongEmailRedCircleOutlet.isHidden = false
+            wrongEmailViewOutlet.isHidden = false
+            wrongEmailErrorArrowOutlet.isHidden = false
+            wrongEmailExclamationPointOutlet.isHidden = false
+        }
+        return isFieldsFilled
+    }
 
+    
+    func setErrorViewsHidden() {
+        enterYourNameViewOutlet.isHidden = true
+        enterYourNameRedCircleOutlet.isHidden = true
+        enterYourNameErrorArrowOutlet.isHidden = true
+        enterYourNameExclamationPointOutlet.isHidden = true
+        
+        enterYourSurnameViewOutlet.isHidden = true
+        enterYourSurnameRedCircleOutlet.isHidden = true
+        enterYourSurnameErrorArrowOutlet.isHidden = true
+        enterYourSurnameExclamationPointOutlet.isHidden = true
+        
+        enterYourAgeExclamationPointOutlet.isHidden = true
+        enterYourAgeErrorArrowOutlet.isHidden = true
+        enterYourAgeRedCircleOutlet.isHidden = true
+        enterYourAgeViewOutlet.isHidden = true
+        
+        wrongEmailRedCircleOutlet.isHidden = true
+        wrongEmailViewOutlet.isHidden = true
+        wrongEmailErrorArrowOutlet.isHidden = true
+        wrongEmailExclamationPointOutlet.isHidden = true
+    }
+}
 
-
+extension EditingProfileViewController: UITextFieldDelegate  {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == userEmailTextFieldOutlet {
+//            isEmailTextField = true
+            if emailFieldErrorAppear {
+                wrongEmailExclamationPointOutlet.isHidden = true
+                wrongEmailErrorArrowOutlet.isHidden = true
+                wrongEmailViewOutlet.isHidden = true
+                wrongEmailRedCircleOutlet.isHidden = true
+                emailFieldErrorAppear = false
+            }
+        }
+        if textField == userNameTextFieldOutlet {
+            if nameFieldErrorAppear {
+                enterYourNameViewOutlet.isHidden = true
+                enterYourNameRedCircleOutlet.isHidden = true
+                enterYourNameErrorArrowOutlet.isHidden = true
+                enterYourNameExclamationPointOutlet.isHidden = true
+                nameFieldErrorAppear = false
+            }
+        }
+        if textField == userAgeTextFieldOutlet {
+            if ageFieldErrorAppear {
+                enterYourAgeExclamationPointOutlet.isHidden = true
+                enterYourAgeErrorArrowOutlet.isHidden = true
+                enterYourAgeRedCircleOutlet.isHidden = true
+                enterYourAgeViewOutlet.isHidden = true
+                ageFieldErrorAppear = false
+            }
+        }
+        if textField == userLastnameTextFieldOutlet {
+            if surnameFieldErrorAppear {
+                enterYourSurnameExclamationPointOutlet.isHidden = true
+                enterYourSurnameErrorArrowOutlet.isHidden = true
+                enterYourSurnameRedCircleOutlet.isHidden = true
+                enterYourSurnameViewOutlet.isHidden = true
+                surnameFieldErrorAppear = false
+            }
+        }
+    }
 }
