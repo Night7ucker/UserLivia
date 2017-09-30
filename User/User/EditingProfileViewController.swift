@@ -118,6 +118,7 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
         userPhoneNumberLabelOutlet.text =  RealmDataManager.getUserDataFromRealm()[0].phoneNumber!
         
         let fullAvatarUrl = "https://test.liviaapp.com"+RealmDataManager.getUserDataFromRealm()[0].avatar!
+
         getImage(pictureUrl: fullAvatarUrl) { success, image in
             if success {
                 self.userAvatarImageOutlet.image = image
@@ -228,22 +229,16 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
         
     }
     
+   
     var imageStr = ""
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         userAvatarImageOutlet.image = selectedImage
-    
-        let queue = OperationQueue()
-     
-        queue.addOperation {
-            let imageData = UIImagePNGRepresentation(selectedImage)! as NSData
-            self.imageStr = imageData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-            queue.addOperation {
-                let obj = UploadImageRequest()
-                obj.uploadImage(imageString: self.imageStr)
-            }
-        }
- 
+        let imageData = UIImagePNGRepresentation(selectedImage)! as NSData
+        self.imageStr = imageData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+        let uploadImageObject = UploadImageRequest()
+        uploadImageObject.uploadImage(imageString: self.imageStr)
+
         dismiss(animated: true, completion: nil)
     }
     

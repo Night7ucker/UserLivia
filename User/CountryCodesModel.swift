@@ -35,7 +35,6 @@ class MappedCountryCodesModel: Mappable {
             }
         }
     }
-    
 }
 
 class CountryCodesModel:Object, Mappable {

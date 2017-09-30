@@ -71,11 +71,6 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
     @IBOutlet weak var wrongEmailRedCircle: UILabel!
     
     
-    
-    
-    
-//    336880185
-    
     var isEmailTextField = false
     
     var nameFieldIsEmpty = false
@@ -292,12 +287,6 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
                                                             loadingAnimationController.dismiss(animated: false, completion: nil)
                                                             self.navigationController?.pushViewController(ChooseCityController, animated: true)
                                                         }
-                                                        //                                                let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
-                                                        //                                                let mainScreenViewController = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as? MainScreenController
-                                                        //                                                mainScreenViewController?.userIsRegistred = true
-                                                        //                                                loadingAnimationController.dismiss(animated: false, completion: nil)
-                                                        //                                                self.navigationController?.pushViewController(mainScreenViewController!, animated: true)
-                                                        
             }
         } else {
             nameFieldErrorAppear = true
@@ -313,17 +302,10 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         photoImageView.image = selectedImage
-        
-        let queue = OperationQueue()
-        
-        queue.addOperation {
-            let imageData = UIImagePNGRepresentation(selectedImage)! as NSData
-            self.imageStr = imageData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-            queue.addOperation {
-                let obj = UploadImageRequest()
-                obj.uploadImage(imageString: self.imageStr)
-            }
-        }
+        let imageData = UIImagePNGRepresentation(selectedImage)! as NSData
+        self.imageStr = imageData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+        let uploadImageObject = UploadImageRequest()
+        uploadImageObject.uploadImage(imageString: self.imageStr)
         dismiss(animated: true, completion: nil)
     }
     
