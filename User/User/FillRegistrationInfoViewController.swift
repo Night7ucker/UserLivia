@@ -87,6 +87,11 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
     
     var indexOfCountry = Int()
     
+    var avatarToken : NotificationToken?
+    
+    let loadingAnimationStroyboard = UIStoryboard(name: "LoadingAnimation", bundle: nil)
+    var loadingAnimationViewController = LoadingAnimationViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -112,6 +117,20 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
         firstNameTextFieldOutlet.delegate = self
         lastNameTextFieldOutlet.delegate = self
         ageTextFieldOutlet.delegate = self
+        
+        loadingAnimationViewController = (loadingAnimationStroyboard.instantiateViewController(withIdentifier: "kLoadingAnimationViewController") as? LoadingAnimationViewController)!
+        
+        let imageUploadRealmObject = RealmDataManager.getImageUrlFromRealm()
+        
+        avatarToken = imageUploadRealmObject.addNotificationBlock { change in
+            switch change {
+            case .update:
+                self.loadingAnimationViewController.dismiss(animated: false, completion: nil)
+                self.registerUserAction(UIButton())
+            default:
+                break
+            }
+        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -268,25 +287,26 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
     
     @IBAction func registerUserAction(_ sender: UIButton) {
         if checkIfFieldsAreFilled() {
-            let loadingAnimationStoryboard = UIStoryboard(name: "LoadingAnimation", bundle: Bundle.main)
-            let loadingAnimationController = loadingAnimationStoryboard.instantiateViewController(withIdentifier: "kLoadingAnimationViewController") as! LoadingAnimationViewController
-            present(loadingAnimationController, animated: false, completion: nil)
+            present(loadingAnimationViewController, animated: false, completion: nil)
             
-            let userRegistrationObject = RegistrationUserRequest()
-            userRegistrationObject.registerUserFunc(prefixName: personTitleLabelOutlet.text!,
-                                                    fName: firstNameTextFieldOutlet.text!,
-                                                    lName: lastNameTextFieldOutlet.text!,
-                                                    age: ageTextFieldOutlet.text!,
-                                                    sex: sex,
-                                                    mail: emailTextFieldOutlet.text!,
-                                                    imageUrl: RealmDataManager.getImageUrlFromRealm()[0].imageUrl!,
-                                                    codeIndex: indexOfCountry) { success in
-                                                        if success {
-                                                            let ChooseCityStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: Bundle.main)
-                                                            let ChooseCityController = ChooseCityStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as! SearchForItemsViewController
-                                                            loadingAnimationController.dismiss(animated: false, completion: nil)
-                                                            self.navigationController?.pushViewController(ChooseCityController, animated: true)
-                                                        }
+            if RealmDataManager.getImageUrlFromRealm().count != 0 {
+                let userRegistrationObject = RegistrationUserRequest()
+                userRegistrationObject.registerUserFunc(prefixName: personTitleLabelOutlet.text!,
+                                                        fName: firstNameTextFieldOutlet.text!,
+                                                        lName: lastNameTextFieldOutlet.text!,
+                                                        age: ageTextFieldOutlet.text!,
+                                                        sex: sex,
+                                                        mail: emailTextFieldOutlet.text!,
+                                                        imageUrl: RealmDataManager.getImageUrlFromRealm()[0].imageUrl!,
+                                                        codeIndex: indexOfCountry) { success in
+                                                            if success {
+                                                                self.loadingAnimationViewController.dismiss(animated: false) {
+                                                                    let chooseCityStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: Bundle.main)
+                                                                    let chooseCityController = chooseCityStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as! SearchForItemsViewController
+                                                                    self.navigationController?.pushViewController(chooseCityController, animated: true)
+                                                                }
+                                                            }
+                }
             }
         } else {
             nameFieldErrorAppear = true

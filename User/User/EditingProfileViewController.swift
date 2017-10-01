@@ -85,6 +85,12 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
     var sex = "Female"
     var imagePicker = UIImagePickerController()
     
+    var avatarToken : NotificationToken?
+    
+    let loadingAnimationStroyboard = UIStoryboard(name: "LoadingAnimation", bundle: nil)
+    var loadingAnimationViewController = LoadingAnimationViewController()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,6 +103,20 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
         userEmailTextFieldOutlet.delegate = self
         userAgeTextFieldOutlet.delegate = self
         setErrorViewsHidden()
+        
+        loadingAnimationViewController = (loadingAnimationStroyboard.instantiateViewController(withIdentifier: "kLoadingAnimationViewController") as? LoadingAnimationViewController)!
+        
+        let imageUploadRealmObject = RealmDataManager.getImageUrlFromRealm()
+        
+        avatarToken = imageUploadRealmObject.addNotificationBlock { change in
+            switch change {
+            case .update:
+                self.loadingAnimationViewController.dismiss(animated: false, completion: nil)
+                self.confrimedTapped(UIButton())
+            default:
+                break
+            }
+        }
         
         userTitleLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].namePrefix!
         userNameTextFieldOutlet.text = RealmDataManager.getUserDataFromRealm()[0].firstName!
@@ -117,14 +137,15 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
         userCountryPhoneCodeLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].phoneCode
         userPhoneNumberLabelOutlet.text =  RealmDataManager.getUserDataFromRealm()[0].phoneNumber!
         
+        if RealmDataManager.getUserDataFromRealm()[0].avatar != nil {
         let fullAvatarUrl = "https://test.liviaapp.com"+RealmDataManager.getUserDataFromRealm()[0].avatar!
 
-        getImage(pictureUrl: fullAvatarUrl) { success, image in
-            if success {
-                self.userAvatarImageOutlet.image = image
+            getImage(pictureUrl: fullAvatarUrl) { success, image in
+                if success {
+                    self.userAvatarImageOutlet.image = image
+                }
             }
         }
-
         
     }
     
@@ -136,6 +157,9 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
+    }
+    deinit {
+        avatarToken?.stop()
     }
     
     private func addCompleteChangesButtonAsRightBarButtonItem() {
@@ -154,30 +178,39 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
     func confrimedTapped(_ sender: UIButton) {
         
         if checkIfFieldsAreFilled() {
+            
+            present(loadingAnimationViewController, animated: false, completion: nil)
+            
             let realmObjectToSave = RealmDataManager.getUserDataFromRealm()
             let realm = try! Realm()
-            
-            try! realm.write {
-                realmObjectToSave[0].namePrefix = userTitleLabelOutlet.text
-                realmObjectToSave[0].firstName = userNameTextFieldOutlet.text
-                realmObjectToSave[0].lastName = userLastnameTextFieldOutlet.text
-                realmObjectToSave[0].age = userAgeTextFieldOutlet.text
-                realmObjectToSave[0].email = userEmailTextFieldOutlet.text
-                realmObjectToSave[0].sex = sex
-                if RealmDataManager.getImageUrlFromRealm().count > 0 {
-                    realmObjectToSave[0].avatar = RealmDataManager.getImageUrlFromRealm()[0].imageUrl!
+            if RealmDataManager.getImageUrlFromRealm().count != 0 {
+                
+                try! realm.write {
+                    realmObjectToSave[0].namePrefix = userTitleLabelOutlet.text
+                    realmObjectToSave[0].firstName = userNameTextFieldOutlet.text
+                    realmObjectToSave[0].lastName = userLastnameTextFieldOutlet.text
+                    realmObjectToSave[0].age = userAgeTextFieldOutlet.text
+                    realmObjectToSave[0].email = userEmailTextFieldOutlet.text
+                    realmObjectToSave[0].sex = sex
+                    if RealmDataManager.getImageUrlFromRealm().count > 0 {
+                        realmObjectToSave[0].avatar = RealmDataManager.getImageUrlFromRealm()[0].imageUrl!
+                    }
+                }
+                
+                let obj = EditUserProfileRequest()
+                obj.editUserFunc { (success) in
+                    
+                    if success {
+                        self.loadingAnimationViewController.dismiss(animated: true) {
+                            let MainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
+                            let MainScreenController = MainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as! MainScreenController
+                            MainScreenController.userIsRegistred = true
+                            self.navigationController?.pushViewController(MainScreenController, animated: true)
+                        }
+                    }
                 }
             }
             
-            let obj = EditUserProfileRequest()
-            obj.editUserFunc { (success) in
-                if success {
-                    let MainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
-                    let MainScreenController = MainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as! MainScreenController
-                    MainScreenController.userIsRegistred = true
-                    self.navigationController?.pushViewController(MainScreenController, animated: true)
-                }
-            }
         } else {
             nameFieldErrorAppear = true
             surnameFieldErrorAppear = true
