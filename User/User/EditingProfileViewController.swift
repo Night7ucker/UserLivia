@@ -202,6 +202,7 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
     @IBAction func changeCityAction(_ sender: UIButton) {
         let ChooseCityStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: Bundle.main)
         let ChooseCityController = ChooseCityStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as! SearchForItemsViewController
+        ChooseCityController.checkEditProfile = true
         self.navigationController?.pushViewController(ChooseCityController, animated: true)
     }
 

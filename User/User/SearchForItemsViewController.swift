@@ -14,7 +14,7 @@ class SearchForItemsViewController: RootViewController, UISearchBarDelegate {
     
     @IBOutlet weak var citiesForSearchingTalbeView: UITableView!
     @IBOutlet weak var textForSearchFieldOutlet: UITextField!
-    
+    var checkEditProfile = false
     var arrayOfCitiesFromServer = [City]()
     var arrayOfSections = [String]()
     var checkIsRegistered = true
@@ -160,7 +160,15 @@ extension SearchForItemsViewController: UITableViewDataSource {
             let obj = EditUserCityRequest()
             obj.editUserFunc { (success) in
                 if success {
-                    self.navigationController?.popViewController(animated: false)
+                    if self.checkEditProfile == true {
+                        self.navigationController?.popViewController(animated: false)
+                    } else {
+                        let MainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
+                        let MainScreenController = MainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as! MainScreenController
+                        MainScreenController.userIsRegistred = true
+                        self.navigationController?.pushViewController(MainScreenController, animated: true)
+                    }
+                    
                 }
             }
         } else {
