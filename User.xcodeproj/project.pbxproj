@@ -519,10 +519,8 @@
 		FB6BB3141F7E362D00165BB2 /* DrugsModelRequets */ = {
 			isa = PBXGroup;
 			children = (
-				FB6BB3151F7E364800165BB2 /* GetDrugsModel.swift */,
-				FB6BB3171F7E365400165BB2 /* GetDrugsRequest.swift */,
-				FB6BB31B1F7E652100165BB2 /* DrugsDescriptionModel.swift */,
-				FB6BB31D1F7E653000165BB2 /* DrugsDescriptionRequest.swift */,
+				FB88BB631F810B22009E34D9 /* DrugsRequests */,
+				FB88BB641F810B36009E34D9 /* FullDrugsDescriptionRequests */,
 			);
 			name = DrugsModelRequets;
 			sourceTree = "<group>";
@@ -564,6 +562,24 @@
 				FB740D221F74F24900F6DD79 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FB88BB631F810B22009E34D9 /* DrugsRequests */ = {
+			isa = PBXGroup;
+			children = (
+				FB6BB3151F7E364800165BB2 /* GetDrugsModel.swift */,
+				FB6BB3171F7E365400165BB2 /* GetDrugsRequest.swift */,
+			);
+			name = DrugsRequests;
+			sourceTree = "<group>";
+		};
+		FB88BB641F810B36009E34D9 /* FullDrugsDescriptionRequests */ = {
+			isa = PBXGroup;
+			children = (
+				FB6BB31B1F7E652100165BB2 /* DrugsDescriptionModel.swift */,
+				FB6BB31D1F7E653000165BB2 /* DrugsDescriptionRequest.swift */,
+			);
+			name = FullDrugsDescriptionRequests;
 			sourceTree = "<group>";
 		};
 		FB958B851F752BBC0065B49C /* Model */ = {

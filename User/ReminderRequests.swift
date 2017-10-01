@@ -31,9 +31,7 @@ class ReminderRequests {
             "LiviaApp-timezone": "180",
             "LiviaApp-APIVersion": "2.0"
         ]
-        
-        
-        
+
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             print(response)
             guard let result = response.result.value as? [String : AnyObject] else{ return }

@@ -34,10 +34,12 @@ class MainScreenController: RootViewController, SigninViewControllerDelegate {
             obj.GetUserProfileFunc(completion: { (success) in
                 if success {
                     self.fullNameLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].namePrefix!+" "+RealmDataManager.getUserDataFromRealm()[0].firstName!+" "+RealmDataManager.getUserDataFromRealm()[0].lastName!
-                    let fullImageUrl = baseImageUrl+RealmDataManager.getUserDataFromRealm()[0].avatar!
-                    self.getImage(pictureUrl: fullImageUrl) { success, image in
-                        if success {
-                            self.personImage.image = image
+                    if RealmDataManager.getUserDataFromRealm()[0].avatar != nil{
+                        let fullImageUrl = baseImageUrl+RealmDataManager.getUserDataFromRealm()[0].avatar!
+                        self.getImage(pictureUrl: fullImageUrl) { success, image in
+                            if success {
+                                self.personImage.image = image
+                            }
                         }
                     }
                     

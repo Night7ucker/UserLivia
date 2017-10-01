@@ -22,15 +22,9 @@ class GetAuthCode{
 
     }
     
-    let id = UIDevice.current.identifierForVendor!.uuidString//"2125d2a0-5c85-3aa8-92d8-27944101880c"
-    
-    let url = "https://test.liviaapp.com/api/auth"
-    
-    
-    
-    
-    
     func getAutCodeRequest() {
+        let id = UIDevice.current.identifierForVendor!.uuidString
+        let url = "https://test.liviaapp.com/api/auth"
         let parameters: Parameters = [
             "phone_id": id,
             "phone_code": phoneCode!,
@@ -46,6 +40,5 @@ class GetAuthCode{
             print(response.result.value!)
         }
     }
-    
     
 }
