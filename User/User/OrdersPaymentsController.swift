@@ -28,7 +28,9 @@ class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar
+        let newColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
+        navigationController?.navigationBar.barTintColor = newColor
+//        navigationController?.navigationBar.barTintColor = .red
         addBackButtonAndTitleToNavigationBar(title: "Status")
         navigationItem.rightBarButtonItem?.tintColor = .white
         
@@ -36,17 +38,6 @@ class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate{
                
         let controllerOne = self.newColoredViewController(name: "ordersPageVC")
         controllerOne.title = "ORDERS"
-//        let titleView = UIView()
-//        
-//        let titleLabel = UILabel()
-//        titleLabel.text = "ORDERS"
-//        titleLabel.font = UIFont(name: titleLabel.font.fontName, size: 14)
-//        titleLabel.textColor = .white
-//        titleLabel.frame = CGRect(x: 15, y: 15, width: 60, height: 20)
-//        
-//        titleView.addSubview(titleLabel)
-//        
-//        controllerOne.navigationItem.titleView = titleView
         
         controllerArray.append(controllerOne)
         
@@ -54,16 +45,19 @@ class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate{
         controllerTwo.title = "PAYMENTS"
         controllerArray.append(controllerTwo)
         
-        
+        let font = UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightRegular)
         
         //Custom CAPSPageMenu
         let parameters: [CAPSPageMenuOption] = [
             .menuHeight(39),
-            .scrollMenuBackgroundColor((Colors.Root.greenColorForNavigationBar)),
+            .scrollMenuBackgroundColor(newColor),
             .menuItemSeparatorWidth(10.0),
             .enableHorizontalBounce(false),
             .useMenuLikeSegmentedControl(true),
-            .menuItemSeparatorWidth(0.0)
+            .menuItemSeparatorWidth(0.0),
+            .unselectedMenuItemLabelColor(.white),
+            .selectedMenuItemLabelColor(.white),
+            .menuItemFont(font)
         ]
         
         
@@ -90,8 +84,6 @@ class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate{
     }
     
     func didMoveToPage(_ controller: UIViewController, index: Int) {
-        print("DidScrollToPageAtIndex: \(index)")
-        print(navigationItem.rightBarButtonItem?.title ?? "PAPA")
         if index == controllerArray.count - 1 {
             navigationItem.rightBarButtonItem?.title = ""
             navigationItem.rightBarButtonItem?.isEnabled = false
