@@ -55,5 +55,8 @@ class RealmDataManager {
         let data = realm.objects(DrugsDescriptionModel.self)
         return data
     }
-    
+    static func getAddedDrugsDataFromRealm() -> Results<AddedToCartDrugsModel> {
+        let data = realm.objects(AddedToCartDrugsModel.self)
+        return data
+    }
 }

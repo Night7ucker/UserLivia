@@ -1,16 +1,18 @@
 //
-//  TestTableViewCell.swift
+//  AddToCartTableViewCell.swift
 //  User
 //
-//  Created by User on 9/30/17.
+//  Created by BAMFAdmin on 02.10.17.
 //  Copyright © 2017 BAMFAdmin. All rights reserved.
 //
 
 import UIKit
 
-class TestTableViewCell: UITableViewCell {
-    @IBOutlet weak var testLabelOutlet: UILabel!
+class AddToCartTableViewCell: UITableViewCell {
 
+    @IBOutlet var nameOfMedicineLabel: UILabel!
+    @IBOutlet var amountLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,3 +25,4 @@ class TestTableViewCell: UITableViewCell {
     }
 
 }
+

@@ -82,6 +82,7 @@ class EditReminderViewController: RootViewController, CalendarPopupViewControlle
         dayAndMonthDateOutlet.text = reminderObjectFromRealm.dateTimeDaysAndYears
         minutesAndHoursDateOutlet.text = reminderObjectFromRealm.dateTimeHoursAndMinutes
         reminderNameLabelOutlet.text = reminderObjectFromRealm.medicineName
+        view.backgroundColor = Colors.Root.lightGrayColor
     }
     
     override func didReceiveMemoryWarning() {
