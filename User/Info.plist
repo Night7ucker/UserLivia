@@ -30,6 +30,7 @@
 	<string>InviteFriends</string>
 	<string>SelectOrderType</string>
 	<string>GoogleMap</string>
+	<string>MainViewsStoryboard</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
