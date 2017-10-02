@@ -1,16 +1,19 @@
 //
-//  TestTableViewCell.swift
+//  ExpandedTableViewCell.swift
 //  User
 //
-//  Created by User on 9/30/17.
+//  Created by User on 10/2/17.
 //  Copyright © 2017 BAMFAdmin. All rights reserved.
 //
 
 import UIKit
 
-class TestTableViewCell: UITableViewCell {
-    @IBOutlet weak var testLabelOutlet: UILabel!
+class ExpandedTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var radioButtonOutlet: UIImageView!
+    
+    @IBOutlet weak var dataLabelOutlet: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

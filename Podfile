@@ -9,8 +9,7 @@ target 'User' do
   pod 'RealmSwift'
   pod 'PageMenu'
   pod 'NVActivityIndicatorView'
-  pod 'CollapsibleTableSectionViewController'
   pod 'AlamofireObjectMapper', '~> 4.1'
-  pod 'ObjectMapper+Realm', '~> 0.5'  
-  
+  pod 'ObjectMapper+Realm', '~> 0.5'
+
 end

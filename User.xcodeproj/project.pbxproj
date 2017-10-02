@@ -33,8 +33,6 @@
 		CE798D231F7A828400FDF83D /* TermsAndConditions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */; };
 		CE798D251F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE798D241F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift */; };
 		CE7B302A1F7B906E0023472F /* LoadingAnimation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7B30291F7B906E0023472F /* LoadingAnimation.storyboard */; };
-		CE939B0A1F7FE77A00CCB533 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939B091F7FE77A00CCB533 /* TestViewController.swift */; };
-		CE939B0C1F7FF00900CCB533 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939B0B1F7FF00900CCB533 /* TestTableViewCell.swift */; };
 		CE95905A1F7945DA00536DF7 /* ReminderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9590591F7945DA00536DF7 /* ReminderModel.swift */; };
 		CE95905C1F79473800536DF7 /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95905B1F79473800536DF7 /* ReminderTableViewCell.swift */; };
 		CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA61BAB1F756D9400BA1AED /* MainViewsStoryboard.storyboard */; };
@@ -56,6 +54,10 @@
 		CEBA08831F7D02D100CBFC43 /* SelectOrderTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA08821F7D02D100CBFC43 /* SelectOrderTypeViewController.swift */; };
 		CEBA08861F7D0D5400CBFC43 /* SelectOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA08851F7D0D5400CBFC43 /* SelectOrderCell.swift */; };
 		CEBA08881F7D232500CBFC43 /* CollapsibleSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA08871F7D232500CBFC43 /* CollapsibleSections.swift */; };
+		CEC5EFFD1F8234CD0012CFAA /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5EFFC1F8234CD0012CFAA /* Section.swift */; };
+		CEC5EFFF1F8235430012CFAA /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5EFFE1F8235430012CFAA /* SectionHeaderView.swift */; };
+		CEC5F0011F8237810012CFAA /* ExpandedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5F0001F8237810012CFAA /* ExpandedViewController.swift */; };
+		CEC5F0051F8279350012CFAA /* ExpandedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5F0041F8279350012CFAA /* ExpandedTableViewCell.swift */; };
 		CEC6318B1F7BCDEB0024AFC1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6318A1F7BCDEB0024AFC1 /* UserModel.swift */; };
 		CEF436EE1F7A2B5100E31AA8 /* EditReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF436ED1F7A2B5100E31AA8 /* EditReminderViewController.swift */; };
 		D1A8AFAF7B974F868E6BDCF7 /* Pods_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA6723FDEE4071DE9039A46 /* Pods_User.framework */; };
@@ -119,8 +121,6 @@
 		CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TermsAndConditions.storyboard; sourceTree = "<group>"; };
 		CE798D241F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsWebViewViewController.swift; sourceTree = "<group>"; };
 		CE7B30291F7B906E0023472F /* LoadingAnimation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoadingAnimation.storyboard; sourceTree = "<group>"; };
-		CE939B091F7FE77A00CCB533 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		CE939B0B1F7FF00900CCB533 /* TestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		CE9590591F7945DA00536DF7 /* ReminderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderModel.swift; sourceTree = "<group>"; };
 		CE95905B1F79473800536DF7 /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
 		CEA61BAC1F756D9400BA1AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainViewsStoryboard.storyboard; sourceTree = "<group>"; };
@@ -142,6 +142,10 @@
 		CEBA08821F7D02D100CBFC43 /* SelectOrderTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectOrderTypeViewController.swift; sourceTree = "<group>"; };
 		CEBA08851F7D0D5400CBFC43 /* SelectOrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectOrderCell.swift; sourceTree = "<group>"; };
 		CEBA08871F7D232500CBFC43 /* CollapsibleSections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapsibleSections.swift; sourceTree = "<group>"; };
+		CEC5EFFC1F8234CD0012CFAA /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		CEC5EFFE1F8235430012CFAA /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		CEC5F0001F8237810012CFAA /* ExpandedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedViewController.swift; sourceTree = "<group>"; };
+		CEC5F0041F8279350012CFAA /* ExpandedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedTableViewCell.swift; sourceTree = "<group>"; };
 		CEC6318A1F7BCDEB0024AFC1 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		CEF436ED1F7A2B5100E31AA8 /* EditReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditReminderViewController.swift; sourceTree = "<group>"; };
 		D54A04BC4E2A4BD6D4442D1C /* Pods-User.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User.debug.xcconfig"; path = "Pods/Target Support Files/Pods-User/Pods-User.debug.xcconfig"; sourceTree = "<group>"; };
@@ -294,6 +298,14 @@
 			name = CalendarPopupModule;
 			sourceTree = "<group>";
 		};
+		CE6C7D561F82206F0023AFF1 /* TakePhotoofPresription */ = {
+			isa = PBXGroup;
+			children = (
+				CEC5EFFB1F8234BE0012CFAA /* SelectOrderTypeExpandedModule */,
+			);
+			name = TakePhotoofPresription;
+			sourceTree = "<group>";
+		};
 		CE6D40E71F7CF24100C30EFA /* ReminderRequests */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,8 +352,6 @@
 				FBD6BB171F7C1402007741DC /* SearchDrugs.storyboard */,
 				CE6D40E81F7D00A000C30EFA /* SelectOrderType.storyboard */,
 				CE01762F1F7EA2DF00EE6777 /* SigninViewStoryboard.storyboard */,
-				CE939B091F7FE77A00CCB533 /* TestViewController.swift */,
-				CE939B0B1F7FF00900CCB533 /* TestTableViewCell.swift */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -349,6 +359,7 @@
 		CEA61BE11F756E1800BA1AED /* MakeOrderModule */ = {
 			isa = PBXGroup;
 			children = (
+				CE6C7D561F82206F0023AFF1 /* TakePhotoofPresription */,
 				FBD6BB191F7C156A007741DC /* GetDrugsModule */,
 				CEBA08841F7D02D400CBFC43 /* SelectOrderTypeModule */,
 				CEA61BB11F756D9400BA1AED /* MakeOrderCellTableViewCell.swift */,
@@ -478,6 +489,17 @@
 				FB958B8C1F755D820065B49C /* RealmDataManager.swift */,
 			);
 			name = RealmDataManager;
+			sourceTree = "<group>";
+		};
+		CEC5EFFB1F8234BE0012CFAA /* SelectOrderTypeExpandedModule */ = {
+			isa = PBXGroup;
+			children = (
+				CEC5EFFC1F8234CD0012CFAA /* Section.swift */,
+				CEC5EFFE1F8235430012CFAA /* SectionHeaderView.swift */,
+				CEC5F0001F8237810012CFAA /* ExpandedViewController.swift */,
+				CEC5F0041F8279350012CFAA /* ExpandedTableViewCell.swift */,
+			);
+			name = SelectOrderTypeExpandedModule;
 			sourceTree = "<group>";
 		};
 		FB5FC54B1F7A44A400F8658A /* RegisterUserRequests */ = {
@@ -736,7 +758,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-User/Pods-User-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/CollapsibleTableSectionViewController/CollapsibleTableSectionViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper+Realm/ObjectMapper_Realm.framework",
@@ -748,7 +769,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CollapsibleTableSectionViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper_Realm.framework",
@@ -819,7 +839,6 @@
 				CEBA08861F7D0D5400CBFC43 /* SelectOrderCell.swift in Sources */,
 				FBD6BB1B1F7C161C007741DC /* GetDrugsViewController.swift in Sources */,
 				CEA61BD11F756D9400BA1AED /* RegistrationViewController.swift in Sources */,
-				CE939B0A1F7FE77A00CCB533 /* TestViewController.swift in Sources */,
 				FB6BB31E1F7E653000165BB2 /* DrugsDescriptionRequest.swift in Sources */,
 				CE40CA821F78E87D003BC535 /* RemindersViewController.swift in Sources */,
 				FB22C2331F77E752000EED58 /* CustomImageView.swift in Sources */,
@@ -827,16 +846,20 @@
 				CEB75F191F7B921D00986F1D /* LoadingAnimationViewController.swift in Sources */,
 				CEABE42E1F769B980041FAD5 /* PersonTitleTableViewCell.swift in Sources */,
 				CEABE4281F7676470041FAD5 /* FillRegistrationInfoViewController.swift in Sources */,
+				CEC5EFFF1F8235430012CFAA /* SectionHeaderView.swift in Sources */,
 				FB9D50001F7D1BE5001F3F95 /* EditUserCityRequest.swift in Sources */,
 				CE95905C1F79473800536DF7 /* ReminderTableViewCell.swift in Sources */,
 				FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */,
 				7F6137F31F7B7E3500629AA7 /* OrdersPaymentsController.swift in Sources */,
 				FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */,
 				CE01762E1F7EA2CF00EE6777 /* SigninViewController.swift in Sources */,
+				CEC5F0051F8279350012CFAA /* ExpandedTableViewCell.swift in Sources */,
 				FB6B62E51F78F0C400AAB2F0 /* GetTokensRequest.swift in Sources */,
 				7FE9954C1F7AAC8500E31AA2 /* PaymentsPageController.swift in Sources */,
 				FB9D4FFD1F7CDE3E001F3F95 /* DrugsView.swift in Sources */,
 				FB5FC5551F7A83B500F8658A /* RegistrationUserRequest.swift in Sources */,
+				CEC5EFFD1F8234CD0012CFAA /* Section.swift in Sources */,
+				CEC5F0011F8237810012CFAA /* ExpandedViewController.swift in Sources */,
 				CE40CA8C1F79132A003BC535 /* CalendarPopupViewController.swift in Sources */,
 				FB6BB31C1F7E652100165BB2 /* DrugsDescriptionModel.swift in Sources */,
 				FB5FC54E1F7A44CD00F8658A /* UploadImageRequest.swift in Sources */,
@@ -860,7 +883,6 @@
 				CEB75F1C1F7BA8A100986F1D /* GetCitiesRequest.swift in Sources */,
 				CEABE4251F76689B0041FAD5 /* SmsConfrimViewController.swift in Sources */,
 				FB22C2311F77E73F000EED58 /* MainScreenCell.swift in Sources */,
-				CE939B0C1F7FF00900CCB533 /* TestTableViewCell.swift in Sources */,
 				CEA61BCA1F756D9400BA1AED /* CountryCodeCell.swift in Sources */,
 				FB22C22F1F77E6BE000EED58 /* SettingsController.swift in Sources */,
 				FBD74BAA1F7B90B300FA2BFE /* EditUserProfileRequest.swift in Sources */,
