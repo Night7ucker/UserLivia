@@ -9,12 +9,15 @@
 import UIKit
 import RealmSwift
 
-class AddToCartViewController:RootViewController {
+class AddToCartViewController:RootViewController, DrugNameAndTypeTableViewControllerDelegate {
 
     @IBOutlet var addDrugButtonOutlet: UIButton!
     @IBOutlet var requestPriceButtonOutlet: UIButton!
     
     @IBOutlet var addToCartTableView: UITableView!
+    
+    
+    var indexPathOfCellToChangeDrugsNumber: IndexPath!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +74,28 @@ class AddToCartViewController:RootViewController {
 
 
     }
+    
 
+    @IBAction func drugNumberPopupTapped(_ sender: UIButton) {
+        let buttonPosition: CGPoint = sender.convert(CGPoint.zero, to:self.addToCartTableView)
+        let indexPath = self.addToCartTableView.indexPathForRow(at: buttonPosition)!
+        indexPathOfCellToChangeDrugsNumber = indexPath
+        
+        let searchDrugsStoryboard = UIStoryboard(name: "SearchDrugs", bundle: nil)
+        let drugsNumberAndTypePopupViewController = searchDrugsStoryboard.instantiateViewController(withIdentifier: "kDrugNameAndTypeTableViewController") as? DrugNameAndTypeTableViewController
+        drugsNumberAndTypePopupViewController?.delegate = self
+        drugsNumberAndTypePopupViewController?.whereToShow = buttonPosition
+        present(drugsNumberAndTypePopupViewController!, animated: false, completion: nil)
+    }
+    
+    func transferDrugsCountAndType(drugsNumber: String) {
+        let cell = addToCartTableView.cellForRow(at: indexPathOfCellToChangeDrugsNumber) as! AddToCartTableViewCell
+        cell.amountLabel.text = drugsNumber
+        let realm = try! Realm()
+        try! realm.write {
+            RealmDataManager.getAddedDrugsDataFromRealm()[indexPathOfCellToChangeDrugsNumber.row].amount = Int(drugsNumber)!
+        }
+    }
 }
 
 extension AddToCartViewController: UITableViewDataSource {
@@ -84,6 +108,12 @@ extension AddToCartViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "addToCartCell", for: indexPath) as! AddToCartTableViewCell
         cell.nameOfMedicineLabel.text = RealmDataManager.getAddedDrugsDataFromRealm()[indexPath.row].brandName!
         cell.amountLabel.text = String(describing: RealmDataManager.getAddedDrugsDataFromRealm()[indexPath.row].amount)
+        if let test = RealmDataManager.getAddedDrugsDataFromRealm()[indexPath.row].quantityMeasuring {
+            cell.drugQuantityMeasureOutlet.text = test
+        }
+
+        
+        
         return cell
         
         }

@@ -35,6 +35,8 @@
 		CE7B302A1F7B906E0023472F /* LoadingAnimation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7B30291F7B906E0023472F /* LoadingAnimation.storyboard */; };
 		CE95905A1F7945DA00536DF7 /* ReminderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9590591F7945DA00536DF7 /* ReminderModel.swift */; };
 		CE95905C1F79473800536DF7 /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95905B1F79473800536DF7 /* ReminderTableViewCell.swift */; };
+		CE9D723F1F82A80F00BF1805 /* NumberAndTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D723E1F82A80F00BF1805 /* NumberAndTypeTableViewCell.swift */; };
+		CE9D72431F82A83D00BF1805 /* DrugNameAndTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D72421F82A83D00BF1805 /* DrugNameAndTypeTableViewController.swift */; };
 		CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA61BAB1F756D9400BA1AED /* MainViewsStoryboard.storyboard */; };
 		CEA61BCA1F756D9400BA1AED /* CountryCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA61BAD1F756D9400BA1AED /* CountryCodeCell.swift */; };
 		CEA61BCE1F756D9400BA1AED /* MakeOrderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA61BB11F756D9400BA1AED /* MakeOrderCellTableViewCell.swift */; };
@@ -129,6 +131,8 @@
 		CE7B30291F7B906E0023472F /* LoadingAnimation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoadingAnimation.storyboard; sourceTree = "<group>"; };
 		CE9590591F7945DA00536DF7 /* ReminderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderModel.swift; sourceTree = "<group>"; };
 		CE95905B1F79473800536DF7 /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
+		CE9D723E1F82A80F00BF1805 /* NumberAndTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberAndTypeTableViewCell.swift; sourceTree = "<group>"; };
+		CE9D72421F82A83D00BF1805 /* DrugNameAndTypeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugNameAndTypeTableViewController.swift; sourceTree = "<group>"; };
 		CEA61BAC1F756D9400BA1AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainViewsStoryboard.storyboard; sourceTree = "<group>"; };
 		CEA61BAD1F756D9400BA1AED /* CountryCodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodeCell.swift; sourceTree = "<group>"; };
 		CEA61BB11F756D9400BA1AED /* MakeOrderCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeOrderCellTableViewCell.swift; sourceTree = "<group>"; };
@@ -334,6 +338,15 @@
 				CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */,
 			);
 			name = EditingProfileModule;
+			sourceTree = "<group>";
+		};
+		CE9D723D1F82A7F200BF1805 /* PopupDrugNumberModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE9D723E1F82A80F00BF1805 /* NumberAndTypeTableViewCell.swift */,
+				CE9D72421F82A83D00BF1805 /* DrugNameAndTypeTableViewController.swift */,
+			);
+			name = PopupDrugNumberModule;
 			sourceTree = "<group>";
 		};
 		CEA61BA61F756D9400BA1AED /* Interface Module */ = {
@@ -684,6 +697,7 @@
 		FBD6BB191F7C156A007741DC /* GetDrugsModule */ = {
 			isa = PBXGroup;
 			children = (
+				CE9D723D1F82A7F200BF1805 /* PopupDrugNumberModule */,
 				FBD6BB1A1F7C161C007741DC /* GetDrugsViewController.swift */,
 				FB9D4FFC1F7CDE3E001F3F95 /* DrugsView.swift */,
 				FB6BB3111F7E316300165BB2 /* DrugsInfoTableViewCell.swift */,
@@ -895,6 +909,7 @@
 				CE40CA821F78E87D003BC535 /* RemindersViewController.swift in Sources */,
 				FB22C2331F77E752000EED58 /* CustomImageView.swift in Sources */,
 				FB6B62E31F78F07100AAB2F0 /* TokensModel.swift in Sources */,
+				CE9D723F1F82A80F00BF1805 /* NumberAndTypeTableViewCell.swift in Sources */,
 				CEB75F191F7B921D00986F1D /* LoadingAnimationViewController.swift in Sources */,
 				CEABE42E1F769B980041FAD5 /* PersonTitleTableViewCell.swift in Sources */,
 				CEABE4281F7676470041FAD5 /* FillRegistrationInfoViewController.swift in Sources */,
@@ -906,6 +921,7 @@
 				FB75CB461F8246E40022B38D /* AddedToCartDrugsModel.swift in Sources */,
 				FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */,
 				CE01762E1F7EA2CF00EE6777 /* SigninViewController.swift in Sources */,
+				CE9D72431F82A83D00BF1805 /* DrugNameAndTypeTableViewController.swift in Sources */,
 				CEC5F0051F8279350012CFAA /* ExpandedTableViewCell.swift in Sources */,
 				FB6B62E51F78F0C400AAB2F0 /* GetTokensRequest.swift in Sources */,
 				7FE9954C1F7AAC8500E31AA2 /* PaymentsPageController.swift in Sources */,
