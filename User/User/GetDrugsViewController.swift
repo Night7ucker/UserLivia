@@ -16,6 +16,8 @@ class GetDrugsViewController: RootViewController, UITextFieldDelegate {
 
     @IBOutlet var drugNameTextFieldOutlet: UITextField!
     
+    @IBOutlet var searchLabelOutlet: UILabel!
+    @IBOutlet var searchImageOutlet: UIImageView!
     @IBOutlet var drugsListView: UIView!
     @IBOutlet var tableView: UITableView!
     let realm = try! Realm()
@@ -26,7 +28,8 @@ class GetDrugsViewController: RootViewController, UITextFieldDelegate {
         
         configureNavigationBar()
         addBackButtonAndTitleToNavigationBar(title: "Search")
-        
+        searchImageOutlet.isHidden = false
+        searchLabelOutlet.isHidden = false
         drugsListView.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
@@ -41,6 +44,8 @@ class GetDrugsViewController: RootViewController, UITextFieldDelegate {
     func textFieldDidChange(_ textField: UITextField) {
         if(drugNameTextFieldOutlet.text!.characters.count > 2) {
             drugsListView.isHidden = false
+            searchImageOutlet.isHidden = true
+            searchLabelOutlet.isHidden = true
             let obj = GetDrugsRequest()
             obj.findDrugs(drugName: drugNameTextFieldOutlet.text!, completion: { (success) in
                 if success {

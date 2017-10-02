@@ -79,6 +79,8 @@
 		FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB740D1F1F74F24900F6DD79 /* LaunchScreen.storyboard */; };
 		FB75CB3E1F82356B0022B38D /* AddToCart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB75CB3D1F82356B0022B38D /* AddToCart.storyboard */; };
 		FB75CB411F8235E80022B38D /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75CB401F8235E80022B38D /* AddToCartViewController.swift */; };
+		FB75CB431F8240550022B38D /* AddToCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75CB421F8240550022B38D /* AddToCartTableViewCell.swift */; };
+		FB75CB461F8246E40022B38D /* AddedToCartDrugsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75CB451F8246E40022B38D /* AddedToCartDrugsModel.swift */; };
 		FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B861F752C4D0065B49C /* CountryCodesModel.swift */; };
 		FB958B891F752D000065B49C /* GetCountryCodesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B881F752D000065B49C /* GetCountryCodesRequest.swift */; };
 		FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B8C1F755D820065B49C /* RealmDataManager.swift */; };
@@ -169,6 +171,8 @@
 		FB740D221F74F24900F6DD79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB75CB3D1F82356B0022B38D /* AddToCart.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddToCart.storyboard; sourceTree = "<group>"; };
 		FB75CB401F8235E80022B38D /* AddToCartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToCartViewController.swift; sourceTree = "<group>"; };
+		FB75CB421F8240550022B38D /* AddToCartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToCartTableViewCell.swift; sourceTree = "<group>"; };
+		FB75CB451F8246E40022B38D /* AddedToCartDrugsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedToCartDrugsModel.swift; sourceTree = "<group>"; };
 		FB958B861F752C4D0065B49C /* CountryCodesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodesModel.swift; sourceTree = "<group>"; };
 		FB958B881F752D000065B49C /* GetCountryCodesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCountryCodesRequest.swift; sourceTree = "<group>"; };
 		FB958B8C1F755D820065B49C /* RealmDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
@@ -525,6 +529,7 @@
 		FB6BB3141F7E362D00165BB2 /* DrugsModelRequets */ = {
 			isa = PBXGroup;
 			children = (
+				FB75CB441F8246D10022B38D /* AddedToCartDrugsModel */,
 				FB88BB631F810B22009E34D9 /* DrugsRequests */,
 				FB88BB641F810B36009E34D9 /* FullDrugsDescriptionRequests */,
 			);
@@ -574,8 +579,17 @@
 			isa = PBXGroup;
 			children = (
 				FB75CB401F8235E80022B38D /* AddToCartViewController.swift */,
+				FB75CB421F8240550022B38D /* AddToCartTableViewCell.swift */,
 			);
 			name = AddToCartModule;
+			sourceTree = "<group>";
+		};
+		FB75CB441F8246D10022B38D /* AddedToCartDrugsModel */ = {
+			isa = PBXGroup;
+			children = (
+				FB75CB451F8246E40022B38D /* AddedToCartDrugsModel.swift */,
+			);
+			name = AddedToCartDrugsModel;
 			sourceTree = "<group>";
 		};
 		FB88BB631F810B22009E34D9 /* DrugsRequests */ = {
@@ -847,6 +861,7 @@
 				CE95905C1F79473800536DF7 /* ReminderTableViewCell.swift in Sources */,
 				FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */,
 				7F6137F31F7B7E3500629AA7 /* OrdersPaymentsController.swift in Sources */,
+				FB75CB461F8246E40022B38D /* AddedToCartDrugsModel.swift in Sources */,
 				FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */,
 				CE01762E1F7EA2CF00EE6777 /* SigninViewController.swift in Sources */,
 				FB6B62E51F78F0C400AAB2F0 /* GetTokensRequest.swift in Sources */,
@@ -873,6 +888,7 @@
 				FB5FC5501F7A44DE00F8658A /* UploadImageModel.swift in Sources */,
 				FBD74BA71F7B84C300FA2BFE /* GetUserProfileRequest.swift in Sources */,
 				CEA61BCE1F756D9400BA1AED /* MakeOrderCellTableViewCell.swift in Sources */,
+				FB75CB431F8240550022B38D /* AddToCartTableViewCell.swift in Sources */,
 				CEB75F1C1F7BA8A100986F1D /* GetCitiesRequest.swift in Sources */,
 				CEABE4251F76689B0041FAD5 /* SmsConfrimViewController.swift in Sources */,
 				FB22C2311F77E73F000EED58 /* MainScreenCell.swift in Sources */,

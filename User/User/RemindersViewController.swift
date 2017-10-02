@@ -34,6 +34,8 @@ class RemindersViewController: RootViewController, AddReminderViewControllerProt
         addBackButtonAndTitleToNavigationBar(title: "Reminders")
         addPlusAddingButtonOnRightBarButtonItem()
         
+        remindersTableViewOutlet.tableFooterView = UIView(frame: .zero)
+        
         remindersTableViewOutlet.delegate = self
         remindersTableViewOutlet.dataSource = self
         

@@ -69,7 +69,7 @@ class AddReminderViewController: RootViewController, CalendarPopupViewController
         }
         
         checkImageWeekOutlet.image = UIImage(named: "checkBoxChecked.png")
-        
+        view.backgroundColor = Colors.Root.lightGrayColor
     }
     
     override func didReceiveMemoryWarning() {
