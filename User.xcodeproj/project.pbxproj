@@ -83,6 +83,8 @@
 		FB75CB411F8235E80022B38D /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75CB401F8235E80022B38D /* AddToCartViewController.swift */; };
 		FB75CB431F8240550022B38D /* AddToCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75CB421F8240550022B38D /* AddToCartTableViewCell.swift */; };
 		FB75CB461F8246E40022B38D /* AddedToCartDrugsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75CB451F8246E40022B38D /* AddedToCartDrugsModel.swift */; };
+		FB75CB481F828D3F0022B38D /* GoogleMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB75CB471F828D3F0022B38D /* GoogleMap.storyboard */; };
+		FB75CB4B1F828D750022B38D /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75CB4A1F828D750022B38D /* GoogleMapViewController.swift */; };
 		FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B861F752C4D0065B49C /* CountryCodesModel.swift */; };
 		FB958B891F752D000065B49C /* GetCountryCodesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B881F752D000065B49C /* GetCountryCodesRequest.swift */; };
 		FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B8C1F755D820065B49C /* RealmDataManager.swift */; };
@@ -177,6 +179,8 @@
 		FB75CB401F8235E80022B38D /* AddToCartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToCartViewController.swift; sourceTree = "<group>"; };
 		FB75CB421F8240550022B38D /* AddToCartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToCartTableViewCell.swift; sourceTree = "<group>"; };
 		FB75CB451F8246E40022B38D /* AddedToCartDrugsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedToCartDrugsModel.swift; sourceTree = "<group>"; };
+		FB75CB471F828D3F0022B38D /* GoogleMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GoogleMap.storyboard; sourceTree = "<group>"; };
+		FB75CB4A1F828D750022B38D /* GoogleMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
 		FB958B861F752C4D0065B49C /* CountryCodesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodesModel.swift; sourceTree = "<group>"; };
 		FB958B881F752D000065B49C /* GetCountryCodesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCountryCodesRequest.swift; sourceTree = "<group>"; };
 		FB958B8C1F755D820065B49C /* RealmDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
@@ -363,6 +367,7 @@
 				CE939B091F7FE77A00CCB533 /* TestViewController.swift */,
 				CE939B0B1F7FF00900CCB533 /* TestTableViewCell.swift */,
 				FB75CB3D1F82356B0022B38D /* AddToCart.storyboard */,
+				FB75CB471F828D3F0022B38D /* GoogleMap.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -371,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				CE6C7D561F82206F0023AFF1 /* TakePhotoofPresription */,
+				FB75CB491F828D550022B38D /* MapModule */,
 				FB75CB3F1F8235D60022B38D /* AddToCartModule */,
 				FBD6BB191F7C156A007741DC /* GetDrugsModule */,
 				CEBA08841F7D02D400CBFC43 /* SelectOrderTypeModule */,
@@ -616,6 +622,14 @@
 			name = AddedToCartDrugsModel;
 			sourceTree = "<group>";
 		};
+		FB75CB491F828D550022B38D /* MapModule */ = {
+			isa = PBXGroup;
+			children = (
+				FB75CB4A1F828D750022B38D /* GoogleMapViewController.swift */,
+			);
+			name = MapModule;
+			sourceTree = "<group>";
+		};
 		FB88BB631F810B22009E34D9 /* DrugsRequests */ = {
 			isa = PBXGroup;
 			children = (
@@ -771,6 +785,7 @@
 				CE798D1E1F7A7D7D00FDF83D /* EditProfile.storyboard in Resources */,
 				CE798D231F7A828400FDF83D /* TermsAndConditions.storyboard in Resources */,
 				CEABE4221F7662AC0041FAD5 /* RegistrationModule.storyboard in Resources */,
+				FB75CB481F828D3F0022B38D /* GoogleMap.storyboard in Resources */,
 				CE0176301F7EA2DF00EE6777 /* SigninViewStoryboard.storyboard in Resources */,
 				FB740D1E1F74F24900F6DD79 /* Assets.xcassets in Resources */,
 				CEA61BD21F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard in Resources */,
@@ -836,9 +851,13 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-User/Pods-User-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -860,6 +879,7 @@
 				FB958B891F752D000065B49C /* GetCountryCodesRequest.swift in Sources */,
 				CEABE4201F7650CC0041FAD5 /* CityTableViewCell.swift in Sources */,
 				CEA61BCF1F756D9400BA1AED /* MakeOrderViewController.swift in Sources */,
+				FB75CB4B1F828D750022B38D /* GoogleMapViewController.swift in Sources */,
 				FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */,
 				FB6BB31A1F7E607A00165BB2 /* DrugInfoViewController.swift in Sources */,
 				CEA61BD01F756D9400BA1AED /* PopupCountryCodesTableViewController.swift in Sources */,
