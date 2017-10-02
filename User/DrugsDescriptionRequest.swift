@@ -22,8 +22,7 @@ class DrugsDescriptionRequest {
             "LiviaApp-country": "ke", //RealmDataManager.getUserDataFromRealm()[0].countryCode!,
             "LiviaApp-city": "200787", //RealmDataManager.getUserDataFromRealm()[0].cityId!,
             "LiviaApp-APIVersion": "2.0",
-            "LiviaApp-timezone": "180",
-            "LiviaApp-Token": "b7fce82439926f16875339b754db96e6ff8d040a"
+            "LiviaApp-timezone": "180"
         ]
         
         Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).responseObject { (response: DataResponse
