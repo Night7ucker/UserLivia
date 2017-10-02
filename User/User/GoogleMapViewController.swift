@@ -9,30 +9,51 @@
 import UIKit
 import GoogleMaps
 
-class GoogleMapViewController: UIViewController {
+class GoogleMapViewController: UIViewController, CLLocationManagerDelegate {
+
+    var firstLocationUpdate: Bool?
+    
+
+    
+    @IBOutlet var mapView: GMSMapView!
+    var locationManager = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: 22.300000, longitude: 70.783300, zoom: 10.0)
+        mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
+        mapView.camera = camera
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.distanceFilter = 500
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        self.view = mapView
     }
     
-    override func loadView() {
-        navigationItem.title = "Hello Map"
-        GMSServices.provideAPIKey("AIzaSyD4spTmddo8oiGin08d-CI0P7xJmoR_piQ")
-        let camera = GMSCameraPosition.camera(withLatitude: -33.868,
-                                              longitude: 151.2086,
-                                              zoom: 14)
-        let mapView = GMSMapView.map(withFrame: .zero, camera: camera)
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
-        let marker = GMSMarker()
-        marker.position = camera.target
-        marker.snippet = "Hello World"
-
-        marker.appearAnimation = .pop
-        marker.map = mapView
-        
-        view = mapView
+        if (status == CLAuthorizationStatus.authorizedWhenInUse)
+            
+        {
+            mapView.isMyLocationEnabled = true
+        }
     }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let newLocation = locations.last
+        mapView.camera = GMSCameraPosition.camera(withTarget: newLocation!.coordinate, zoom: 12.0)
+        mapView.settings.myLocationButton = true
+        self.view = self.mapView
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2DMake(newLocation!.coordinate.latitude, newLocation!.coordinate.longitude)
+        marker.map = self.mapView
+    }
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -42,3 +63,4 @@ class GoogleMapViewController: UIViewController {
 
 
 }
+

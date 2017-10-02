@@ -181,6 +181,7 @@
 		FB75CB451F8246E40022B38D /* AddedToCartDrugsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedToCartDrugsModel.swift; sourceTree = "<group>"; };
 		FB75CB471F828D3F0022B38D /* GoogleMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GoogleMap.storyboard; sourceTree = "<group>"; };
 		FB75CB4A1F828D750022B38D /* GoogleMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
+		FB75CB4E1F82C3B70022B38D /* MinskLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MinskLocation.gpx; sourceTree = "<group>"; };
 		FB958B861F752C4D0065B49C /* CountryCodesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodesModel.swift; sourceTree = "<group>"; };
 		FB958B881F752D000065B49C /* GetCountryCodesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCountryCodesRequest.swift; sourceTree = "<group>"; };
 		FB958B8C1F755D820065B49C /* RealmDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
@@ -364,8 +365,6 @@
 				FBD6BB171F7C1402007741DC /* SearchDrugs.storyboard */,
 				CE6D40E81F7D00A000C30EFA /* SelectOrderType.storyboard */,
 				CE01762F1F7EA2DF00EE6777 /* SigninViewStoryboard.storyboard */,
-				CE939B091F7FE77A00CCB533 /* TestViewController.swift */,
-				CE939B0B1F7FF00900CCB533 /* TestTableViewCell.swift */,
 				FB75CB3D1F82356B0022B38D /* AddToCart.storyboard */,
 				FB75CB471F828D3F0022B38D /* GoogleMap.storyboard */,
 			);
@@ -626,6 +625,7 @@
 			isa = PBXGroup;
 			children = (
 				FB75CB4A1F828D750022B38D /* GoogleMapViewController.swift */,
+				FB75CB4E1F82C3B70022B38D /* MinskLocation.gpx */,
 			);
 			name = MapModule;
 			sourceTree = "<group>";
