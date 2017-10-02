@@ -20,6 +20,7 @@
 		7F6D01E41F8282BE00FA01E8 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6D01E31F8282BE00FA01E8 /* Contact.swift */; };
 		7F862DBE1F82A19C0098ECA9 /* ContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F862DBC1F82A19C0098ECA9 /* ContactsCell.swift */; };
 		7F862DBF1F82A19C0098ECA9 /* ContactsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F862DBD1F82A19C0098ECA9 /* ContactsCell.xib */; };
+		7F862DC31F82AC4E0098ECA9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F862DC21F82AC4E0098ECA9 /* Default-568h@2x.png */; };
 		7FBAFBB61F77D9D700BEB7F1 /* MainScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBAFBA91F77D9D700BEB7F1 /* MainScreen.storyboard */; };
 		7FBAFBB71F77D9D700BEB7F1 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBAFBAA1F77D9D700BEB7F1 /* Settings.storyboard */; };
 		7FE995421F7A96B200E31AA2 /* OrdersPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE995411F7A96B200E31AA2 /* OrdersPageController.swift */; };
@@ -120,6 +121,7 @@
 		7F6D01E31F8282BE00FA01E8 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		7F862DBC1F82A19C0098ECA9 /* ContactsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsCell.swift; sourceTree = "<group>"; };
 		7F862DBD1F82A19C0098ECA9 /* ContactsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsCell.xib; sourceTree = "<group>"; };
+		7F862DC21F82AC4E0098ECA9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7FBAFBA91F77D9D700BEB7F1 /* MainScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainScreen.storyboard; sourceTree = "<group>"; };
 		7FBAFBAA1F77D9D700BEB7F1 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		7FE995411F7A96B200E31AA2 /* OrdersPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersPageController.swift; sourceTree = "<group>"; };
@@ -391,8 +393,6 @@
 				FBD6BB171F7C1402007741DC /* SearchDrugs.storyboard */,
 				CE6D40E81F7D00A000C30EFA /* SelectOrderType.storyboard */,
 				CE01762F1F7EA2DF00EE6777 /* SigninViewStoryboard.storyboard */,
-				CE939B091F7FE77A00CCB533 /* TestViewController.swift */,
-				CE939B0B1F7FF00900CCB533 /* TestTableViewCell.swift */,
 				7F6D01D01F82444A00FA01E8 /* InviteFriends.storyboard */,
 				FB75CB471F828D3F0022B38D /* GoogleMap.storyboard */,
 			);
@@ -597,6 +597,7 @@
 		FB740D0A1F74F24900F6DD79 = {
 			isa = PBXGroup;
 			children = (
+				7F862DC21F82AC4E0098ECA9 /* Default-568h@2x.png */,
 				FB740D151F74F24900F6DD79 /* User */,
 				FB740D141F74F24900F6DD79 /* Products */,
 				C55DA99B51D0BBE559589D2E /* Pods */,
@@ -805,6 +806,7 @@
 				CE7B302A1F7B906E0023472F /* LoadingAnimation.storyboard in Resources */,
 				FBD6BB181F7C1402007741DC /* SearchDrugs.storyboard in Resources */,
 				CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */,
+				7F862DC31F82AC4E0098ECA9 /* Default-568h@2x.png in Resources */,
 				7FBAFBB61F77D9D700BEB7F1 /* MainScreen.storyboard in Resources */,
 				CE6D40E91F7D00A000C30EFA /* SelectOrderType.storyboard in Resources */,
 				7F862DBF1F82A19C0098ECA9 /* ContactsCell.xib in Resources */,
