@@ -1,18 +1,18 @@
 //
-//  AddToCartTableViewCell.swift
+//  NumberAndTypeTableViewCell.swift
 //  User
 //
-//  Created by BAMFAdmin on 02.10.17.
+//  Created by User on 10/2/17.
 //  Copyright © 2017 BAMFAdmin. All rights reserved.
 //
 
 import UIKit
 
-class AddToCartTableViewCell: UITableViewCell {
 
-    @IBOutlet var nameOfMedicineLabel: UILabel!
-    @IBOutlet var amountLabel: UILabel!
-    @IBOutlet weak var drugQuantityMeasureOutlet: UILabel!
+class NumberAndTypeTableViewCell: UITableViewCell {
+
+    
+    @IBOutlet weak var drugCountLabelOutlet: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,4 +26,3 @@ class AddToCartTableViewCell: UITableViewCell {
     }
 
 }
-

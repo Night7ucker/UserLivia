@@ -14,6 +14,7 @@ class AddedToCartDrugsModel: Object{
     dynamic var type = -1
     dynamic var brandName: String?
     dynamic var amount = 0
+    dynamic var quantityMeasuring: String?
 
     override static func primaryKey() -> String? {
         return "id"
