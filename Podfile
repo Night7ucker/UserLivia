@@ -11,6 +11,8 @@ target 'User' do
   pod 'NVActivityIndicatorView'
   pod 'CollapsibleTableSectionViewController'
   pod 'AlamofireObjectMapper', '~> 4.1'
-  pod 'ObjectMapper+Realm', '~> 0.5'  
+  pod 'ObjectMapper+Realm', '~> 0.5'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'  
   
 end
