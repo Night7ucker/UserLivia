@@ -24,6 +24,8 @@ class DrugsDescriptionModel: Object, Mappable{
     dynamic var manufacturerCompany: String?
     dynamic var name: String?
     dynamic var sideEffects: String?
+    dynamic var quantityMeasuring: String?
+    dynamic var amount = 1
     
     required convenience init?(map: Map) {
         self.init()
@@ -40,6 +42,7 @@ class DrugsDescriptionModel: Object, Mappable{
         manufacturerCompany <- map["manufacturer_company"]
         name <- map["name"]
         sideEffects <- map["side_effects"]
+        quantityMeasuring <- map["quantity_measuring"]
     }
     
     static func writeIntoRealm(response: DataResponse<DrugsDescriptionModel>){

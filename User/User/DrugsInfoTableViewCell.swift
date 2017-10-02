@@ -12,6 +12,8 @@ class DrugsInfoTableViewCell: UITableViewCell {
 
     @IBOutlet var drugsName: UILabel!
     
+    @IBOutlet var drugsDescLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -19,5 +21,6 @@ class DrugsInfoTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
 
 }

@@ -12,53 +12,39 @@ class DrugInfoViewController: RootViewController {
 
     @IBOutlet var brandNameOutlet: UILabel!
     @IBOutlet var companyOutlet: UILabel!
- 
-    @IBOutlet var descriptionOutlet: UITextView!
     @IBOutlet var dosageUnitsOutlet: UILabel!
-    
     @IBOutlet var addToCartOutlet: UIButton!
-    @IBOutlet var sideEffectsOutlet: UITextView!
-    @IBOutlet var dosageOutlet: UITextView!
+    @IBOutlet var drugsDescTableView: UITableView!
+ 
+    var checkDesc = 0
+    var checkDosage = 0
+    var checkEffects = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureNavigationBar()
         addBackButtonAndTitleToNavigationBar(title: "Item details")
-        
-        brandNameOutlet.isHidden = true
-        companyOutlet.isHidden = true
-        descriptionOutlet.isHidden = true
-        sideEffectsOutlet.isHidden = true
-        dosageOutlet.isHidden = true
-        dosageUnitsOutlet.isHidden = true
-        
-        if RealmDataManager.getDrugsDescriptionFromRealm()[0].brandName != nil {
-            brandNameOutlet.text = RealmDataManager.getDrugsDescriptionFromRealm()[0].brandName!
-            brandNameOutlet.isHidden = false
-        }
-        if RealmDataManager.getDrugsDescriptionFromRealm()[0].manufacturerCompany != nil {
-            companyOutlet.text = RealmDataManager.getDrugsDescriptionFromRealm()[0].manufacturerCompany!
-            companyOutlet.isHidden = false
-        }
+        drugsDescTableView.delegate = self
+        drugsDescTableView.dataSource = self
+        brandNameOutlet.text = RealmDataManager.getDrugsDescriptionFromRealm()[0].brandName!
+        companyOutlet.text = RealmDataManager.getDrugsDescriptionFromRealm()[0].manufacturerCompany!
+        dosageUnitsOutlet.text = RealmDataManager.getDrugsDescriptionFromRealm()[0].dosageUnits!
+
         if RealmDataManager.getDrugsDescriptionFromRealm()[0].desc != nil {
-            descriptionOutlet.text = RealmDataManager.getDrugsDescriptionFromRealm()[0].desc!.uppercased()
-            descriptionOutlet.isHidden = false
-        }
-        if RealmDataManager.getDrugsDescriptionFromRealm()[0].sideEffects != nil {
-            sideEffectsOutlet.text = RealmDataManager.getDrugsDescriptionFromRealm()[0].sideEffects!.uppercased()
-            sideEffectsOutlet.isHidden = false
-        }
-        if RealmDataManager.getDrugsDescriptionFromRealm()[0].dosageUnits != nil {
-            dosageUnitsOutlet.text = RealmDataManager.getDrugsDescriptionFromRealm()[0].dosageUnits!
-            dosageUnitsOutlet.isHidden = false
+            checkDesc = 1
         }
         if RealmDataManager.getDrugsDescriptionFromRealm()[0].dosage != nil {
-            dosageOutlet.text = RealmDataManager.getDrugsDescriptionFromRealm()[0].dosage!.uppercased()
-            dosageOutlet.isHidden = false
+            checkDosage = 1
+        }
+        if RealmDataManager.getDrugsDescriptionFromRealm()[0].sideEffects != nil {
+            checkEffects = 1
         }
         addToCartOutlet.layer.cornerRadius = 5
         addToCartOutlet.backgroundColor = Colors.Root.lightBlueColor
+        self.drugsDescTableView.estimatedRowHeight = 280
+        self.drugsDescTableView.rowHeight = UITableViewAutomaticDimension
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,6 +53,71 @@ class DrugInfoViewController: RootViewController {
     
 
     @IBAction func addToCartAction(_ sender: UIButton) {
+        let AddToCartStoryboard = UIStoryboard(name: "AddToCart", bundle: nil)
+        let AddToCartViewController = AddToCartStoryboard.instantiateViewController(withIdentifier: "kAddToCartStoryboardId") as? AddToCartViewController
+        navigationController?.pushViewController(AddToCartViewController!, animated: true)
     }
 
 }
+
+extension DrugInfoViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return checkEffects + checkDosage + checkDesc
+
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "drugsDescCell", for: indexPath) as! DrugsInfoTableViewCell
+            cell.drugsDescLabel.text = RealmDataManager.getDrugsDescriptionFromRealm()[0].desc!.uppercased()
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "drugsDescCell", for: indexPath) as! DrugsInfoTableViewCell
+            cell.drugsDescLabel.text = RealmDataManager.getDrugsDescriptionFromRealm()[0].dosage!.uppercased()
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "drugsDescCell", for: indexPath) as! DrugsInfoTableViewCell
+            cell.drugsDescLabel.text = RealmDataManager.getDrugsDescriptionFromRealm()[0].sideEffects!.uppercased()
+            return cell
+        default:
+            return UITableViewCell()
+        }
+
+
+    }
+
+    
+
+}
+
+extension DrugInfoViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "DESCRIPTION"
+        case 1:
+            return "DOSAGE"
+        case 2:
+            return "SIDE EFFECTS"
+        default:
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.font = UIFont(name: "Futura", size: 15)!
+        header.textLabel?.textColor = UIColor.lightGray
+    }
+
+
+}
+
+
+
