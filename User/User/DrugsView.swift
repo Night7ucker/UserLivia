@@ -14,7 +14,7 @@ class DrugsView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+
         if shadowLayer == nil {
             shadowLayer = CAShapeLayer()
             shadowLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: 0).cgPath
