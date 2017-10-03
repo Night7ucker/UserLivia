@@ -98,22 +98,22 @@ class GoogleMapViewController: RootViewController {
 //        
 //        view.addSubview(viewForCurrentLocationButton)
         
-        resultsViewController = GMSAutocompleteResultsViewController()
-        resultsViewController?.delegate = self
-        
-        searchController = UISearchController(searchResultsController: resultsViewController)
-        searchController?.searchResultsUpdater = resultsViewController
-        
-        let subView = UIView(frame: CGRect(x: 0, y: 65.0, width: 350.0, height: 45.0))
-        
-        subView.addSubview((searchController?.searchBar)!)
-        view.addSubview(subView)
-        searchController?.searchBar.sizeToFit()
-        searchController?.hidesNavigationBarDuringPresentation = false
-        
-        // When UISearchController presents the results view, present it in
-        // this view controller, not one further up the chain.
-        definesPresentationContext = true
+//        resultsViewController = GMSAutocompleteResultsViewController()
+//        resultsViewController?.delegate = self
+//        
+//        searchController = UISearchController(searchResultsController: resultsViewController)
+//        searchController?.searchResultsUpdater = resultsViewController
+//        
+//        let subView = UIView(frame: CGRect(x: 0, y: 65.0, width: 350.0, height: 45.0))
+//        
+//        subView.addSubview((searchController?.searchBar)!)
+//        view.addSubview(subView)
+//        searchController?.searchBar.sizeToFit()
+//        searchController?.hidesNavigationBarDuringPresentation = false
+//        
+//        // When UISearchController presents the results view, present it in
+//        // this view controller, not one further up the chain.
+//        definesPresentationContext = true
         
     }
     

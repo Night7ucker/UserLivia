@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class AddToCartViewController:RootViewController, DrugNameAndTypeTableViewControllerDelegate {
+class AddToCartViewController:RootViewController, DrugNameAndTypeTableViewControllerDelegate, SigninViewControllerDelegate {
 
     @IBOutlet var addDrugButtonOutlet: UIButton!
     @IBOutlet var requestPriceButtonOutlet: UIButton!
@@ -71,8 +71,16 @@ class AddToCartViewController:RootViewController, DrugNameAndTypeTableViewContro
     }
     
     @IBAction func RequestPriceAction(_ sender: UIButton) {
-
-
+        if RealmDataManager.getTokensFromRealm().count != 0 {
+            let selectOrderTypeStoryboard = UIStoryboard(name: "SelectOrderType", bundle: nil)
+            let selectOrderTypeViewController = selectOrderTypeStoryboard.instantiateViewController(withIdentifier: "kExpandedViewController") as? ExpandedViewController
+            navigationController?.pushViewController(selectOrderTypeViewController!, animated: false)
+        } else {
+            let signinViewStoryboard = UIStoryboard(name: "SigninViewStoryboard", bundle: nil)
+            let signinViewController = signinViewStoryboard.instantiateViewController(withIdentifier: "kSigninViewController") as? SigninViewController
+            signinViewController?.delegate = self
+            present(signinViewController!, animated: false, completion: nil)
+        }
     }
     
 
@@ -95,6 +103,12 @@ class AddToCartViewController:RootViewController, DrugNameAndTypeTableViewContro
         try! realm.write {
             RealmDataManager.getAddedDrugsDataFromRealm()[indexPathOfCellToChangeDrugsNumber.row].amount = Int(drugsNumber)!
         }
+    }
+    
+    func pushToRegistrationViewController() {
+        let mainViewStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: nil)
+        let registrationViewController = mainViewStoryboard.instantiateViewController(withIdentifier: "kRegistrationViewController") as? RegistrationViewController
+        navigationController?.pushViewController(registrationViewController!, animated: false)
     }
 }
 

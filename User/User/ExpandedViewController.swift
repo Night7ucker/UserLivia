@@ -29,6 +29,8 @@ class ExpandedViewController: RootViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         configureNavigationBar()
         addBackButtonAndTitleToNavigationBar(title: "Select order type")
         
@@ -87,10 +89,13 @@ class ExpandedViewController: RootViewController, UITableViewDataSource, UITable
         header.customInit(title: sections[section].sectionName, section: section, delegate: self, checked: sections[section].expanded)
         
         if section == 1 {
+            
             let label = UILabel()
+            OrderTypeRequest.findDrugs { success in
+                label.text = RealmDataManager.getDeliveryPriceForDrug()[0].drugCurrency!
+            }
             label.frame = CGRect(x: 100, y: 5, width: 150, height: 30)
             label.textColor = Colors.Root.lightBlueColor
-            label.text = "Cost 5 BYN"
             label.font = label.font.withSize(14)
             
             header.addSubview(label)
@@ -189,10 +194,9 @@ class ExpandedViewController: RootViewController, UITableViewDataSource, UITable
     
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
-        print("Section")
-        print(whichSectionIsChecked)
-        print("Row")
-        print(whichRowIsChecked)
+        let googleMapStoryboard = UIStoryboard(name: "GoogleMap", bundle: nil)
+        let googleMapViewController = googleMapStoryboard.instantiateViewController(withIdentifier: "kGoogleMapViewController") as? GoogleMapViewController
+        navigationController?.pushViewController(googleMapViewController!, animated: false)
     }
 
 }

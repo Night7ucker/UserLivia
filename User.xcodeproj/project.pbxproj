@@ -38,6 +38,8 @@
 		CE68E2F91F7C03AC002EE618 /* CityNameRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E2F81F7C03AC002EE618 /* CityNameRealmModel.swift */; };
 		CE6D40E61F7CF23D00C30EFA /* ReminderRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D40E51F7CF23D00C30EFA /* ReminderRequests.swift */; };
 		CE6D40E91F7D00A000C30EFA /* SelectOrderType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6D40E81F7D00A000C30EFA /* SelectOrderType.storyboard */; };
+		CE725FD71F838E9F009B8FC2 /* OrderTypeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE725FD61F838E9F009B8FC2 /* OrderTypeRequest.swift */; };
+		CE725FD91F838F6C009B8FC2 /* OrderTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE725FD81F838F6C009B8FC2 /* OrderTypeModel.swift */; };
 		CE798D1E1F7A7D7D00FDF83D /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */; };
 		CE798D201F7A81BF00FDF83D /* EditingProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */; };
 		CE798D231F7A828400FDF83D /* TermsAndConditions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */; };
@@ -141,6 +143,8 @@
 		CE68E2F81F7C03AC002EE618 /* CityNameRealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityNameRealmModel.swift; sourceTree = "<group>"; };
 		CE6D40E51F7CF23D00C30EFA /* ReminderRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderRequests.swift; sourceTree = "<group>"; };
 		CE6D40E81F7D00A000C30EFA /* SelectOrderType.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SelectOrderType.storyboard; sourceTree = "<group>"; };
+		CE725FD61F838E9F009B8FC2 /* OrderTypeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTypeRequest.swift; sourceTree = "<group>"; };
+		CE725FD81F838F6C009B8FC2 /* OrderTypeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTypeModel.swift; sourceTree = "<group>"; };
 		CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
 		CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingProfileViewController.swift; sourceTree = "<group>"; };
 		CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TermsAndConditions.storyboard; sourceTree = "<group>"; };
@@ -358,6 +362,15 @@
 				CE9590591F7945DA00536DF7 /* ReminderModel.swift */,
 			);
 			name = ReminderRequests;
+			sourceTree = "<group>";
+		};
+		CE725FD51F838E84009B8FC2 /* SelectOrderTypeRequests */ = {
+			isa = PBXGroup;
+			children = (
+				CE725FD61F838E9F009B8FC2 /* OrderTypeRequest.swift */,
+				CE725FD81F838F6C009B8FC2 /* OrderTypeModel.swift */,
+			);
+			name = SelectOrderTypeRequests;
 			sourceTree = "<group>";
 		};
 		CE798D211F7A81C200FDF83D /* EditingProfileModule */ = {
@@ -694,6 +707,7 @@
 		FB958B851F752BBC0065B49C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE725FD51F838E84009B8FC2 /* SelectOrderTypeRequests */,
 				FB6BB3141F7E362D00165BB2 /* DrugsModelRequets */,
 				FBD74BA31F7B849C00FA2BFE /* GetUserProfileRequests */,
 				FB5FC54B1F7A44A400F8658A /* RegisterUserRequests */,
@@ -921,6 +935,7 @@
 				FB6BB3181F7E365400165BB2 /* GetDrugsRequest.swift in Sources */,
 				CE6D40E61F7CF23D00C30EFA /* ReminderRequests.swift in Sources */,
 				CE798D251F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift in Sources */,
+				CE725FD71F838E9F009B8FC2 /* OrderTypeRequest.swift in Sources */,
 				FB75CB411F8235E80022B38D /* AddToCartViewController.swift in Sources */,
 				CE40CA851F78F2ED003BC535 /* AddReminderViewController.swift in Sources */,
 				FB958B891F752D000065B49C /* GetCountryCodesRequest.swift in Sources */,
@@ -979,6 +994,7 @@
 				7F6137F51F7B7F7C00629AA7 /* OrderPageCell.swift in Sources */,
 				CE798D201F7A81BF00FDF83D /* EditingProfileViewController.swift in Sources */,
 				CEABE42B1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift in Sources */,
+				CE725FD91F838F6C009B8FC2 /* OrderTypeModel.swift in Sources */,
 				CE68E2F91F7C03AC002EE618 /* CityNameRealmModel.swift in Sources */,
 				FB22C2351F77E91B000EED58 /* MainScreenController.swift in Sources */,
 				7F6D01D41F82453000FA01E8 /* InviteFriendsController.swift in Sources */,

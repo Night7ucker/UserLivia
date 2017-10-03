@@ -59,4 +59,8 @@ class RealmDataManager {
         let data = realm.objects(AddedToCartDrugsModel.self)
         return data
     }
+    static func getDeliveryPriceForDrug() -> Results<OrderTypeModel> {
+        let data = realm.objects(OrderTypeModel.self)
+        return data
+    }
 }

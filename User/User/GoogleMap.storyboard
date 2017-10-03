@@ -12,7 +12,7 @@
         <!--Google Map View Controller-->
         <scene sceneID="jfH-gZ-N22">
             <objects>
-                <viewController id="fIB-Mc-zJG" customClass="GoogleMapViewController" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="kGoogleMapViewController" id="fIB-Mc-zJG" customClass="GoogleMapViewController" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U1W-rO-aMp"/>
                         <viewControllerLayoutGuide type="bottom" id="ajA-zm-J8O"/>
