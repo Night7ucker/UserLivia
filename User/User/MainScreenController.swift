@@ -178,12 +178,12 @@ extension MainScreenController : UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
+        DispatchQueue.main.async {
         switch indexPath.row {
         case 0:
             let settingsStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: nil)
             let settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "kMakeOrderViewController") as? MakeOrderViewController
-            navigationController?.pushViewController(settingsViewController!, animated: true)
+            self.navigationController?.pushViewController(settingsViewController!, animated: true)
         case 1:
             let ChooseCityStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: Bundle.main)
             let ChooseCityController = ChooseCityStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as! SearchForItemsViewController
@@ -212,7 +212,7 @@ extension MainScreenController : UITableViewDelegate{
                 let signinViewStoryboard = UIStoryboard(name: "SigninViewStoryboard", bundle: nil)
                 let signinViewController = signinViewStoryboard.instantiateViewController(withIdentifier: "kSigninViewController") as? SigninViewController
                 signinViewController?.delegate = self
-                present(signinViewController!, animated: false, completion: nil)
+                self.present(signinViewController!, animated: false, completion: nil)
             } else {
                 let refillsAndRemindersStoryboard = UIStoryboard(name: "RefillsAndReminders", bundle: nil)
                 let settingsViewController = refillsAndRemindersStoryboard.instantiateViewController(withIdentifier: "kRemindersViewController") as? RemindersViewController
@@ -222,15 +222,16 @@ extension MainScreenController : UITableViewDelegate{
         case 4:
             let inviteFriendsStoryboard = UIStoryboard(name: "InviteFriends", bundle: nil)
             let inviteFriendsController = inviteFriendsStoryboard.instantiateViewController(withIdentifier: "kInviteFriendsController") as? InviteFriendsController
-            navigationController?.pushViewController(inviteFriendsController!, animated: true)
+            self.navigationController?.pushViewController(inviteFriendsController!, animated: true)
             
         case 5:
             let settingsStoryboard = UIStoryboard(name: "Settings", bundle: nil)
             let settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "kSettingsController") as? SettingsController
-            navigationController?.pushViewController(settingsViewController!, animated: true)
+            self.navigationController?.pushViewController(settingsViewController!, animated: true)
         default:
             break
         }
+    }
     }
     
     
