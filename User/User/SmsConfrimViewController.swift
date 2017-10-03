@@ -136,6 +136,7 @@ class SmsConfrimViewController: RootViewController {
 //                self.present(loadingAnimationController, animated: false, completion: nil)
                 switch RealmDataManager.getTokensFromRealm()[0].userStatus! {
                 case UserStatus.active.rawValue:
+
                     let MainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
                     let MainScreenController = MainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as! MainScreenController
                     MainScreenController.userIsRegistred = true

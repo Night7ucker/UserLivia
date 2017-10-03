@@ -101,6 +101,8 @@
 		FB75CB461F8246E40022B38D /* AddedToCartDrugsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75CB451F8246E40022B38D /* AddedToCartDrugsModel.swift */; };
 		FB75CB481F828D3F0022B38D /* GoogleMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB75CB471F828D3F0022B38D /* GoogleMap.storyboard */; };
 		FB75CB4B1F828D750022B38D /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75CB4A1F828D750022B38D /* GoogleMapViewController.swift */; };
+		FB75CB511F83A0750022B38D /* OrdersCountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75CB501F83A0750022B38D /* OrdersCountModel.swift */; };
+		FB75CB531F83A0A50022B38D /* OrdersCountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75CB521F83A0A50022B38D /* OrdersCountRequest.swift */; };
 		FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B861F752C4D0065B49C /* CountryCodesModel.swift */; };
 		FB958B891F752D000065B49C /* GetCountryCodesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B881F752D000065B49C /* GetCountryCodesRequest.swift */; };
 		FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B8C1F755D820065B49C /* RealmDataManager.swift */; };
@@ -213,6 +215,8 @@
 		FB75CB451F8246E40022B38D /* AddedToCartDrugsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedToCartDrugsModel.swift; sourceTree = "<group>"; };
 		FB75CB471F828D3F0022B38D /* GoogleMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GoogleMap.storyboard; sourceTree = "<group>"; };
 		FB75CB4A1F828D750022B38D /* GoogleMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
+		FB75CB501F83A0750022B38D /* OrdersCountModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersCountModel.swift; sourceTree = "<group>"; };
+		FB75CB521F83A0A50022B38D /* OrdersCountRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersCountRequest.swift; sourceTree = "<group>"; };
 		FB958B861F752C4D0065B49C /* CountryCodesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodesModel.swift; sourceTree = "<group>"; };
 		FB958B881F752D000065B49C /* GetCountryCodesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCountryCodesRequest.swift; sourceTree = "<group>"; };
 		FB958B8C1F755D820065B49C /* RealmDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
@@ -706,6 +710,15 @@
 			name = MapModule;
 			sourceTree = "<group>";
 		};
+		FB75CB4F1F83A05C0022B38D /* GetOrdersCountRequests */ = {
+			isa = PBXGroup;
+			children = (
+				FB75CB501F83A0750022B38D /* OrdersCountModel.swift */,
+				FB75CB521F83A0A50022B38D /* OrdersCountRequest.swift */,
+			);
+			name = GetOrdersCountRequests;
+			sourceTree = "<group>";
+		};
 		FB88BB631F810B22009E34D9 /* DrugsRequests */ = {
 			isa = PBXGroup;
 			children = (
@@ -727,6 +740,7 @@
 		FB958B851F752BBC0065B49C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FB75CB4F1F83A05C0022B38D /* GetOrdersCountRequests */,
 				CE725FD51F838E84009B8FC2 /* SelectOrderTypeRequests */,
 				FB6BB3141F7E362D00165BB2 /* DrugsModelRequets */,
 				FBD74BA31F7B849C00FA2BFE /* GetUserProfileRequests */,
@@ -986,6 +1000,7 @@
 				CE9D723F1F82A80F00BF1805 /* NumberAndTypeTableViewCell.swift in Sources */,
 				CEB75F191F7B921D00986F1D /* LoadingAnimationViewController.swift in Sources */,
 				CEABE42E1F769B980041FAD5 /* PersonTitleTableViewCell.swift in Sources */,
+				FB75CB531F83A0A50022B38D /* OrdersCountRequest.swift in Sources */,
 				7F6D01E41F8282BE00FA01E8 /* Contact.swift in Sources */,
 				CEABE4281F7676470041FAD5 /* FillRegistrationInfoViewController.swift in Sources */,
 				CEC5EFFF1F8235430012CFAA /* SectionHeaderView.swift in Sources */,
@@ -999,6 +1014,7 @@
 				CE9D72431F82A83D00BF1805 /* DrugNameAndTypeTableViewController.swift in Sources */,
 				CEC5F0051F8279350012CFAA /* ExpandedTableViewCell.swift in Sources */,
 				FB6B62E51F78F0C400AAB2F0 /* GetTokensRequest.swift in Sources */,
+				FB75CB511F83A0750022B38D /* OrdersCountModel.swift in Sources */,
 				7FE9954C1F7AAC8500E31AA2 /* PaymentsPageController.swift in Sources */,
 				FB9D4FFD1F7CDE3E001F3F95 /* DrugsView.swift in Sources */,
 				FB5FC5551F7A83B500F8658A /* RegistrationUserRequest.swift in Sources */,

@@ -29,13 +29,23 @@ class MainScreenController: RootViewController, SigninViewControllerDelegate {
         super.viewDidLoad()
         
         
+        
+        
         if userIsRegistred == false {
             fullNameLabelOutlet.isHidden = true
         } else {
+            
             let baseImageUrl = "https://test.liviaapp.com"
             let obj = GetUserProfileRequest()
             obj.GetUserProfileFunc(completion: { (success) in
                 if success {
+                    
+                    OrdersCountRequest.getOrdersList(completion: { (success) in
+                        if success {
+                            self.mainScreenTableView.reloadData()
+                        }
+                    })
+                    
                     self.fullNameLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].namePrefix!+" "+RealmDataManager.getUserDataFromRealm()[0].firstName!+" "+RealmDataManager.getUserDataFromRealm()[0].lastName!
                     if RealmDataManager.getUserDataFromRealm()[0].avatar != nil{
                         let fullImageUrl = baseImageUrl+RealmDataManager.getUserDataFromRealm()[0].avatar!
@@ -130,7 +140,12 @@ extension MainScreenController : UITableViewDataSource{
             case 1:
                 cell.fillCellInfo(mainIcon: #imageLiteral(resourceName: "searchMedecine"), mainLabel: "Over the Counter Products", detailLabel: "SEARCH FOR ITEMS")
             case 2:
-                cell.fillCellInfo(mainIcon: #imageLiteral(resourceName: "purchaseHistoryImage"), mainLabel: "Orders Appointments Payments", detailLabel: "YOU HAVE 0 ORDERS")
+                print("asd")
+                if RealmDataManager.getOrdersCountFromRealm().count != 0 {
+                    cell.fillCellInfo(mainIcon: #imageLiteral(resourceName: "purchaseHistoryImage"), mainLabel: "Orders Appointments Payments", detailLabel:"YOU HAVE "+String(describing: RealmDataManager.getOrdersCountFromRealm()[0].allOrders)+" ORDERS")
+                } else {
+                    cell.fillCellInfo(mainIcon: #imageLiteral(resourceName: "purchaseHistoryImage"), mainLabel: "Orders Appointments Payments", detailLabel: "")
+                }
             case 4:
                 cell.fillCellInfo(mainIcon: #imageLiteral(resourceName: "inviteFriendsImage"), mainLabel: "Invite Friends", detailLabel: "INVITE FROM CONTACTS")
             case 5:

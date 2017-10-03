@@ -64,7 +64,7 @@ class InviteFriendsController: UIViewController {
         }
     }
     
-    
+    //MARK: - Contacts requests
     func requestAccessToContacts(_ completion: @escaping (_ success: Bool) -> Void) {
         let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
         
@@ -91,8 +91,8 @@ class InviteFriendsController: UIViewController {
             completion(false, nil)
         }
     }
-    //MARK: - Actions
     
+    //MARK: - Actions
     @IBAction func goBackToMainScreen(_ sender: UIButton) {
         
         _ = navigationController?.popViewController(animated: true)
@@ -109,6 +109,7 @@ class InviteFriendsController: UIViewController {
     
 }
 
+//MARK: - UITableViewDataSource
 extension InviteFriendsController : UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -121,6 +122,7 @@ extension InviteFriendsController : UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : ContactsCell  = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! ContactsCell
+        
         let contact = contacts[indexPath.row]
         cell.configureWithContactEntry(contact)
         
@@ -128,6 +130,7 @@ extension InviteFriendsController : UITableViewDataSource{
     }
 }
 
+//MARK: - UITableViewDelegate
 extension InviteFriendsController : UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
