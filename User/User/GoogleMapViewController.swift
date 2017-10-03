@@ -22,6 +22,8 @@ class GoogleMapViewController: RootViewController {
     var currentPinLocation: CLLocationCoordinate2D!
     var userCurrentLocation: CLLocationCoordinate2D!
     
+    var isPaged = true
+    
     @IBOutlet var setDeliveryPlaceMapView: GMSMapView!
 
     @IBOutlet weak var topMajorViewOutlet: UIView!
@@ -29,9 +31,9 @@ class GoogleMapViewController: RootViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar
+//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//        navigationController?.navigationBar.shadowImage = UIImage()
+//        navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar
         
         configureNavigationBar()
         addBackButtonAndTitleToNavigationBar(title: "Select location")
@@ -60,7 +62,6 @@ class GoogleMapViewController: RootViewController {
         locationManager.startUpdatingLocation()
         
         let testButton = UIButton()
-        testButton.frame = CGRect(x: 35, y: 620, width: 300, height: 30)
         testButton.setTitle("Delivery at my current location", for: .normal)
         testButton.layer.zPosition = 4
         testButton.layer.cornerRadius = 2
@@ -68,11 +69,28 @@ class GoogleMapViewController: RootViewController {
         testButton.titleLabel?.font = testButton.titleLabel?.font.withSize(13)
         testButton.backgroundColor = Colors.Root.lightBlueColor
         testButton.setTitleColor(.white, for: .normal)
+        testButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(testButton)
         
+        if isPaged {
+            NSLayoutConstraint.activate([
+                (testButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120)),
+                (testButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20)),
+                (testButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)),
+                ])
+        } else {
+            testButton.frame = CGRect(x: 35, y: 620, width: 300, height: 30)
+        }
+        
+        
         let viewForCurrentLocationButton = UIView()
-        viewForCurrentLocationButton.frame = CGRect(x: 330, y: 160, width: 35, height: 35)
+        if isPaged {
+            viewForCurrentLocationButton.frame = CGRect(x: 330, y: 100, width: 35, height: 35)
+        } else {
+            viewForCurrentLocationButton.frame = CGRect(x: 330, y: 160, width: 35, height: 35)
+        }
+        
         viewForCurrentLocationButton.layer.cornerRadius = 2
         viewForCurrentLocationButton.layer.opacity = 0.5
         viewForCurrentLocationButton.backgroundColor = .white
@@ -95,12 +113,24 @@ class GoogleMapViewController: RootViewController {
         searchController?.searchBar.searchBarStyle = .minimal
         searchController?.searchBar.backgroundColor = .white
         
-        let subView = UIView(frame: CGRect(x: 0, y: 112, width: view.frame.width, height: 33))
+        let subView = UIView()
+        if isPaged {
+            subView.frame = CGRect(x: 0, y: 47, width: view.frame.width, height: 33)
+        } else {
+            subView.frame = CGRect(x: 0, y: 112, width: view.frame.width, height: 33)
+        }
+        
         
         subView.addSubview((searchController?.searchBar)!)
+        
+        
         view.addSubview(subView)
+        
         searchController?.searchBar.sizeToFit()
         searchController?.hidesNavigationBarDuringPresentation = false
+        
+        
+        
 
         definesPresentationContext = true
         
@@ -126,7 +156,10 @@ class GoogleMapViewController: RootViewController {
     }
     
     func testButtonTapped(_ sender: UIButton) {
-        print("test button tapped")
+        let reviewYourOrder = UIStoryboard(name: "ReviewYourOrder", bundle: nil)
+        let reviewYourOrderViewController = reviewYourOrder.instantiateViewController(withIdentifier: "kReviewYourOrdedViewController") as! ReviewYourOrdedViewController
+        reviewYourOrderViewController.currentPinLocation = currentPinLocation
+        navigationController?.pushViewController(reviewYourOrderViewController, animated: false)
     }
 
 }
@@ -153,7 +186,10 @@ extension GoogleMapViewController: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         currentPinLocation = marker.position
-        print(currentPinLocation)
+        let reviewYourOrder = UIStoryboard(name: "ReviewYourOrder", bundle: nil)
+        let reviewYourOrderViewController = reviewYourOrder.instantiateViewController(withIdentifier: "kReviewYourOrdedViewController") as! ReviewYourOrdedViewController
+        reviewYourOrderViewController.currentPinLocation = currentPinLocation
+        navigationController?.pushViewController(reviewYourOrderViewController, animated: false)
     }
     
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
