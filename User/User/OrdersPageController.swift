@@ -24,7 +24,7 @@ class OrdersPageController: RootViewController {
 extension OrdersPageController : UITableViewDataSource{
      func numberOfSections(in tableView: UITableView) -> Int {
         //Here will be number of months, which has orders
-        return 2
+        return 1
     }
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

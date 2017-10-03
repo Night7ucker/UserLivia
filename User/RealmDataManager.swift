@@ -63,4 +63,8 @@ class RealmDataManager {
         let data = realm.objects(OrderTypeModel.self)
         return data
     }
+    static func getOrdersCountFromRealm() -> Results<OrdersCountModel> {
+        let data = realm.objects(OrdersCountModel.self)
+        return data
+    }
 }
