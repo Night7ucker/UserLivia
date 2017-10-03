@@ -29,7 +29,7 @@ extension OrdersPageController : UITableViewDataSource{
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Here will be number of orders in one month
-        return 1
+        return RealmDataManager.getOrdersListFromRealm().count
         //will work only with data!!!!
         //        let numberOfRowsInSection: Int = 0
         //                if myArray.count > 0
@@ -52,22 +52,53 @@ extension OrdersPageController : UITableViewDataSource{
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : OrderPageCell = tableView.dequeueReusableCell(withIdentifier: "OrdersPageCell", for: indexPath) as! OrderPageCell
+
+        let dateArray = RealmDataManager.getOrdersListFromRealm()[indexPath.row].createDate!.components(separatedBy: "T")
+        cell.dateLabelOutlet.text = dateArray[0]
+        cell.orderIDLabelOutlet.text = RealmDataManager.getOrdersListFromRealm()[indexPath.row].orderId!
+        if RealmDataManager.getOrdersListFromRealm()[indexPath.row].selfCollect! == "1" {
+            cell.selfCollectLabelOutlet.text = "C"
+        } else {
+            cell.selfCollectLabelOutlet.text = "D"
+        }
+        if RealmDataManager.getOrdersListFromRealm()[indexPath.row].statusId! == "1" {
+            cell.statusLabelOutlet.text = "In Process"
+            cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "time"))
+        } else {
+            cell.statusLabelOutlet.text = "No Offers"
+            cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "cancel"))
+        }
         
-        cell.fillCellInfo(orderDate: "11.09.2017/100", orderStatusImage: #imageLiteral(resourceName: "orderStatusImage"))
         
         return cell
     }
 }
 
 extension OrdersPageController : UITableViewDelegate{
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let titleForHeaderInSection = "\(section)"
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1)
         
-        return titleForHeaderInSection
+        let sectionNameLabel = UILabel()
+        sectionNameLabel.text = "OCT"
+        sectionNameLabel.frame = CGRect(x: 15, y: 12, width: 375, height: 30)
+        sectionNameLabel.textColor = UIColor.lightGray
+        sectionNameLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightSemibold)
+
+        
+        headerView.addSubview(sectionNameLabel)
+        
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
     
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 80
     }
+
 }

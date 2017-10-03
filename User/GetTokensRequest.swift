@@ -45,7 +45,11 @@ class GetTokensRequest{
         Alamofire.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseObject { (response: DataResponse
             <TokensModel>) in
             TokensModel.writeIntoRealm(response: response)
-            completion(true)
+            if (response.result.value?.accessToken != nil) {
+                completion(true)
+            } else {
+                completion(false)
+            }
         }
     }
 }

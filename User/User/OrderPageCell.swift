@@ -11,8 +11,12 @@ import UIKit
 class OrderPageCell: UITableViewCell {
     
     
-    @IBOutlet weak var orderDateAndIdLabel: UILabel!
+
+    @IBOutlet var statusLabelOutlet: UILabel!
     @IBOutlet weak var orderStatusImage: UIImageView!
+    @IBOutlet var orderIDLabelOutlet: UILabel!
+    @IBOutlet var dateLabelOutlet: UILabel!
+    @IBOutlet var selfCollectLabelOutlet: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,8 +24,8 @@ class OrderPageCell: UITableViewCell {
 }
 
 extension OrderPageCell {
-    func fillCellInfo(orderDate: String, orderStatusImage: UIImage) {
-        self.orderDateAndIdLabel.text = orderDate
+    func fillCellInfo(orderStatusImage: UIImage) {
+
         self.orderStatusImage.image = orderStatusImage
     }
 }
