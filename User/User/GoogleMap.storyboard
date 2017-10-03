@@ -27,6 +27,15 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGO-Ui-p4b">
                                 <rect key="frame" x="0.0" y="64" width="375" height="91"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ENTER ADDRESS HERE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOL-BI-ZKq">
+                                        <rect key="frame" x="112" y="27" width="152" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -44,7 +53,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="lbE-Cu-WES"/>
                     <connections>
-                        <outlet property="mapView" destination="6Zb-Bh-TpP" id="CAf-1G-R06"/>
+                        <outlet property="setDeliveryPlaceMapView" destination="6Zb-Bh-TpP" id="rjU-hr-ifj"/>
                         <outlet property="topMajorViewOutlet" destination="zGO-Ui-p4b" id="ihe-T1-hB6"/>
                     </connections>
                 </viewController>
