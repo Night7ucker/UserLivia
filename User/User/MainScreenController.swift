@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 protocol SigninViewControllerDelegate: class {
     func pushToRegistrationViewController()
@@ -24,7 +25,6 @@ class MainScreenController: RootViewController, SigninViewControllerDelegate {
     
     var userIsRegistred  = false
     let countryCodesDataManagerObject = GetCountryCodesRequest()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,18 +34,15 @@ class MainScreenController: RootViewController, SigninViewControllerDelegate {
         if userIsRegistred == false {
             fullNameLabelOutlet.isHidden = true
         } else {
-            
             let baseImageUrl = "https://test.liviaapp.com"
             let obj = GetUserProfileRequest()
             obj.GetUserProfileFunc(completion: { (success) in
                 if success {
-                    
                     OrdersCountRequest.getOrdersList(completion: { (success) in
                         if success {
                             self.mainScreenTableView.reloadData()
                         }
                     })
-                    
                     self.fullNameLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].namePrefix!+" "+RealmDataManager.getUserDataFromRealm()[0].firstName!+" "+RealmDataManager.getUserDataFromRealm()[0].lastName!
                     if RealmDataManager.getUserDataFromRealm()[0].avatar != nil{
                         let fullImageUrl = baseImageUrl+RealmDataManager.getUserDataFromRealm()[0].avatar!
@@ -66,15 +63,22 @@ class MainScreenController: RootViewController, SigninViewControllerDelegate {
         mainScreenTableView.delegate = self
         mainScreenTableView.dataSource = self
         mainScreenTableView.layer.cornerRadius = 10.0
-        
-        
+     
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         navigationController?.isNavigationBarHidden = true
         cartViewOutlet.isHidden = true
-        
+
+        if RealmDataManager.getUserDataFromRealm().count != 0 {
+            OrdersCountRequest.getOrdersList(completion: { (success) in
+                if success {
+                    self.mainScreenTableView.reloadData()
+                }
+            })
+        }
+
         if RealmDataManager.getAddedDrugsDataFromRealm().count != 0 {
             cartViewOutlet.isHidden = false
             amountOfDrugsInCartOutlet.text = "("+String(describing: RealmDataManager.getAddedDrugsDataFromRealm().count)+")"
@@ -140,9 +144,9 @@ extension MainScreenController : UITableViewDataSource{
             case 1:
                 cell.fillCellInfo(mainIcon: #imageLiteral(resourceName: "searchMedecine"), mainLabel: "Over the Counter Products", detailLabel: "SEARCH FOR ITEMS")
             case 2:
-                print("asd")
                 if RealmDataManager.getOrdersCountFromRealm().count != 0 {
                     cell.fillCellInfo(mainIcon: #imageLiteral(resourceName: "purchaseHistoryImage"), mainLabel: "Orders Appointments Payments", detailLabel:"YOU HAVE "+String(describing: RealmDataManager.getOrdersCountFromRealm()[0].allOrders)+" ORDERS")
+                    
                 } else {
                     cell.fillCellInfo(mainIcon: #imageLiteral(resourceName: "purchaseHistoryImage"), mainLabel: "Orders Appointments Payments", detailLabel: "")
                 }
@@ -174,12 +178,12 @@ extension MainScreenController : UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
+        DispatchQueue.main.async {
         switch indexPath.row {
         case 0:
             let settingsStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: nil)
             let settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "kMakeOrderViewController") as? MakeOrderViewController
-            navigationController?.pushViewController(settingsViewController!, animated: true)
+            self.navigationController?.pushViewController(settingsViewController!, animated: true)
         case 1:
             let ChooseCityStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: Bundle.main)
             let ChooseCityController = ChooseCityStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as! SearchForItemsViewController
@@ -190,15 +194,25 @@ extension MainScreenController : UITableViewDelegate{
             self.navigationController?.pushViewController(ChooseCityController, animated: true)
             
         case 2:
-            let ordersAppointmentsPayments = UIStoryboard(name: "Orders Appointments Payments", bundle: nil)
-            let ordersPaymentsController = ordersAppointmentsPayments.instantiateViewController(withIdentifier: "kOrdersPaymentsController") as? OrdersPaymentsController
-            navigationController?.pushViewController(ordersPaymentsController!, animated: true)
+            let realm = try! Realm()
+            if RealmDataManager.getOrdersListFromRealm().count != 0 {
+                try! realm.write {
+                    realm.delete(RealmDataManager.getOrdersListFromRealm())
+                }
+            }
+            OrdersListRequest.getOrdersList(completion: { (success) in
+                if success {
+                    let ordersAppointmentsPayments = UIStoryboard(name: "Orders Appointments Payments", bundle: nil)
+                    let ordersPaymentsController = ordersAppointmentsPayments.instantiateViewController(withIdentifier: "kOrdersPaymentsController") as? OrdersPaymentsController
+                    self.navigationController?.pushViewController(ordersPaymentsController!, animated: true)
+                }
+            })
         case 3:
             if RealmDataManager.getTokensFromRealm().count == 0 {
                 let signinViewStoryboard = UIStoryboard(name: "SigninViewStoryboard", bundle: nil)
                 let signinViewController = signinViewStoryboard.instantiateViewController(withIdentifier: "kSigninViewController") as? SigninViewController
                 signinViewController?.delegate = self
-                present(signinViewController!, animated: false, completion: nil)
+                self.present(signinViewController!, animated: false, completion: nil)
             } else {
                 let refillsAndRemindersStoryboard = UIStoryboard(name: "RefillsAndReminders", bundle: nil)
                 let settingsViewController = refillsAndRemindersStoryboard.instantiateViewController(withIdentifier: "kRemindersViewController") as? RemindersViewController
@@ -208,15 +222,16 @@ extension MainScreenController : UITableViewDelegate{
         case 4:
             let inviteFriendsStoryboard = UIStoryboard(name: "InviteFriends", bundle: nil)
             let inviteFriendsController = inviteFriendsStoryboard.instantiateViewController(withIdentifier: "kInviteFriendsController") as? InviteFriendsController
-            navigationController?.pushViewController(inviteFriendsController!, animated: true)
+            self.navigationController?.pushViewController(inviteFriendsController!, animated: true)
             
         case 5:
             let settingsStoryboard = UIStoryboard(name: "Settings", bundle: nil)
             let settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "kSettingsController") as? SettingsController
-            navigationController?.pushViewController(settingsViewController!, animated: true)
+            self.navigationController?.pushViewController(settingsViewController!, animated: true)
         default:
             break
         }
+    }
     }
     
     
