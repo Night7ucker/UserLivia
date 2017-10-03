@@ -40,6 +40,7 @@
 		CE6D40E91F7D00A000C30EFA /* SelectOrderType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6D40E81F7D00A000C30EFA /* SelectOrderType.storyboard */; };
 		CE725FD71F838E9F009B8FC2 /* OrderTypeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE725FD61F838E9F009B8FC2 /* OrderTypeRequest.swift */; };
 		CE725FD91F838F6C009B8FC2 /* OrderTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE725FD81F838F6C009B8FC2 /* OrderTypeModel.swift */; };
+		CE725FDC1F83ABDD009B8FC2 /* ReviewYourOrdedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE725FDB1F83ABDD009B8FC2 /* ReviewYourOrdedViewController.swift */; };
 		CE798D1E1F7A7D7D00FDF83D /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */; };
 		CE798D201F7A81BF00FDF83D /* EditingProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */; };
 		CE798D231F7A828400FDF83D /* TermsAndConditions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */; };
@@ -145,6 +146,7 @@
 		CE6D40E81F7D00A000C30EFA /* SelectOrderType.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SelectOrderType.storyboard; sourceTree = "<group>"; };
 		CE725FD61F838E9F009B8FC2 /* OrderTypeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTypeRequest.swift; sourceTree = "<group>"; };
 		CE725FD81F838F6C009B8FC2 /* OrderTypeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTypeModel.swift; sourceTree = "<group>"; };
+		CE725FDB1F83ABDD009B8FC2 /* ReviewYourOrdedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewYourOrdedViewController.swift; sourceTree = "<group>"; };
 		CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
 		CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingProfileViewController.swift; sourceTree = "<group>"; };
 		CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TermsAndConditions.storyboard; sourceTree = "<group>"; };
@@ -373,6 +375,14 @@
 			name = SelectOrderTypeRequests;
 			sourceTree = "<group>";
 		};
+		CE725FDA1F83ABBB009B8FC2 /* ReviewYourOrderModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE725FDB1F83ABDD009B8FC2 /* ReviewYourOrdedViewController.swift */,
+			);
+			name = ReviewYourOrderModule;
+			sourceTree = "<group>";
+		};
 		CE798D211F7A81C200FDF83D /* EditingProfileModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,6 +439,7 @@
 		CEA61BE11F756E1800BA1AED /* MakeOrderModule */ = {
 			isa = PBXGroup;
 			children = (
+				CE725FDA1F83ABBB009B8FC2 /* ReviewYourOrderModule */,
 				CE6C7D561F82206F0023AFF1 /* TakePhotoofPresription */,
 				FB75CB491F828D550022B38D /* MapModule */,
 				FB75CB3F1F8235D60022B38D /* AddToCartModule */,
@@ -1005,6 +1016,7 @@
 				CEA61BCE1F756D9400BA1AED /* MakeOrderCellTableViewCell.swift in Sources */,
 				FB75CB431F8240550022B38D /* AddToCartTableViewCell.swift in Sources */,
 				CEB75F1C1F7BA8A100986F1D /* GetCitiesRequest.swift in Sources */,
+				CE725FDC1F83ABDD009B8FC2 /* ReviewYourOrdedViewController.swift in Sources */,
 				CEABE4251F76689B0041FAD5 /* SmsConfrimViewController.swift in Sources */,
 				7F862DBE1F82A19C0098ECA9 /* ContactsCell.swift in Sources */,
 				FB22C2311F77E73F000EED58 /* MainScreenCell.swift in Sources */,

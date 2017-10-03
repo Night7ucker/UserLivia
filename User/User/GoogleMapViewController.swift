@@ -22,50 +22,42 @@ class GoogleMapViewController: RootViewController {
     var currentPinLocation: CLLocationCoordinate2D!
     var userCurrentLocation: CLLocationCoordinate2D!
     
-    @IBOutlet var mapView: GMSMapView!
+    @IBOutlet var setDeliveryPlaceMapView: GMSMapView!
 
     @IBOutlet weak var topMajorViewOutlet: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar
+        
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar
         
-        
+        configureNavigationBar()
         addBackButtonAndTitleToNavigationBar(title: "Select location")
         topMajorViewOutlet.backgroundColor = Colors.Root.greenColorForNavigationBar
         userCurrentLocation = CLLocationCoordinate2D(latitude: 53.918509, longitude: 27.590219)
         currentPinLocation = userCurrentLocation
-        let camera = GMSCameraPosition.camera(withLatitude: userCurrentLocation.latitude, longitude: userCurrentLocation.longitude, zoom: 10.0)
-        let myMapView = GMSMapView.map(withFrame: .zero, camera: camera)
-        myMapView.camera = camera
+        
+        
+        setDeliveryPlaceMapView.delegate = self
+        setDeliveryPlaceMapView.isMyLocationEnabled = true
         
         let newPinLocation = GMSCameraPosition.camera(withLatitude: userCurrentLocation.latitude,
                                                       longitude: userCurrentLocation.longitude,
                                                       zoom: 15)
-        mapView.animate(to: newPinLocation)
-        
+        setDeliveryPlaceMapView.animate(to: newPinLocation)
         
         let infoMarker = PlaceMarker(place: currentPinLocation)
-        infoMarker.map = mapView
+        infoMarker.map = setDeliveryPlaceMapView
         
-        mapView.selectedMarker = infoMarker
-        
-        
-        mapView.delegate = self
-        mapView = myMapView
-        mapView.isMyLocationEnabled = true
-        
+        setDeliveryPlaceMapView.selectedMarker = infoMarker
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         locationManager.distanceFilter = 500
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
-        
-        
-        
         
         let testButton = UIButton()
         testButton.frame = CGRect(x: 35, y: 620, width: 300, height: 30)
@@ -79,38 +71,38 @@ class GoogleMapViewController: RootViewController {
         
         view.addSubview(testButton)
         
-//        let viewForCurrentLocationButton = UIView()
-//        viewForCurrentLocationButton.frame = CGRect(x: 330, y: 160, width: 35, height: 35)
-//        viewForCurrentLocationButton.layer.cornerRadius = 2
-//        viewForCurrentLocationButton.layer.opacity = 0.5
-//        viewForCurrentLocationButton.backgroundColor = .white
-//        
-//        let buttonForCurrentPosition = UIButton()
-//        buttonForCurrentPosition.frame = CGRect(x: 0, y: 0, width: viewForCurrentLocationButton.frame.width, height: viewForCurrentLocationButton.frame.height)
-//        buttonForCurrentPosition.setBackgroundImage(UIImage(named: "currentLocation"), for: .normal)
-//        buttonForCurrentPosition.backgroundColor = .white
-//        buttonForCurrentPosition.addTarget(self, action: #selector(currentLocationButtonTapped(_ :)), for: .touchUpInside)
-//        
-//        viewForCurrentLocationButton.addSubview(buttonForCurrentPosition)
-//        
-//        view.addSubview(viewForCurrentLocationButton)
+        let viewForCurrentLocationButton = UIView()
+        viewForCurrentLocationButton.frame = CGRect(x: 330, y: 160, width: 35, height: 35)
+        viewForCurrentLocationButton.layer.cornerRadius = 2
+        viewForCurrentLocationButton.layer.opacity = 0.5
+        viewForCurrentLocationButton.backgroundColor = .white
         
-//        resultsViewController = GMSAutocompleteResultsViewController()
-//        resultsViewController?.delegate = self
-//        
-//        searchController = UISearchController(searchResultsController: resultsViewController)
-//        searchController?.searchResultsUpdater = resultsViewController
-//        
-//        let subView = UIView(frame: CGRect(x: 0, y: 65.0, width: 350.0, height: 45.0))
-//        
-//        subView.addSubview((searchController?.searchBar)!)
-//        view.addSubview(subView)
-//        searchController?.searchBar.sizeToFit()
-//        searchController?.hidesNavigationBarDuringPresentation = false
-//        
-//        // When UISearchController presents the results view, present it in
-//        // this view controller, not one further up the chain.
-//        definesPresentationContext = true
+        let buttonForCurrentPosition = UIButton()
+        buttonForCurrentPosition.frame = CGRect(x: 0, y: 0, width: viewForCurrentLocationButton.frame.width, height: viewForCurrentLocationButton.frame.height)
+        buttonForCurrentPosition.setBackgroundImage(UIImage(named: "currentLocation"), for: .normal)
+        buttonForCurrentPosition.backgroundColor = .white
+        buttonForCurrentPosition.addTarget(self, action: #selector(currentLocationButtonTapped(_ :)), for: .touchUpInside)
+        
+        viewForCurrentLocationButton.addSubview(buttonForCurrentPosition)
+        
+        view.addSubview(viewForCurrentLocationButton)
+        
+        resultsViewController = GMSAutocompleteResultsViewController()
+        resultsViewController?.delegate = self
+        
+        searchController = UISearchController(searchResultsController: resultsViewController)
+        searchController?.searchResultsUpdater = resultsViewController
+        searchController?.searchBar.searchBarStyle = .minimal
+        searchController?.searchBar.backgroundColor = .white
+        
+        let subView = UIView(frame: CGRect(x: 0, y: 112, width: view.frame.width, height: 33))
+        
+        subView.addSubview((searchController?.searchBar)!)
+        view.addSubview(subView)
+        searchController?.searchBar.sizeToFit()
+        searchController?.hidesNavigationBarDuringPresentation = false
+
+        definesPresentationContext = true
         
     }
     
@@ -119,16 +111,18 @@ class GoogleMapViewController: RootViewController {
     }
     
     func currentLocationButtonTapped(_ sender: UIButton) {
-        let newPinLocation = GMSCameraPosition.camera(withLatitude: 53.918509,
-                                                      longitude: 27.590219,
-                                                      zoom: mapView.camera.zoom)
-        mapView.animate(to: newPinLocation)
+        setDeliveryPlaceMapView.clear()
+        let newPinLocation = GMSCameraPosition.camera(withLatitude: userCurrentLocation.latitude,
+                                                      longitude: userCurrentLocation.longitude,
+                                                      zoom: setDeliveryPlaceMapView.camera.zoom)
+        setDeliveryPlaceMapView.animate(to: newPinLocation)
         
-        let currentLocation = CLLocationCoordinate2D(latitude: 53.918509, longitude: 27.590219)
+        let currentLocation = CLLocationCoordinate2D(latitude: userCurrentLocation.latitude, longitude: userCurrentLocation.longitude)
         let infoMarker = PlaceMarker(place: currentLocation)
-        infoMarker.map = mapView
+        infoMarker.map = setDeliveryPlaceMapView
         
-        mapView.selectedMarker = infoMarker
+        setDeliveryPlaceMapView.selectedMarker = infoMarker
+        currentPinLocation = currentLocation
     }
     
     func testButtonTapped(_ sender: UIButton) {
@@ -175,29 +169,43 @@ extension GoogleMapViewController: GMSMapViewDelegate {
         infoMarker.map = mapView
         
         mapView.selectedMarker = infoMarker
+        currentPinLocation = coordinate
     }
 }
 
 extension GoogleMapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
+        let location: CLLocation = locations.last!
+        print("Location: \(location)")
         
-        let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!, zoom: 17.0)
+        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
+                                              longitude: location.coordinate.longitude,
+                                              zoom: setDeliveryPlaceMapView.camera.zoom)
         
-        self.mapView?.animate(to: camera)
+        setDeliveryPlaceMapView.animate(to: camera)
         
-        self.locationManager.stopUpdatingLocation()
     }
 }
 
 extension GoogleMapViewController: GMSAutocompleteResultsViewControllerDelegate {
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
                            didAutocompleteWith place: GMSPlace) {
+        
         searchController?.isActive = false
-        // Do something with the selected place.
-        print("Place name: \(place.name)")
-        print("Place address: \(place.formattedAddress)")
-        print("Place attributions: \(place.attributions)")
+        
+        setDeliveryPlaceMapView.clear()
+        
+        let newPinLocation = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude,
+                                                      longitude: place.coordinate.longitude,
+                                                      zoom: 20)
+        setDeliveryPlaceMapView.animate(to: newPinLocation)
+        
+        
+        let infoMarker = PlaceMarker(place: place.coordinate)
+        infoMarker.map = setDeliveryPlaceMapView
+        
+        setDeliveryPlaceMapView.selectedMarker = infoMarker
+        currentPinLocation = place.coordinate
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
