@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -53,58 +54,120 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kR3-Bu-Osy" id="p1e-j9-1Sy">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of Medicine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZm-wv-nKg">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Medicine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZm-wv-nKg">
                                                     <rect key="frame" x="8" y="8" width="139" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="139" id="g5L-cS-wGc"/>
+                                                        <constraint firstAttribute="height" constant="21" id="pwf-ei-N9k"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gx-fI-so6">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gx-fI-so6">
                                                     <rect key="frame" x="260" y="8" width="49" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Pil-Rn-MyW"/>
+                                                        <constraint firstAttribute="width" constant="49" id="RPU-m5-Gj2"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJU-BM-ePi">
-                                                    <rect key="frame" x="260" y="28" width="57" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJU-BM-ePi">
+                                                    <rect key="frame" x="287.5" y="27" width="5.5" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="wbr-po-dna"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApB-vh-66W">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApB-vh-66W">
                                                     <rect key="frame" x="342" y="33" width="14" height="14"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="14" id="8aS-KJ-aNp"/>
+                                                        <constraint firstAttribute="height" constant="14" id="f45-GF-Q6k"/>
+                                                    </constraints>
                                                     <state key="normal" image="information"/>
                                                     <connections>
                                                         <action selector="getDrugInfoAction:" destination="ooM-kc-5o0" eventType="touchUpInside" id="lFU-84-WDD"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="aspirine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSg-XS-u3O">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="aspirine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSg-XS-u3O">
                                                     <rect key="frame" x="8" y="30" width="179" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Zbe-sP-874"/>
+                                                        <constraint firstAttribute="width" constant="179" id="xC0-pS-dV7"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1w-38-JL8">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1w-38-JL8">
                                                     <rect key="frame" x="341" y="11" width="17" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="17" id="4Uz-lM-LrF"/>
+                                                        <constraint firstAttribute="height" constant="17" id="REd-Jr-r7h"/>
+                                                    </constraints>
                                                     <state key="normal" backgroundImage="delete"/>
                                                     <connections>
                                                         <action selector="deleteDrugAction:" destination="ooM-kc-5o0" eventType="touchUpInside" id="b0w-3x-1ca"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePI-aT-aqb">
+                                                    <rect key="frame" x="296" y="30" width="0.0" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="▼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZzM-Rc-vRt">
+                                                    <rect key="frame" x="298" y="30" width="11" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16" id="Zbm-kZ-Pgc"/>
+                                                        <constraint firstAttribute="width" constant="11" id="nkn-3s-rJU"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                    <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jB3-6v-cPC">
+                                                    <rect key="frame" x="261" y="27" width="48" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="drugNumberPopupTapped:" destination="ooM-kc-5o0" eventType="touchUpInside" id="J07-y1-jlf"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="leadingMargin" secondItem="aSg-XS-u3O" secondAttribute="leading" id="D3m-Lt-cIL"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ApB-vh-66W" secondAttribute="bottom" constant="-0.5" id="E49-az-ynS"/>
+                                                <constraint firstItem="R1w-38-JL8" firstAttribute="top" secondItem="p1e-j9-1Sy" secondAttribute="topMargin" constant="3" id="FUh-qx-YNf"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="aSg-XS-u3O" secondAttribute="bottom" constant="-4" id="HZl-ZL-Tbs"/>
+                                                <constraint firstItem="ZzM-Rc-vRt" firstAttribute="leading" secondItem="ePI-aT-aqb" secondAttribute="trailing" constant="2" id="Imc-JW-goq"/>
+                                                <constraint firstItem="ApB-vh-66W" firstAttribute="leading" secondItem="ZzM-Rc-vRt" secondAttribute="trailing" constant="33" id="KB4-np-ytz"/>
+                                                <constraint firstItem="ApB-vh-66W" firstAttribute="top" secondItem="R1w-38-JL8" secondAttribute="bottom" constant="5" id="LaQ-Du-Qjg"/>
+                                                <constraint firstItem="aSg-XS-u3O" firstAttribute="top" secondItem="qZm-wv-nKg" secondAttribute="bottom" constant="1" id="TRp-Ks-x06"/>
+                                                <constraint firstItem="ePI-aT-aqb" firstAttribute="leading" secondItem="iJU-BM-ePi" secondAttribute="trailing" constant="3" id="V0X-28-jX1"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="qZm-wv-nKg" secondAttribute="leading" id="YT2-hQ-I4M"/>
+                                                <constraint firstItem="ZzM-Rc-vRt" firstAttribute="top" secondItem="4Gx-fI-so6" secondAttribute="bottom" constant="1" id="cKZ-Sd-UWW"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ApB-vh-66W" secondAttribute="trailing" constant="11" id="fQr-Cj-J5V"/>
+                                                <constraint firstAttribute="topMargin" secondItem="qZm-wv-nKg" secondAttribute="top" id="mR3-z9-mMX"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ePI-aT-aqb" secondAttribute="bottom" constant="1" id="nVi-cB-QSJ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="4Gx-fI-so6" secondAttribute="trailing" constant="58" id="oZ5-xn-bTl"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="R1w-38-JL8" secondAttribute="trailing" constant="9" id="ohc-pe-yvQ"/>
+                                                <constraint firstAttribute="topMargin" secondItem="4Gx-fI-so6" secondAttribute="top" id="pQz-wD-0dC"/>
+                                                <constraint firstItem="ePI-aT-aqb" firstAttribute="top" secondItem="p1e-j9-1Sy" secondAttribute="topMargin" constant="22" id="psK-zn-X69"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="iJU-BM-ePi" secondAttribute="bottom" constant="-1" id="y5S-Ft-DGY"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="amountLabel" destination="iJU-BM-ePi" id="2px-aS-PDE"/>
+                                            <outlet property="drugQuantityMeasureOutlet" destination="ePI-aT-aqb" id="7TT-Hh-Ekn"/>
                                             <outlet property="nameOfMedicineLabel" destination="aSg-XS-u3O" id="ptf-Rc-JWX"/>
                                         </connections>
                                     </tableViewCell>
@@ -129,7 +192,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Eh6-am-Drg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="par-C2-pfm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="par-C2-pfm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

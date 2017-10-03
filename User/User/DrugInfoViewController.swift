@@ -8,15 +8,26 @@
 
 import UIKit
 import RealmSwift
-class DrugInfoViewController: RootViewController {
 
+protocol DrugNameAndTypeTableViewControllerDelegate {
+    func transferDrugsCountAndType(drugsNumber: String)
+}
+
+class DrugInfoViewController: RootViewController, DrugNameAndTypeTableViewControllerDelegate {
+    
     @IBOutlet var brandNameOutlet: UILabel!
     @IBOutlet var companyOutlet: UILabel!
     @IBOutlet var dosageUnitsOutlet: UILabel!
     @IBOutlet var addToCartOutlet: UIButton!
     @IBOutlet var drugsDescTableView: UITableView!
     @IBOutlet var backToOrderButtonOutlet: UIButton!
- 
+    
+    @IBOutlet weak var numberOfDrugsLabelOutlet: UILabel!
+    
+    @IBOutlet weak var popupArrowOutlet: UILabel!
+    @IBOutlet weak var drugTypeLabelOutlet: UILabel!
+    
+    
     var checkDesc = 0
     var checkDosage = 0
     var checkEffects = 0
@@ -37,6 +48,11 @@ class DrugInfoViewController: RootViewController {
         drugsDescTableView.estimatedRowHeight = 50
         drugsDescTableView.rowHeight = UITableViewAutomaticDimension
         backToOrderButtonOutlet.isHidden = true
+        popupArrowOutlet.textColor = Colors.Root.lightBlueColor
+        
+        if RealmDataManager.getDrugsDescriptionFromRealm()[0].quantityMeasuring != nil {
+            drugTypeLabelOutlet.text = RealmDataManager.getDrugsDescriptionFromRealm()[0].quantityMeasuring!
+        }
         
         if checkMoveFromOrder == true {
             addToCartOutlet.isHidden = true
@@ -62,7 +78,7 @@ class DrugInfoViewController: RootViewController {
         }
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -73,14 +89,14 @@ class DrugInfoViewController: RootViewController {
         let AddToCartViewController = AddToCartStoryboard.instantiateViewController(withIdentifier: "kAddToCartStoryboardId") as? AddToCartViewController
         navigationController?.pushViewController(AddToCartViewController!, animated: true)
     }
-
+    
     @IBAction func addToCartAction(_ sender: UIButton) {
         let realm = try! Realm()
         
         if RealmDataManager.getAddedDrugsDataFromRealm().count > 0 {
             if let existingDrugObject = realm.object(ofType: AddedToCartDrugsModel.self, forPrimaryKey: RealmDataManager.getDrugsDescriptionFromRealm()[0].id!) {
                 try! realm.write {
-                    existingDrugObject.amount += 1 //CHANGE FROM POPUP VALUE
+                    existingDrugObject.amount += Int(numberOfDrugsLabelOutlet.text!)!
                     realm.add(existingDrugObject, update: true)
                 }
             } else {
@@ -94,15 +110,28 @@ class DrugInfoViewController: RootViewController {
         navigationController?.pushViewController(AddToCartViewController!, animated: true)
     }
     
+    func transferDrugsCountAndType(drugsNumber: String) {
+        numberOfDrugsLabelOutlet.text = drugsNumber
+    }
+    
     func addNewDrugIntoRealm() {
         let addedToCartDrugsObject = AddedToCartDrugsModel()
-        addedToCartDrugsObject.amount = RealmDataManager.getDrugsDescriptionFromRealm()[0].amount
+        addedToCartDrugsObject.amount = Int(numberOfDrugsLabelOutlet.text!)!
         addedToCartDrugsObject.brandName = RealmDataManager.getDrugsDescriptionFromRealm()[0].brandName!
+        if RealmDataManager.getDrugsDescriptionFromRealm()[0].quantityMeasuring != nil {
+            addedToCartDrugsObject.quantityMeasuring = RealmDataManager.getDrugsDescriptionFromRealm()[0].quantityMeasuring!
+        }
         addedToCartDrugsObject.id = RealmDataManager.getDrugsDescriptionFromRealm()[0].id!
         addedToCartDrugsObject.type = RealmDataManager.getDrugsDescriptionFromRealm()[0].type
         RealmDataManager.writeIntoRealm(object: addedToCartDrugsObject)
     }
-
+    
+    @IBAction func popupButtonTouched(_ sender: UIButton) {
+        let searchDrugsStoryboard = UIStoryboard(name: "SearchDrugs", bundle: nil)
+        let drugsNumberAndTypePopupViewController = searchDrugsStoryboard.instantiateViewController(withIdentifier: "kDrugNameAndTypeTableViewController") as? DrugNameAndTypeTableViewController
+        drugsNumberAndTypePopupViewController?.delegate = self
+        present(drugsNumberAndTypePopupViewController!, animated: false, completion: nil)
+    }
 }
 
 extension DrugInfoViewController: UITableViewDataSource {
@@ -112,7 +141,7 @@ extension DrugInfoViewController: UITableViewDataSource {
             return 1
         }
         return checkEffects + checkDosage + checkDesc
-
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -142,11 +171,11 @@ extension DrugInfoViewController: UITableViewDataSource {
             return UITableViewCell()
         }
     }
-
+    
 }
 
 extension DrugInfoViewController: UITableViewDelegate {
-
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
@@ -165,7 +194,7 @@ extension DrugInfoViewController: UITableViewDelegate {
         header.textLabel?.font = UIFont(name: "Futura", size: 15)!
         header.textLabel?.textColor = UIColor.lightGray
     }
-
+    
 }
 
 
