@@ -67,4 +67,12 @@ class RealmDataManager {
         let data = realm.objects(OrdersCountModel.self)
         return data
     }
+    static func getOrdersListFromRealm() -> Results<OrdersListModel> {
+        let data = realm.objects(OrdersListModel.self)
+        return data
+    }
+    static func getSendingOrderFromRealm() -> Results<SendOrdersModel> {
+        let data = realm.objects(SendOrdersModel.self)
+        return data
+    }
 }

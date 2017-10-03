@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ExpandedViewController: RootViewController, UITableViewDataSource, UITableViewDelegate, SectionHeaderViewDelegate {
 
@@ -194,6 +195,13 @@ class ExpandedViewController: RootViewController, UITableViewDataSource, UITable
     
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
+        let realm = try! Realm()
+        let objToWriteCheckboxes = RealmDataManager.getSendingOrderFromRealm()[0]
+        try! realm.write {
+            objToWriteCheckboxes.manual = String(whichRowIsChecked)
+            objToWriteCheckboxes.selfCollect = String(whichSectionIsChecked)
+        }
+        
         let googleMapStoryboard = UIStoryboard(name: "GoogleMap", bundle: nil)
         let googleMapViewController = googleMapStoryboard.instantiateViewController(withIdentifier: "kGoogleMapViewController") as? GoogleMapViewController
         navigationController?.pushViewController(googleMapViewController!, animated: false)
