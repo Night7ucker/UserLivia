@@ -27,7 +27,7 @@ class InviteFriendsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        navigationController?.navigationBar.isHidden = true
         
         shareLinkView.layer.cornerRadius = 5.0
         shareLinkView.layer.masksToBounds = true
@@ -96,12 +96,15 @@ class InviteFriendsController: UIViewController {
     @IBAction func goBackToMainScreen(_ sender: UIButton) {
         
         print("Please, add reference to this controller before tapping on the button")
-        self.dismiss(animated: true, completion: nil)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func shareLink(_ sender: UIButton) {
-        //не знаю, что тут надо делать
-        print("Share link")
+        
+        let activityVC = UIActivityViewController(activityItems: ["Download application Livia and buy items with the best price!\nhttps://play.google.com/store/apps/details?id=com.antalika.livia"], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        
+       self.present(activityVC, animated: true, completion: nil)
     }
     
     

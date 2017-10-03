@@ -13,7 +13,7 @@
         <!--Invite Friends Controller-->
         <scene sceneID="Ux3-bw-8IY">
             <objects>
-                <viewController id="wdV-S7-6PV" customClass="InviteFriendsController" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="kInviteFriendsController" id="wdV-S7-6PV" customClass="InviteFriendsController" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ng7-WP-itQ"/>
                         <viewControllerLayoutGuide type="bottom" id="8Hv-jE-sTx"/>

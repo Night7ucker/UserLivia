@@ -172,7 +172,10 @@ extension MainScreenController : UITableViewDelegate{
             }
             
         case 4:
-            print("4")
+            let inviteFriendsStoryboard = UIStoryboard(name: "InviteFriends", bundle: nil)
+            let inviteFriendsController = inviteFriendsStoryboard.instantiateViewController(withIdentifier: "kInviteFriendsController") as? InviteFriendsController
+            navigationController?.pushViewController(inviteFriendsController!, animated: true)
+            
         case 5:
             let settingsStoryboard = UIStoryboard(name: "Settings", bundle: nil)
             let settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "kSettingsController") as? SettingsController
