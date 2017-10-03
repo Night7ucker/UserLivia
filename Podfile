@@ -12,6 +12,7 @@ target 'User' do
   pod 'AlamofireObjectMapper', '~> 4.1'
   pod 'ObjectMapper+Realm', '~> 0.5'
   pod 'GoogleMaps'
-  pod 'GooglePlaces'  
+  pod 'GooglePlaces'
+  pod 'GooglePlacePicker'  
   
 end

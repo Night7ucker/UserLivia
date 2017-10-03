@@ -23,8 +23,7 @@ class GoogleMapViewController: RootViewController {
     var userCurrentLocation: CLLocationCoordinate2D!
     
     @IBOutlet var mapView: GMSMapView!
-    @IBOutlet weak var enterAddressHereLabelOutlet: UILabel!
-    @IBOutlet weak var searchViewOutlet: UIView!
+
     @IBOutlet weak var topMajorViewOutlet: UIView!
     
     override func viewDidLoad() {
@@ -35,8 +34,6 @@ class GoogleMapViewController: RootViewController {
         
         
         addBackButtonAndTitleToNavigationBar(title: "Select location")
-        searchViewOutlet.layer.cornerRadius = 5
-        enterAddressHereLabelOutlet.textColor = Colors.Root.greenColorForNavigationBar
         topMajorViewOutlet.backgroundColor = Colors.Root.greenColorForNavigationBar
         userCurrentLocation = CLLocationCoordinate2D(latitude: 53.918509, longitude: 27.590219)
         currentPinLocation = userCurrentLocation

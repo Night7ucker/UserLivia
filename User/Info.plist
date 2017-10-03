@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Allow location</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -16,8 +14,6 @@
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Kak dela?</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -26,12 +22,16 @@
 	<true/>
 	<key>NSContactsUsageDescription</key>
 	<string>Livia app want to get list of your contacts</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Kak dela?</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow location</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Add Photo Picker From Gallery</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-	<string>MainViewsStoryboard</string>
+	<string>GoogleMap</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
