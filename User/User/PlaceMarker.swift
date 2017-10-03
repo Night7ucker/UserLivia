@@ -21,6 +21,7 @@ class PlaceMarker: GMSMarker {
         let pinImageView = UIImageView(image: pinImage)
         pinImageView.frame = CGRect(x: 0, y: 0, width: 30, height: 36)
         iconView = pinImageView
+        
 //        icon = UIImage(named: "mapPin")
         groundAnchor = CGPoint(x: 0.5, y: 1)
         
