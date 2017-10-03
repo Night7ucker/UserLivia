@@ -30,7 +30,6 @@ class ReviewYourOrdedViewController: RootViewController {
     
     let sectionNames = ["Drugs:", "Location:", "Order Type:"]
     var arrayOfOrderedDrugs = [String]()
-    var currentPinLocation: CLLocationCoordinate2D!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +50,6 @@ class ReviewYourOrdedViewController: RootViewController {
             arrayOfOrderedDrugs.append("- " + orderedDrugs[i].brandName! + "(" + String(orderedDrugs[i].amount) + ")")
         }
         
-        CoordinateSingletone.sharedInstance.currentPinLocation = currentPinLocation
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,10 +99,19 @@ extension ReviewYourOrdedViewController: UITableViewDataSource {
             
             return mapCell
         case 2:
-            return UITableViewCell()
-//            let deliveryCell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell") as! OrderReviewTableViewCell
-//            
-//            deliveryCell.drugNameLabel.text = RealmDataManager.get
+            let deliveryCell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell") as! OrderReviewTableViewCell
+            
+            let deliveryType = Int(RealmDataManager.getSendingOrderFromRealm()[0].selfCollect!)!
+            switch deliveryType {
+            case 0:
+                deliveryCell.drugNameLabel.text = "- Self-collect"
+            case 1:
+                deliveryCell.drugNameLabel.text = "- Delivery"
+            default:
+                break
+            }
+            
+            return deliveryCell
         default:
             return UITableViewCell()
         }
@@ -112,10 +119,6 @@ extension ReviewYourOrdedViewController: UITableViewDataSource {
 }
 
 extension ReviewYourOrdedViewController: UITableViewDelegate {
-    
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return cellSpacingHeight
-//    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -148,11 +151,4 @@ extension ReviewYourOrdedViewController: UITableViewDelegate {
             return 0
         }
     }
-}
-
-class CoordinateSingletone {
-    private init() {}
-    var currentPinLocation: CLLocationCoordinate2D!
-    
-    static var sharedInstance = CoordinateSingletone()
 }

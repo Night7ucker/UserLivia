@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PharmacyViewController: RootViewController {
     
@@ -16,7 +17,7 @@ class PharmacyViewController: RootViewController {
     
     @IBOutlet weak var searchViewOutlet: UIView!
     
-    
+    var test: Results<Pharmacy>? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,8 @@ class PharmacyViewController: RootViewController {
         pharmaciesTableViewOutlet.backgroundColor = Colors.Root.lightGrayColor
         pharmacySearchTextFieldOutlet.backgroundColor = Colors.Root.lightGrayColor
         searchViewOutlet.backgroundColor = Colors.Root.lightGrayColor
+        
+        test = RealmDataManager.getPharmaciesFromRealm()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,10 +54,15 @@ extension PharmacyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let pharmacyCell = tableView.dequeueReusableCell(withIdentifier: "pharmacyCell") as! PharmacyTableViewCell
         
-        pharmacyCell.pharmacyPictureImageViewOutlet.image = UIImage(named: "bellPicture")
-        pharmacyCell.pharmacyNameLabelOutlet.text = "Test"
-        pharmacyCell.pharmacyAddressLabelOutlet.text = "Golodeda 17"
-        pharmacyCell.pharmacyDayWorkingLabelOutlet.text = "24/7"
+        if test?.count != 0 {
+//            getImage(pictureUrl: test[indexPath.row]., onCompletion: <#T##(Bool, UIImage?) -> Void#>)
+            pharmacyCell.pharmacyPictureImageViewOutlet.image = UIImage(named: "bellPicture")
+            pharmacyCell.pharmacyNameLabelOutlet.text = test?[indexPath.row].pharmacyName
+            pharmacyCell.pharmacyAddressLabelOutlet.text = test?[indexPath.row].physicalAddress
+            pharmacyCell.pharmacyDayWorkingLabelOutlet.text = test?[indexPath.row].workTime
+        }
+        
+        
         
         return pharmacyCell
     }

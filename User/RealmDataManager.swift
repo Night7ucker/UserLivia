@@ -71,4 +71,8 @@ class RealmDataManager {
         let data = realm.objects(SendOrdersModel.self)
         return data
     }
+    static func getPharmaciesFromRealm() -> Results<Pharmacy> {
+        let data = realm.objects(Pharmacy.self)
+        return data
+    }
 }
