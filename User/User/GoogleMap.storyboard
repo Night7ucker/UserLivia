@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fIB-Mc-zJG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AFZ-xu-4ea">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,19 +21,84 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Zb-Bh-TpP" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="186" width="375" height="318"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Zb-Bh-TpP" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="153" width="375" height="514"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGO-Ui-p4b">
+                                <rect key="frame" x="0.0" y="64" width="375" height="91"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jyU-wI-FRT">
+                                        <rect key="frame" x="36" y="9" width="302" height="61"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ENTER ADRESS HERE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Z6-pC-scr">
+                                                <rect key="frame" x="60" y="9" width="135" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🔍" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEz-mx-0jc">
+                                                <rect key="frame" x="15" y="14" width="32" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="czb-wh-0TT">
+                                                <rect key="frame" x="55" y="31" width="234" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6Zb-Bh-TpP" secondAttribute="trailing" id="5Iq-dl-1cv"/>
+                            <constraint firstItem="6Zb-Bh-TpP" firstAttribute="top" secondItem="U1W-rO-aMp" secondAttribute="bottom" constant="89" id="HEM-4z-8EB"/>
+                            <constraint firstItem="ajA-zm-J8O" firstAttribute="top" secondItem="zGO-Ui-p4b" secondAttribute="bottom" constant="512" id="Kac-JM-piB"/>
+                            <constraint firstItem="6Zb-Bh-TpP" firstAttribute="bottom" secondItem="ajA-zm-J8O" secondAttribute="top" id="Nah-14-zfC"/>
+                            <constraint firstItem="6Zb-Bh-TpP" firstAttribute="leading" secondItem="zGO-Ui-p4b" secondAttribute="leading" id="Sdh-es-Sej"/>
+                            <constraint firstItem="zGO-Ui-p4b" firstAttribute="top" secondItem="U1W-rO-aMp" secondAttribute="bottom" id="Ttd-CJ-HSZ"/>
+                            <constraint firstItem="6Zb-Bh-TpP" firstAttribute="trailing" secondItem="zGO-Ui-p4b" secondAttribute="trailing" id="Z2Z-Vu-EiN"/>
+                            <constraint firstItem="6Zb-Bh-TpP" firstAttribute="leading" secondItem="RxO-Oh-MFR" secondAttribute="leading" id="eSj-Qw-GCJ"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="lbE-Cu-WES"/>
                     <connections>
+                        <outlet property="enterAddressHereLabelOutlet" destination="8Z6-pC-scr" id="Y1s-GA-XPz"/>
                         <outlet property="mapView" destination="6Zb-Bh-TpP" id="CAf-1G-R06"/>
+                        <outlet property="searchViewOutlet" destination="jyU-wI-FRT" id="86l-Tx-5Pa"/>
+                        <outlet property="topMajorViewOutlet" destination="zGO-Ui-p4b" id="ihe-T1-hB6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4dh-HU-ISR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1116" y="35.532233883058474"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ecc-0U-dER">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AFZ-xu-4ea" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dJq-CL-qVp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fIB-Mc-zJG" kind="relationship" relationship="rootViewController" id="Bps-o7-dVM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YZA-j0-8hZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="176.80000000000001" y="35.532233883058474"/>
         </scene>
