@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" rowHeight="80" id="KGk-i7-Jjw" customClass="ContactsCell" customModule="User" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="obama" translatesAutoresizingMaskIntoConstraints="NO" id="lUv-Vd-zo3" customClass="CustomImageView" customModule="User" customModuleProvider="target">
+                        <rect key="frame" x="8" y="8" width="63" height="63"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="63" id="VRg-Ts-gVp"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Egor Yanukovich" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3N-nc-f19">
+                        <rect key="frame" x="79" y="8" width="127" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="63" id="ZKM-Fa-txd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+375(29)396-86-82" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ge-ui-8wC">
+                        <rect key="frame" x="79" y="50" width="160" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="0uP-HV-YYw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEZ-Fh-lMK">
+                        <rect key="frame" x="330" y="25" width="37" height="29"/>
+                        <state key="normal" image="invitePersonImage"/>
+                        <connections>
+                            <action selector="sendInvitationToFriend:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gGM-7e-s5i"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="2ge-ui-8wC" firstAttribute="bottom" secondItem="lUv-Vd-zo3" secondAttribute="bottom" id="5fo-5M-ZWa"/>
+                    <constraint firstItem="2ge-ui-8wC" firstAttribute="leading" secondItem="d3N-nc-f19" secondAttribute="leading" id="AJq-ef-Nxz"/>
+                    <constraint firstItem="d3N-nc-f19" firstAttribute="top" secondItem="lUv-Vd-zo3" secondAttribute="top" id="CLb-38-2dh"/>
+                    <constraint firstItem="vEZ-Fh-lMK" firstAttribute="centerY" secondItem="lUv-Vd-zo3" secondAttribute="centerY" id="PjR-v4-gsf"/>
+                    <constraint firstItem="vEZ-Fh-lMK" firstAttribute="leading" secondItem="2ge-ui-8wC" secondAttribute="trailing" constant="91" id="Pto-Bc-VNN"/>
+                    <constraint firstItem="vEZ-Fh-lMK" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="bwt-fV-zbs"/>
+                    <constraint firstItem="lUv-Vd-zo3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="fn7-L8-y1C"/>
+                    <constraint firstItem="lUv-Vd-zo3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="qa2-fZ-Tqm"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="d3N-nc-f19" secondAttribute="bottom" constant="42.5" id="uNl-ri-Kl7"/>
+                    <constraint firstItem="lUv-Vd-zo3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="wur-2l-bQa"/>
+                    <constraint firstItem="d3N-nc-f19" firstAttribute="leading" secondItem="lUv-Vd-zo3" secondAttribute="trailing" constant="8" symbolic="YES" id="yyN-ne-AAf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contactImage" destination="lUv-Vd-zo3" id="8ep-jj-E5p"/>
+                <outlet property="contactNameLabel" destination="d3N-nc-f19" id="Epb-6t-sbb"/>
+                <outlet property="contactPhoneLabel" destination="2ge-ui-8wC" id="00G-L5-Bez"/>
+            </connections>
+            <point key="canvasLocation" x="24.5" y="34"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="invitePersonImage" width="29" height="29"/>
+        <image name="obama" width="280" height="370"/>
+    </resources>
+</document>

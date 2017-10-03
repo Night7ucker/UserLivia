@@ -19,12 +19,15 @@ class MainScreenController: RootViewController, SigninViewControllerDelegate {
     @IBOutlet weak var userProfileImageOutlet: CustomImageView!
     @IBOutlet weak var personImage: CustomImageView!
     @IBOutlet weak var mainScreenTableView: UITableView!
+    @IBOutlet var cartViewOutlet: DrugsView!
+    @IBOutlet var amountOfDrugsInCartOutlet: UILabel!
     
     var userIsRegistred  = false
     let countryCodesDataManagerObject = GetCountryCodesRequest()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         if userIsRegistred == false {
             fullNameLabelOutlet.isHidden = true
@@ -58,11 +61,27 @@ class MainScreenController: RootViewController, SigninViewControllerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
         navigationController?.isNavigationBarHidden = true
+        cartViewOutlet.isHidden = true
+        
+        if RealmDataManager.getAddedDrugsDataFromRealm().count != 0 {
+            cartViewOutlet.isHidden = false
+            amountOfDrugsInCartOutlet.text = "("+String(describing: RealmDataManager.getAddedDrugsDataFromRealm().count)+")"
+        }
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(false)
         navigationController?.isNavigationBarHidden = false
+    }
+    
+    
+    @IBAction func viewCartAction(_ sender: UIButton) {
+        let AddToCartStoryboard = UIStoryboard(name: "AddToCart", bundle: nil)
+        let AddToCartViewController = AddToCartStoryboard.instantiateViewController(withIdentifier: "kAddToCartStoryboardId") as? AddToCartViewController
+        navigationController?.pushViewController(AddToCartViewController!, animated: true)
     }
     
     @IBAction func editProfileButtontTapped(_ sender: UIButton) {
@@ -172,7 +191,10 @@ extension MainScreenController : UITableViewDelegate{
             }
             
         case 4:
-            print("4")
+            let inviteFriendsStoryboard = UIStoryboard(name: "InviteFriends", bundle: nil)
+            let inviteFriendsController = inviteFriendsStoryboard.instantiateViewController(withIdentifier: "kInviteFriendsController") as? InviteFriendsController
+            navigationController?.pushViewController(inviteFriendsController!, animated: true)
+            
         case 5:
             let settingsStoryboard = UIStoryboard(name: "Settings", bundle: nil)
             let settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "kSettingsController") as? SettingsController
