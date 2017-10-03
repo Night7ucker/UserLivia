@@ -41,6 +41,8 @@
 		CE725FD71F838E9F009B8FC2 /* OrderTypeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE725FD61F838E9F009B8FC2 /* OrderTypeRequest.swift */; };
 		CE725FD91F838F6C009B8FC2 /* OrderTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE725FD81F838F6C009B8FC2 /* OrderTypeModel.swift */; };
 		CE725FDC1F83ABDD009B8FC2 /* ReviewYourOrdedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE725FDB1F83ABDD009B8FC2 /* ReviewYourOrdedViewController.swift */; };
+		CE725FDE1F83AC2A009B8FC2 /* ReviewYourOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE725FDD1F83AC2A009B8FC2 /* ReviewYourOrder.storyboard */; };
+		CE725FE01F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE725FDF1F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift */; };
 		CE798D1E1F7A7D7D00FDF83D /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */; };
 		CE798D201F7A81BF00FDF83D /* EditingProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */; };
 		CE798D231F7A828400FDF83D /* TermsAndConditions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */; };
@@ -57,6 +59,7 @@
 		CEA61BD01F756D9400BA1AED /* PopupCountryCodesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA61BB31F756D9400BA1AED /* PopupCountryCodesTableViewController.swift */; };
 		CEA61BD11F756D9400BA1AED /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA61BB41F756D9400BA1AED /* RegistrationViewController.swift */; };
 		CEA61BD21F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA61BB51F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard */; };
+		CEAB79AF1F83B261006F7311 /* OrderMapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB79AE1F83B261006F7311 /* OrderMapTableViewCell.swift */; };
 		CEABE41D1F764DF80041FAD5 /* SearchForItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE41C1F764DF80041FAD5 /* SearchForItemsViewController.swift */; };
 		CEABE4201F7650CC0041FAD5 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE41F1F7650CC0041FAD5 /* CityTableViewCell.swift */; };
 		CEABE4221F7662AC0041FAD5 /* RegistrationModule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEABE4211F7662AC0041FAD5 /* RegistrationModule.storyboard */; };
@@ -147,6 +150,8 @@
 		CE725FD61F838E9F009B8FC2 /* OrderTypeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTypeRequest.swift; sourceTree = "<group>"; };
 		CE725FD81F838F6C009B8FC2 /* OrderTypeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTypeModel.swift; sourceTree = "<group>"; };
 		CE725FDB1F83ABDD009B8FC2 /* ReviewYourOrdedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewYourOrdedViewController.swift; sourceTree = "<group>"; };
+		CE725FDD1F83AC2A009B8FC2 /* ReviewYourOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReviewYourOrder.storyboard; sourceTree = "<group>"; };
+		CE725FDF1F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderReviewTableViewCell.swift; sourceTree = "<group>"; };
 		CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
 		CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingProfileViewController.swift; sourceTree = "<group>"; };
 		CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TermsAndConditions.storyboard; sourceTree = "<group>"; };
@@ -163,6 +168,7 @@
 		CEA61BB31F756D9400BA1AED /* PopupCountryCodesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupCountryCodesTableViewController.swift; sourceTree = "<group>"; };
 		CEA61BB41F756D9400BA1AED /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		CEA61BB51F756D9400BA1AED /* SupportingViewControllersStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SupportingViewControllersStoryboard.storyboard; sourceTree = "<group>"; };
+		CEAB79AE1F83B261006F7311 /* OrderMapTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderMapTableViewCell.swift; sourceTree = "<group>"; };
 		CEABE41C1F764DF80041FAD5 /* SearchForItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchForItemsViewController.swift; sourceTree = "<group>"; };
 		CEABE41F1F7650CC0041FAD5 /* CityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		CEABE4211F7662AC0041FAD5 /* RegistrationModule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegistrationModule.storyboard; sourceTree = "<group>"; };
@@ -379,6 +385,8 @@
 			isa = PBXGroup;
 			children = (
 				CE725FDB1F83ABDD009B8FC2 /* ReviewYourOrdedViewController.swift */,
+				CE725FDF1F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift */,
+				CEAB79AE1F83B261006F7311 /* OrderMapTableViewCell.swift */,
 			);
 			name = ReviewYourOrderModule;
 			sourceTree = "<group>";
@@ -432,6 +440,7 @@
 				7F6D01D01F82444A00FA01E8 /* InviteFriends.storyboard */,
 				FB75CB3D1F82356B0022B38D /* AddToCart.storyboard */,
 				FB75CB471F828D3F0022B38D /* GoogleMap.storyboard */,
+				CE725FDD1F83AC2A009B8FC2 /* ReviewYourOrder.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -849,6 +858,7 @@
 				7FBAFBB61F77D9D700BEB7F1 /* MainScreen.storyboard in Resources */,
 				CE6D40E91F7D00A000C30EFA /* SelectOrderType.storyboard in Resources */,
 				7F862DBF1F82A19C0098ECA9 /* ContactsCell.xib in Resources */,
+				CE725FDE1F83AC2A009B8FC2 /* ReviewYourOrder.storyboard in Resources */,
 				CE40CA801F78E619003BC535 /* RefillsAndReminders.storyboard in Resources */,
 				7FBAFBB71F77D9D700BEB7F1 /* Settings.storyboard in Resources */,
 				FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */,
@@ -953,9 +963,11 @@
 				FB958B891F752D000065B49C /* GetCountryCodesRequest.swift in Sources */,
 				CEABE4201F7650CC0041FAD5 /* CityTableViewCell.swift in Sources */,
 				CEA61BCF1F756D9400BA1AED /* MakeOrderViewController.swift in Sources */,
+				CEAB79AF1F83B261006F7311 /* OrderMapTableViewCell.swift in Sources */,
 				FB75CB4B1F828D750022B38D /* GoogleMapViewController.swift in Sources */,
 				FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */,
 				FB6BB31A1F7E607A00165BB2 /* DrugInfoViewController.swift in Sources */,
+				CE725FE01F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift in Sources */,
 				CE3C59FE1F835BCF00345BB6 /* PlaceMarker.swift in Sources */,
 				CEA61BD01F756D9400BA1AED /* PopupCountryCodesTableViewController.swift in Sources */,
 				CEBA08881F7D232500CBFC43 /* CollapsibleSections.swift in Sources */,

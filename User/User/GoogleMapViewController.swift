@@ -29,9 +29,9 @@ class GoogleMapViewController: RootViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar
+//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//        navigationController?.navigationBar.shadowImage = UIImage()
+//        navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar
         
         configureNavigationBar()
         addBackButtonAndTitleToNavigationBar(title: "Select location")
@@ -126,7 +126,10 @@ class GoogleMapViewController: RootViewController {
     }
     
     func testButtonTapped(_ sender: UIButton) {
-        print("test button tapped")
+        let reviewYourOrder = UIStoryboard(name: "ReviewYourOrder", bundle: nil)
+        let reviewYourOrderViewController = reviewYourOrder.instantiateViewController(withIdentifier: "kReviewYourOrdedViewController") as! ReviewYourOrdedViewController
+        reviewYourOrderViewController.currentPinLocation = currentPinLocation
+        navigationController?.pushViewController(reviewYourOrderViewController, animated: false)
     }
 
 }
@@ -153,7 +156,10 @@ extension GoogleMapViewController: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         currentPinLocation = marker.position
-        print(currentPinLocation)
+        let reviewYourOrder = UIStoryboard(name: "ReviewYourOrder", bundle: nil)
+        let reviewYourOrderViewController = reviewYourOrder.instantiateViewController(withIdentifier: "kReviewYourOrdedViewController") as! ReviewYourOrdedViewController
+        reviewYourOrderViewController.currentPinLocation = currentPinLocation
+        navigationController?.pushViewController(reviewYourOrderViewController, animated: false)
     }
     
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
