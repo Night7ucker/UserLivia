@@ -95,7 +95,6 @@ class InviteFriendsController: UIViewController {
     
     @IBAction func goBackToMainScreen(_ sender: UIButton) {
         
-        print("Please, add reference to this controller before tapping on the button")
         _ = navigationController?.popViewController(animated: true)
     }
     

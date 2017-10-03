@@ -30,12 +30,13 @@ class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate{
         
         let newColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
         navigationController?.navigationBar.barTintColor = newColor
-//        navigationController?.navigationBar.barTintColor = .red
-        addBackButtonAndTitleToNavigationBar(title: "Status")
-        navigationItem.rightBarButtonItem?.tintColor = .white
+        navigationController?.navigationBar.backgroundColor = .black
         
-        navigationController?.navigationBar.clipsToBounds = true
-               
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "⇅", style: .plain, target: self, action: #selector(showInfoPopover))
+        navigationItem.rightBarButtonItem?.tintColor = .white
+        addBackButtonAndTitleToNavigationBar(title: "Status")
+        
         let controllerOne = self.newColoredViewController(name: "ordersPageVC")
         controllerOne.title = "ORDERS"
         
@@ -50,7 +51,8 @@ class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate{
         //Custom CAPSPageMenu
         let parameters: [CAPSPageMenuOption] = [
             .menuHeight(39),
-            .scrollMenuBackgroundColor(newColor),
+            .scrollMenuBackgroundColor((navigationController?.navigationBar.barTintColor)!),
+            .viewBackgroundColor(.white),
             .menuItemSeparatorWidth(10.0),
             .enableHorizontalBounce(false),
             .useMenuLikeSegmentedControl(true),
@@ -68,11 +70,9 @@ class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate{
         self.view.addSubview(pageMenu!.view)
 
     }
-    override func viewDidAppear(_ animated: Bool) {
-        
-    }
     
-    @IBAction func showInfoPopover(_ sender: UIBarButtonItem) {
+     func showInfoPopover() {
+        print("showInfoPopover")
         let settingsStoryboard = UIStoryboard(name: "Orders Appointments Payments", bundle: nil)
         let orderStatusesPopupVC = settingsStoryboard.instantiateViewController(withIdentifier: "kOrdersStatusesPopoup") as? OrdersStatusesPopupController
         
@@ -80,19 +80,25 @@ class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate{
         orderStatusesPopupVC?.resultChecked = checkesArray
         
         present(orderStatusesPopupVC!, animated: true, completion: nil)
-
     }
+    
+    
     
     func didMoveToPage(_ controller: UIViewController, index: Int) {
         if index == controllerArray.count - 1 {
-            navigationItem.rightBarButtonItem?.title = ""
-            navigationItem.rightBarButtonItem?.isEnabled = false
+            let button = UIBarButtonItem()
+            button.title = ""
+            button.isEnabled = false
             
+            navigationItem.rightBarButtonItem = button
         }
         else{
-            navigationItem.rightBarButtonItem?.title = "⇅"
-            navigationItem.rightBarButtonItem?.tintColor = .white
-            navigationItem.rightBarButtonItem?.isEnabled = true
+            let button = UIBarButtonItem()
+            button.title = "⇅"
+            button.tintColor = .white
+            button.isEnabled = true
+            
+            navigationItem.rightBarButtonItem = button
         }
     }
     
