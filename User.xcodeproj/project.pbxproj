@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F2E150F1F83640D00038A13 /* AddToCart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB75CB3D1F82356B0022B38D /* AddToCart.storyboard */; };
 		7F2F05EA1F7D08150068964B /* OrderStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2F05E91F7D08150068964B /* OrderStatusCell.swift */; };
 		7F3536451F7BB3970084AACA /* OrdersStatusesPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3536441F7BB3970084AACA /* OrdersStatusesPopupController.swift */; };
 		7F6137F31F7B7E3500629AA7 /* OrdersPaymentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6137F21F7B7E3500629AA7 /* OrdersPaymentsController.swift */; };
@@ -89,7 +90,6 @@
 		FB6BB31E1F7E653000165BB2 /* DrugsDescriptionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6BB31D1F7E653000165BB2 /* DrugsDescriptionRequest.swift */; };
 		FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB740D161F74F24900F6DD79 /* AppDelegate.swift */; };
 		FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB740D1F1F74F24900F6DD79 /* LaunchScreen.storyboard */; };
-		FB75CB3E1F82356B0022B38D /* AddToCart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB75CB3D1F82356B0022B38D /* AddToCart.storyboard */; };
 		FB75CB411F8235E80022B38D /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75CB401F8235E80022B38D /* AddToCartViewController.swift */; };
 		FB75CB431F8240550022B38D /* AddToCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75CB421F8240550022B38D /* AddToCartTableViewCell.swift */; };
 		FB75CB461F8246E40022B38D /* AddedToCartDrugsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75CB451F8246E40022B38D /* AddedToCartDrugsModel.swift */; };
@@ -818,8 +818,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F2E150F1F83640D00038A13 /* AddToCart.storyboard in Resources */,
 				CE5F4BEC1F77CC19009CBA5D /* Orders Appointments Payments.storyboard in Resources */,
-				FB75CB3E1F82356B0022B38D /* AddToCart.storyboard in Resources */,
 				CE7B302A1F7B906E0023472F /* LoadingAnimation.storyboard in Resources */,
 				FBD6BB181F7C1402007741DC /* SearchDrugs.storyboard in Resources */,
 				CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */,
