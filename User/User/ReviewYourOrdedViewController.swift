@@ -17,7 +17,6 @@
 // zapros na apteki - prosto po coordinatam
 // kogda na page control idu na vtoruu vkladku idet zapros c current coordinatami i na etoi vkladke poyavlyaetsya spisok aptek
 // order kak nibud' otdelyanay model
-// ya ebanaya 5k pomoika  
 
 
 import UIKit
@@ -118,22 +117,20 @@ extension ReviewYourOrdedViewController: UITableViewDelegate {
 //        return cellSpacingHeight
 //    }
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        
-//        let viewForHeaderInSection = UIView()
-//        viewForHeaderInSection.frame = CGRect(x: 0, y: 0, width: 300, height: 50)
-//        viewForHeaderInSection.backgroundColor = .red
-//        
-//        let sectionNameLabel = UILabel()
-//        sectionNameLabel.text = sectionNames[section]
-//        sectionNameLabel.textColor = .black
-//        sectionNameLabel.font = UIFont.boldSystemFont(ofSize: 13)
-//        sectionNameLabel.frame = CGRect(x: 10, y: 10, width: 100, height: 20)
-//        
-//        viewForHeaderInSection.addSubview(sectionNameLabel)
-//        
-//        return viewForHeaderInSection
-//    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let viewForHeaderInSection = UIView()
+        
+        let sectionNameLabel = UILabel()
+        sectionNameLabel.text = sectionNames[section]
+        sectionNameLabel.textColor = .black
+        sectionNameLabel.font = UIFont.boldSystemFont(ofSize: 13)
+        sectionNameLabel.frame = CGRect(x: 10, y: 10, width: 100, height: 20)
+        
+        viewForHeaderInSection.addSubview(sectionNameLabel)
+        
+        return viewForHeaderInSection
+    }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionNames[section]

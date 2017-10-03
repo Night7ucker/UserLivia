@@ -34,6 +34,11 @@
 		CE40CA851F78F2ED003BC535 /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA841F78F2ED003BC535 /* AddReminderViewController.swift */; };
 		CE40CA8C1F79132A003BC535 /* CalendarPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA8B1F79132A003BC535 /* CalendarPopupViewController.swift */; };
 		CE40CA8E1F793408003BC535 /* TimePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA8D1F793408003BC535 /* TimePopupViewController.swift */; };
+		CE4ABDFC1F83CE0B0052EC10 /* PageMapAndPharmacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4ABDFB1F83CE0B0052EC10 /* PageMapAndPharmacyVC.swift */; };
+		CE4ABDFF1F83CEDB0052EC10 /* PharmacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4ABDFE1F83CEDB0052EC10 /* PharmacyViewController.swift */; };
+		CE4ABE011F83DB5D0052EC10 /* PharmacyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4ABE001F83DB5D0052EC10 /* PharmacyTableViewCell.swift */; };
+		CE4ABE041F83F2160052EC10 /* SendOrdersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4ABE031F83F2160052EC10 /* SendOrdersRequest.swift */; };
+		CE4ABE061F83F22E0052EC10 /* SendOrdersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4ABE051F83F22E0052EC10 /* SendOrdersModel.swift */; };
 		CE5F4BEC1F77CC19009CBA5D /* Orders Appointments Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */; };
 		CE68E2F91F7C03AC002EE618 /* CityNameRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E2F81F7C03AC002EE618 /* CityNameRealmModel.swift */; };
 		CE6D40E61F7CF23D00C30EFA /* ReminderRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D40E51F7CF23D00C30EFA /* ReminderRequests.swift */; };
@@ -145,6 +150,11 @@
 		CE40CA841F78F2ED003BC535 /* AddReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
 		CE40CA8B1F79132A003BC535 /* CalendarPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPopupViewController.swift; sourceTree = "<group>"; };
 		CE40CA8D1F793408003BC535 /* TimePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePopupViewController.swift; sourceTree = "<group>"; };
+		CE4ABDFB1F83CE0B0052EC10 /* PageMapAndPharmacyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageMapAndPharmacyVC.swift; sourceTree = "<group>"; };
+		CE4ABDFE1F83CEDB0052EC10 /* PharmacyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PharmacyViewController.swift; sourceTree = "<group>"; };
+		CE4ABE001F83DB5D0052EC10 /* PharmacyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PharmacyTableViewCell.swift; sourceTree = "<group>"; };
+		CE4ABE031F83F2160052EC10 /* SendOrdersRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendOrdersRequest.swift; sourceTree = "<group>"; };
+		CE4ABE051F83F22E0052EC10 /* SendOrdersModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendOrdersModel.swift; sourceTree = "<group>"; };
 		CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Orders Appointments Payments.storyboard"; sourceTree = "<group>"; };
 		CE68E2F81F7C03AC002EE618 /* CityNameRealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityNameRealmModel.swift; sourceTree = "<group>"; };
 		CE6D40E51F7CF23D00C30EFA /* ReminderRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderRequests.swift; sourceTree = "<group>"; };
@@ -357,6 +367,33 @@
 				CE40CA8D1F793408003BC535 /* TimePopupViewController.swift */,
 			);
 			name = CalendarPopupModule;
+			sourceTree = "<group>";
+		};
+		CE4ABDFA1F83CDF10052EC10 /* PagedMapForPharmacies */ = {
+			isa = PBXGroup;
+			children = (
+				CE4ABDFB1F83CE0B0052EC10 /* PageMapAndPharmacyVC.swift */,
+				CE4ABDFD1F83CEBF0052EC10 /* PharmacyModule */,
+			);
+			name = PagedMapForPharmacies;
+			sourceTree = "<group>";
+		};
+		CE4ABDFD1F83CEBF0052EC10 /* PharmacyModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE4ABDFE1F83CEDB0052EC10 /* PharmacyViewController.swift */,
+				CE4ABE001F83DB5D0052EC10 /* PharmacyTableViewCell.swift */,
+			);
+			name = PharmacyModule;
+			sourceTree = "<group>";
+		};
+		CE4ABE021F83F1DA0052EC10 /* SendOrderRequests */ = {
+			isa = PBXGroup;
+			children = (
+				CE4ABE031F83F2160052EC10 /* SendOrdersRequest.swift */,
+				CE4ABE051F83F22E0052EC10 /* SendOrdersModel.swift */,
+			);
+			name = SendOrderRequests;
 			sourceTree = "<group>";
 		};
 		CE6C7D561F82206F0023AFF1 /* TakePhotoofPresription */ = {
@@ -704,6 +741,7 @@
 		FB75CB491F828D550022B38D /* MapModule */ = {
 			isa = PBXGroup;
 			children = (
+				CE4ABDFA1F83CDF10052EC10 /* PagedMapForPharmacies */,
 				FB75CB4A1F828D750022B38D /* GoogleMapViewController.swift */,
 				CE3C59FD1F835BCF00345BB6 /* PlaceMarker.swift */,
 			);
@@ -740,6 +778,7 @@
 		FB958B851F752BBC0065B49C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE4ABE021F83F1DA0052EC10 /* SendOrderRequests */,
 				FB75CB4F1F83A05C0022B38D /* GetOrdersCountRequests */,
 				CE725FD51F838E84009B8FC2 /* SelectOrderTypeRequests */,
 				FB6BB3141F7E362D00165BB2 /* DrugsModelRequets */,
@@ -974,6 +1013,7 @@
 				CE725FD71F838E9F009B8FC2 /* OrderTypeRequest.swift in Sources */,
 				FB75CB411F8235E80022B38D /* AddToCartViewController.swift in Sources */,
 				CE40CA851F78F2ED003BC535 /* AddReminderViewController.swift in Sources */,
+				CE4ABE061F83F22E0052EC10 /* SendOrdersModel.swift in Sources */,
 				FB958B891F752D000065B49C /* GetCountryCodesRequest.swift in Sources */,
 				CEABE4201F7650CC0041FAD5 /* CityTableViewCell.swift in Sources */,
 				CEA61BCF1F756D9400BA1AED /* MakeOrderViewController.swift in Sources */,
@@ -1005,6 +1045,7 @@
 				CEABE4281F7676470041FAD5 /* FillRegistrationInfoViewController.swift in Sources */,
 				CEC5EFFF1F8235430012CFAA /* SectionHeaderView.swift in Sources */,
 				FB9D50001F7D1BE5001F3F95 /* EditUserCityRequest.swift in Sources */,
+				CE4ABE041F83F2160052EC10 /* SendOrdersRequest.swift in Sources */,
 				CE95905C1F79473800536DF7 /* ReminderTableViewCell.swift in Sources */,
 				FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */,
 				7F6137F31F7B7E3500629AA7 /* OrdersPaymentsController.swift in Sources */,
@@ -1022,6 +1063,7 @@
 				CEC5F0011F8237810012CFAA /* ExpandedViewController.swift in Sources */,
 				CE40CA8C1F79132A003BC535 /* CalendarPopupViewController.swift in Sources */,
 				FB6BB31C1F7E652100165BB2 /* DrugsDescriptionModel.swift in Sources */,
+				CE4ABE011F83DB5D0052EC10 /* PharmacyTableViewCell.swift in Sources */,
 				FB5FC54E1F7A44CD00F8658A /* UploadImageRequest.swift in Sources */,
 				CE3A427D1F7F83430016A0C7 /* RootViewController.swift in Sources */,
 				7F6137F71F7B7F9400629AA7 /* PaymentPageCell.swift in Sources */,
@@ -1029,6 +1071,7 @@
 				7F3536451F7BB3970084AACA /* OrdersStatusesPopupController.swift in Sources */,
 				7FE995421F7A96B200E31AA2 /* OrdersPageController.swift in Sources */,
 				CE40CA8E1F793408003BC535 /* TimePopupViewController.swift in Sources */,
+				CE4ABDFF1F83CEDB0052EC10 /* PharmacyViewController.swift in Sources */,
 				FB6BB3161F7E364800165BB2 /* GetDrugsModel.swift in Sources */,
 				FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */,
 				7F6137F51F7B7F7C00629AA7 /* OrderPageCell.swift in Sources */,
@@ -1043,6 +1086,7 @@
 				FBD74BA71F7B84C300FA2BFE /* GetUserProfileRequest.swift in Sources */,
 				CEA61BCE1F756D9400BA1AED /* MakeOrderCellTableViewCell.swift in Sources */,
 				FB75CB431F8240550022B38D /* AddToCartTableViewCell.swift in Sources */,
+				CE4ABDFC1F83CE0B0052EC10 /* PageMapAndPharmacyVC.swift in Sources */,
 				CEB75F1C1F7BA8A100986F1D /* GetCitiesRequest.swift in Sources */,
 				CE725FDC1F83ABDD009B8FC2 /* ReviewYourOrdedViewController.swift in Sources */,
 				CEABE4251F76689B0041FAD5 /* SmsConfrimViewController.swift in Sources */,
