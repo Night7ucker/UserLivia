@@ -14,7 +14,7 @@ import GooglePlaces
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var googleApiKey = "AIzaSyCsNnPo9V2H2LnHGXDnqNYv5IVmY6IZxTI"
+    var googleApiKey = "AIzaSyALXEm-QoVNzIcmqjjRhKuKXzcXNqOeysY"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         GMSPlacesClient.provideAPIKey(googleApiKey)

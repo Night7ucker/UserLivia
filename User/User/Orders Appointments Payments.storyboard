@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2V2-pW-Dw0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="S4e-hK-626">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -34,7 +34,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u72-Ja-MKK" id="hu8-hO-htX">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wtS-aE-Oze">
@@ -109,7 +109,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ccM-qe-Amx" id="3J7-OY-7bF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11.09.2017/132" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aO7-tl-ixb">
@@ -180,30 +180,23 @@
             <point key="canvasLocation" x="3324" y="-40"/>
         </scene>
         <!--Orders Payments Controller-->
-        <scene sceneID="uyZ-tO-MuC">
+        <scene sceneID="csl-Jn-PHF">
             <objects>
-                <viewController storyboardIdentifier="kOrdersPaymentsController" id="2V2-pW-Dw0" customClass="OrdersPaymentsController" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="kOrdersPaymentsController" id="S4e-hK-626" customClass="OrdersPaymentsController" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="voh-Jv-Tsr"/>
-                        <viewControllerLayoutGuide type="bottom" id="L4F-LW-ea9"/>
+                        <viewControllerLayoutGuide type="top" id="1Ma-EA-VLX"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ql5-CK-Oky"/>
                     </layoutGuides>
-                    <view key="view" contentMode="bottomLeft" id="BI1-fr-Qp5">
+                    <view key="view" contentMode="scaleToFill" id="S2b-5Q-WPc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="TrJ-ge-6io">
-                        <barButtonItem key="rightBarButtonItem" title="⇅" id="9ox-sC-gca">
-                            <connections>
-                                <action selector="showInfoPopover:" destination="2V2-pW-Dw0" id="Gtf-jU-KM1"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lnn-Um-hA2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w3M-br-Yd1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4263.1999999999998" y="-725.48725637181417"/>
+            <point key="canvasLocation" x="2886" y="-714"/>
         </scene>
         <!--Orders Statuses Popup Controller-->
         <scene sceneID="X8Q-6Q-P8H">
@@ -302,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="myV-NY-YV7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5255.1999999999998" y="-725.48725637181417"/>
+            <point key="canvasLocation" x="4140" y="-702"/>
         </scene>
     </scenes>
     <resources>
