@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import RealmSwift
 
 class GoogleMapViewController: RootViewController {
 
@@ -61,26 +62,27 @@ class GoogleMapViewController: RootViewController {
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         
-        let testButton = UIButton()
-        testButton.setTitle("Delivery at my current location", for: .normal)
-        testButton.layer.zPosition = 4
-        testButton.layer.cornerRadius = 2
-        testButton.addTarget(self, action: #selector(testButtonTapped(_:)), for: .touchUpInside)
-        testButton.titleLabel?.font = testButton.titleLabel?.font.withSize(13)
-        testButton.backgroundColor = Colors.Root.lightBlueColor
-        testButton.setTitleColor(.white, for: .normal)
-        testButton.translatesAutoresizingMaskIntoConstraints = false
+        let deliverAtMyCurrentLocation = UIButton()
+        deliverAtMyCurrentLocation.setTitle("Deliver at my current location", for: .normal)
+        deliverAtMyCurrentLocation.layer.zPosition = 4
+        deliverAtMyCurrentLocation.layer.cornerRadius = 2
+        deliverAtMyCurrentLocation.addTarget(self, action: #selector(deliveryButtonTapped(_:)), for: .touchUpInside)
+        deliverAtMyCurrentLocation.titleLabel?.font = deliverAtMyCurrentLocation.titleLabel?.font.withSize(13)
+        deliverAtMyCurrentLocation.backgroundColor = Colors.Root.lightBlueColor
+        deliverAtMyCurrentLocation.setTitleColor(.white, for: .normal)
         
-        view.addSubview(testButton)
+        
+        view.addSubview(deliverAtMyCurrentLocation)
         
         if isPaged {
+            deliverAtMyCurrentLocation.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                (testButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120)),
-                (testButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20)),
-                (testButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)),
+                (deliverAtMyCurrentLocation.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120)),
+                (deliverAtMyCurrentLocation.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20)),
+                (deliverAtMyCurrentLocation.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)),
                 ])
         } else {
-            testButton.frame = CGRect(x: 35, y: 620, width: 300, height: 30)
+            deliverAtMyCurrentLocation.frame = CGRect(x: 35, y: 620, width: 300, height: 30)
         }
         
         
@@ -134,10 +136,30 @@ class GoogleMapViewController: RootViewController {
 
         definesPresentationContext = true
         
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(false)
+        
+        let objectToWriteCoordinates = RealmDataManager.getSendingOrderFromRealm()[0]
+        let realm = try! Realm()
+        try! realm.write {
+            objectToWriteCoordinates.latitude = String(currentPinLocation.latitude)
+            objectToWriteCoordinates.longtitude = String(currentPinLocation.longitude)
+        }
+    }
+    
+    func addPinsOnPharmaciesCoordinates() {
+        for i in 0..<RealmDataManager.getPharmaciesFromRealm().count {
+            let pharmacyCoordinates = CLLocationCoordinate2D(latitude: Double(RealmDataManager.getPharmaciesFromRealm()[i].latitude!)!, longitude: Double(RealmDataManager.getPharmaciesFromRealm()[i].longtitude!)!)
+            let infoMarker = PlaceMarker(place: pharmacyCoordinates)
+            infoMarker.map = setDeliveryPlaceMapView
+        }
     }
     
     func currentLocationButtonTapped(_ sender: UIButton) {
@@ -155,11 +177,16 @@ class GoogleMapViewController: RootViewController {
         currentPinLocation = currentLocation
     }
     
-    func testButtonTapped(_ sender: UIButton) {
-        let reviewYourOrder = UIStoryboard(name: "ReviewYourOrder", bundle: nil)
-        let reviewYourOrderViewController = reviewYourOrder.instantiateViewController(withIdentifier: "kReviewYourOrdedViewController") as! ReviewYourOrdedViewController
-        reviewYourOrderViewController.currentPinLocation = currentPinLocation
-        navigationController?.pushViewController(reviewYourOrderViewController, animated: false)
+    func deliveryButtonTapped(_ sender: UIButton) {
+        if Int(RealmDataManager.getSendingOrderFromRealm()[0].manual!)! == 1 {
+            let googleMapStoryboard = UIStoryboard(name: "GoogleMap", bundle: nil)
+            let googleMapViewController = googleMapStoryboard.instantiateViewController(withIdentifier: "kPageMapAndPharmacyVC") as? PageMapAndPharmacyVC
+            navigationController?.pushViewController(googleMapViewController!, animated: false)
+        } else {
+            let reviewYourOrder = UIStoryboard(name: "ReviewYourOrder", bundle: nil)
+            let reviewYourOrderViewController = reviewYourOrder.instantiateViewController(withIdentifier: "kReviewYourOrdedViewController") as! ReviewYourOrdedViewController
+            navigationController?.pushViewController(reviewYourOrderViewController, animated: false)
+        }
     }
 
 }
@@ -188,7 +215,6 @@ extension GoogleMapViewController: GMSMapViewDelegate {
         currentPinLocation = marker.position
         let reviewYourOrder = UIStoryboard(name: "ReviewYourOrder", bundle: nil)
         let reviewYourOrderViewController = reviewYourOrder.instantiateViewController(withIdentifier: "kReviewYourOrdedViewController") as! ReviewYourOrdedViewController
-        reviewYourOrderViewController.currentPinLocation = currentPinLocation
         navigationController?.pushViewController(reviewYourOrderViewController, animated: false)
     }
     

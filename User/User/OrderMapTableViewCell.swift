@@ -18,13 +18,15 @@ class OrderMapTableViewCell: UITableViewCell, GMSMapViewDelegate {
         super.awakeFromNib()
         
         orderMapViewOutlet.delegate = self
+        let coordinates = CLLocationCoordinate2D(latitude: Double(RealmDataManager.getSendingOrderFromRealm()[0].latitude!)!, longitude: Double(RealmDataManager.getSendingOrderFromRealm()[0].longtitude!)!)
         
-        let newPinLocation = GMSCameraPosition.camera(withLatitude: CoordinateSingletone.sharedInstance.currentPinLocation.latitude,
-                                                      longitude: CoordinateSingletone.sharedInstance.currentPinLocation.longitude,
+        
+        let newPinLocation = GMSCameraPosition.camera(withLatitude: coordinates.latitude,
+                                                      longitude: coordinates.longitude,
                                                       zoom: 15)
         orderMapViewOutlet.animate(to: newPinLocation)
         
-        let infoMarker = PlaceMarker(place: CoordinateSingletone.sharedInstance.currentPinLocation)
+        let infoMarker = PlaceMarker(place: coordinates)
         infoMarker.map = orderMapViewOutlet
     }
 

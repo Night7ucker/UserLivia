@@ -196,14 +196,16 @@ class ExpandedViewController: RootViewController, UITableViewDataSource, UITable
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         let realm = try! Realm()
-        let objToWriteCheckboxes = RealmDataManager.getSendingOrderFromRealm()[0]
+        let objToWriteCheckboxes = SendOrdersModel()
         try! realm.write {
             objToWriteCheckboxes.manual = String(whichRowIsChecked)
             objToWriteCheckboxes.selfCollect = String(whichSectionIsChecked)
+            realm.add(objToWriteCheckboxes)
         }
         
         let googleMapStoryboard = UIStoryboard(name: "GoogleMap", bundle: nil)
         let googleMapViewController = googleMapStoryboard.instantiateViewController(withIdentifier: "kGoogleMapViewController") as? GoogleMapViewController
+        googleMapViewController?.isPaged = false
         navigationController?.pushViewController(googleMapViewController!, animated: false)
     }
 

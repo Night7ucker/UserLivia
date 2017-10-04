@@ -1,5 +1,5 @@
 //
-//  SendOrdersRequest.swift
+//  GetPharmaciesRequest.swift
 //  User
 //
 //  Created by User on 10/3/17.
@@ -11,11 +11,11 @@ import Alamofire
 import RealmSwift
 import AlamofireObjectMapper
 import ObjectMapper_Realm
+import GoogleMaps
 
-class SendOrdersRequest {
-    static func findDrugs(completion: @escaping (Bool) -> Void) {
-        
-        let url = "https://test.liviaapp.com/api/delivery-men?type=check_price"
+class GetPharmaciesRequest {
+    static func getPharmacies(coordinate: CLLocationCoordinate2D) {
+        let url = "https://test.liviaapp.com/api/order?latitude=\(coordinate.latitude)&longtitude=\(coordinate.longitude)"
         
         let headers = [
             "Content-Type": "application/json",
@@ -28,10 +28,8 @@ class SendOrdersRequest {
         ]
         
         Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).responseObject { (response: DataResponse
-            <OrderTypeModel>) in
-            OrderTypeModel.writeIntoRealm(response: response)
-            completion(true)
+            <MappedPharmacyModel>) in
+            MappedPharmacyModel.writeIntoRealm(response: response)
         }
-        
     }
 }
