@@ -41,13 +41,20 @@ class ReviewYourOrdedViewController: RootViewController {
         configureNavigationBar()
         addBackButtonAndTitleToNavigationBar(title: "Review your order")
 
+        
+        view.backgroundColor = Colors.Root.lightGrayColor
         requestPriceButtonOutlet.backgroundColor = Colors.Root.lightBlueColor
         reviewYourOrderTableViewOutlet.separatorStyle = .none
-        reviewYourOrderTableViewOutlet.isScrollEnabled = false
+//        reviewYourOrderTableViewOutlet.isScrollEnabled = false
+        reviewYourOrderTableViewOutlet.backgroundColor = Colors.Root.lightGrayColor
+        
         
         let orderedDrugs = RealmDataManager.getAddedDrugsDataFromRealm()
         for i in 0..<orderedDrugs.count {
-            arrayOfOrderedDrugs.append("- " + orderedDrugs[i].brandName! + "(" + String(orderedDrugs[i].amount) + ")")
+            let stringToAppend = "- " + orderedDrugs[i].brandName!
+            let secondStringToAppend = "(" + String(orderedDrugs[i].amount) + orderedDrugs[i].quantityMeasuring! + ")"
+            let finalString = stringToAppend + secondStringToAppend
+            arrayOfOrderedDrugs.append(finalString)
         }
         
     }
@@ -110,8 +117,9 @@ extension ReviewYourOrdedViewController: UITableViewDataSource {
             default:
                 break
             }
-            
             return deliveryCell
+            
+            
         default:
             return UITableViewCell()
         }
@@ -131,6 +139,7 @@ extension ReviewYourOrdedViewController: UITableViewDelegate {
         sectionNameLabel.frame = CGRect(x: 10, y: 10, width: 100, height: 20)
         
         viewForHeaderInSection.addSubview(sectionNameLabel)
+        viewForHeaderInSection.backgroundColor = .white
         
         return viewForHeaderInSection
     }
@@ -142,11 +151,11 @@ extension ReviewYourOrdedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 50
+            return 30
         case 1:
-            return 180
+            return 200
         case 2:
-            return 0
+            return 30
         default:
             return 0
         }

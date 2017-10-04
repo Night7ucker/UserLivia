@@ -50,6 +50,7 @@
 		CE725FDC1F83ABDD009B8FC2 /* ReviewYourOrdedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE725FDB1F83ABDD009B8FC2 /* ReviewYourOrdedViewController.swift */; };
 		CE725FDE1F83AC2A009B8FC2 /* ReviewYourOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE725FDD1F83AC2A009B8FC2 /* ReviewYourOrder.storyboard */; };
 		CE725FE01F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE725FDF1F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift */; };
+		CE77533B1F84A1F1004E3F21 /* DeliveryTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77533A1F84A1F1004E3F21 /* DeliveryTypeTableViewCell.swift */; };
 		CE798D1E1F7A7D7D00FDF83D /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */; };
 		CE798D201F7A81BF00FDF83D /* EditingProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */; };
 		CE798D231F7A828400FDF83D /* TermsAndConditions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */; };
@@ -170,6 +171,7 @@
 		CE725FDB1F83ABDD009B8FC2 /* ReviewYourOrdedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewYourOrdedViewController.swift; sourceTree = "<group>"; };
 		CE725FDD1F83AC2A009B8FC2 /* ReviewYourOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReviewYourOrder.storyboard; sourceTree = "<group>"; };
 		CE725FDF1F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderReviewTableViewCell.swift; sourceTree = "<group>"; };
+		CE77533A1F84A1F1004E3F21 /* DeliveryTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryTypeTableViewCell.swift; sourceTree = "<group>"; };
 		CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
 		CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingProfileViewController.swift; sourceTree = "<group>"; };
 		CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TermsAndConditions.storyboard; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				CE725FDB1F83ABDD009B8FC2 /* ReviewYourOrdedViewController.swift */,
 				CE725FDF1F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift */,
 				CEAB79AE1F83B261006F7311 /* OrderMapTableViewCell.swift */,
+				CE77533A1F84A1F1004E3F21 /* DeliveryTypeTableViewCell.swift */,
 			);
 			name = ReviewYourOrderModule;
 			sourceTree = "<group>";
@@ -1091,6 +1094,7 @@
 				FB5FC5551F7A83B500F8658A /* RegistrationUserRequest.swift in Sources */,
 				CEC5EFFD1F8234CD0012CFAA /* Section.swift in Sources */,
 				CEC5F0011F8237810012CFAA /* ExpandedViewController.swift in Sources */,
+				CE77533B1F84A1F1004E3F21 /* DeliveryTypeTableViewCell.swift in Sources */,
 				CE40CA8C1F79132A003BC535 /* CalendarPopupViewController.swift in Sources */,
 				FB6BB31C1F7E652100165BB2 /* DrugsDescriptionModel.swift in Sources */,
 				CE4ABE011F83DB5D0052EC10 /* PharmacyTableViewCell.swift in Sources */,
