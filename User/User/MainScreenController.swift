@@ -194,20 +194,27 @@ extension MainScreenController : UITableViewDelegate{
             self.navigationController?.pushViewController(ChooseCityController, animated: true)
             
         case 2:
-            let realm = try! Realm()
-            if RealmDataManager.getOrdersListFromRealm().count != 0 {
-                try! realm.write {
-                    realm.delete(RealmDataManager.getOrdersListFromRealm())
+            if RealmDataManager.getTokensFromRealm().count == 0 {
+                let signinViewStoryboard = UIStoryboard(name: "SigninViewStoryboard", bundle: nil)
+                let signinViewController = signinViewStoryboard.instantiateViewController(withIdentifier: "kSigninViewController") as? SigninViewController
+                signinViewController?.delegate = self
+                self.present(signinViewController!, animated: false, completion: nil)
+            } else {
+                let realm = try! Realm()
+                if RealmDataManager.getOrdersListFromRealm().count != 0 {
+                    try! realm.write {
+                        realm.delete(RealmDataManager.getOrdersListFromRealm())
+                    }
                 }
+                OrdersListRequest.getOrdersList(completion: { (success) in
+                    if success {
+                        let ordersAppointmentsPayments = UIStoryboard(name: "Orders Appointments Payments", bundle: nil)
+                        let ordersPaymentsController = ordersAppointmentsPayments.instantiateViewController(withIdentifier: "kOrdersPaymentsController") as? OrdersPaymentsController
+                        self.navigationController?.pushViewController(ordersPaymentsController!, animated: true)
+                    }
+                })
             }
-            OrdersListRequest.getOrdersList(completion: { (success) in
-                if success {
-                    let ordersAppointmentsPayments = UIStoryboard(name: "Orders Appointments Payments", bundle: nil)
-                    let ordersPaymentsController = ordersAppointmentsPayments.instantiateViewController(withIdentifier: "kOrdersPaymentsController") as? OrdersPaymentsController
-                    self.navigationController?.pushViewController(ordersPaymentsController!, animated: true)
-                }
-            })
-        case 3:
+                    case 3:
             if RealmDataManager.getTokensFromRealm().count == 0 {
                 let signinViewStoryboard = UIStoryboard(name: "SigninViewStoryboard", bundle: nil)
                 let signinViewController = signinViewStoryboard.instantiateViewController(withIdentifier: "kSigninViewController") as? SigninViewController
