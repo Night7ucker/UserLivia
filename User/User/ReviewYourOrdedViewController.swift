@@ -135,6 +135,8 @@ class ReviewYourOrdedViewController: RootViewController, OrderSendedPopupViewCon
 //                self.present(orderSendedPopupViewController, animated: false)
 //            }
 //        }
+        // navigation controller visible view controller 
+        // napiat' poptoviewcontroller
     }
 }
 

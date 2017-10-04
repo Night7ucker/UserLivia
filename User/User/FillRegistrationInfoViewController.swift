@@ -100,6 +100,8 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
         arrayOfFields.append(ageFieldIsEmpty)
         arrayOfFields.append(emailFieldIsEmplty)
         
+        loadingAnimationViewController = (loadingAnimationStroyboard.instantiateViewController(withIdentifier: "kLoadingAnimationViewController") as? LoadingAnimationViewController)!
+        
         setErrorViewsHidden()
         hideKeyboardWhenTappedAround()
         
@@ -118,19 +120,7 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
         lastNameTextFieldOutlet.delegate = self
         ageTextFieldOutlet.delegate = self
         
-        loadingAnimationViewController = (loadingAnimationStroyboard.instantiateViewController(withIdentifier: "kLoadingAnimationViewController") as? LoadingAnimationViewController)!
         
-        let imageUploadRealmObject = RealmDataManager.getImageUrlFromRealm()
-        
-        avatarToken = imageUploadRealmObject.addNotificationBlock { change in
-            switch change {
-            case .update:
-                self.loadingAnimationViewController.dismiss(animated: false, completion: nil)
-                self.registerUserAction(UIButton())
-            default:
-                break
-            }
-        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -307,6 +297,8 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
                                                                 }
                                                             }
                 }
+            } else {
+                addTokenOnImageUploading()
             }
         } else {
             nameFieldErrorAppear = true
@@ -314,18 +306,32 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
             ageFieldErrorAppear = true
             emailFieldErrorAppear = true
         }
-        
-        
     }
     
-    var imageStr = ""
+    func addTokenOnImageUploading() {
+        let imageUploadRealmObject = RealmDataManager.getImageUrlFromRealm()
+        
+        avatarToken = imageUploadRealmObject.addNotificationBlock { change in
+            switch change {
+            case .update:
+                self.loadingAnimationViewController.dismiss(animated: false) {
+                    self.registerUserAction(UIButton())
+                }
+            default:
+                break
+            }
+        }
+    }
+    
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        var imageStr = ""
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         photoImageView.image = selectedImage
         let imageData = UIImagePNGRepresentation(selectedImage)! as NSData
-        self.imageStr = imageData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+        imageStr = imageData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         let uploadImageObject = UploadImageRequest()
-        uploadImageObject.uploadImage(imageString: self.imageStr)
+        uploadImageObject.uploadImage(imageString: imageStr)
         dismiss(animated: true, completion: nil)
     }
     
