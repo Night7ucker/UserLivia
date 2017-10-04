@@ -23,10 +23,13 @@ class PharmacyTableViewCell: UITableViewCell {
     
     @IBOutlet weak var choosePharmacyButtonOutlet: UIButton!
     
+    @IBOutlet weak var idButtonHiddenOutlet: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        idButtonHiddenOutlet.isHidden = true
         
         choosePharmacyButtonOutlet.layer.cornerRadius = 2
         choosePharmacyButtonOutlet.backgroundColor = UIColor(red: CGFloat(121/255.0), green: CGFloat(181/255.0), blue: CGFloat(208/255.0), alpha: CGFloat(1.0))

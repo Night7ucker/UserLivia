@@ -57,7 +57,7 @@ class Pharmacy: Object, Mappable {
     func mapping(map: Map) {
         userId <- map["user_id"]
         latitude <- map["latitude"]
-        longtitude <- map["longtitude"]
+        longtitude <- map["longitude"]
         avatar <- map["avatar"]
         adminName <- map["admin_name"]
         pharmacyName <- map["pharmacy_name"]

@@ -17,7 +17,8 @@ class PharmacyViewController: RootViewController {
     
     @IBOutlet weak var searchViewOutlet: UIView!
     
-    var test: Results<Pharmacy>? = nil
+    var delegate: GoogleMapViewControllerDelegate!
+    var pharmaciesArray: Results<Pharmacy>? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,7 @@ class PharmacyViewController: RootViewController {
         pharmacySearchTextFieldOutlet.backgroundColor = Colors.Root.lightGrayColor
         searchViewOutlet.backgroundColor = Colors.Root.lightGrayColor
         
-        test = RealmDataManager.getPharmaciesFromRealm()
+        pharmaciesArray = RealmDataManager.getPharmaciesFromRealm()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +41,10 @@ class PharmacyViewController: RootViewController {
     
     
     @IBAction func choosePharmacyButtonTapped(_ sender: UIButton) {
+        let buttonPosition:CGPoint = sender.convert(CGPoint.zero, to:pharmaciesTableViewOutlet)
+        let indexPath = pharmaciesTableViewOutlet.indexPathForRow(at: buttonPosition)!
         
+        delegate.pushToReviewOrderVC(pharmacyID: RealmDataManager.getPharmaciesFromRealm()[indexPath[1]].userId!)
     }
 }
 
@@ -54,15 +58,12 @@ extension PharmacyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let pharmacyCell = tableView.dequeueReusableCell(withIdentifier: "pharmacyCell") as! PharmacyTableViewCell
         
-        if test?.count != 0 {
-//            getImage(pictureUrl: test[indexPath.row]., onCompletion: <#T##(Bool, UIImage?) -> Void#>)
-            pharmacyCell.pharmacyPictureImageViewOutlet.image = UIImage(named: "bellPicture")
-            pharmacyCell.pharmacyNameLabelOutlet.text = test?[indexPath.row].pharmacyName
-            pharmacyCell.pharmacyAddressLabelOutlet.text = test?[indexPath.row].physicalAddress
-            pharmacyCell.pharmacyDayWorkingLabelOutlet.text = test?[indexPath.row].workTime
+        if pharmaciesArray?.count != 0 {
+            pharmacyCell.pharmacyNameLabelOutlet.text = pharmaciesArray?[indexPath.row].pharmacyName
+            pharmacyCell.pharmacyAddressLabelOutlet.text = pharmaciesArray?[indexPath.row].physicalAddress
+            pharmacyCell.pharmacyDayWorkingLabelOutlet.text = pharmaciesArray?[indexPath.row].workTime
+            pharmacyCell.idButtonHiddenOutlet.text = pharmaciesArray?[indexPath.row].userId
         }
-        
-        
         
         return pharmacyCell
     }

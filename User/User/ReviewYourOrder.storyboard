@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="PQk-NU-2cf">
-                                <rect key="frame" x="10" y="72" width="355" height="525"/>
+                                <rect key="frame" x="10" y="72" width="355" height="595"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="descriptionCell" rowHeight="67" id="eom-rU-09L" customClass="OrderReviewTableViewCell" customModule="User" customModuleProvider="target">
@@ -73,6 +73,38 @@
                                             <outlet property="orderMapViewOutlet" destination="hwb-JY-QuY" id="gPe-dP-H5M"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="pharmacyCell" rowHeight="65" id="qD1-1d-MVG" customClass="PharmacyOrderCell" customModule="User" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="342.5" width="355" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qD1-1d-MVG" id="Z6z-lN-QJd">
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="64.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PharmacyName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAG-eu-4hf">
+                                                    <rect key="frame" x="68" y="8" width="278" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PharmacyAddress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFg-uf-pOQ">
+                                                    <rect key="frame" x="68" y="33" width="278" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pharmacySign" translatesAutoresizingMaskIntoConstraints="NO" id="gCw-de-5gA">
+                                                    <rect key="frame" x="8" y="8" width="44" height="46"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="pharmacyAddressLabelOutlet" destination="cFg-uf-pOQ" id="K0R-yb-syv"/>
+                                            <outlet property="pharmacyNameLabelOutlet" destination="AAG-eu-4hf" id="YPm-xj-vea"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kY-cd-U1t">
@@ -85,6 +117,9 @@
                                 <state key="normal" title="Request price">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="requestPriceButtonTapped:" destination="f8W-rZ-l2a" eventType="touchUpInside" id="8sK-rh-J0K"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -93,7 +128,7 @@
                             <constraint firstItem="PQk-NU-2cf" firstAttribute="leading" secondItem="NBd-bp-81W" secondAttribute="leading" constant="10" id="BQP-xj-Ajf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7kY-cd-U1t" secondAttribute="trailing" constant="21" id="TGa-0W-d87"/>
                             <constraint firstItem="PQk-NU-2cf" firstAttribute="centerX" secondItem="7kY-cd-U1t" secondAttribute="centerX" id="vWW-L4-tDj"/>
-                            <constraint firstItem="7kY-cd-U1t" firstAttribute="top" secondItem="PQk-NU-2cf" secondAttribute="bottom" constant="20" id="w4z-Zw-V2Q"/>
+                            <constraint firstItem="7kY-cd-U1t" firstAttribute="top" secondItem="PQk-NU-2cf" secondAttribute="bottom" constant="-50" id="w4z-Zw-V2Q"/>
                             <constraint firstItem="gWL-ft-H3h" firstAttribute="top" secondItem="7kY-cd-U1t" secondAttribute="bottom" constant="20" id="yJr-oV-vip"/>
                         </constraints>
                     </view>
@@ -106,6 +141,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ytI-9i-zdh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1114.4000000000001" y="-278.41079460269867"/>
+        </scene>
+        <!--Order Sended Popup View Controller-->
+        <scene sceneID="TaK-Bw-JKA">
+            <objects>
+                <viewController storyboardIdentifier="kOrderSendedPopupViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="FeO-eY-lGO" customClass="OrderSendedPopupViewController" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wtf-M2-IaO"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gyt-yX-AEu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5EU-s9-A0k">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wkI-jH-tk9">
+                                <rect key="frame" x="46" y="162" width="282" height="213"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="😻" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRc-29-9LR">
+                                        <rect key="frame" x="117" y="8" width="51" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thank you for using Livia!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhH-IE-b4A">
+                                        <rect key="frame" x="27" y="58" width="228" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5n-hA-sj2">
+                                        <rect key="frame" x="199" y="175" width="63" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <state key="normal" title="CLOSE"/>
+                                        <connections>
+                                            <action selector="closeButtonTapped:" destination="FeO-eY-lGO" eventType="touchUpInside" id="SEZ-8v-Yt3"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Your order has been submitted successfully. You will shortly receive the BEST PRICE OFFER for the drug/items requested." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Kq8-o0-OLl">
+                                        <rect key="frame" x="22" y="87" width="240" height="92"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="closeButtonOutlet" destination="V5n-hA-sj2" id="saM-TR-u29"/>
+                        <outlet property="popupViewOutlet" destination="wkI-jH-tk9" id="9id-Yh-1sG"/>
+                        <outlet property="thankTextViewOutlet" destination="Kq8-o0-OLl" id="F5r-4l-VxV"/>
+                        <outlet property="thankUForUsingLiviaLabelOutlet" destination="VhH-IE-b4A" id="Uwd-Dn-QFB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="skN-gl-VRs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1932" y="-281.10944527736132"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IKA-G4-dPa">
@@ -126,4 +224,7 @@
             <point key="canvasLocation" x="175.19999999999999" y="-278.41079460269867"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pharmacySign" width="534" height="601"/>
+    </resources>
 </document>

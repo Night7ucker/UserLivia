@@ -41,6 +41,7 @@
 		CE4ABE061F83F22E0052EC10 /* SendOrdersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4ABE051F83F22E0052EC10 /* SendOrdersModel.swift */; };
 		CE4ABE091F83FBCC0052EC10 /* GetPharmaciesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4ABE081F83FBCC0052EC10 /* GetPharmaciesRequest.swift */; };
 		CE4ABE0B1F83FBD80052EC10 /* GetPharmaciesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4ABE0A1F83FBD80052EC10 /* GetPharmaciesModel.swift */; };
+		CE5207991F84D7DD00B697F9 /* OrderSendedPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5207981F84D7DD00B697F9 /* OrderSendedPopupViewController.swift */; };
 		CE5F4BEC1F77CC19009CBA5D /* Orders Appointments Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */; };
 		CE68E2F91F7C03AC002EE618 /* CityNameRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E2F81F7C03AC002EE618 /* CityNameRealmModel.swift */; };
 		CE6D40E61F7CF23D00C30EFA /* ReminderRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D40E51F7CF23D00C30EFA /* ReminderRequests.swift */; };
@@ -51,6 +52,8 @@
 		CE725FDE1F83AC2A009B8FC2 /* ReviewYourOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE725FDD1F83AC2A009B8FC2 /* ReviewYourOrder.storyboard */; };
 		CE725FE01F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE725FDF1F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift */; };
 		CE77533B1F84A1F1004E3F21 /* DeliveryTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77533A1F84A1F1004E3F21 /* DeliveryTypeTableViewCell.swift */; };
+		CE77533E1F84B6F8004E3F21 /* PharmacyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77533D1F84B6F8004E3F21 /* PharmacyInfoViewController.swift */; };
+		CE7753401F84BCB6004E3F21 /* PharmacyOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77533F1F84BCB6004E3F21 /* PharmacyOrderCell.swift */; };
 		CE798D1E1F7A7D7D00FDF83D /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */; };
 		CE798D201F7A81BF00FDF83D /* EditingProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */; };
 		CE798D231F7A828400FDF83D /* TermsAndConditions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */; };
@@ -162,6 +165,7 @@
 		CE4ABE051F83F22E0052EC10 /* SendOrdersModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendOrdersModel.swift; sourceTree = "<group>"; };
 		CE4ABE081F83FBCC0052EC10 /* GetPharmaciesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPharmaciesRequest.swift; sourceTree = "<group>"; };
 		CE4ABE0A1F83FBD80052EC10 /* GetPharmaciesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPharmaciesModel.swift; sourceTree = "<group>"; };
+		CE5207981F84D7DD00B697F9 /* OrderSendedPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSendedPopupViewController.swift; sourceTree = "<group>"; };
 		CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Orders Appointments Payments.storyboard"; sourceTree = "<group>"; };
 		CE68E2F81F7C03AC002EE618 /* CityNameRealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityNameRealmModel.swift; sourceTree = "<group>"; };
 		CE6D40E51F7CF23D00C30EFA /* ReminderRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderRequests.swift; sourceTree = "<group>"; };
@@ -172,6 +176,8 @@
 		CE725FDD1F83AC2A009B8FC2 /* ReviewYourOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReviewYourOrder.storyboard; sourceTree = "<group>"; };
 		CE725FDF1F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderReviewTableViewCell.swift; sourceTree = "<group>"; };
 		CE77533A1F84A1F1004E3F21 /* DeliveryTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryTypeTableViewCell.swift; sourceTree = "<group>"; };
+		CE77533D1F84B6F8004E3F21 /* PharmacyInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PharmacyInfoViewController.swift; sourceTree = "<group>"; };
+		CE77533F1F84BCB6004E3F21 /* PharmacyOrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PharmacyOrderCell.swift; sourceTree = "<group>"; };
 		CE798D1D1F7A7D7D00FDF83D /* EditProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
 		CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingProfileViewController.swift; sourceTree = "<group>"; };
 		CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TermsAndConditions.storyboard; sourceTree = "<group>"; };
@@ -391,6 +397,7 @@
 		CE4ABDFD1F83CEBF0052EC10 /* PharmacyModule */ = {
 			isa = PBXGroup;
 			children = (
+				CE77533C1F84B6E0004E3F21 /* PharmacyInfoPopup */,
 				CE4ABDFE1F83CEDB0052EC10 /* PharmacyViewController.swift */,
 				CE4ABE001F83DB5D0052EC10 /* PharmacyTableViewCell.swift */,
 			);
@@ -414,6 +421,14 @@
 				CE4ABE0A1F83FBD80052EC10 /* GetPharmaciesModel.swift */,
 			);
 			name = GetPharmaciesRequest;
+			sourceTree = "<group>";
+		};
+		CE5207971F84D7B100B697F9 /* OrderSendedPopupModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE5207981F84D7DD00B697F9 /* OrderSendedPopupViewController.swift */,
+			);
+			name = OrderSendedPopupModule;
 			sourceTree = "<group>";
 		};
 		CE6C7D561F82206F0023AFF1 /* TakePhotoofPresription */ = {
@@ -445,12 +460,22 @@
 		CE725FDA1F83ABBB009B8FC2 /* ReviewYourOrderModule */ = {
 			isa = PBXGroup;
 			children = (
+				CE5207971F84D7B100B697F9 /* OrderSendedPopupModule */,
 				CE725FDB1F83ABDD009B8FC2 /* ReviewYourOrdedViewController.swift */,
 				CE725FDF1F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift */,
 				CEAB79AE1F83B261006F7311 /* OrderMapTableViewCell.swift */,
 				CE77533A1F84A1F1004E3F21 /* DeliveryTypeTableViewCell.swift */,
+				CE77533F1F84BCB6004E3F21 /* PharmacyOrderCell.swift */,
 			);
 			name = ReviewYourOrderModule;
+			sourceTree = "<group>";
+		};
+		CE77533C1F84B6E0004E3F21 /* PharmacyInfoPopup */ = {
+			isa = PBXGroup;
+			children = (
+				CE77533D1F84B6F8004E3F21 /* PharmacyInfoViewController.swift */,
+			);
+			name = PharmacyInfoPopup;
 			sourceTree = "<group>";
 		};
 		CE798D211F7A81C200FDF83D /* EditingProfileModule */ = {
@@ -1053,11 +1078,13 @@
 				FB75CB4B1F828D750022B38D /* GoogleMapViewController.swift in Sources */,
 				FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */,
 				FB6BB31A1F7E607A00165BB2 /* DrugInfoViewController.swift in Sources */,
+				CE7753401F84BCB6004E3F21 /* PharmacyOrderCell.swift in Sources */,
 				CE725FE01F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift in Sources */,
 				CE3C59FE1F835BCF00345BB6 /* PlaceMarker.swift in Sources */,
 				CEA61BD01F756D9400BA1AED /* PopupCountryCodesTableViewController.swift in Sources */,
 				CEBA08881F7D232500CBFC43 /* CollapsibleSections.swift in Sources */,
 				CEBA08831F7D02D100CBFC43 /* SelectOrderTypeViewController.swift in Sources */,
+				CE5207991F84D7DD00B697F9 /* OrderSendedPopupViewController.swift in Sources */,
 				CE95905A1F7945DA00536DF7 /* ReminderModel.swift in Sources */,
 				FBA44C111F77C71B00687544 /* PhoneNumberModel.swift in Sources */,
 				CE4ABE091F83FBCC0052EC10 /* GetPharmaciesRequest.swift in Sources */,
@@ -1124,6 +1151,7 @@
 				FB75CB431F8240550022B38D /* AddToCartTableViewCell.swift in Sources */,
 				CE4ABDFC1F83CE0B0052EC10 /* PageMapAndPharmacyVC.swift in Sources */,
 				CEB75F1C1F7BA8A100986F1D /* GetCitiesRequest.swift in Sources */,
+				CE77533E1F84B6F8004E3F21 /* PharmacyInfoViewController.swift in Sources */,
 				CE725FDC1F83ABDD009B8FC2 /* ReviewYourOrdedViewController.swift in Sources */,
 				CEABE4251F76689B0041FAD5 /* SmsConfrimViewController.swift in Sources */,
 				7F862DBE1F82A19C0098ECA9 /* ContactsCell.swift in Sources */,
