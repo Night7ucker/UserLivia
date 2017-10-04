@@ -11,12 +11,13 @@ import UIKit
 class OrdersPageController: RootViewController {
 
     @IBOutlet weak var ordersPageTableView: UITableView!
+    var delegate: OrdersPageControllerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         ordersPageTableView.delegate = self
         ordersPageTableView.dataSource = self
+        ordersPageTableView.allowsSelection = true
     }
 
 }
@@ -72,6 +73,14 @@ extension OrdersPageController : UITableViewDataSource{
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        delegate.pushToOrderPageController(index: indexPath.row)
+    }
+    
+
+    
 }
 
 extension OrdersPageController : UITableViewDelegate{
@@ -91,6 +100,8 @@ extension OrdersPageController : UITableViewDelegate{
         
         return headerView
     }
+    
+
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50

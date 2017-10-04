@@ -27,7 +27,7 @@ class OrdersListRequest {
             "LiviaApp-APIVersion": "2.0"
         ]
         let parameters: Parameters = [
-            "limit": "20",
+            "limit": "50",
             "offset": "0"
         ]
         

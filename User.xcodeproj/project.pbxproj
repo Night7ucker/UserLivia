@@ -96,6 +96,8 @@
 		FB5FC54E1F7A44CD00F8658A /* UploadImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5FC54D1F7A44CD00F8658A /* UploadImageRequest.swift */; };
 		FB5FC5501F7A44DE00F8658A /* UploadImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5FC54F1F7A44DE00F8658A /* UploadImageModel.swift */; };
 		FB5FC5551F7A83B500F8658A /* RegistrationUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5FC5541F7A83B500F8658A /* RegistrationUserRequest.swift */; };
+		FB6AC0B01F84D161000F47CC /* OrderPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6AC0AF1F84D161000F47CC /* OrderPage.storyboard */; };
+		FB6AC0B31F84D27B000F47CC /* OrderPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AC0B21F84D27B000F47CC /* OrderPageViewController.swift */; };
 		FB6B62E31F78F07100AAB2F0 /* TokensModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B62E21F78F07100AAB2F0 /* TokensModel.swift */; };
 		FB6B62E51F78F0C400AAB2F0 /* GetTokensRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B62E41F78F0C400AAB2F0 /* GetTokensRequest.swift */; };
 		FB6BB3121F7E316300165BB2 /* DrugsInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6BB3111F7E316300165BB2 /* DrugsInfoTableViewCell.swift */; };
@@ -219,6 +221,8 @@
 		FB5FC54D1F7A44CD00F8658A /* UploadImageRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadImageRequest.swift; sourceTree = "<group>"; };
 		FB5FC54F1F7A44DE00F8658A /* UploadImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadImageModel.swift; sourceTree = "<group>"; };
 		FB5FC5541F7A83B500F8658A /* RegistrationUserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationUserRequest.swift; sourceTree = "<group>"; };
+		FB6AC0AF1F84D161000F47CC /* OrderPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OrderPage.storyboard; sourceTree = "<group>"; };
+		FB6AC0B21F84D27B000F47CC /* OrderPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderPageViewController.swift; sourceTree = "<group>"; };
 		FB6B62E21F78F07100AAB2F0 /* TokensModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokensModel.swift; sourceTree = "<group>"; };
 		FB6B62E41F78F0C400AAB2F0 /* GetTokensRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTokensRequest.swift; sourceTree = "<group>"; };
 		FB6BB3111F7E316300165BB2 /* DrugsInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugsInfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -302,6 +306,7 @@
 		7FE995371F7A905200E31AA2 /* OrdersPaymentsModule */ = {
 			isa = PBXGroup;
 			children = (
+				FB6AC0B11F84D261000F47CC /* OrderPageModule */,
 				7F6137F21F7B7E3500629AA7 /* OrdersPaymentsController.swift */,
 				CE3A42811F7F9F300016A0C7 /* PaymentsPageModule */,
 				CE3A427F1F7F9EAC0016A0C7 /* OrdersPageModule */,
@@ -527,6 +532,7 @@
 				FB75CB471F828D3F0022B38D /* GoogleMap.storyboard */,
 				CE725FDD1F83AC2A009B8FC2 /* ReviewYourOrder.storyboard */,
 				CEF4F2371F854D8900AD3A21 /* TakePhotoOfPrescription.storyboard */,
+				FB6AC0AF1F84D161000F47CC /* OrderPage.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -704,6 +710,14 @@
 				CEC6318A1F7BCDEB0024AFC1 /* UserModel.swift */,
 			);
 			name = UserRegistration;
+			sourceTree = "<group>";
+		};
+		FB6AC0B11F84D261000F47CC /* OrderPageModule */ = {
+			isa = PBXGroup;
+			children = (
+				FB6AC0B21F84D27B000F47CC /* OrderPageViewController.swift */,
+			);
+			name = OrderPageModule;
 			sourceTree = "<group>";
 		};
 		FB6B62E11F78F04800AAB2F0 /* GetTokensRequests */ = {
@@ -956,6 +970,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB6AC0B01F84D161000F47CC /* OrderPage.storyboard in Resources */,
 				7F2E150F1F83640D00038A13 /* AddToCart.storyboard in Resources */,
 				CE5F4BEC1F77CC19009CBA5D /* Orders Appointments Payments.storyboard in Resources */,
 				CE7B302A1F7B906E0023472F /* LoadingAnimation.storyboard in Resources */,
@@ -1078,6 +1093,7 @@
 				FB6BB31A1F7E607A00165BB2 /* DrugInfoViewController.swift in Sources */,
 				CE7753401F84BCB6004E3F21 /* PharmacyOrderCell.swift in Sources */,
 				CE725FE01F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift in Sources */,
+				FB6AC0B31F84D27B000F47CC /* OrderPageViewController.swift in Sources */,
 				CE3C59FE1F835BCF00345BB6 /* PlaceMarker.swift in Sources */,
 				CEA61BD01F756D9400BA1AED /* PopupCountryCodesTableViewController.swift in Sources */,
 				CE5207991F84D7DD00B697F9 /* OrderSendedPopupViewController.swift in Sources */,
