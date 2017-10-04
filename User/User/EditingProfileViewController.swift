@@ -272,7 +272,6 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
         self.imageStr = imageData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         let uploadImageObject = UploadImageRequest()
         uploadImageObject.uploadImage(imageString: self.imageStr)
-
         dismiss(animated: true, completion: nil)
     }
     

@@ -79,4 +79,12 @@ class RealmDataManager {
         let data = realm.objects(Pharmacy.self)
         return data
     }
+    static func getOrderDescriptionModelImage() -> Results<OrderDescriptionModelImage> {
+        let data = realm.objects(OrderDescriptionModelImage.self)
+        return data
+    }
+    static func getOrderDescriptionModel() -> Results<OrderDescriptionModel> {
+        let data = realm.objects(OrderDescriptionModel.self)
+        return data
+    }
 }

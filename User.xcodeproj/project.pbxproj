@@ -98,7 +98,11 @@
 		FB5FC5501F7A44DE00F8658A /* UploadImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5FC54F1F7A44DE00F8658A /* UploadImageModel.swift */; };
 		FB5FC5551F7A83B500F8658A /* RegistrationUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5FC5541F7A83B500F8658A /* RegistrationUserRequest.swift */; };
 		FB6AC0B01F84D161000F47CC /* OrderPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6AC0AF1F84D161000F47CC /* OrderPage.storyboard */; };
-		FB6AC0B31F84D27B000F47CC /* OrderPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AC0B21F84D27B000F47CC /* OrderPageViewController.swift */; };
+		FB6AC0B31F84D27B000F47CC /* OrderDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AC0B21F84D27B000F47CC /* OrderDescriptionViewController.swift */; };
+		FB6AC0B71F853EA4000F47CC /* OrderDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AC0B61F853EA4000F47CC /* OrderDescriptionTableViewCell.swift */; };
+		FB6AC0BA1F854FAD000F47CC /* GetOrderDescriptionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AC0B91F854FAD000F47CC /* GetOrderDescriptionRequest.swift */; };
+		FB6AC0BC1F85546A000F47CC /* OrderDescriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AC0BB1F85546A000F47CC /* OrderDescriptionModel.swift */; };
+		FB6AC0BE1F8577A8000F47CC /* CustomOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6AC0BD1F8577A8000F47CC /* CustomOrderCell.xib */; };
 		FB6B62E31F78F07100AAB2F0 /* TokensModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B62E21F78F07100AAB2F0 /* TokensModel.swift */; };
 		FB6B62E51F78F0C400AAB2F0 /* GetTokensRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B62E41F78F0C400AAB2F0 /* GetTokensRequest.swift */; };
 		FB6BB3121F7E316300165BB2 /* DrugsInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6BB3111F7E316300165BB2 /* DrugsInfoTableViewCell.swift */; };
@@ -224,7 +228,11 @@
 		FB5FC54F1F7A44DE00F8658A /* UploadImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadImageModel.swift; sourceTree = "<group>"; };
 		FB5FC5541F7A83B500F8658A /* RegistrationUserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationUserRequest.swift; sourceTree = "<group>"; };
 		FB6AC0AF1F84D161000F47CC /* OrderPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OrderPage.storyboard; sourceTree = "<group>"; };
-		FB6AC0B21F84D27B000F47CC /* OrderPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderPageViewController.swift; sourceTree = "<group>"; };
+		FB6AC0B21F84D27B000F47CC /* OrderDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDescriptionViewController.swift; sourceTree = "<group>"; };
+		FB6AC0B61F853EA4000F47CC /* OrderDescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		FB6AC0B91F854FAD000F47CC /* GetOrderDescriptionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOrderDescriptionRequest.swift; sourceTree = "<group>"; };
+		FB6AC0BB1F85546A000F47CC /* OrderDescriptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDescriptionModel.swift; sourceTree = "<group>"; };
+		FB6AC0BD1F8577A8000F47CC /* CustomOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomOrderCell.xib; sourceTree = "<group>"; };
 		FB6B62E21F78F07100AAB2F0 /* TokensModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokensModel.swift; sourceTree = "<group>"; };
 		FB6B62E41F78F0C400AAB2F0 /* GetTokensRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTokensRequest.swift; sourceTree = "<group>"; };
 		FB6BB3111F7E316300165BB2 /* DrugsInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugsInfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -718,9 +726,20 @@
 		FB6AC0B11F84D261000F47CC /* OrderPageModule */ = {
 			isa = PBXGroup;
 			children = (
-				FB6AC0B21F84D27B000F47CC /* OrderPageViewController.swift */,
+				FB6AC0B21F84D27B000F47CC /* OrderDescriptionViewController.swift */,
+				FB6AC0B61F853EA4000F47CC /* OrderDescriptionTableViewCell.swift */,
+				FB6AC0BD1F8577A8000F47CC /* CustomOrderCell.xib */,
 			);
 			name = OrderPageModule;
+			sourceTree = "<group>";
+		};
+		FB6AC0B81F854F8D000F47CC /* GetOrderDescriptionRequests */ = {
+			isa = PBXGroup;
+			children = (
+				FB6AC0B91F854FAD000F47CC /* GetOrderDescriptionRequest.swift */,
+				FB6AC0BB1F85546A000F47CC /* OrderDescriptionModel.swift */,
+			);
+			name = GetOrderDescriptionRequests;
 			sourceTree = "<group>";
 		};
 		FB6B62E11F78F04800AAB2F0 /* GetTokensRequests */ = {
@@ -847,6 +866,7 @@
 		FB958B851F752BBC0065B49C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FB6AC0B81F854F8D000F47CC /* GetOrderDescriptionRequests */,
 				FB75CB541F83BC530022B38D /* GetOrdersListRequests */,
 				CE4ABE021F83F1DA0052EC10 /* SendOrderRequests */,
 				FB75CB4F1F83A05C0022B38D /* GetOrdersCountRequests */,
@@ -984,6 +1004,7 @@
 				7F862DBF1F82A19C0098ECA9 /* ContactsCell.xib in Resources */,
 				CE725FDE1F83AC2A009B8FC2 /* ReviewYourOrder.storyboard in Resources */,
 				CE40CA801F78E619003BC535 /* RefillsAndReminders.storyboard in Resources */,
+				FB6AC0BE1F8577A8000F47CC /* CustomOrderCell.xib in Resources */,
 				7FBAFBB71F77D9D700BEB7F1 /* Settings.storyboard in Resources */,
 				FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */,
 				7F6D01D11F82444A00FA01E8 /* InviteFriends.storyboard in Resources */,
@@ -1091,11 +1112,12 @@
 				CEA61BCF1F756D9400BA1AED /* MakeOrderViewController.swift in Sources */,
 				CEAB79AF1F83B261006F7311 /* OrderMapTableViewCell.swift in Sources */,
 				FB75CB4B1F828D750022B38D /* GoogleMapViewController.swift in Sources */,
+				FB6AC0B71F853EA4000F47CC /* OrderDescriptionTableViewCell.swift in Sources */,
 				FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */,
 				FB6BB31A1F7E607A00165BB2 /* DrugInfoViewController.swift in Sources */,
 				CE7753401F84BCB6004E3F21 /* PharmacyOrderCell.swift in Sources */,
 				CE725FE01F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift in Sources */,
-				FB6AC0B31F84D27B000F47CC /* OrderPageViewController.swift in Sources */,
+				FB6AC0B31F84D27B000F47CC /* OrderDescriptionViewController.swift in Sources */,
 				CE3C59FE1F835BCF00345BB6 /* PlaceMarker.swift in Sources */,
 				CEA61BD01F756D9400BA1AED /* PopupCountryCodesTableViewController.swift in Sources */,
 				CEBA08881F7D232500CBFC43 /* CollapsibleSections.swift in Sources */,
@@ -1110,6 +1132,7 @@
 				FBD6BB1B1F7C161C007741DC /* GetDrugsViewController.swift in Sources */,
 				CEA61BD11F756D9400BA1AED /* RegistrationViewController.swift in Sources */,
 				FB6BB31E1F7E653000165BB2 /* DrugsDescriptionRequest.swift in Sources */,
+				FB6AC0BC1F85546A000F47CC /* OrderDescriptionModel.swift in Sources */,
 				CE40CA821F78E87D003BC535 /* RemindersViewController.swift in Sources */,
 				FB22C2331F77E752000EED58 /* CustomImageView.swift in Sources */,
 				FB6B62E31F78F07100AAB2F0 /* TokensModel.swift in Sources */,
@@ -1143,6 +1166,7 @@
 				CE4ABE011F83DB5D0052EC10 /* PharmacyTableViewCell.swift in Sources */,
 				FB5FC54E1F7A44CD00F8658A /* UploadImageRequest.swift in Sources */,
 				CE3A427D1F7F83430016A0C7 /* RootViewController.swift in Sources */,
+				FB6AC0BA1F854FAD000F47CC /* GetOrderDescriptionRequest.swift in Sources */,
 				7F6137F71F7B7F9400629AA7 /* PaymentPageCell.swift in Sources */,
 				7F2F05EA1F7D08150068964B /* OrderStatusCell.swift in Sources */,
 				FB75CB561F83BC8D0022B38D /* OrdersListModel.swift in Sources */,

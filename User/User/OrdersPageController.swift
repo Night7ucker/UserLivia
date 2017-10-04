@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class OrdersPageController: RootViewController {
 
@@ -24,31 +25,11 @@ class OrdersPageController: RootViewController {
 
 extension OrdersPageController : UITableViewDataSource{
      func numberOfSections(in tableView: UITableView) -> Int {
-        //Here will be number of months, which has orders
         return 1
     }
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //Here will be number of orders in one month
         return RealmDataManager.getOrdersListFromRealm().count
-        //will work only with data!!!!
-        //        let numberOfRowsInSection: Int = 0
-        //                if myArray.count > 0
-        //                {
-        //                    tableView.separatorStyle = .singleLine
-        //                    numberOfRowsInSection            = myArray.count
-        //                    tableView.backgroundView = nil
-        //                }
-        //                else
-        //                {
-        //        let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
-        //        noDataLabel.text          = "No apoointments available"
-        //        noDataLabel.textColor     = UIColor.black
-        //        noDataLabel.textAlignment = .center
-        //        tableView.backgroundView  = noDataLabel
-        //        tableView.separatorStyle  = .none
-        //                }
-        //        return numberOfRowsInSection
     }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,8 +56,24 @@ extension OrdersPageController : UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let realm = try! Realm()
+        if RealmDataManager.getOrderDescriptionModel().count > 0 {
+            try! realm.write {
+                realm.delete(RealmDataManager.getOrderDescriptionModel())
+            }
+        }
+        if RealmDataManager.getOrderDescriptionModelImage().count > 0 {
+            try! realm.write {
+                realm.delete(RealmDataManager.getOrderDescriptionModelImage())
+            }
+        }
         
-        delegate.pushToOrderPageController(index: indexPath.row)
+        GetOrderDescriptionRequest.getOrderDescription(orderId: RealmDataManager.getOrdersListFromRealm()[indexPath.row].orderId!) { (success) in
+            if success {
+               self.delegate.pushToOrderPageController(index: indexPath.row)
+            }
+        }
+        
     }
     
 

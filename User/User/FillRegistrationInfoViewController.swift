@@ -327,6 +327,7 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
         let uploadImageObject = UploadImageRequest()
         uploadImageObject.uploadImage(imageString: self.imageStr)
         dismiss(animated: true, completion: nil)
+        
     }
     
     

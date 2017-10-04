@@ -115,7 +115,7 @@ class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate, Orders
     
     func pushToOrderPageController(index: Int) {
         let orderPageStoryboard = UIStoryboard(name: "OrderPage", bundle: nil)
-        let orderPageViewController = orderPageStoryboard.instantiateViewController(withIdentifier: "kOrderPage") as! OrderPageViewController
+        let orderPageViewController = orderPageStoryboard.instantiateViewController(withIdentifier: "kOrderPage") as! OrderDescriptionViewController
         orderPageViewController.tappedCellIndex = index
         navigationController?.pushViewController(orderPageViewController, animated: false)
     }
