@@ -118,6 +118,9 @@ class ReviewYourOrdedViewController: RootViewController, OrderSendedPopupViewCon
     
     
     @IBAction func requestPriceButtonTapped(_ sender: UIButton) {
+        SendOrdersRequest.postRequestToOrderDrugs() { success in
+            
+        }
         let reviewOrderStoryboard = UIStoryboard(name: "ReviewYourOrder", bundle: nil)
         let orderSendedPopupViewController = reviewOrderStoryboard.instantiateViewController(withIdentifier: "kOrderSendedPopupViewController") as! OrderSendedPopupViewController
         orderSendedPopupViewController.delegate = self

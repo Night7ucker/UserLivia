@@ -11,6 +11,7 @@ import Alamofire
 import RealmSwift
 import AlamofireObjectMapper
 import ObjectMapper_Realm
+// request doesnt work with phrmacy
 
 class SendOrdersRequest {
     static func postRequestToOrderDrugs(completion: @escaping (Bool) -> Void) {
