@@ -19,8 +19,8 @@ class DrugsDescriptionRequest {
         let headers = [
             "Content-Type": "application/json",
             "LiviaApp-language": "en",
-            "LiviaApp-country": "ke", //RealmDataManager.getUserDataFromRealm()[0].countryCode!,
-            "LiviaApp-city": "200787", //RealmDataManager.getUserDataFromRealm()[0].cityId!,
+            "LiviaApp-country": RealmDataManager.getUserDataFromRealm()[0].countryCode!,
+            "LiviaApp-city": RealmDataManager.getUserDataFromRealm()[0].cityId!,
             "LiviaApp-APIVersion": "2.0",
             "LiviaApp-timezone": "180"
         ]
