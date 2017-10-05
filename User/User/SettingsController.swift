@@ -119,9 +119,20 @@ extension SettingsController : UITableViewDataSource{
                 signinViewController.delegate = self
                 self.present(signinViewController, animated: false, completion: nil)
             }
-        case 1, 3:
+        case 1:
             if RealmDataManager.getTokensFromRealm().count != 0 {
                 
+            } else {
+                let loadingAnimationStoryboard = UIStoryboard(name: "SigninViewStoryboard", bundle: nil)
+                let signinViewController = loadingAnimationStoryboard.instantiateViewController(withIdentifier: "kSigninViewController") as! SigninViewController
+                signinViewController.delegate = self
+                self.present(signinViewController, animated: false, completion: nil)
+            }
+        case 3:
+            if RealmDataManager.getTokensFromRealm().count != 0 {
+                let changePhoneNumberStoryboard = UIStoryboard(name: "ChangePhoneNumber", bundle: nil)
+                let changePhoneNumberViewController = changePhoneNumberStoryboard.instantiateViewController(withIdentifier: "kChangePhoneNumberVC") as! ChangePhoneNumberVC
+                self.navigationController?.pushViewController(changePhoneNumberViewController, animated: false)
             } else {
                 let loadingAnimationStoryboard = UIStoryboard(name: "SigninViewStoryboard", bundle: nil)
                 let signinViewController = loadingAnimationStoryboard.instantiateViewController(withIdentifier: "kSigninViewController") as! SigninViewController

@@ -127,6 +127,8 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
+        
+        
     }
     
     override func didReceiveMemoryWarning() {

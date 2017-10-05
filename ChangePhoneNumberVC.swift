@@ -29,13 +29,20 @@ class ChangePhoneNumberVC: RootViewController, PopupCountryCodesTableViewControl
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureNavigationBar()
+        addBackButtonAndTitleToNavigationBar(title: "Change phone number")
+        addCompleteChangesButtonAsRightBarButtonItem()
+        
 
-        previousPhoneCodeLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].phoneCode
+        previousPhoneCodeLabelOutlet.text = "+" + RealmDataManager.getUserDataFromRealm()[0].phoneCode!
+        newPhoneCodeLabelOutlet.text = "+" + RealmDataManager.getUserDataFromRealm()[0].phoneCode!
         previousPhoneNumberLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].phoneNumber
         let imageURL = "https://test.liviaapp.com" + getUserCountryImageURL(userPhoneCode: RealmDataManager.getUserDataFromRealm()[0].phoneCode!)!
         getImage(pictureUrl: imageURL) { success, image in
             if success {
                 self.previousCountryFlagImageViewOutlet.image = image
+                self.newPhoneNumberImageViewOutlet.image = image
             }
         }
         // Do any additional setup after loading the view.
@@ -46,9 +53,26 @@ class ChangePhoneNumberVC: RootViewController, PopupCountryCodesTableViewControl
         // Dispose of any resources that can be recreated.
     }
     
+    private func addCompleteChangesButtonAsRightBarButtonItem() {
+        let addReminderButton = UIButton(type: .system)
+        addReminderButton.frame = CGRect(x: 300, y: 0, width: 70, height: 100)
+        addReminderButton.setTitle("✓", for: .normal)
+        addReminderButton.titleLabel?.font = UIFont(name: "Arial", size: 25)
+        addReminderButton.titleLabel?.font = UIFont.systemFont(ofSize: 25, weight: UIFontWeightThin)
+        addReminderButton.setTitleColor(.white, for: .normal)
+        addReminderButton.titleEdgeInsets = UIEdgeInsetsMake(5, 5, 0, -60)
+        addReminderButton.addTarget(self, action: #selector(confirmedTapped(_ :)), for: .touchUpInside)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addReminderButton)
+    }
+    
+    func confirmedTapped(_ sender: UIButton) {
+        print("confirmedTapped")
+    }
+    
 
     func sendCountryInfo(index: Int) {
-        newPhoneCodeLabelOutlet.text = RealmDataManager.getDataFromCountries()[index].phoneCode
+        newPhoneCodeLabelOutlet.text = "+" + RealmDataManager.getDataFromCountries()[index].phoneCode!
         let imageURL = "https://test.liviaapp.com" + RealmDataManager.getDataFromCountries()[index].countryFlag!
         getImage(pictureUrl: imageURL) { success, image in
             if success {

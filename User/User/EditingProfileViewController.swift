@@ -135,6 +135,13 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
             }
         }
         
+        let realm = try! Realm()
+        let uploadImageModel = UploadImageModel()
+        uploadImageModel.imageUrl = RealmDataManager.getUserDataFromRealm()[0].avatar
+        try! realm.write {
+            realm.add(uploadImageModel)
+        }
+        
     }
     
     
