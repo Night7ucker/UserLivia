@@ -7,8 +7,22 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SettingsController: RootViewController {
+    
+    var listOfPrescriptionViewController: ListOfPrescriptionsVC {
+        let listOfPrescriptionsStoryboard = UIStoryboard(name: "ListOfPrescriptions", bundle: nil)
+        let listOfPrescriptionsVC = listOfPrescriptionsStoryboard.instantiateViewController(withIdentifier: "kListOfPrescriptionsVC")
+        as! ListOfPrescriptionsVC
+        return listOfPrescriptionsVC
+    }
+    
+    var regisrationViewController: RegistrationViewController {
+        let mainViewStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: nil)
+        let registrationVC = mainViewStoryboard.instantiateViewController(withIdentifier: "kRegistrationViewController") as! RegistrationViewController
+        return registrationVC
+    }
     
     @IBOutlet weak var settingsTableView: UITableView!
     override func viewDidLoad() {
@@ -85,6 +99,21 @@ extension SettingsController : UITableViewDataSource{
             break
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            navigationController?.pushViewController(listOfPrescriptionViewController, animated: false)
+        case 4, 5:
+            let realm = try! Realm()
+            try! realm.write {
+                realm.deleteAll()
+            }
+            navigationController?.pushViewController(regisrationViewController, animated: false)
+        default:
+            break
+        }
     }
 }
 

@@ -87,4 +87,8 @@ class RealmDataManager {
         let data = realm.objects(OrderDescriptionModel.self)
         return data
     }
+    static func getPrescriptionListModel() -> Results<PrescriptionModel> {
+        let data = realm.objects(PrescriptionModel.self)
+        return data
+    }
 }
