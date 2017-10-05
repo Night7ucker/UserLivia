@@ -130,7 +130,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bsU-fb-QsO">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pharmacySign" translatesAutoresizingMaskIntoConstraints="NO" id="bsU-fb-QsO">
                                                     <rect key="frame" x="8" y="8" width="43" height="52"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="52" id="GWc-YJ-L6n"/>
@@ -182,6 +182,13 @@
                                                         <action selector="choosePharmacyButtonTapped:" destination="aci-cj-Wen" eventType="touchUpInside" id="uxK-Jd-t5a"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJN-xc-Xac">
+                                                    <rect key="frame" x="242" y="0.0" width="17" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="96K-PM-ARU" secondAttribute="bottom" constant="1" id="2x5-bR-Mz8"/>
@@ -198,6 +205,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="choosePharmacyButtonOutlet" destination="96K-PM-ARU" id="hdR-iM-XWy"/>
+                                            <outlet property="idButtonHiddenOutlet" destination="KJN-xc-Xac" id="3ea-B4-zj5"/>
                                             <outlet property="pharmacyAddressLabelOutlet" destination="faH-za-HoF" id="4eH-Ra-qWj"/>
                                             <outlet property="pharmacyDayWorkingLabelOutlet" destination="SPW-fA-qFY" id="Bpg-Gc-ZIb"/>
                                             <outlet property="pharmacyNameLabelOutlet" destination="JXb-eC-U86" id="hu2-mA-xAT"/>
@@ -262,6 +270,91 @@
             </objects>
             <point key="canvasLocation" x="2712.8000000000002" y="894.60269865067471"/>
         </scene>
+        <!--Pharmacy Info View Controller-->
+        <scene sceneID="KNy-yx-yBJ">
+            <objects>
+                <viewController storyboardIdentifier="kPharmacyInfoViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="GMq-w9-RCS" customClass="PharmacyInfoViewController" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FVf-bq-EVP"/>
+                        <viewControllerLayoutGuide type="bottom" id="AtT-y0-RUn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aT2-8B-hgb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ehV-Z7-4Dn">
+                                <rect key="frame" x="29" y="130" width="317" height="196"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pharmacySign" translatesAutoresizingMaskIntoConstraints="NO" id="cKW-FG-Bcd">
+                                        <rect key="frame" x="118" y="8" width="80" height="84"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pharmacy name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cb-e1-d4e">
+                                        <rect key="frame" x="8" y="100" width="148" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dhw-kT-na9">
+                                        <rect key="frame" x="8" y="129" width="79" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHN-5b-wvl">
+                                        <rect key="frame" x="136" y="100" width="172" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ol-MB-ufd">
+                                        <rect key="frame" x="75" y="129" width="233" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pk7-ED-Iyl">
+                                        <rect key="frame" x="152" y="158" width="157" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <state key="normal" title="CHOOSE PHARMACY"/>
+                                        <connections>
+                                            <action selector="choosePharmacyButtonTapped:" destination="GMq-w9-RCS" eventType="touchUpInside" id="qOT-GV-KhA"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redCross" translatesAutoresizingMaskIntoConstraints="NO" id="a6F-JI-F5D">
+                                        <rect key="frame" x="278" y="8" width="30" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="693-Yp-RHH">
+                                        <rect key="frame" x="278" y="8" width="30" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="closeButtonTapped:" destination="GMq-w9-RCS" eventType="touchUpInside" id="TRa-ol-mUm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.56956335616438358" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="choosePharmacyButtonOutlet" destination="Pk7-ED-Iyl" id="yzJ-1B-bNd"/>
+                        <outlet property="pharmacyAddressLabelOutlet" destination="2ol-MB-ufd" id="OhO-CA-Jld"/>
+                        <outlet property="pharmacyNameLabelOutlet" destination="VHN-5b-wvl" id="yQB-18-JY0"/>
+                        <outlet property="popupViewOutlet" destination="ehV-Z7-4Dn" id="hfc-Rt-tlQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mfo-QI-VP1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3620" y="906.29685157421295"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="aUJ-Wi-mo5">
             <objects>
@@ -299,4 +392,8 @@
             <point key="canvasLocation" x="1773.5999999999999" y="894.60269865067471"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pharmacySign" width="534" height="601"/>
+        <image name="redCross" width="200" height="231"/>
+    </resources>
 </document>

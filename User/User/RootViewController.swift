@@ -15,6 +15,7 @@ class RootViewController: UIViewController {
         struct Root {
             static var lightBlueColor: UIColor { return UIColor(red: CGFloat(121/255.0), green: CGFloat(181/255.0), blue: CGFloat(208/255.0), alpha: CGFloat(1.0)) }
             static var lightGrayColor: UIColor { return UIColor( red: CGFloat(230/255.0), green: CGFloat(230/255.0), blue: CGFloat(230/255.0), alpha: CGFloat(1.0)) }
+            static var inProgressStatusColor: UIColor { return UIColor( red: CGFloat(122/255.0), green: CGFloat(162/255.0), blue: CGFloat(107/255.0), alpha: CGFloat(1.0)) }
             static var greenColorForNavigationBar: UIColor { return UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1) }
         }
     }
@@ -32,11 +33,11 @@ class RootViewController: UIViewController {
     func configureNavigationBar() {
         navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar
         
-        navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
-        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        navigationController?.navigationBar.layer.shadowRadius = 4.0
-        navigationController?.navigationBar.layer.shadowOpacity = 0.5
-        navigationController?.navigationBar.layer.masksToBounds = false
+//        navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
+//        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+//        navigationController?.navigationBar.layer.shadowRadius = 4.0
+//        navigationController?.navigationBar.layer.shadowOpacity = 0.5
+//        navigationController?.navigationBar.layer.masksToBounds = false
     }
     
     func addBackButtonAndTitleToNavigationBar(title: String) {

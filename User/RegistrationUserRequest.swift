@@ -41,10 +41,15 @@ class RegistrationUserRequest{
             
         Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseObject { (response: DataResponse
             <UserModel>) in
+            print(response)
             UserModel.writeIntoRealm(response: response)
             UserModel.writePhoneIntoRealm(codeIndex: codeIndex)
             completion(true)
-            }
+        }
     }
     
 }
+
+
+
+

@@ -11,8 +11,12 @@ import GoogleMaps
 import GooglePlaces
 import RealmSwift
 
-class GoogleMapViewController: RootViewController {
+protocol PharmacyInfoViewControllerDelegate {
+    func sentDelegateToPushToMainPageController(pharmacyID: String)
+}
 
+class GoogleMapViewController: RootViewController, PharmacyInfoViewControllerDelegate {
+    
     var firstLocationUpdate: Bool?
     var locationManager = CLLocationManager()
     
@@ -24,17 +28,18 @@ class GoogleMapViewController: RootViewController {
     var userCurrentLocation: CLLocationCoordinate2D!
     
     var isPaged = true
+    var delegate: GoogleMapViewControllerDelegate!
     
     @IBOutlet var setDeliveryPlaceMapView: GMSMapView!
-
+    
     @IBOutlet weak var topMajorViewOutlet: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//        navigationController?.navigationBar.shadowImage = UIImage()
-//        navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar
+        //        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        //        navigationController?.navigationBar.shadowImage = UIImage()
+        //        navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar
         
         configureNavigationBar()
         addBackButtonAndTitleToNavigationBar(title: "Select location")
@@ -50,11 +55,12 @@ class GoogleMapViewController: RootViewController {
                                                       longitude: userCurrentLocation.longitude,
                                                       zoom: 15)
         setDeliveryPlaceMapView.animate(to: newPinLocation)
-        
-        let infoMarker = PlaceMarker(place: currentPinLocation)
-        infoMarker.map = setDeliveryPlaceMapView
-        
-        setDeliveryPlaceMapView.selectedMarker = infoMarker
+        if isPaged == false {
+            let infoMarker = PlaceMarker(place: currentPinLocation)
+            infoMarker.map = setDeliveryPlaceMapView
+            
+            setDeliveryPlaceMapView.selectedMarker = infoMarker
+        }
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
@@ -62,26 +68,19 @@ class GoogleMapViewController: RootViewController {
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         
-        let deliverAtMyCurrentLocation = UIButton()
-        deliverAtMyCurrentLocation.setTitle("Deliver at my current location", for: .normal)
-        deliverAtMyCurrentLocation.layer.zPosition = 4
-        deliverAtMyCurrentLocation.layer.cornerRadius = 2
-        deliverAtMyCurrentLocation.addTarget(self, action: #selector(deliveryButtonTapped(_:)), for: .touchUpInside)
-        deliverAtMyCurrentLocation.titleLabel?.font = deliverAtMyCurrentLocation.titleLabel?.font.withSize(13)
-        deliverAtMyCurrentLocation.backgroundColor = Colors.Root.lightBlueColor
-        deliverAtMyCurrentLocation.setTitleColor(.white, for: .normal)
-        
-        
-        view.addSubview(deliverAtMyCurrentLocation)
-        
-        if isPaged {
-            deliverAtMyCurrentLocation.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                (deliverAtMyCurrentLocation.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120)),
-                (deliverAtMyCurrentLocation.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20)),
-                (deliverAtMyCurrentLocation.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)),
-                ])
-        } else {
+        if isPaged == false {
+            let deliverAtMyCurrentLocation = UIButton()
+            deliverAtMyCurrentLocation.setTitle("Deliver at my current location", for: .normal)
+            deliverAtMyCurrentLocation.layer.zPosition = 4
+            deliverAtMyCurrentLocation.layer.cornerRadius = 2
+            deliverAtMyCurrentLocation.addTarget(self, action: #selector(deliveryButtonTapped(_:)), for: .touchUpInside)
+            deliverAtMyCurrentLocation.titleLabel?.font = deliverAtMyCurrentLocation.titleLabel?.font.withSize(13)
+            deliverAtMyCurrentLocation.backgroundColor = Colors.Root.lightBlueColor
+            deliverAtMyCurrentLocation.setTitleColor(.white, for: .normal)
+            
+            
+            view.addSubview(deliverAtMyCurrentLocation)
+            
             deliverAtMyCurrentLocation.frame = CGRect(x: 35, y: 620, width: 300, height: 30)
         }
         
@@ -131,11 +130,23 @@ class GoogleMapViewController: RootViewController {
         searchController?.searchBar.sizeToFit()
         searchController?.hidesNavigationBarDuringPresentation = false
         
-        
-        
-
         definesPresentationContext = true
         
+        if isPaged {
+            let choosedLocation = CLLocationCoordinate2D(latitude: Double(RealmDataManager.getSendingOrderFromRealm()[0].latitude!)!, longitude: Double(RealmDataManager.getSendingOrderFromRealm()[0].longtitude!)!)
+            //            let choosedLocation = CLLocationCoordinate2D(latitude: 53.9181001, longitude: 27.590105)
+            GetPharmaciesRequest.getPharmacies(coordinate: choosedLocation) { success in
+                if success {
+                    self.addPinsOnPharmaciesCoordinates()
+                }
+            }
+            
+            //            let pharmaciesArray = RealmDataManager.getPharmaciesFromRealm()
+            //            for i in 0..<pharmaciesArray.count {
+            //                let infoMarker = PlaceMarker(place: CLLocationCoordinate2D(latitude: Double(pharmaciesArray[i].latitude!)!, longitude: Double(pharmaciesArray[i].longtitude!)!))
+            //                infoMarker.map = setDeliveryPlaceMapView
+            //            }
+        }
         
     }
     
@@ -143,95 +154,145 @@ class GoogleMapViewController: RootViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(false)
-        
-        let objectToWriteCoordinates = RealmDataManager.getSendingOrderFromRealm()[0]
-        let realm = try! Realm()
-        try! realm.write {
-            objectToWriteCoordinates.latitude = String(currentPinLocation.latitude)
-            objectToWriteCoordinates.longtitude = String(currentPinLocation.longitude)
-        }
+    func sentDelegateToPushToMainPageController(pharmacyID: String) {
+        delegate.pushToReviewOrderVC(pharmacyID: pharmacyID)
     }
     
     func addPinsOnPharmaciesCoordinates() {
         for i in 0..<RealmDataManager.getPharmaciesFromRealm().count {
             let pharmacyCoordinates = CLLocationCoordinate2D(latitude: Double(RealmDataManager.getPharmaciesFromRealm()[i].latitude!)!, longitude: Double(RealmDataManager.getPharmaciesFromRealm()[i].longtitude!)!)
             let infoMarker = PlaceMarker(place: pharmacyCoordinates)
+            infoMarker.title = RealmDataManager.getPharmaciesFromRealm()[i].userId
             infoMarker.map = setDeliveryPlaceMapView
         }
     }
     
     func currentLocationButtonTapped(_ sender: UIButton) {
-        setDeliveryPlaceMapView.clear()
+        if isPaged == false {
+            setDeliveryPlaceMapView.clear()
+        }
         let newPinLocation = GMSCameraPosition.camera(withLatitude: userCurrentLocation.latitude,
                                                       longitude: userCurrentLocation.longitude,
                                                       zoom: setDeliveryPlaceMapView.camera.zoom)
         setDeliveryPlaceMapView.animate(to: newPinLocation)
+        if isPaged == false {
+            let currentLocation = CLLocationCoordinate2D(latitude: userCurrentLocation.latitude, longitude: userCurrentLocation.longitude)
+            let infoMarker = PlaceMarker(place: currentLocation)
+            infoMarker.map = setDeliveryPlaceMapView
+            
+            setDeliveryPlaceMapView.selectedMarker = infoMarker
+            currentPinLocation = currentLocation
+        }
         
-        let currentLocation = CLLocationCoordinate2D(latitude: userCurrentLocation.latitude, longitude: userCurrentLocation.longitude)
-        let infoMarker = PlaceMarker(place: currentLocation)
-        infoMarker.map = setDeliveryPlaceMapView
-        
-        setDeliveryPlaceMapView.selectedMarker = infoMarker
-        currentPinLocation = currentLocation
     }
     
     func deliveryButtonTapped(_ sender: UIButton) {
         if Int(RealmDataManager.getSendingOrderFromRealm()[0].manual!)! == 1 {
+            let objectToWriteCoordinates = RealmDataManager.getSendingOrderFromRealm()[0]
+            let realm = try! Realm()
+            try! realm.write {
+                objectToWriteCoordinates.latitude = String(currentPinLocation.latitude)
+                objectToWriteCoordinates.longtitude = String(currentPinLocation.longitude)
+            }
+            
             let googleMapStoryboard = UIStoryboard(name: "GoogleMap", bundle: nil)
             let googleMapViewController = googleMapStoryboard.instantiateViewController(withIdentifier: "kPageMapAndPharmacyVC") as? PageMapAndPharmacyVC
             navigationController?.pushViewController(googleMapViewController!, animated: false)
         } else {
+            let objectToWriteCoordinates = RealmDataManager.getSendingOrderFromRealm()[0]
+            let realm = try! Realm()
+            try! realm.write {
+                objectToWriteCoordinates.latitude = String(currentPinLocation.latitude)
+                objectToWriteCoordinates.longtitude = String(currentPinLocation.longitude)
+            }
             let reviewYourOrder = UIStoryboard(name: "ReviewYourOrder", bundle: nil)
             let reviewYourOrderViewController = reviewYourOrder.instantiateViewController(withIdentifier: "kReviewYourOrdedViewController") as! ReviewYourOrdedViewController
             navigationController?.pushViewController(reviewYourOrderViewController, animated: false)
         }
     }
-
+    
 }
 
 extension GoogleMapViewController: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         
-        let calloutView = UIView()
-        calloutView.frame = CGRect(x: 0, y: 0, width: 145, height: 25)
-        calloutView.layer.cornerRadius = 3
-        calloutView.backgroundColor = .white
+        if isPaged == false {
+            let calloutView = UIView()
+            calloutView.frame = CGRect(x: 0, y: 0, width: 145, height: 25)
+            calloutView.layer.cornerRadius = 3
+            calloutView.backgroundColor = .white
+            
+            let calloutViewLabel = UILabel()
+            calloutViewLabel.text = "Set Delivery Location >"
+            calloutViewLabel.textColor = Colors.Root.lightBlueColor
+            calloutViewLabel.font = calloutViewLabel.font.withSize(12)
+            calloutViewLabel.frame = CGRect(x: 5, y: 3, width: 140, height: 20)
+            
+            calloutView.addSubview(calloutViewLabel)
+            
+            return calloutView
+        }
+        return UIView()
         
-        let calloutViewLabel = UILabel()
-        calloutViewLabel.text = "Set Delivery Location >"
-        calloutViewLabel.textColor = Colors.Root.lightBlueColor
-        calloutViewLabel.font = calloutViewLabel.font.withSize(12)
-        calloutViewLabel.frame = CGRect(x: 5, y: 3, width: 140, height: 20)
-        
-        calloutView.addSubview(calloutViewLabel)
-        
-        return calloutView
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        if isPaged {
+            let googleMapStoryboard = UIStoryboard(name: "GoogleMap", bundle: nil)
+            let pharmacyInfoPopupViewController = googleMapStoryboard.instantiateViewController(withIdentifier: "kPharmacyInfoViewController") as! PharmacyInfoViewController
+            pharmacyInfoPopupViewController.tappedPharmacyId = marker.title
+            pharmacyInfoPopupViewController.delegate = self
+            present(pharmacyInfoPopupViewController, animated: false, completion: nil)
+            return true
+        }
+        return false
     }
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        currentPinLocation = marker.position
-        let reviewYourOrder = UIStoryboard(name: "ReviewYourOrder", bundle: nil)
-        let reviewYourOrderViewController = reviewYourOrder.instantiateViewController(withIdentifier: "kReviewYourOrdedViewController") as! ReviewYourOrdedViewController
-        navigationController?.pushViewController(reviewYourOrderViewController, animated: false)
+        if isPaged == false {
+            currentPinLocation = marker.position
+            if Int(RealmDataManager.getSendingOrderFromRealm()[0].manual!)! == 1 {
+                let objectToWriteCoordinates = RealmDataManager.getSendingOrderFromRealm()[0]
+                let realm = try! Realm()
+                try! realm.write {
+                    objectToWriteCoordinates.latitude = String(currentPinLocation.latitude)
+                    objectToWriteCoordinates.longtitude = String(currentPinLocation.longitude)
+                }
+                
+                let googleMapStoryboard = UIStoryboard(name: "GoogleMap", bundle: nil)
+                let googleMapViewController = googleMapStoryboard.instantiateViewController(withIdentifier: "kPageMapAndPharmacyVC") as? PageMapAndPharmacyVC
+                navigationController?.pushViewController(googleMapViewController!, animated: false)
+            } else {
+                let objectToWriteCoordinates = RealmDataManager.getSendingOrderFromRealm()[0]
+                let realm = try! Realm()
+                try! realm.write {
+                    objectToWriteCoordinates.latitude = String(currentPinLocation.latitude)
+                    objectToWriteCoordinates.longtitude = String(currentPinLocation.longitude)
+                }
+                let reviewYourOrder = UIStoryboard(name: "ReviewYourOrder", bundle: nil)
+                let reviewYourOrderViewController = reviewYourOrder.instantiateViewController(withIdentifier: "kReviewYourOrdedViewController") as! ReviewYourOrdedViewController
+                navigationController?.pushViewController(reviewYourOrderViewController, animated: false)
+            }
+        }
     }
     
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        mapView.clear()
-        
-        let newPinLocation = GMSCameraPosition.camera(withLatitude: coordinate.latitude,
-                                              longitude: coordinate.longitude,
-                                              zoom: mapView.camera.zoom)
-        mapView.animate(to: newPinLocation)
-        
-        
-        let infoMarker = PlaceMarker(place: coordinate)
-        infoMarker.map = mapView
-        
-        mapView.selectedMarker = infoMarker
-        currentPinLocation = coordinate
+        if isPaged == false {
+            mapView.clear()
+            
+            let newPinLocation = GMSCameraPosition.camera(withLatitude: coordinate.latitude,
+                                                          longitude: coordinate.longitude,
+                                                          zoom: mapView.camera.zoom)
+            mapView.animate(to: newPinLocation)
+            
+            
+            let infoMarker = PlaceMarker(place: coordinate)
+            infoMarker.map = mapView
+            
+            mapView.selectedMarker = infoMarker
+            currentPinLocation = coordinate
+        }
     }
 }
 

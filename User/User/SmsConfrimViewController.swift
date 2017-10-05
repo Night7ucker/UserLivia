@@ -62,7 +62,7 @@ class SmsConfrimViewController: RootViewController {
         confirmButtonOutlet.layer.cornerRadius = 2
         confirmButtonOutlet.backgroundColor = Colors.Root.lightBlueColor
         timerButtonOutlet.layer.cornerRadius = 2
-        
+        textViewForCodeOutlet.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
@@ -179,5 +179,15 @@ class SmsConfrimViewController: RootViewController {
     
     func hideErrorView() {
         wrongAuthCodeView.isHidden = true
+    }
+}
+
+extension SmsConfrimViewController: UITextFieldDelegate  {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 4
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
     }
 }

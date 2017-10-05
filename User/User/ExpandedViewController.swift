@@ -196,6 +196,15 @@ class ExpandedViewController: RootViewController, UITableViewDataSource, UITable
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         let realm = try! Realm()
+        
+        let sendingOrdersToDelete = RealmDataManager.getSendingOrderFromRealm()
+        if sendingOrdersToDelete.count != 0 {
+            try! realm.write {
+                realm.delete(sendingOrdersToDelete)
+            }
+        }
+        
+        
         let objToWriteCheckboxes = SendOrdersModel()
         try! realm.write {
             objToWriteCheckboxes.manual = String(whichRowIsChecked)

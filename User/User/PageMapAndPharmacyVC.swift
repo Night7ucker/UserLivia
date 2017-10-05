@@ -9,8 +9,11 @@
 import UIKit
 import PageMenu
 
+protocol GoogleMapViewControllerDelegate {
+    func pushToReviewOrderVC(pharmacyID: String)
+}
 
-class PageMapAndPharmacyVC: RootViewController, CAPSPageMenuDelegate {
+class PageMapAndPharmacyVC: RootViewController, CAPSPageMenuDelegate, GoogleMapViewControllerDelegate {
     var pageMenu : CAPSPageMenu?
     var controllerArray : [UIViewController] = []
     
@@ -27,16 +30,19 @@ class PageMapAndPharmacyVC: RootViewController, CAPSPageMenuDelegate {
 //        let newColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
 //        navigationController?.navigationBar.barTintColor = newColor
 //        navigationController?.navigationBar.backgroundColor = .black
-        configureNavigationBar()
-        addBackButtonAndTitleToNavigationBar(title: "Status")
+        navigationController?.navigationBar.layer.masksToBounds = true
+        addBackButtonAndTitleToNavigationBar(title: "Choose pharmacy")
         
-        let controllerOne = newViewControllerToInstantiate(name: "kGoogleMapViewController")
-        controllerOne.title = "Map"
+        let controllerOne = newViewControllerToInstantiate(name: "kGoogleMapViewController") as! GoogleMapViewController
+        controllerOne.isPaged = true
+        controllerOne.delegate = self
+        controllerOne.title = "GOOGLE MAP VIEW"
         
         controllerArray.append(controllerOne)
         
-        let controllerTwo = newViewControllerToInstantiate(name: "kPharmacyViewController")
-        controllerTwo.title = "Choose pharmacy"
+        let controllerTwo = newViewControllerToInstantiate(name: "kPharmacyViewController") as! PharmacyViewController
+        controllerTwo.title = "LIST VIEW"
+        controllerTwo.delegate = self
         controllerArray.append(controllerTwo)
         
         let font = UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightRegular)
@@ -61,6 +67,13 @@ class PageMapAndPharmacyVC: RootViewController, CAPSPageMenuDelegate {
         
         self.view.addSubview(pageMenu!.view)
         
+    }
+    
+    func pushToReviewOrderVC(pharmacyID: String) {
+        let reviewOrderStoryboard = UIStoryboard(name: "ReviewYourOrder", bundle: nil)
+        let reviewYourOrderViewController = reviewOrderStoryboard.instantiateViewController(withIdentifier: "kReviewYourOrdedViewController") as! ReviewYourOrdedViewController
+        reviewYourOrderViewController.pharmacyID = pharmacyID
+        navigationController?.pushViewController(reviewYourOrderViewController, animated: false)
     }
     
     

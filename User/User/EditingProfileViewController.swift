@@ -106,18 +106,6 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
         
         loadingAnimationViewController = (loadingAnimationStroyboard.instantiateViewController(withIdentifier: "kLoadingAnimationViewController") as? LoadingAnimationViewController)!
         
-        let imageUploadRealmObject = RealmDataManager.getImageUrlFromRealm()
-        
-        avatarToken = imageUploadRealmObject.addNotificationBlock { change in
-            switch change {
-            case .update:
-                self.loadingAnimationViewController.dismiss(animated: false, completion: nil)
-                self.confrimedTapped(UIButton())
-            default:
-                break
-            }
-        }
-        
         userTitleLabelOutlet.text = RealmDataManager.getUserDataFromRealm()[0].namePrefix!
         userNameTextFieldOutlet.text = RealmDataManager.getUserDataFromRealm()[0].firstName!
         userLastnameTextFieldOutlet.text = RealmDataManager.getUserDataFromRealm()[0].lastName!
@@ -209,6 +197,8 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
                         }
                     }
                 }
+            } else {
+                addTokenOnImageUploading()
             }
             
         } else {
@@ -216,6 +206,23 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
             surnameFieldErrorAppear = true
             ageFieldErrorAppear = true
             emailFieldErrorAppear = true
+        }
+    }
+    
+    func addTokenOnImageUploading() {
+        
+        
+        let imageUploadRealmObject = RealmDataManager.getImageUrlFromRealm()
+        
+        avatarToken = imageUploadRealmObject.addNotificationBlock { change in
+            switch change {
+            case .update:
+                self.loadingAnimationViewController.dismiss(animated: false) {
+                    self.confrimedTapped(UIButton())
+                }
+            default:
+                break
+            }
         }
     }
     
@@ -272,7 +279,6 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
         self.imageStr = imageData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         let uploadImageObject = UploadImageRequest()
         uploadImageObject.uploadImage(imageString: self.imageStr)
-
         dismiss(animated: true, completion: nil)
     }
     

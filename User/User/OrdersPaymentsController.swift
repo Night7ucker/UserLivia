@@ -13,8 +13,11 @@ protocol SavePopoverDataDelegate {
     func saveCheckBoxes(checkes : [Int])
 }
 
+protocol OrdersPageControllerDelegate {
+    func pushToOrderPageController(index: Int)
+}
 
-class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate{
+class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate, OrdersPageControllerDelegate {
     var pageMenu : CAPSPageMenu?
     var controllerArray : [UIViewController] = []
     
@@ -28,17 +31,20 @@ class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let newColor = UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1)
+        let newColor = Colors.Root.greenColorForNavigationBar
         navigationController?.navigationBar.barTintColor = newColor
         navigationController?.navigationBar.backgroundColor = .black
-        
-        
+        navigationController?.navigationBar.layer.shadowOpacity = 0
+
+        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 0)
+        navigationController?.navigationBar.layer.shadowRadius = 0
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "⇅", style: .plain, target: self, action: #selector(showInfoPopover))
         navigationItem.rightBarButtonItem?.tintColor = .white
         addBackButtonAndTitleToNavigationBar(title: "Status")
         
-        let controllerOne = self.newColoredViewController(name: "ordersPageVC")
+        let controllerOne = self.newColoredViewController(name: "ordersPageVC") as! OrdersPageController
         controllerOne.title = "ORDERS"
+        controllerOne.delegate = self
         
         controllerArray.append(controllerOne)
         
@@ -51,7 +57,7 @@ class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate{
         //Custom CAPSPageMenu
         let parameters: [CAPSPageMenuOption] = [
             .menuHeight(39),
-            .scrollMenuBackgroundColor((navigationController?.navigationBar.barTintColor)!),
+            .scrollMenuBackgroundColor(newColor),
             .viewBackgroundColor(.white),
             .menuItemSeparatorWidth(10.0),
             .enableHorizontalBounce(false),
@@ -68,6 +74,11 @@ class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate{
         pageMenu!.delegate = self
         
         self.view.addSubview(pageMenu!.view)
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
 
     }
     
@@ -100,6 +111,13 @@ class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate{
             
             navigationItem.rightBarButtonItem = button
         }
+    }
+    
+    func pushToOrderPageController(index: Int) {
+        let orderPageStoryboard = UIStoryboard(name: "OrderPage", bundle: nil)
+        let orderPageViewController = orderPageStoryboard.instantiateViewController(withIdentifier: "kOrderPage") as! OrderDescriptionViewController
+        orderPageViewController.tappedCellIndex = index
+        navigationController?.pushViewController(orderPageViewController, animated: false)
     }
     
     

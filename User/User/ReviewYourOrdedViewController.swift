@@ -22,17 +22,52 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import RealmSwift
 
-class ReviewYourOrdedViewController: RootViewController {
+protocol OrderSendedPopupViewControllerDelegate {
+    func pushtToMainScreenController()
+}
 
+class ReviewYourOrdedViewController: RootViewController, OrderSendedPopupViewControllerDelegate {
+    
     @IBOutlet weak var requestPriceButtonOutlet: UIButton!
     @IBOutlet weak var reviewYourOrderTableViewOutlet: UITableView!
     
-    let sectionNames = ["Drugs:", "Location:", "Order Type:"]
+    var sectionNames = ["Drugs:", "Location:", "Order Type:"]
     var arrayOfOrderedDrugs = [String]()
+    
+    var pharmacyID: String? = nil
+    var pharmacy: Pharmacy?
+    
+    var mainScreenViewController: MainScreenController {
+        let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
+        let mainScreenViewController = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as! MainScreenController
+        return mainScreenViewController
+    }
+    
+    var loadingViewController: LoadingAnimationViewController {
+        let loadingAnimationStoryboard = UIStoryboard(name: "LoadingAnimation", bundle: nil)
+        let loadingAnimationViewController = loadingAnimationStoryboard.instantiateViewController(withIdentifier: "kLoadingAnimationViewController") as! LoadingAnimationViewController
+        return loadingAnimationViewController
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let realm = try! Realm()
+        try! realm.write {
+            RealmDataManager.getSendingOrderFromRealm()[0].pharmID = pharmacyID
+        }
+        
+        if pharmacyID != nil {
+            sectionNames.append("Pharmacy:")
+            let pharmaciesArray = RealmDataManager.getPharmaciesFromRealm()
+            for pharmacyElement in pharmaciesArray {
+                if pharmacyElement.userId == pharmacyID {
+                    pharmacy = pharmacyElement
+                }
+            }
+        }
         
         reviewYourOrderTableViewOutlet.delegate = self
         reviewYourOrderTableViewOutlet.dataSource = self
@@ -40,28 +75,68 @@ class ReviewYourOrdedViewController: RootViewController {
         
         configureNavigationBar()
         addBackButtonAndTitleToNavigationBar(title: "Review your order")
-
+        
         
         view.backgroundColor = Colors.Root.lightGrayColor
         requestPriceButtonOutlet.backgroundColor = Colors.Root.lightBlueColor
         reviewYourOrderTableViewOutlet.separatorStyle = .none
-//        reviewYourOrderTableViewOutlet.isScrollEnabled = false
         reviewYourOrderTableViewOutlet.backgroundColor = Colors.Root.lightGrayColor
         
         
         let orderedDrugs = RealmDataManager.getAddedDrugsDataFromRealm()
         for i in 0..<orderedDrugs.count {
             let stringToAppend = "- " + orderedDrugs[i].brandName!
-            let secondStringToAppend = "(" + String(orderedDrugs[i].amount) + orderedDrugs[i].quantityMeasuring! + ")"
+            var secondStringToAppend = String()
+            if orderedDrugs[i].quantityMeasuring != nil {
+                secondStringToAppend = "(" + String(orderedDrugs[i].amount) + orderedDrugs[i].quantityMeasuring! + ")"
+            } else{
+                secondStringToAppend = "(" + String(orderedDrugs[i].amount) + ")"
+            }
+            
             let finalString = stringToAppend + secondStringToAppend
             arrayOfOrderedDrugs.append(finalString)
         }
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    func pushtToMainScreenController() {
+        // form request here
+        
+        
+        let realm = try! Realm()
+        if RealmDataManager.getAddedDrugsDataFromRealm().count != 0 {
+            try! realm.write {
+                realm.delete(RealmDataManager.getAddedDrugsDataFromRealm())
+            }
+        }
+        navigationController?.pushViewController(mainScreenViewController, animated: false)
+    }
+    
+    
+    @IBAction func requestPriceButtonTapped(_ sender: UIButton) {
+        SendOrdersRequest.postRequestToOrderDrugs() { success in
+            
+        }
+        let reviewOrderStoryboard = UIStoryboard(name: "ReviewYourOrder", bundle: nil)
+        let orderSendedPopupViewController = reviewOrderStoryboard.instantiateViewController(withIdentifier: "kOrderSendedPopupViewController") as! OrderSendedPopupViewController
+        orderSendedPopupViewController.delegate = self
+        self.present(orderSendedPopupViewController, animated: false)
+//        present(loadingViewController, animated: false)
+//        SendOrdersRequest.postRequestToOrderDrugs() { (success) in
+//            DispatchQueue.main.sync {
+//                self.loadingViewController.dismiss(animated: false, completion: nil)
+//                let reviewOrderStoryboard = UIStoryboard(name: "ReviewYourOrder", bundle: nil)
+//                let orderSendedPopupViewController = reviewOrderStoryboard.instantiateViewController(withIdentifier: "kOrderSendedPopupViewController") as! OrderSendedPopupViewController
+//                orderSendedPopupViewController.delegate = self
+//                self.present(orderSendedPopupViewController, animated: false)
+//            }
+//        }
+        // navigation controller visible view controller 
+        // napiat' poptoviewcontroller
     }
 }
 
@@ -70,7 +145,6 @@ extension ReviewYourOrdedViewController: UITableViewDataSource {
         return sectionNames.count
     }
     
-    // There is just one row in every section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
@@ -79,20 +153,13 @@ extension ReviewYourOrdedViewController: UITableViewDataSource {
             return 1
         case 2:
             return 1
+        case 3:
+            return 1
         default:
             return 0
         }
     }
     
-    
-    
-    // Set the spacing between sections
-    
-    
-    // Make the background color show through
-    
-    
-    // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
@@ -119,7 +186,13 @@ extension ReviewYourOrdedViewController: UITableViewDataSource {
             }
             return deliveryCell
             
+        case 3:
+            let pharmacyCell = tableView.dequeueReusableCell(withIdentifier: "pharmacyCell") as! PharmacyOrderCell
             
+            pharmacyCell.pharmacyNameLabelOutlet.text = pharmacy?.pharmacyName
+            pharmacyCell.pharmacyAddressLabelOutlet.text = pharmacy?.physicalAddress
+            
+            return pharmacyCell
         default:
             return UITableViewCell()
         }
@@ -156,6 +229,8 @@ extension ReviewYourOrdedViewController: UITableViewDelegate {
             return 200
         case 2:
             return 30
+        case 3:
+            return 65
         default:
             return 0
         }

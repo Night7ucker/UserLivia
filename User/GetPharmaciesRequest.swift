@@ -14,9 +14,9 @@ import ObjectMapper_Realm
 import GoogleMaps
 
 class GetPharmaciesRequest {
-    static func getPharmacies(coordinate: CLLocationCoordinate2D) {
-        let url = "https://test.liviaapp.com/api/order?latitude=\(coordinate.latitude)&longtitude=\(coordinate.longitude)"
-        
+    static func getPharmacies(coordinate: CLLocationCoordinate2D, completion: @escaping (Bool) -> Void) {
+        let url = "https://test.liviaapp.com/api/order?latitude=\(coordinate.latitude)&longitude=\(coordinate.longitude)"
+    
         let headers = [
             "Content-Type": "application/json",
             "LiviaApp-Token": RealmDataManager.getTokensFromRealm()[0].accessToken!,
@@ -27,9 +27,14 @@ class GetPharmaciesRequest {
             "LiviaApp-APIVersion": "2.0"
         ]
         
+//        Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+//            print(response.result.value)
+//        }
+        
         Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).responseObject { (response: DataResponse
             <MappedPharmacyModel>) in
             MappedPharmacyModel.writeIntoRealm(response: response)
+            completion(true)
         }
     }
 }
