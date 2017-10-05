@@ -29,6 +29,7 @@ class GetOrderDescriptionRequest{
         ]
         
         Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+
             guard let result = response.result.value as? [String : AnyObject] else{ return }
             let checkForImage = result["image"] as? String
             if checkForImage != nil {
@@ -37,12 +38,14 @@ class GetOrderDescriptionRequest{
                 orderDescObject.selfCollect = result["self_collect"] as? String
                 RealmDataManager.writeIntoRealm(object: orderDescObject)
             } else {
+                
                 let array = result["drugs"] as? [[String: AnyObject]]
                 for element in array! {
                     let orderDescObject = OrderDescriptionModel()
                     orderDescObject.drugName = element["drug_name"] as? String
                     orderDescObject.quantity = element["quantity"] as? String
                     orderDescObject.quantityMeasuring = element["quantity_measuring"] as? String
+                    orderDescObject.selfCollect = result["self_collect"] as? String
                     RealmDataManager.writeIntoRealm(object: orderDescObject)
                 }
 

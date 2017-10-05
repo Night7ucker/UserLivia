@@ -79,7 +79,7 @@ class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate, Orders
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
-
+            navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar   
     }
     
      func showInfoPopover() {
