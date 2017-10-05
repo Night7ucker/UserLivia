@@ -76,7 +76,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AFZ-xu-4ea" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dJq-CL-qVp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dJq-CL-qVp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -121,7 +121,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="89" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RO8-8D-uf6">
-                                <rect key="frame" x="1" y="113" width="375" height="554"/>
+                                <rect key="frame" x="1" y="113" width="375" height="488"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -254,7 +254,7 @@
                         <constraints>
                             <constraint firstItem="RO8-8D-uf6" firstAttribute="top" secondItem="mUD-IV-j5l" secondAttribute="bottom" constant="49" id="PzY-st-shZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RBk-3V-dmd" secondAttribute="trailing" constant="-16" id="Zyk-R5-LnX"/>
-                            <constraint firstItem="RO8-8D-uf6" firstAttribute="bottom" secondItem="meU-9T-Wdb" secondAttribute="top" id="cRL-TR-SHa"/>
+                            <constraint firstItem="RO8-8D-uf6" firstAttribute="bottom" secondItem="meU-9T-Wdb" secondAttribute="top" constant="-66" id="cRL-TR-SHa"/>
                             <constraint firstItem="RBk-3V-dmd" firstAttribute="top" secondItem="mUD-IV-j5l" secondAttribute="bottom" id="cfi-ex-z7W"/>
                             <constraint firstAttribute="trailing" secondItem="RO8-8D-uf6" secondAttribute="trailing" constant="-1" id="eb8-Tq-u2P"/>
                             <constraint firstItem="RO8-8D-uf6" firstAttribute="leading" secondItem="JSY-KS-ANv" secondAttribute="leading" constant="1" id="kah-0G-KyH"/>
@@ -362,7 +362,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KHb-k6-8Xn" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dGq-ll-1kk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dGq-ll-1kk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -380,7 +380,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WsI-em-Dv1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xaX-FN-6JP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xaX-FN-6JP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

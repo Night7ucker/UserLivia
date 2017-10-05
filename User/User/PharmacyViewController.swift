@@ -53,7 +53,7 @@ extension PharmacyViewController: UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return RealmDataManager.getPharmaciesFromRealm().count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let pharmacyCell = tableView.dequeueReusableCell(withIdentifier: "pharmacyCell") as! PharmacyTableViewCell
