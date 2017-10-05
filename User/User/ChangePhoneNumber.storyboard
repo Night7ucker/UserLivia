@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Change Phone NumberVC-->
         <scene sceneID="Ozj-Bc-qN3">
             <objects>
-                <viewController id="IcL-yz-5QW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="kChangePhoneNumberVC" id="IcL-yz-5QW" customClass="ChangePhoneNumberVC" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6E7-f7-AQY"/>
                         <viewControllerLayoutGuide type="bottom" id="ZDm-eo-bTA"/>
@@ -51,10 +51,6 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEV-Ic-myf">
-                                        <rect key="frame" x="0.0" y="37" width="99" height="54"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f05-27-o2q" userLabel="LeftGrayLine">
                                         <rect key="frame" x="0.0" y="90" width="99" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -81,6 +77,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lr9-qL-PqV">
                                         <rect key="frame" x="0.0" y="128" width="99" height="54"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="countryCodeAndFlagTapped:" destination="IcL-yz-5QW" eventType="touchUpInside" id="3GC-CE-joH"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e63-aK-Ezs" userLabel="LeftGrayLine">
                                         <rect key="frame" x="0.0" y="181" width="99" height="1"/>
@@ -103,10 +102,10 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3S-IL-UqO">
-                                        <rect key="frame" x="150" y="63" width="179" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="phoneNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3S-IL-UqO">
+                                        <rect key="frame" x="150" y="53" width="179" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -117,6 +116,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="dKB-1c-jpS"/>
+                    <connections>
+                        <outlet property="newPhoneCodeLabelOutlet" destination="BKJ-bs-u1i" id="YB6-Fq-faZ"/>
+                        <outlet property="newPhoneNumberImageViewOutlet" destination="CLA-Xm-Axl" id="33k-ST-DID"/>
+                        <outlet property="newPhoneNumberTextFieldOutlet" destination="5Vs-Tm-oLE" id="WzA-ML-31g"/>
+                        <outlet property="previousCountryFlagImageViewOutlet" destination="X3t-dR-4UM" id="0NF-Gr-5II"/>
+                        <outlet property="previousPhoneCodeLabelOutlet" destination="VYw-SI-IiL" id="yuN-Rf-07u"/>
+                        <outlet property="previousPhoneNumberLabelOutlet" destination="u3S-IL-UqO" id="ktB-Iq-Q59"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQg-Jn-iR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -59,6 +59,7 @@
 		CE798D231F7A828400FDF83D /* TermsAndConditions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */; };
 		CE798D251F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE798D241F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift */; };
 		CE7B302A1F7B906E0023472F /* LoadingAnimation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7B30291F7B906E0023472F /* LoadingAnimation.storyboard */; };
+		CE81353E1F86600B00FB550E /* ChangePhoneNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81353D1F86600B00FB550E /* ChangePhoneNumberVC.swift */; };
 		CE95905A1F7945DA00536DF7 /* ReminderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9590591F7945DA00536DF7 /* ReminderModel.swift */; };
 		CE95905C1F79473800536DF7 /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95905B1F79473800536DF7 /* ReminderTableViewCell.swift */; };
 		CE9D723F1F82A80F00BF1805 /* NumberAndTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D723E1F82A80F00BF1805 /* NumberAndTypeTableViewCell.swift */; };
@@ -196,6 +197,7 @@
 		CE798D221F7A828400FDF83D /* TermsAndConditions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TermsAndConditions.storyboard; sourceTree = "<group>"; };
 		CE798D241F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsWebViewViewController.swift; sourceTree = "<group>"; };
 		CE7B30291F7B906E0023472F /* LoadingAnimation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoadingAnimation.storyboard; sourceTree = "<group>"; };
+		CE81353D1F86600B00FB550E /* ChangePhoneNumberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePhoneNumberVC.swift; sourceTree = SOURCE_ROOT; };
 		CE9590591F7945DA00536DF7 /* ReminderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderModel.swift; sourceTree = "<group>"; };
 		CE95905B1F79473800536DF7 /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
 		CE9D723E1F82A80F00BF1805 /* NumberAndTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberAndTypeTableViewCell.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 		7FBAFBBD1F77DAE500BEB7F1 /* SettingsMenuModule */ = {
 			isa = PBXGroup;
 			children = (
+				CE81353C1F865FF600FB550E /* ChangePhoneNumberModule */,
 				CEF2EBC31F863253002A1B20 /* ListOfPrescriptionsModule */,
 				FB22C22E1F77E6BE000EED58 /* SettingsController.swift */,
 			);
@@ -509,6 +512,14 @@
 				CE798D1F1F7A81BF00FDF83D /* EditingProfileViewController.swift */,
 			);
 			name = EditingProfileModule;
+			sourceTree = "<group>";
+		};
+		CE81353C1F865FF600FB550E /* ChangePhoneNumberModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE81353D1F86600B00FB550E /* ChangePhoneNumberVC.swift */,
+			);
+			name = ChangePhoneNumberModule;
 			sourceTree = "<group>";
 		};
 		CE9D723D1F82A7F200BF1805 /* PopupDrugNumberModule */ = {
@@ -1243,6 +1254,7 @@
 				FB22C2351F77E91B000EED58 /* MainScreenController.swift in Sources */,
 				7F6D01D41F82453000FA01E8 /* InviteFriendsController.swift in Sources */,
 				CEC6318B1F7BCDEB0024AFC1 /* UserModel.swift in Sources */,
+				CE81353E1F86600B00FB550E /* ChangePhoneNumberVC.swift in Sources */,
 				FB5FC5501F7A44DE00F8658A /* UploadImageModel.swift in Sources */,
 				CE4ABE0B1F83FBD80052EC10 /* GetPharmaciesModel.swift in Sources */,
 				FBD74BA71F7B84C300FA2BFE /* GetUserProfileRequest.swift in Sources */,
