@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 class ListOfPrescriptionsVC: RootViewController {
-
+    
     @IBOutlet weak var listOfPrescriptionsTableViewOutlet: UITableView!
     
     override func viewDidLoad() {
@@ -18,7 +18,9 @@ class ListOfPrescriptionsVC: RootViewController {
         
         if RealmDataManager.getPrescriptionListModel().count != 0 {
             let realm = try! Realm()
-            realm.delete(RealmDataManager.getPrescriptionListModel())
+            try! realm.write {
+                realm.delete(RealmDataManager.getPrescriptionListModel())
+            }
         }
         
         configureNavigationBar()
@@ -35,11 +37,11 @@ class ListOfPrescriptionsVC: RootViewController {
             }
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
 }
 
 extension ListOfPrescriptionsVC: UITableViewDataSource {
@@ -69,8 +71,6 @@ extension ListOfPrescriptionsVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCell = tableView.cellForRow(at: indexPath) as! PrescriptionCell
-        
         let listOfPrescriptionsStoryboard = UIStoryboard(name: "ListOfPrescriptions", bundle: nil)
         let showPhotoViewController = listOfPrescriptionsStoryboard.instantiateViewController(withIdentifier: "kShowPhotoViewController") as! ShowPhotoViewController
         showPhotoViewController.indexOfSelectedCell = indexPath.row
