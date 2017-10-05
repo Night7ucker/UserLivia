@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="U3R-xC-Cii">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pharmacy DetailsVC-->
+        <scene sceneID="cAZ-iu-gKp">
+            <objects>
+                <viewController storyboardIdentifier="kPharmacyDetailsVC" automaticallyAdjustsScrollViewInsets="NO" id="qz8-oc-QLI" customClass="PharmacyDetailsVC" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vPW-Nm-ms0"/>
+                        <viewControllerLayoutGuide type="bottom" id="V92-Aj-dtg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v2R-UX-04e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pharmacySign" translatesAutoresizingMaskIntoConstraints="NO" id="8Pz-dL-g55">
+                                <rect key="frame" x="16" y="82" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="00p-Bo-EM6"/>
+                                    <constraint firstAttribute="width" constant="90" id="6Hr-3R-7Ux"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PharmacyName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdK-4K-KbZ">
+                                <rect key="frame" x="114" y="95" width="245" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="245" id="Qmt-4H-xEb"/>
+                                    <constraint firstAttribute="height" constant="21" id="rqA-TB-tNr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="kPW-Q4-lE8">
+                                <rect key="frame" x="16" y="194" width="343" height="453"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="453" id="01n-Jf-4Gz"/>
+                                    <constraint firstAttribute="width" constant="343" id="NTN-3x-HsM"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="pharmacyAdminCell" rowHeight="68" id="ohj-4E-izT" customClass="PharmacyAdminCell" customModule="User" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="343" height="68"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ohj-4E-izT" id="flX-nm-J1D">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="67.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pharmacy admin:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Mq-RT-9kK">
+                                                    <rect key="frame" x="8" y="8" width="133" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Sh3-2g-BFW"/>
+                                                        <constraint firstAttribute="width" constant="133" id="ZyI-NY-edI"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PharmacyName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21z-19-A9T">
+                                                    <rect key="frame" x="8" y="38" width="103" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="COq-no-s7q"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phoneIcon" translatesAutoresizingMaskIntoConstraints="NO" id="0JN-vQ-vB8">
+                                                    <rect key="frame" x="295" y="15" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="Ccd-af-EXS"/>
+                                                        <constraint firstAttribute="height" constant="50" id="o5G-fS-fDm"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AdminPhoneNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NF-k8-dhG">
+                                                    <rect key="frame" x="116" y="38" width="134" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phoneSmallIcon" translatesAutoresizingMaskIntoConstraints="NO" id="kbG-Aj-CdF">
+                                                    <rect key="frame" x="311" y="28" width="18" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="18" id="2H5-0G-LNs"/>
+                                                        <constraint firstAttribute="height" constant="16" id="jon-n3-15A"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0JN-vQ-vB8" firstAttribute="top" secondItem="flX-nm-J1D" secondAttribute="topMargin" constant="7" id="3Cn-bc-MHk"/>
+                                                <constraint firstItem="kbG-Aj-CdF" firstAttribute="leading" secondItem="0JN-vQ-vB8" secondAttribute="trailing" constant="-34" id="4Vd-64-Jrw"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="8Mq-RT-9kK" secondAttribute="leading" id="LYd-CC-egM"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="21z-19-A9T" secondAttribute="bottom" constant="4.5" id="Msg-Aw-b4y"/>
+                                                <constraint firstAttribute="topMargin" secondItem="8Mq-RT-9kK" secondAttribute="top" id="Py7-XE-2OH"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="5NF-k8-dhG" secondAttribute="bottom" constant="4.5" id="Wb2-CB-Sbf"/>
+                                                <constraint firstItem="5NF-k8-dhG" firstAttribute="leading" secondItem="21z-19-A9T" secondAttribute="trailing" constant="5" id="b0L-G9-75U"/>
+                                                <constraint firstItem="0JN-vQ-vB8" firstAttribute="top" secondItem="kbG-Aj-CdF" secondAttribute="bottom" constant="-29" id="bzL-a1-YtH"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="0JN-vQ-vB8" secondAttribute="trailing" constant="-10" id="gK2-a4-Hff"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="21z-19-A9T" secondAttribute="leading" id="i3v-fU-T67"/>
+                                                <constraint firstItem="5NF-k8-dhG" firstAttribute="height" secondItem="21z-19-A9T" secondAttribute="height" id="j76-0s-8W6"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0JN-vQ-vB8" secondAttribute="bottom" constant="-5.5" id="miz-rU-Mng"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="pharmacyAdminNameLabelOutlet" destination="21z-19-A9T" id="41N-Ck-SYo"/>
+                                            <outlet property="pharmacyAdminPhoneNumberLabelOutlet" destination="5NF-k8-dhG" id="R8H-pc-Vu2"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="workingHoursCell" rowHeight="44" id="MIH-CC-TF7" customClass="WorkingHoursCell" customModule="User" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="123.5" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MIH-CC-TF7" id="h6j-hc-XuZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Working hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIc-Fz-gMo">
+                                                    <rect key="frame" x="116.5" y="10" width="110" height="22.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iIc-Fz-gMo" firstAttribute="top" secondItem="h6j-hc-XuZ" secondAttribute="topMargin" constant="2" id="Dtd-bP-zcO"/>
+                                                <constraint firstItem="iIc-Fz-gMo" firstAttribute="centerY" secondItem="h6j-hc-XuZ" secondAttribute="centerY" id="e1M-YU-Qb2"/>
+                                                <constraint firstItem="iIc-Fz-gMo" firstAttribute="centerX" secondItem="h6j-hc-XuZ" secondAttribute="centerX" id="keQ-KP-vNm"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="pharmacyOnMapCell" rowHeight="220" id="d1f-ki-sCa" customClass="PharmacyOnMapCell" customModule="User" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="167.5" width="343" height="220"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d1f-ki-sCa" id="XH6-F2-cS0">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="219.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gal-xm-bmv" customClass="GMSMapView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="150"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="343" id="8OD-u7-kin"/>
+                                                        <constraint firstAttribute="height" constant="150" id="FFF-cD-qp5"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View pharmacy on map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCr-lK-nga">
+                                                    <rect key="frame" x="8" y="176" width="179" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="179" id="JtC-2t-yet"/>
+                                                        <constraint firstAttribute="height" constant="21" id="cHl-bO-LTa"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phoneIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Wfc-nj-XXZ">
+                                                    <rect key="frame" x="295" y="166" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="snT-ol-lSS"/>
+                                                        <constraint firstAttribute="height" constant="50" id="xXJ-ZP-b3M"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapIcon" translatesAutoresizingMaskIntoConstraints="NO" id="NOH-rw-Qnr">
+                                                    <rect key="frame" x="311" y="178" width="18" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="B6p-bb-70G"/>
+                                                        <constraint firstAttribute="width" constant="18" id="pf5-LU-yRj"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="NOH-rw-Qnr" firstAttribute="top" secondItem="gal-xm-bmv" secondAttribute="bottom" constant="28" id="6QX-k8-guA"/>
+                                                <constraint firstItem="xCr-lK-nga" firstAttribute="centerY" secondItem="Wfc-nj-XXZ" secondAttribute="centerY" constant="-4.5" id="Anv-dp-pW2"/>
+                                                <constraint firstItem="xCr-lK-nga" firstAttribute="leading" secondItem="XH6-F2-cS0" secondAttribute="leadingMargin" id="JWf-NP-O8h"/>
+                                                <constraint firstItem="NOH-rw-Qnr" firstAttribute="centerX" secondItem="Wfc-nj-XXZ" secondAttribute="centerX" id="WV2-eC-UIk"/>
+                                                <constraint firstItem="Wfc-nj-XXZ" firstAttribute="leading" secondItem="xCr-lK-nga" secondAttribute="trailing" constant="108" id="dpx-4g-VJ3"/>
+                                                <constraint firstItem="xCr-lK-nga" firstAttribute="top" secondItem="gal-xm-bmv" secondAttribute="bottom" constant="26" id="l8T-fi-gpZ"/>
+                                                <constraint firstItem="gal-xm-bmv" firstAttribute="leading" secondItem="XH6-F2-cS0" secondAttribute="leading" id="sua-rY-KXb"/>
+                                                <constraint firstItem="gal-xm-bmv" firstAttribute="top" secondItem="XH6-F2-cS0" secondAttribute="top" id="uVf-nk-hGh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="pharmacyOnMapViewOutlet" destination="gal-xm-bmv" id="ip5-rO-0gN"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="kPW-Q4-lE8" secondAttribute="leading" id="6Dc-6g-oFR"/>
+                            <constraint firstItem="V92-Aj-dtg" firstAttribute="top" secondItem="kPW-Q4-lE8" secondAttribute="bottom" constant="20" id="EUo-mk-PwC"/>
+                            <constraint firstItem="XdK-4K-KbZ" firstAttribute="top" secondItem="vPW-Nm-ms0" secondAttribute="bottom" constant="31" id="d4x-Vm-1xR"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="8Pz-dL-g55" secondAttribute="leading" id="njd-J4-XNw"/>
+                            <constraint firstItem="8Pz-dL-g55" firstAttribute="top" secondItem="vPW-Nm-ms0" secondAttribute="bottom" constant="18" id="qu4-Dq-JMD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XdK-4K-KbZ" secondAttribute="trailing" id="zwt-EY-quQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="OaC-9q-9FX"/>
+                    <connections>
+                        <outlet property="pharmacyDetailsTableViewOutlet" destination="kPW-Q4-lE8" id="isw-wo-5zu"/>
+                        <outlet property="pharmacyImageViewOutlet" destination="8Pz-dL-g55" id="8UR-EN-jQd"/>
+                        <outlet property="pharmacyNameLabelOutlet" destination="XdK-4K-KbZ" id="rmN-uL-CAx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nh3-SF-jGG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1383.2" y="-151.57421289355324"/>
+        </scene>
+        <!--Work DaysVC-->
+        <scene sceneID="nGV-Q2-p9h">
+            <objects>
+                <viewController storyboardIdentifier="kWorkDaysVC" automaticallyAdjustsScrollViewInsets="NO" id="PZe-ib-xfh" customClass="WorkDaysVC" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fsY-AD-R2Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="U18-Dg-VKV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cF6-fO-0J5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iAU-76-hTC">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="o2K-rr-N1O">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o2K-rr-N1O" id="dsL-zR-PnO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="workDaysCell" rowHeight="89" id="qdG-c0-o6O" customClass="WorkDaysCell" customModule="User" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="89"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qdG-c0-o6O" id="IXN-aA-znh">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Working -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efP-fh-Anh">
+                                                    <rect key="frame" x="80" y="19" width="68" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="workDayBackgroundGreen" translatesAutoresizingMaskIntoConstraints="NO" id="Fm0-uP-895">
+                                                    <rect key="frame" x="8" y="19" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="08:46 - 21:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DQ-uf-ax1">
+                                                    <rect key="frame" x="151" y="21" width="106" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Launch break -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zkb-ke-5ER">
+                                                    <rect key="frame" x="80" y="48" width="116" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="13:00 - 14:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8g-pp-A34">
+                                                    <rect key="frame" x="192" y="48" width="103" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="monday" translatesAutoresizingMaskIntoConstraints="NO" id="kpO-IH-9Xs">
+                                                    <rect key="frame" x="18" y="29" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="launchBreakLabelOutlet" destination="s8g-pp-A34" id="TyW-e4-gKl"/>
+                                            <outlet property="workDayBackgroundOutlet" destination="Fm0-uP-895" id="11B-qg-FQe"/>
+                                            <outlet property="workDayImageViewOutlet" destination="kpO-IH-9Xs" id="cXX-g1-Zb1"/>
+                                            <outlet property="workingTimeLabelOutlet" destination="5DQ-uf-ax1" id="555-Bu-ZVS"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fN7-vz-CFq"/>
+                    <connections>
+                        <outlet property="workDaysTableViewOutlet" destination="iAU-76-hTC" id="Jcj-ez-Cg0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WpZ-Bb-lRv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3124" y="-151.57421289355324"/>
+        </scene>
+        <!--Pharmacy LocationVC-->
+        <scene sceneID="PMb-aM-3Gv">
+            <objects>
+                <viewController storyboardIdentifier="kPharmacyLocationVC" id="4ru-CU-UIZ" customClass="PharmacyLocationVC" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rR3-8U-Afd"/>
+                        <viewControllerLayoutGuide type="bottom" id="1gU-So-v7I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G9h-Zc-R2w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GEm-DS-utm" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sfa-03-1sB"/>
+                    <connections>
+                        <outlet property="pharmacyMapView" destination="GEm-DS-utm" id="l5s-bN-tzf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OTA-0R-SId" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5136.8000000000002" y="-152.47376311844079"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Icw-dy-d0N">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="U3R-xC-Cii" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rwz-vp-OXN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qz8-oc-QLI" kind="relationship" relationship="rootViewController" id="oEb-iQ-4A9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8KP-GK-Kfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="444" y="-151.57421289355324"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0HE-Tm-aOv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JFc-Ne-PU1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="b2v-sv-4ef">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="PZe-ib-xfh" kind="relationship" relationship="rootViewController" id="TbX-OC-n7H"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kHz-6R-gfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2184.8000000000002" y="-152.47376311844079"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rzc-uV-AtO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XII-oB-ZRU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="o6A-m6-Pd3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4ru-CU-UIZ" kind="relationship" relationship="rootViewController" id="6zd-4c-RNA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z4e-gg-OFg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4197.6000000000004" y="-152.47376311844079"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mapIcon" width="37" height="35"/>
+        <image name="monday" width="66" height="23"/>
+        <image name="pharmacySign" width="534" height="601"/>
+        <image name="phoneIcon" width="120" height="120"/>
+        <image name="phoneSmallIcon" width="34" height="34"/>
+        <image name="workDayBackgroundGreen" width="99" height="98"/>
+    </resources>
+</document>

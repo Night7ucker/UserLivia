@@ -46,7 +46,7 @@ class MakeOrderViewController: RootViewController, BottomPopupForPrescriptionVCD
     }
     
     func showImagePickerCamera() {
-        if !UIImagePickerController.isSourceTypeAvailable(.camera){
+        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
             
             let alertController = UIAlertController.init(title: nil, message: "Device has no camera.", preferredStyle: .alert)
             
@@ -57,7 +57,7 @@ class MakeOrderViewController: RootViewController, BottomPopupForPrescriptionVCD
             self.present(alertController, animated: true, completion: nil)
             
         }
-        else{
+        else {
             picker.allowsEditing = false
             picker.sourceType = .camera
             picker.cameraCaptureMode = .photo
