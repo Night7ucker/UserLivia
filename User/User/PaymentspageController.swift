@@ -57,7 +57,7 @@ extension PaymentsPageController : UITableViewDataSource{
         let cell : PaymentPageCell = tableView.dequeueReusableCell(withIdentifier: "PaymentsPageCell", for: indexPath) as! PaymentPageCell
         
         cell.fillCellInfo(priceOfOrder: "1000 BYN", dateAndId: "12.09.2017/001", cardNumber: "1234 **** **** 9876", typeOfCardImage: #imageLiteral(resourceName: "typeOfCardImage"))
-        
+        cell.isHidden = false
         return cell
     }
     
