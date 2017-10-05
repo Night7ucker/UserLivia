@@ -53,7 +53,7 @@ class RootViewController: UIViewController {
         let titleLabel = UILabel()
         titleLabel.text = title
         titleLabel.textColor = .white
-        titleLabel.frame = CGRect(x: 0, y: 0, width: 150, height: 30)
+        titleLabel.frame = CGRect(x: 0, y: 0, width: 250, height: 30)
         let titleLabelBarButton = UIBarButtonItem(customView: titleLabel)
         
         navigationItem.setLeftBarButtonItems([backButtonBarButton, titleLabelBarButton], animated: true)
