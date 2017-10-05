@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 class ExpandedViewController: RootViewController, UITableViewDataSource, UITableViewDelegate, SectionHeaderViewDelegate {
-
+    
     @IBOutlet weak var expandedTableViewOutlet: UITableView!
     
     @IBOutlet weak var nextButtonOutlet: UIButton!
@@ -48,22 +48,22 @@ class ExpandedViewController: RootViewController, UITableViewDataSource, UITable
         view.backgroundColor = Colors.Root.lightGrayColor
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -204,7 +204,6 @@ class ExpandedViewController: RootViewController, UITableViewDataSource, UITable
             }
         }
         
-        
         let objToWriteCheckboxes = SendOrdersModel()
         try! realm.write {
             objToWriteCheckboxes.manual = String(whichRowIsChecked)
@@ -212,10 +211,11 @@ class ExpandedViewController: RootViewController, UITableViewDataSource, UITable
             realm.add(objToWriteCheckboxes)
         }
         
+        
         let googleMapStoryboard = UIStoryboard(name: "GoogleMap", bundle: nil)
         let googleMapViewController = googleMapStoryboard.instantiateViewController(withIdentifier: "kGoogleMapViewController") as? GoogleMapViewController
         googleMapViewController?.isPaged = false
         navigationController?.pushViewController(googleMapViewController!, animated: false)
     }
-
+    
 }
