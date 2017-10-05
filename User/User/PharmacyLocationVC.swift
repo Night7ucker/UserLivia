@@ -26,7 +26,7 @@ class PharmacyLocationVC: RootViewController, GMSMapViewDelegate {
         pharmacyMapView.delegate = self
         
         userCurrentLocation = CLLocationCoordinate2D(latitude: 53.918509, longitude: 27.590219)
-        pharmacyLocation = CLLocationCoordinate2D(latitude: 54.0, longitude: 27.6)
+        pharmacyLocation = CLLocationCoordinate2D(latitude: Double(RealmDataManager.getOrderDrugsDescriptionModel()[0].pLat!)!, longitude: Double(RealmDataManager.getOrderDrugsDescriptionModel()[0].pLong!)!)
         
         let currentLocationMarker = PlaceMarker(place: userCurrentLocation)
         currentLocationMarker.map = pharmacyMapView

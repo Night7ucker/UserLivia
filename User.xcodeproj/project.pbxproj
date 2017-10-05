@@ -27,6 +27,13 @@
 		7FE9954C1F7AAC8500E31AA2 /* PaymentsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE9954B1F7AAC8500E31AA2 /* PaymentsPageController.swift */; };
 		CE01762E1F7EA2CF00EE6777 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01762D1F7EA2CF00EE6777 /* SigninViewController.swift */; };
 		CE0176301F7EA2DF00EE6777 /* SigninViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE01762F1F7EA2DF00EE6777 /* SigninViewStoryboard.storyboard */; };
+		CE26959A1F869F6A002A1F1E /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2695991F869F6A002A1F1E /* PaymentVC.swift */; };
+		CE26959E1F86A1EF002A1F1E /* MpesaPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26959D1F86A1EF002A1F1E /* MpesaPopupVC.swift */; };
+		CE2695A11F86B405002A1F1E /* PaymentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2695A01F86B405002A1F1E /* PaymentCell.swift */; };
+		CE2695A31F86B4B5002A1F1E /* CashPaymentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2695A21F86B4B5002A1F1E /* CashPaymentCell.swift */; };
+		CE2695A61F86BCF0002A1F1E /* PaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2695A51F86BCF0002A1F1E /* PaymentRequest.swift */; };
+		CE2695A91F86BF48002A1F1E /* SuccessPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2695A81F86BF48002A1F1E /* SuccessPopupVC.swift */; };
+		CE2695AB1F86C242002A1F1E /* CancelOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2695AA1F86C242002A1F1E /* CancelOrder.storyboard */; };
 		CE3A427D1F7F83430016A0C7 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A427C1F7F83430016A0C7 /* RootViewController.swift */; };
 		CE3C59FE1F835BCF00345BB6 /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3C59FD1F835BCF00345BB6 /* PlaceMarker.swift */; };
 		CE40CA801F78E619003BC535 /* RefillsAndReminders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */; };
@@ -174,6 +181,13 @@
 		9EA6723FDEE4071DE9039A46 /* Pods_User.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_User.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE01762D1F7EA2CF00EE6777 /* SigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		CE01762F1F7EA2DF00EE6777 /* SigninViewStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SigninViewStoryboard.storyboard; sourceTree = "<group>"; };
+		CE2695991F869F6A002A1F1E /* PaymentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
+		CE26959D1F86A1EF002A1F1E /* MpesaPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MpesaPopupVC.swift; sourceTree = "<group>"; };
+		CE2695A01F86B405002A1F1E /* PaymentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentCell.swift; sourceTree = "<group>"; };
+		CE2695A21F86B4B5002A1F1E /* CashPaymentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CashPaymentCell.swift; sourceTree = "<group>"; };
+		CE2695A51F86BCF0002A1F1E /* PaymentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentRequest.swift; sourceTree = "<group>"; };
+		CE2695A81F86BF48002A1F1E /* SuccessPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessPopupVC.swift; sourceTree = "<group>"; };
+		CE2695AA1F86C242002A1F1E /* CancelOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CancelOrder.storyboard; sourceTree = "<group>"; };
 		CE3A427C1F7F83430016A0C7 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		CE3C59FD1F835BCF00345BB6 /* PlaceMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMarker.swift; sourceTree = "<group>"; };
 		CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RefillsAndReminders.storyboard; sourceTree = "<group>"; };
@@ -378,6 +392,42 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CE2695981F869F4D002A1F1E /* PaymentViewModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE2695991F869F6A002A1F1E /* PaymentVC.swift */,
+				CE2695A01F86B405002A1F1E /* PaymentCell.swift */,
+				CE2695A21F86B4B5002A1F1E /* CashPaymentCell.swift */,
+				CE26959C1F86A1CE002A1F1E /* MpesaPopup */,
+				CE2695A71F86BF34002A1F1E /* SuccessPopup */,
+			);
+			name = PaymentViewModule;
+			sourceTree = "<group>";
+		};
+		CE26959C1F86A1CE002A1F1E /* MpesaPopup */ = {
+			isa = PBXGroup;
+			children = (
+				CE26959D1F86A1EF002A1F1E /* MpesaPopupVC.swift */,
+			);
+			name = MpesaPopup;
+			sourceTree = "<group>";
+		};
+		CE2695A41F86BCE2002A1F1E /* PaymentRequest */ = {
+			isa = PBXGroup;
+			children = (
+				CE2695A51F86BCF0002A1F1E /* PaymentRequest.swift */,
+			);
+			name = PaymentRequest;
+			sourceTree = "<group>";
+		};
+		CE2695A71F86BF34002A1F1E /* SuccessPopup */ = {
+			isa = PBXGroup;
+			children = (
+				CE2695A81F86BF48002A1F1E /* SuccessPopupVC.swift */,
+			);
+			name = SuccessPopup;
+			sourceTree = "<group>";
+		};
 		CE3A427E1F7F83460016A0C7 /* RootViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +442,7 @@
 				7FE995411F7A96B200E31AA2 /* OrdersPageController.swift */,
 				7F6137F41F7B7F7C00629AA7 /* OrderPageCell.swift */,
 				CEEC749A1F867BBA002C28D2 /* PharmacyDetails */,
+				CE2695981F869F4D002A1F1E /* PaymentViewModule */,
 			);
 			name = OrdersPageModule;
 			sourceTree = "<group>";
@@ -589,6 +640,7 @@
 				CEF2EBD01F8644CA002A1B20 /* ChangePhoneNumber.storyboard */,
 				CEEC74981F8675C6002C28D2 /* PharmacyDetails.storyboard */,
 				CEB4A3011F869B8C004478B9 /* Payment.storyboard */,
+				CE2695AA1F86C242002A1F1E /* CancelOrder.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -988,6 +1040,7 @@
 		FB958B851F752BBC0065B49C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE2695A41F86BCE2002A1F1E /* PaymentRequest */,
 				CEF2EBC81F8632DD002A1B20 /* ListOfPrescriptionsRequests */,
 				FB6AC0B81F854F8D000F47CC /* GetOrderDescriptionRequests */,
 				FB75CB541F83BC530022B38D /* GetOrdersListRequests */,
@@ -1120,6 +1173,7 @@
 				CEF2EBC21F8631EB002A1B20 /* ListOfPrescriptions.storyboard in Resources */,
 				7F2E150F1F83640D00038A13 /* AddToCart.storyboard in Resources */,
 				CE5F4BEC1F77CC19009CBA5D /* Orders Appointments Payments.storyboard in Resources */,
+				CE2695AB1F86C242002A1F1E /* CancelOrder.storyboard in Resources */,
 				CE7B302A1F7B906E0023472F /* LoadingAnimation.storyboard in Resources */,
 				CEF4F2381F854D8900AD3A21 /* TakePhotoOfPrescription.storyboard in Resources */,
 				FBD6BB181F7C1402007741DC /* SearchDrugs.storyboard in Resources */,
@@ -1233,6 +1287,7 @@
 				CE798D251F7A90F300FDF83D /* TermsAndConditionsWebViewViewController.swift in Sources */,
 				CE725FD71F838E9F009B8FC2 /* OrderTypeRequest.swift in Sources */,
 				FB75CB581F83BC9C0022B38D /* OrdersListRequest.swift in Sources */,
+				CE2695A11F86B405002A1F1E /* PaymentCell.swift in Sources */,
 				FB75CB411F8235E80022B38D /* AddToCartViewController.swift in Sources */,
 				CE40CA851F78F2ED003BC535 /* AddReminderViewController.swift in Sources */,
 				CEEC74AC1F868CC5002C28D2 /* PharmacyLocationVC.swift in Sources */,
@@ -1247,6 +1302,7 @@
 				FB6AC0B71F853EA4000F47CC /* OrderDescriptionTableViewCell.swift in Sources */,
 				FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */,
 				FB6BB31A1F7E607A00165BB2 /* DrugInfoViewController.swift in Sources */,
+				CE26959E1F86A1EF002A1F1E /* MpesaPopupVC.swift in Sources */,
 				CE7753401F84BCB6004E3F21 /* PharmacyOrderCell.swift in Sources */,
 				CE725FE01F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift in Sources */,
 				FB6AC0B31F84D27B000F47CC /* OrderDescriptionViewController.swift in Sources */,
@@ -1290,6 +1346,7 @@
 				FB6B62E51F78F0C400AAB2F0 /* GetTokensRequest.swift in Sources */,
 				FB75CB511F83A0750022B38D /* OrdersCountModel.swift in Sources */,
 				CEEC749C1F867BD6002C28D2 /* PharmacyDetailsVC.swift in Sources */,
+				CE26959A1F869F6A002A1F1E /* PaymentVC.swift in Sources */,
 				7FE9954C1F7AAC8500E31AA2 /* PaymentsPageController.swift in Sources */,
 				FB9D4FFD1F7CDE3E001F3F95 /* DrugsView.swift in Sources */,
 				FB5FC5551F7A83B500F8658A /* RegistrationUserRequest.swift in Sources */,
@@ -1301,6 +1358,7 @@
 				CE4ABE011F83DB5D0052EC10 /* PharmacyTableViewCell.swift in Sources */,
 				FB5FC54E1F7A44CD00F8658A /* UploadImageRequest.swift in Sources */,
 				CE3A427D1F7F83430016A0C7 /* RootViewController.swift in Sources */,
+				CE2695A91F86BF48002A1F1E /* SuccessPopupVC.swift in Sources */,
 				FB6AC0BA1F854FAD000F47CC /* GetOrderDescriptionRequest.swift in Sources */,
 				7F6137F71F7B7F9400629AA7 /* PaymentPageCell.swift in Sources */,
 				7F2F05EA1F7D08150068964B /* OrderStatusCell.swift in Sources */,
@@ -1312,6 +1370,7 @@
 				CE4ABDFF1F83CEDB0052EC10 /* PharmacyViewController.swift in Sources */,
 				FB6BB3161F7E364800165BB2 /* GetDrugsModel.swift in Sources */,
 				FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */,
+				CE2695A61F86BCF0002A1F1E /* PaymentRequest.swift in Sources */,
 				7F6137F51F7B7F7C00629AA7 /* OrderPageCell.swift in Sources */,
 				CE798D201F7A81BF00FDF83D /* EditingProfileViewController.swift in Sources */,
 				CEABE42B1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift in Sources */,
@@ -1327,6 +1386,7 @@
 				FBD74BA71F7B84C300FA2BFE /* GetUserProfileRequest.swift in Sources */,
 				CEA61BCE1F756D9400BA1AED /* MakeOrderCellTableViewCell.swift in Sources */,
 				FB75CB431F8240550022B38D /* AddToCartTableViewCell.swift in Sources */,
+				CE2695A31F86B4B5002A1F1E /* CashPaymentCell.swift in Sources */,
 				CE4ABDFC1F83CE0B0052EC10 /* PageMapAndPharmacyVC.swift in Sources */,
 				CEB75F1C1F7BA8A100986F1D /* GetCitiesRequest.swift in Sources */,
 				CEF2EBC51F86326A002A1B20 /* ListOfPrescriptionsVC.swift in Sources */,

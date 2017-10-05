@@ -57,8 +57,8 @@ extension PharmacyDetailsVC: UITableViewDataSource {
             let pharmacyAdminInfoCell = tableView.dequeueReusableCell(withIdentifier: "pharmacyAdminCell") as! PharmacyAdminCell
             pharmacyAdminInfoCell.layer.cornerRadius = 7
             
-            pharmacyAdminInfoCell.pharmacyAdminNameLabelOutlet.text = "Mr. Sakharchuk"
-            pharmacyAdminInfoCell.pharmacyAdminPhoneNumberLabelOutlet.text = "375296205222"
+            pharmacyAdminInfoCell.pharmacyAdminNameLabelOutlet.text = RealmDataManager.getOrderDrugsDescriptionModel()[0].pAdmin
+            pharmacyAdminInfoCell.pharmacyAdminPhoneNumberLabelOutlet.text = RealmDataManager.getOrderDrugsDescriptionModel()[0].pNumber
             pharmacyAdminInfoCell.pharmacyAdminPhoneNumberLabelOutlet.textColor = Colors.Root.lightBlueColor
             
             return pharmacyAdminInfoCell

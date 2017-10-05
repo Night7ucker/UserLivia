@@ -21,7 +21,7 @@ class PharmacyOnMapCell: UITableViewCell, GMSMapViewDelegate {
         
         pharmacyOnMapViewOutlet.delegate = self
         
-        pharmacyLocation = CLLocationCoordinate2D(latitude: 54.0, longitude: 27.6)
+        pharmacyLocation = CLLocationCoordinate2D(latitude: Double(RealmDataManager.getOrderDrugsDescriptionModel()[0].pLat!)!, longitude: Double(RealmDataManager.getOrderDrugsDescriptionModel()[0].pLong!)!)
         
         let pharmacyMarker = PlaceMarker(place: pharmacyLocation)
         pharmacyMarker.map = pharmacyOnMapViewOutlet

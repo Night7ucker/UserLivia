@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dMt-rI-5gb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--PaymentVC-->
         <scene sceneID="E1J-GV-IdC">
             <objects>
-                <viewController id="z9U-Zh-xUq" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="kPaymentVC" id="z9U-Zh-xUq" customClass="PaymentVC" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uw4-hG-uFC"/>
                         <viewControllerLayoutGuide type="bottom" id="Yux-rn-tJo"/>
@@ -29,33 +29,150 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vla-6h-i2F">
-                                <rect key="frame" x="16" y="186" width="343" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.42720759060000002" blue="0.25136408519999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fuH-jy-6gO">
-                                <rect key="frame" x="16" y="322" width="343" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfS-yp-Mbs">
-                                <rect key="frame" x="151" y="602" width="73" height="45"/>
+                                <rect key="frame" x="146" y="605" width="82" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.4188544582" green="0.56031364139999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                 <state key="normal" title="Pay">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="payButtonTapped:" destination="z9U-Zh-xUq" eventType="touchUpInside" id="7KC-II-EmT"/>
+                                </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="EsA-sC-wCo">
+                                <rect key="frame" x="16" y="149" width="343" height="351"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="paymentCell" rowHeight="128" id="7gi-ky-BWv" customClass="PaymentCell" customModule="User" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="343" height="128"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7gi-ky-BWv" id="AZk-Ou-N6J">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="127.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="M-Pesa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEb-cX-JTV">
+                                                    <rect key="frame" x="146" y="54" width="116" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mpesaImage" translatesAutoresizingMaskIntoConstraints="NO" id="6o2-z9-c4x">
+                                                    <rect key="frame" x="8" y="27" width="130" height="74"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frN-S0-0KJ">
+                                                    <rect key="frame" x="291" y="54" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="information"/>
+                                                    <connections>
+                                                        <action selector="infoButtonTapped:" destination="z9U-Zh-xUq" eventType="touchUpInside" id="Akj-Nh-yBS"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="paymentBrandName" destination="XEb-cX-JTV" id="9n7-mf-YEn"/>
+                                            <outlet property="paymentImageViewOutlet" destination="6o2-z9-c4x" id="gI4-23-4aS"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cashPaymentCell" rowHeight="128" id="PkF-bw-cdf" customClass="CashPaymentCell" customModule="User" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="183.5" width="343" height="128"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PkF-bw-cdf" id="tKH-oo-sug">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="127.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pay by cash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eza-Tv-RDY">
+                                                    <rect key="frame" x="146" y="97" width="92" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cashIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Hch-gZ-xft">
+                                                    <rect key="frame" x="26" y="8" width="78" height="58"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udm-Sd-Coq">
+                                                    <rect key="frame" x="146" y="27" width="68" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cashImageViewOutlet" destination="Hch-gZ-xft" id="95v-lS-Ehm"/>
+                                            <outlet property="cashLabelOutlet" destination="Udm-Sd-Coq" id="keL-Hn-Ku4"/>
+                                            <outlet property="payByCashLabelOutlet" destination="eza-Tv-RDY" id="JTo-BK-PgF"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="U5W-ax-c9k"/>
+                    <connections>
+                        <outlet property="payButtonOutlet" destination="bfS-yp-Mbs" id="wf7-aq-hhc"/>
+                        <outlet property="paymentsTableViewOutlet" destination="EsA-sC-wCo" id="dH0-Ue-72Z"/>
+                        <outlet property="topBarViewOutlet" destination="NbZ-6L-htb" id="Get-IE-mjw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RwJ-zf-BbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1316" y="-240.62968515742131"/>
+        </scene>
+        <!--Mpesa PopupVC-->
+        <scene sceneID="fOZ-2J-f9f">
+            <objects>
+                <viewController storyboardIdentifier="kMpesaPopupVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="akg-A5-UlN" customClass="MpesaPopupVC" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mVv-tI-K5Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="IEA-bP-3qc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WCY-bv-Nj3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CfP-i9-OQP">
+                                <rect key="frame" x="50" y="182" width="274" height="165"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="49O-UX-nw9">
+                                        <rect key="frame" x="17" y="18" width="240" height="116"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">To make an online transaction with Mpesa for online checkout, you need to have a Service PIN. Most of the times, its the same as your Mpesa PIN. To create a Service PIN, dial *885#</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2w-dl-Wua">
+                                        <rect key="frame" x="228" y="135" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="OK"/>
+                                        <connections>
+                                            <action selector="okButtonTapped:" destination="akg-A5-UlN" eventType="touchUpInside" id="SDO-Vf-7ZW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.75262200342465757" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="okButtonOutlet" destination="b2w-dl-Wua" id="fOB-EY-md9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Va-ca-T2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2077.5999999999999" y="-240.62968515742131"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ksr-hD-znh">
@@ -75,5 +192,55 @@
             </objects>
             <point key="canvasLocation" x="376.80000000000001" y="-240.62968515742131"/>
         </scene>
+        <!--Success PopupVC-->
+        <scene sceneID="p0z-Uh-TVx">
+            <objects>
+                <viewController storyboardIdentifier="kSuccessPopupVC" id="ccL-ud-uaS" customClass="SuccessPopupVC" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eXf-Ml-ER1"/>
+                        <viewControllerLayoutGuide type="bottom" id="zqR-7h-qUo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pu1-xW-xMz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fuH-jy-6gO">
+                                <rect key="frame" x="54" y="187" width="267" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Success!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yh1-js-1yz">
+                                        <rect key="frame" x="98" y="54" width="70" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oow-Nn-6uu">
+                                        <rect key="frame" x="221" y="90" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="OK"/>
+                                        <connections>
+                                            <action selector="okButtonTapped:" destination="ccL-ud-uaS" eventType="touchUpInside" id="9v6-Tf-v2w"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.74547838184931503" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="okButtonOutlet" destination="oow-Nn-6uu" id="eZu-1a-eXy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8cZ-eB-Wlu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1316" y="-940.47976011994012"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="cashIcon" width="225" height="225"/>
+        <image name="information" width="52" height="52"/>
+        <image name="mpesaImage" width="1284" height="716"/>
+    </resources>
 </document>
