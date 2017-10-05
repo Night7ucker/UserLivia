@@ -105,6 +105,28 @@
                                             <outlet property="pharmacyNameLabelOutlet" destination="AAG-eu-4hf" id="YPm-xj-vea"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageReviewCell" rowHeight="180" id="Yoq-0I-GkT" customClass="ImageReviewOrderCell" customModule="User" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="407.5" width="355" height="180"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yoq-0I-GkT" id="jOB-Aw-3zP">
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="179.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4y4-ur-P1Q">
+                                                    <rect key="frame" x="70" y="0.0" width="215" height="179"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4y4-ur-P1Q" firstAttribute="trailing" secondItem="jOB-Aw-3zP" secondAttribute="trailingMargin" constant="-62" id="C7E-Ti-9eb"/>
+                                                <constraint firstItem="4y4-ur-P1Q" firstAttribute="leading" secondItem="jOB-Aw-3zP" secondAttribute="leading" constant="70" id="ZvI-re-zsG"/>
+                                                <constraint firstItem="4y4-ur-P1Q" firstAttribute="top" secondItem="jOB-Aw-3zP" secondAttribute="topMargin" constant="-8" id="fKT-LJ-kxI"/>
+                                                <constraint firstItem="4y4-ur-P1Q" firstAttribute="centerY" secondItem="jOB-Aw-3zP" secondAttribute="centerY" constant="-0.25" id="qIG-ZO-Idf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageViewOutlet" destination="4y4-ur-P1Q" id="1pD-1z-x6b"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kY-cd-U1t">
@@ -210,7 +232,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HS9-VS-1KW" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Jz1-xd-Tdm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jz1-xd-Tdm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

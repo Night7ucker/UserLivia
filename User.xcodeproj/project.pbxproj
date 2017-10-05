@@ -85,6 +85,7 @@
 		CEC5F0011F8237810012CFAA /* ExpandedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5F0001F8237810012CFAA /* ExpandedViewController.swift */; };
 		CEC5F0051F8279350012CFAA /* ExpandedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5F0041F8279350012CFAA /* ExpandedTableViewCell.swift */; };
 		CEC6318B1F7BCDEB0024AFC1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6318A1F7BCDEB0024AFC1 /* UserModel.swift */; };
+		CEF2EBBF1F861C28002A1B20 /* ImageReviewOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2EBBE1F861C28002A1B20 /* ImageReviewOrderCell.swift */; };
 		CEF436EE1F7A2B5100E31AA8 /* EditReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF436ED1F7A2B5100E31AA8 /* EditReminderViewController.swift */; };
 		CEF4F2361F854D7400AD3A21 /* BottomPopupForPrescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4F2351F854D7400AD3A21 /* BottomPopupForPrescriptionVC.swift */; };
 		CEF4F2381F854D8900AD3A21 /* TakePhotoOfPrescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF4F2371F854D8900AD3A21 /* TakePhotoOfPrescription.storyboard */; };
@@ -214,6 +215,7 @@
 		CEC5F0001F8237810012CFAA /* ExpandedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedViewController.swift; sourceTree = "<group>"; };
 		CEC5F0041F8279350012CFAA /* ExpandedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedTableViewCell.swift; sourceTree = "<group>"; };
 		CEC6318A1F7BCDEB0024AFC1 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		CEF2EBBE1F861C28002A1B20 /* ImageReviewOrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageReviewOrderCell.swift; sourceTree = "<group>"; };
 		CEF436ED1F7A2B5100E31AA8 /* EditReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditReminderViewController.swift; sourceTree = "<group>"; };
 		CEF4F2351F854D7400AD3A21 /* BottomPopupForPrescriptionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupForPrescriptionVC.swift; sourceTree = "<group>"; };
 		CEF4F2371F854D8900AD3A21 /* TakePhotoOfPrescription.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TakePhotoOfPrescription.storyboard; sourceTree = "<group>"; };
@@ -473,10 +475,7 @@
 			children = (
 				CE5207971F84D7B100B697F9 /* OrderSendedPopupModule */,
 				CE725FDB1F83ABDD009B8FC2 /* ReviewYourOrdedViewController.swift */,
-				CE725FDF1F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift */,
-				CEAB79AE1F83B261006F7311 /* OrderMapTableViewCell.swift */,
-				CE77533A1F84A1F1004E3F21 /* DeliveryTypeTableViewCell.swift */,
-				CE77533F1F84BCB6004E3F21 /* PharmacyOrderCell.swift */,
+				CEF2EBC01F8624C5002A1B20 /* CellsForReviewOrderVC */,
 			);
 			name = ReviewYourOrderModule;
 			sourceTree = "<group>";
@@ -683,6 +682,18 @@
 				CEC5F0041F8279350012CFAA /* ExpandedTableViewCell.swift */,
 			);
 			name = SelectOrderTypeExpandedModule;
+			sourceTree = "<group>";
+		};
+		CEF2EBC01F8624C5002A1B20 /* CellsForReviewOrderVC */ = {
+			isa = PBXGroup;
+			children = (
+				CE725FDF1F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift */,
+				CEAB79AE1F83B261006F7311 /* OrderMapTableViewCell.swift */,
+				CE77533A1F84A1F1004E3F21 /* DeliveryTypeTableViewCell.swift */,
+				CE77533F1F84BCB6004E3F21 /* PharmacyOrderCell.swift */,
+				CEF2EBBE1F861C28002A1B20 /* ImageReviewOrderCell.swift */,
+			);
+			name = CellsForReviewOrderVC;
 			sourceTree = "<group>";
 		};
 		CEF4F2341F854D5300AD3A21 /* TakePhotoOfPrescriptionModule */ = {
@@ -1117,6 +1128,7 @@
 				CE725FE01F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift in Sources */,
 				FB6AC0B31F84D27B000F47CC /* OrderDescriptionViewController.swift in Sources */,
 				CE3C59FE1F835BCF00345BB6 /* PlaceMarker.swift in Sources */,
+				CEF2EBBF1F861C28002A1B20 /* ImageReviewOrderCell.swift in Sources */,
 				CEA61BD01F756D9400BA1AED /* PopupCountryCodesTableViewController.swift in Sources */,
 				CE5207991F84D7DD00B697F9 /* OrderSendedPopupViewController.swift in Sources */,
 				CE95905A1F7945DA00536DF7 /* ReminderModel.swift in Sources */,

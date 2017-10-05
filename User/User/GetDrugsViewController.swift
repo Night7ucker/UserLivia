@@ -26,6 +26,12 @@ class GetDrugsViewController: RootViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if RealmDataManager.getImageUrlFromRealm().count != 0 {
+            try! realm.write {
+                realm.delete(RealmDataManager.getImageUrlFromRealm())
+            }
+        }
+        
         configureNavigationBar()
         addBackButtonAndTitleToNavigationBar(title: "Search")
         searchImageOutlet.isHidden = false

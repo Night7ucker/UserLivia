@@ -125,17 +125,17 @@ class ReviewYourOrdedViewController: RootViewController, OrderSendedPopupViewCon
         let orderSendedPopupViewController = reviewOrderStoryboard.instantiateViewController(withIdentifier: "kOrderSendedPopupViewController") as! OrderSendedPopupViewController
         orderSendedPopupViewController.delegate = self
         self.present(orderSendedPopupViewController, animated: false)
-//        present(loadingViewController, animated: false)
-//        SendOrdersRequest.postRequestToOrderDrugs() { (success) in
-//            DispatchQueue.main.sync {
-//                self.loadingViewController.dismiss(animated: false, completion: nil)
-//                let reviewOrderStoryboard = UIStoryboard(name: "ReviewYourOrder", bundle: nil)
-//                let orderSendedPopupViewController = reviewOrderStoryboard.instantiateViewController(withIdentifier: "kOrderSendedPopupViewController") as! OrderSendedPopupViewController
-//                orderSendedPopupViewController.delegate = self
-//                self.present(orderSendedPopupViewController, animated: false)
-//            }
-//        }
-        // navigation controller visible view controller 
+        //        present(loadingViewController, animated: false)
+        //        SendOrdersRequest.postRequestToOrderDrugs() { (success) in
+        //            DispatchQueue.main.sync {
+        //                self.loadingViewController.dismiss(animated: false, completion: nil)
+        //                let reviewOrderStoryboard = UIStoryboard(name: "ReviewYourOrder", bundle: nil)
+        //                let orderSendedPopupViewController = reviewOrderStoryboard.instantiateViewController(withIdentifier: "kOrderSendedPopupViewController") as! OrderSendedPopupViewController
+        //                orderSendedPopupViewController.delegate = self
+        //                self.present(orderSendedPopupViewController, animated: false)
+        //            }
+        //        }
+        // navigation controller visible view controller
         // napiat' poptoviewcontroller
     }
 }
@@ -148,7 +148,12 @@ extension ReviewYourOrdedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return arrayOfOrderedDrugs.count
+            if RealmDataManager.getImageUrlFromRealm().count != 0 {
+                return 1
+            } else {
+                return arrayOfOrderedDrugs.count
+            }
+            
         case 1:
             return 1
         case 2:
@@ -163,11 +168,26 @@ extension ReviewYourOrdedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell") as! OrderReviewTableViewCell
-            
-            descriptionCell.drugNameLabel.text = arrayOfOrderedDrugs[indexPath.row]
-            
-            return descriptionCell
+            if RealmDataManager.getImageUrlFromRealm().count != 0 {
+                let imageReviewCell = tableView.dequeueReusableCell(withIdentifier: "imageReviewCell") as! ImageReviewOrderCell
+                
+                let imageURL = "https://test.liviaapp.com" + RealmDataManager.getImageUrlFromRealm()[0].imageUrl!
+                getImage(pictureUrl: imageURL) { success, image in
+                    if success {
+                        print(imageReviewCell.imageViewOutlet.image)
+                        imageReviewCell.imageViewOutlet.image = image
+                    }
+                }
+                
+                return imageReviewCell
+                
+            } else {
+                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell") as! OrderReviewTableViewCell
+                
+                descriptionCell.drugNameLabel.text = arrayOfOrderedDrugs[indexPath.row]
+                
+                return descriptionCell
+            }
         case 1:
             let mapCell = tableView.dequeueReusableCell(withIdentifier: "orderMapCell") as! OrderMapTableViewCell
             
@@ -224,7 +244,11 @@ extension ReviewYourOrdedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 30
+            if RealmDataManager.getImageUrlFromRealm().count != 0 {
+                return 180
+            } else {
+                return 30
+            }
         case 1:
             return 200
         case 2:
