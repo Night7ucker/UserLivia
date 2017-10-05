@@ -80,13 +80,22 @@ class OrderDescriptionViewController: RootViewController {
         case "6":
             imageStatusOutlet.isHidden = false
             clockView.isHidden = true
+            descriptionTextViewOutlet.isHidden = true
+            descriptionTextViewOutlet.isHidden = false
             labelStatusOutlet.text = "You have cancelled the order"
             descriptionTextViewOutlet.font = descriptionTextViewOutlet.font?.withSize(15)
             descriptionTextViewOutlet.text = RealmDataManager.getOrderDescriptionModel()[0].totatPrice! + "BYN"
             imageStatusOutlet.image = UIImage(named: "cancelPageOrder.png")
             navigationController?.navigationBar.barTintColor = Colors.Root.canceledStatusColor
             headerView.backgroundColor = Colors.Root.canceledStatusColor
-
+        case "4":
+            imageStatusOutlet.isHidden = false
+            clockView.isHidden = true
+            labelStatusOutlet.text = "Your order is being prepared"
+            descriptionTextViewOutlet.isHidden = true
+            imageStatusOutlet.image = UIImage(named: "delivery-truck.png")
+            navigationController?.navigationBar.barTintColor = Colors.Root.orangeColor
+            headerView.backgroundColor = Colors.Root.orangeColor
 
         default:
             return
