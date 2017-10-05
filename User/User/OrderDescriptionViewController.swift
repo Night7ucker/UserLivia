@@ -19,13 +19,14 @@ class OrderDescriptionViewController: RootViewController {
     @IBOutlet var tableView: UITableView!
     var selectedIndex: IndexPath?
     var isExpanded = false
+    var cellCount = 0
+    var checkIsExpanded = 1
     @IBOutlet var rotateView: UIView!
     var tappedCellIndex = -1
     var timeTimer: Timer?
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
         tableView.delegate = self
         tableView.dataSource = self
         clockView.layer.cornerRadius = 15
@@ -36,8 +37,13 @@ class OrderDescriptionViewController: RootViewController {
         navigationController?.navigationBar.layer.shadowOpacity = 0
         let nib = UINib.init(nibName: "CustomOrderCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "orderDescCellImage")
-
+        tableView.tableFooterView = UIView(frame: .zero)
         let orderStatus = RealmDataManager.getOrdersListFromRealm()[tappedCellIndex].statusId!
+        if RealmDataManager.getOrderDescriptionModelImage().count > 0 {
+            cellCount = 2
+        } else {
+            cellCount = RealmDataManager.getOrderDescriptionModel().count + 1
+        }
         switch orderStatus {
         case "1":
             imageStatusOutlet.isHidden = true
@@ -92,19 +98,76 @@ extension OrderDescriptionViewController : UITableViewDataSource{
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return cellCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "orderDescCellImage") as! OrderDescriptionTableViewCell
-        cell.drugsReceptImage.image = UIImage(named: "obama.png")
-        return cell
+        if RealmDataManager.getOrderDescriptionModelImage().count > 0 {
+            switch indexPath.row {
+            case 0:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "orderDetailsCell") as! OrderDescriptionTableViewCell
+                if RealmDataManager.getOrderDescriptionModelImage()[0].selfCollect! == "1" {
+                    cell.selfCollectValue.text = "Self-collect"
+                } else {
+                    cell.selfCollectValue.text = "Delivery"
+                }
+                cell.isUserInteractionEnabled = false
+                return cell
+            case 1:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "orderDescCellImage") as! OrderDescriptionTableViewCell
+                getImage(pictureUrl: "https://test.liviaapp.com"+RealmDataManager.getOrderDescriptionModelImage()[0].imageUrl!) { success, image in
+                    if success {
+                        cell.drugsReceptImage.image = image
+                        cell.drugsPreviewImage.image = image
+                    }
+                }
+
+                return cell
+
+            default:
+                return UITableViewCell()
+            }
+        } else {
+            switch indexPath.row {
+            case 0..<RealmDataManager.getOrderDescriptionModel().count:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "orderDrugsDetailsCell") as! OrderDescriptionTableViewCell
+                cell.isUserInteractionEnabled = false
+                cell.drugAmount.text = RealmDataManager.getOrderDescriptionModel()[indexPath.row].quantity!
+                cell.drugName.text = RealmDataManager.getOrderDescriptionModel()[indexPath.row].drugName!
+                if RealmDataManager.getOrderDescriptionModel()[indexPath.row].quantityMeasuring != nil {
+                    cell.drugQuantityMeasure.text = RealmDataManager.getOrderDescriptionModel()[indexPath.row].quantityMeasuring!.uppercased()
+                } else {
+                    cell.drugQuantityMeasure.text = " "
+                }
+                return cell
+
+            case RealmDataManager.getOrderDescriptionModel().count:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "orderDetailsCell") as! OrderDescriptionTableViewCell
+                cell.isUserInteractionEnabled = false
+                if RealmDataManager.getOrderDescriptionModel()[0].selfCollect! == "1" {
+                    cell.selfCollectValue.text = "Self-collect"
+                } else {
+                    cell.selfCollectValue.text = "Delivery"
+                }
+                return cell
+            default:
+                return UITableViewCell()
+            }
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedIndex = indexPath
         self.didExpandCell()
-        
+        let selectedCell = tableView.cellForRow(at: indexPath) as! OrderDescriptionTableViewCell
+        checkIsExpanded += 1
+        if checkIsExpanded % 2 == 0{
+            selectedCell.drugsPreviewImage.isHidden = true
+        } else {
+            selectedCell.drugsPreviewImage.isHidden = false
+        }
+   
     }
   
 }
@@ -112,14 +175,14 @@ extension OrderDescriptionViewController : UITableViewDataSource{
 extension OrderDescriptionViewController : UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if isExpanded && self.selectedIndex == indexPath {
-            if indexPath.row == 0 {
-                return 250
+            if indexPath.row == 1 {
+                return 300
             }
         }
-        if indexPath.row == 1 {
-            return 60
+        if indexPath.row == 0 {
+            return 50
         }
-        return 60
+        return 50
     }
     
 }

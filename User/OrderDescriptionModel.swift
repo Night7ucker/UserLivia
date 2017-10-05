@@ -24,5 +24,6 @@ class OrderDescriptionModel: Object {
     dynamic var drugName: String?
     dynamic var quantity: String?
     dynamic var quantityMeasuring: String?
+    dynamic var selfCollect: String?
     
 }
