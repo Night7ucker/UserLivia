@@ -113,7 +113,10 @@ class ReviewYourOrdedViewController: RootViewController, OrderSendedPopupViewCon
                 realm.delete(RealmDataManager.getAddedDrugsDataFromRealm())
             }
         }
-        navigationController?.pushViewController(mainScreenViewController, animated: false)
+        let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
+        let mainScreenViewControllerToPassValue = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as! MainScreenController
+        mainScreenViewControllerToPassValue.userIsRegistred = true
+        navigationController?.pushViewController(mainScreenViewControllerToPassValue, animated: false)
     }
     
     
@@ -174,7 +177,6 @@ extension ReviewYourOrdedViewController: UITableViewDataSource {
                 let imageURL = "https://test.liviaapp.com" + RealmDataManager.getImageUrlFromRealm()[0].imageUrl!
                 getImage(pictureUrl: imageURL) { success, image in
                     if success {
-                        print(imageReviewCell.imageViewOutlet.image)
                         imageReviewCell.imageViewOutlet.image = image
                     }
                 }

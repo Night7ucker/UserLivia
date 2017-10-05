@@ -33,13 +33,13 @@ class ReminderRequests {
         ]
 
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-            print(response)
             guard let result = response.result.value as? [String : AnyObject] else{ return }
-            
+
             let realm = try! Realm()
             try! realm.write {
-                RealmDataManager.getRemindersFromRealm().last?.id = String(describing: result["id"] as? Int)
+                RealmDataManager.getRemindersFromRealm().last?.id = result["id"] as? String
             }
+            completion(true)
         }
     }
     
@@ -119,7 +119,6 @@ class ReminderRequests {
     static func deleteReminder(reminderID: String) {
         
         let url = "https://test.liviaapp.com/api/reminder/" + reminderID
-        
         let headers = [
             "LiviaApp-Token": RealmDataManager.getTokensFromRealm()[0].accessToken!,
             "LiviApp-country": RealmDataManager.getUserDataFromRealm()[0].countryCode!,
@@ -131,7 +130,7 @@ class ReminderRequests {
         
         
         
-        Alamofire.request(url, method: .delete, encoding: JSONEncoding.default, headers: headers).response { (response) in
+        Alamofire.request(url, method: .delete, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
         }
     }
     
