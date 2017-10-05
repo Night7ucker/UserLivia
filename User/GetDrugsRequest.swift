@@ -22,8 +22,8 @@ class GetDrugsRequest {
         let headers = [
             "Content-Type": "application/json",
             "LiviaApp-language": "en",
-            "LiviaApp-country": "ke",
-            "LiviaApp-city": "200787",
+            "LiviaApp-country": RealmDataManager.getUserDataFromRealm()[0].countryCode!,
+            "LiviaApp-city": RealmDataManager.getUserDataFromRealm()[0].cityId!,
             "LiviaApp-APIVersion": "2.0"
         ]
         

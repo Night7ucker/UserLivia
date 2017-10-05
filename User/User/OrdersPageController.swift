@@ -43,15 +43,23 @@ extension OrdersPageController : UITableViewDataSource{
         } else {
             cell.selfCollectLabelOutlet.text = "D"
         }
-        if RealmDataManager.getOrdersListFromRealm()[indexPath.row].statusId! == "1" {
+        
+        switch RealmDataManager.getOrdersListFromRealm()[indexPath.row].statusId! {
+        case "1":
             cell.statusLabelOutlet.text = "In Process"
             cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "time"))
-        } else {
+        case "2":
             cell.statusLabelOutlet.text = "No Offers"
             cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "cancel"))
+        case "3":
+            cell.statusLabelOutlet.text = "Best Offer"
+            cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "bestOffer"))
+        case "6":
+            cell.statusLabelOutlet.text = "Order cancelled"
+            cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "cancelOrder"))
+        default:
+            break
         }
-        
-        
         return cell
     }
     

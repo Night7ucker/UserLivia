@@ -28,7 +28,6 @@ class MappedPharmacyModel: Mappable {
     
     static func writeIntoRealm(response: DataResponse<MappedPharmacyModel>){
         let result = response.result.value
-        print(result)
         let realm = try! Realm()
         if let array = result?.PharmacyModelArray {
             for element in array {

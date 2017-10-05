@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="PQk-NU-2cf">
-                                <rect key="frame" x="10" y="72" width="355" height="595"/>
+                                <rect key="frame" x="10" y="72" width="355" height="549"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="descriptionCell" rowHeight="67" id="eom-rU-09L" customClass="OrderReviewTableViewCell" customModule="User" customModuleProvider="target">
@@ -130,7 +130,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kY-cd-U1t">
-                                <rect key="frame" x="36" y="617" width="302" height="30"/>
+                                <rect key="frame" x="36" y="629" width="302" height="30"/>
                                 <color key="backgroundColor" red="0.4188544582" green="0.56031364139999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="302" id="ZeR-Ja-Yex"/>
@@ -150,8 +150,8 @@
                             <constraint firstItem="PQk-NU-2cf" firstAttribute="leading" secondItem="NBd-bp-81W" secondAttribute="leading" constant="10" id="BQP-xj-Ajf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7kY-cd-U1t" secondAttribute="trailing" constant="21" id="TGa-0W-d87"/>
                             <constraint firstItem="PQk-NU-2cf" firstAttribute="centerX" secondItem="7kY-cd-U1t" secondAttribute="centerX" id="vWW-L4-tDj"/>
-                            <constraint firstItem="7kY-cd-U1t" firstAttribute="top" secondItem="PQk-NU-2cf" secondAttribute="bottom" constant="-50" id="w4z-Zw-V2Q"/>
-                            <constraint firstItem="gWL-ft-H3h" firstAttribute="top" secondItem="7kY-cd-U1t" secondAttribute="bottom" constant="20" id="yJr-oV-vip"/>
+                            <constraint firstItem="7kY-cd-U1t" firstAttribute="top" secondItem="PQk-NU-2cf" secondAttribute="bottom" constant="8" id="w4z-Zw-V2Q"/>
+                            <constraint firstItem="gWL-ft-H3h" firstAttribute="top" secondItem="7kY-cd-U1t" secondAttribute="bottom" constant="8" id="yJr-oV-vip"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EuE-XY-pcV"/>
@@ -232,7 +232,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HS9-VS-1KW" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Jz1-xd-Tdm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jz1-xd-Tdm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

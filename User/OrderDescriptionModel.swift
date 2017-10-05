@@ -21,9 +21,25 @@ class OrderDescriptionModelImage: Object{
 }
 
 class OrderDescriptionModel: Object {
+    
+    dynamic var deliveryCost: String?
+    dynamic var orderId: String?
+    dynamic var selfCollect: String?
+    dynamic var totatPrice: String?
+    dynamic var totalDrugsPrice: String?
+    dynamic var statusId: String?
+
+}
+
+class OrderDrugsDescriptionModel: Object {
     dynamic var drugName: String?
+    dynamic var drugId: String?
+    dynamic var pAdmin: String?
+    dynamic var pLat: String?
+    dynamic var pLong: String?
+    dynamic var pId: String?
+    dynamic var pNumber: String?
     dynamic var quantity: String?
     dynamic var quantityMeasuring: String?
-    dynamic var selfCollect: String?
-    
+    dynamic var drugPrice = 0
 }

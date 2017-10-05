@@ -36,38 +36,54 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJR-JX-aHq">
-                                                    <rect key="frame" x="217" y="21" width="54" height="21"/>
+                                                    <rect key="frame" x="217" y="23" width="54" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ve6-Bu-cAO">
-                                                    <rect key="frame" x="273" y="21" width="23" height="21"/>
+                                                    <rect key="frame" x="273" y="23" width="23" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tablets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mu-qR-kRI">
-                                                    <rect key="frame" x="293" y="21" width="74" height="21"/>
+                                                    <rect key="frame" x="293" y="23" width="74" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ASP - 81" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9C-If-khg">
-                                                    <rect key="frame" x="15" y="8" width="199" height="21"/>
+                                                    <rect key="frame" x="15" y="11" width="199" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
                                                     <color key="textColor" red="0.47450980392156861" green="0.70980392156862748" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BYN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t98-5D-3t0">
+                                                    <rect key="frame" x="240" y="4" width="34" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
+                                                    <color key="textColor" red="0.47450980390000003" green="0.70980392160000005" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKH-NQ-1ds">
+                                                    <rect key="frame" x="217" y="4" width="22" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
+                                                    <color key="textColor" red="0.47450980390000003" green="0.70980392160000005" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="drugAmount" destination="Ve6-Bu-cAO" id="WQS-pg-GI1"/>
+                                            <outlet property="drugCurrencyLabel" destination="t98-5D-3t0" id="nKh-D2-uD9"/>
                                             <outlet property="drugName" destination="X9C-If-khg" id="FTq-3N-ch1"/>
+                                            <outlet property="drugPriceLabel" destination="zKH-NQ-1ds" id="SX4-IR-mf9"/>
                                             <outlet property="drugQuantityMeasure" destination="9mu-qR-kRI" id="hxv-Ts-Arw"/>
                                         </connections>
                                     </tableViewCell>
@@ -154,8 +170,24 @@
                                             </view>
                                         </subviews>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUM-Oa-Hqx">
+                                        <rect key="frame" x="30" y="105" width="130" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Payment">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37h-ib-ZtB">
+                                        <rect key="frame" x="214" y="105" width="130" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.03742904276491732" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Cancel order">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.47843137254901957" green="0.63529411764705879" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.52207654714584351" green="0.6736786961555481" blue="0.46361899375915527" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="kuW-Fs-cLo" firstAttribute="top" secondItem="kSq-Cc-yfZ" secondAttribute="top" constant="62" id="1ee-sN-536"/>
                                     <constraint firstItem="kuW-Fs-cLo" firstAttribute="top" secondItem="8Uk-CX-IrN" secondAttribute="bottom" constant="8" id="CuQ-9i-YPE"/>
@@ -181,11 +213,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="Xh7-Vb-Tba"/>
                     <connections>
+                        <outlet property="cancelButtonOutlet" destination="37h-ib-ZtB" id="kJC-4X-a8B"/>
                         <outlet property="clockView" destination="MNh-61-9bD" id="44E-4v-Upa"/>
                         <outlet property="descriptionTextViewOutlet" destination="0Jn-oY-1vP" id="ON5-dM-bAR"/>
                         <outlet property="headerView" destination="kSq-Cc-yfZ" id="hUn-Bk-yZk"/>
                         <outlet property="imageStatusOutlet" destination="8Uk-CX-IrN" id="RXG-QG-5tS"/>
                         <outlet property="labelStatusOutlet" destination="kuW-Fs-cLo" id="vje-ua-FlH"/>
+                        <outlet property="paymentButtonOutlet" destination="MUM-Oa-Hqx" id="BhS-zR-jZN"/>
                         <outlet property="rotateView" destination="ncx-Dq-KxE" id="OXZ-Ij-sCK"/>
                         <outlet property="tableView" destination="E9L-gO-tZ6" id="qU1-rr-01a"/>
                     </connections>

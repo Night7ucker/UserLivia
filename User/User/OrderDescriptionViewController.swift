@@ -11,6 +11,8 @@ import UIKit
 class OrderDescriptionViewController: RootViewController {
 
     
+    @IBOutlet var paymentButtonOutlet: UIButton!
+    @IBOutlet var cancelButtonOutlet: UIButton!
     @IBOutlet var clockView: UIView!
     @IBOutlet var labelStatusOutlet: UILabel!
     @IBOutlet var imageStatusOutlet: UIImageView!
@@ -32,6 +34,8 @@ class OrderDescriptionViewController: RootViewController {
         clockView.layer.cornerRadius = 15
         clockView.layer.borderColor = UIColor.white.cgColor
         clockView.layer.borderWidth = 2
+        paymentButtonOutlet.isHidden = true
+        cancelButtonOutlet.isHidden = true
         addBackButtonAndTitleToNavigationBar(title: "ORDER ID - "+RealmDataManager.getOrdersListFromRealm()[tappedCellIndex].orderId!)
         navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar
         navigationController?.navigationBar.layer.shadowOpacity = 0
@@ -42,7 +46,7 @@ class OrderDescriptionViewController: RootViewController {
         if RealmDataManager.getOrderDescriptionModelImage().count > 0 {
             cellCount = 2
         } else {
-            cellCount = RealmDataManager.getOrderDescriptionModel().count + 1
+            cellCount = RealmDataManager.getOrderDrugsDescriptionModel().count + 1
         }
         switch orderStatus {
         case "1":
@@ -62,6 +66,28 @@ class OrderDescriptionViewController: RootViewController {
             imageStatusOutlet.image = UIImage(named: "cancel.png")
             navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar
             headerView.backgroundColor = Colors.Root.greenColorForNavigationBar
+        case "3":
+            imageStatusOutlet.isHidden = false
+            clockView.isHidden = true
+            labelStatusOutlet.text = "Best price offer"
+            descriptionTextViewOutlet.font = descriptionTextViewOutlet.font?.withSize(15)
+            descriptionTextViewOutlet.text = RealmDataManager.getOrderDescriptionModel()[0].totatPrice! + "BYN"
+            imageStatusOutlet.isHidden = true
+            paymentButtonOutlet.isHidden = false
+            cancelButtonOutlet.isHidden = false
+            navigationController?.navigationBar.barTintColor = Colors.Root.lightBlueColor
+            headerView.backgroundColor = Colors.Root.lightBlueColor
+        case "6":
+            imageStatusOutlet.isHidden = false
+            clockView.isHidden = true
+            labelStatusOutlet.text = "You have cancelled the order"
+            descriptionTextViewOutlet.font = descriptionTextViewOutlet.font?.withSize(15)
+            descriptionTextViewOutlet.text = RealmDataManager.getOrderDescriptionModel()[0].totatPrice! + "BYN"
+            imageStatusOutlet.image = UIImage(named: "cancelPageOrder.png")
+            navigationController?.navigationBar.barTintColor = Colors.Root.canceledStatusColor
+            headerView.backgroundColor = Colors.Root.canceledStatusColor
+
+
         default:
             return
         }
@@ -129,19 +155,25 @@ extension OrderDescriptionViewController : UITableViewDataSource{
             }
         } else {
             switch indexPath.row {
-            case 0..<RealmDataManager.getOrderDescriptionModel().count:
+            case 0..<RealmDataManager.getOrderDrugsDescriptionModel().count:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "orderDrugsDetailsCell") as! OrderDescriptionTableViewCell
                 cell.isUserInteractionEnabled = false
-                cell.drugAmount.text = RealmDataManager.getOrderDescriptionModel()[indexPath.row].quantity!
-                cell.drugName.text = RealmDataManager.getOrderDescriptionModel()[indexPath.row].drugName!
-                if RealmDataManager.getOrderDescriptionModel()[indexPath.row].quantityMeasuring != nil {
-                    cell.drugQuantityMeasure.text = RealmDataManager.getOrderDescriptionModel()[indexPath.row].quantityMeasuring!.uppercased()
+                cell.drugAmount.text = RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row].quantity!
+                cell.drugName.text = RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row].drugName!
+                if RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row].drugPrice != 0 {
+                    cell.drugPriceLabel.text = String(describing: RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row].drugPrice)
+                } else {
+                    cell.drugPriceLabel.isHidden = true
+                    cell.drugCurrencyLabel.isHidden = true
+                }
+                if RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row].quantityMeasuring != nil {
+                    cell.drugQuantityMeasure.text = RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row].quantityMeasuring!.uppercased()
                 } else {
                     cell.drugQuantityMeasure.text = " "
                 }
                 return cell
 
-            case RealmDataManager.getOrderDescriptionModel().count:
+            case RealmDataManager.getOrderDrugsDescriptionModel().count:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "orderDetailsCell") as! OrderDescriptionTableViewCell
                 cell.isUserInteractionEnabled = false
                 if RealmDataManager.getOrderDescriptionModel()[0].selfCollect! == "1" {
