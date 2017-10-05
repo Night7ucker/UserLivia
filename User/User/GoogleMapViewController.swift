@@ -160,7 +160,14 @@ class GoogleMapViewController: RootViewController, PharmacyInfoViewControllerDel
         
         if isPaged {
             let choosedLocation = CLLocationCoordinate2D(latitude: Double(RealmDataManager.getSendingOrderFromRealm()[0].latitude!)!, longitude: Double(RealmDataManager.getSendingOrderFromRealm()[0].longtitude!)!)
+            print(choosedLocation)
             //            let choosedLocation = CLLocationCoordinate2D(latitude: 53.9181001, longitude: 27.590105)
+            let realm = try! Realm()
+            if RealmDataManager.getPharmaciesFromRealm().count != 0 {
+                try! realm.write {
+                    realm.delete(RealmDataManager.getPharmaciesFromRealm())
+                }
+            }
             GetPharmaciesRequest.getPharmacies(coordinate: choosedLocation) { success in
                 if success {
                     self.addPinsOnPharmaciesCoordinates()
