@@ -14,7 +14,9 @@ protocol BottomPopupForPrescriptionVCDelegate {
     func showImagePickerCamera()
 }
 
-class MakeOrderViewController: RootViewController, BottomPopupForPrescriptionVCDelegate {
+class MakeOrderViewController: RootViewController, BottomPopupForPrescriptionVCDelegate, SigninViewControllerDelegate {
+    
+    
     
     @IBOutlet weak var makeOrderTableView: UITableView!
     
@@ -61,6 +63,12 @@ class MakeOrderViewController: RootViewController, BottomPopupForPrescriptionVCD
             picker.cameraCaptureMode = .photo
         }
         
+    }
+    
+    func pushToRegistrationViewController() {
+        let mainViewsStoryboard = UIStoryboard(name: "MainViewStoryboard", bundle: nil)
+        let registrationViewController = mainViewsStoryboard.instantiateViewController(withIdentifier: "kRegistrationViewController") as! RegistrationViewController
+        navigationController?.pushViewController(registrationViewController, animated: false)
     }
     
     @IBAction func shootPhoto(_ sender: UIBarButtonItem) {
@@ -133,21 +141,28 @@ extension MakeOrderViewController: UIImagePickerControllerDelegate, UINavigation
         let imageData = UIImagePNGRepresentation(selectedImage)! as NSData
         imageStr = imageData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         let uploadImageObject = UploadImageRequest()
-
+        
         dismiss(animated: true) {
-            let loadingAnimationStoryboard = UIStoryboard(name: "LoadingAnimation", bundle: nil)
-            let loadingAnimationViewController = loadingAnimationStoryboard.instantiateViewController(withIdentifier: "kLoadingAnimationViewController") as! LoadingAnimationViewController
-            self.present(loadingAnimationViewController, animated: false)
-            
-            uploadImageObject.uploadImage(imageString: imageStr) { success in
-                if success {
-                    loadingAnimationViewController.dismiss(animated: false) {
-                        let selectOrderTypeStoryboard = UIStoryboard(name: "SelectOrderType", bundle: nil)
-                        let selectOrderTypeViewController = selectOrderTypeStoryboard.instantiateViewController(withIdentifier: "kExpandedViewController") as! ExpandedViewController
-                        self.navigationController?.pushViewController(selectOrderTypeViewController, animated: false)
+            if RealmDataManager.getTokensFromRealm().count != 0 {
+                let loadingAnimationStoryboard = UIStoryboard(name: "LoadingAnimation", bundle: nil)
+                let loadingAnimationViewController = loadingAnimationStoryboard.instantiateViewController(withIdentifier: "kLoadingAnimationViewController") as! LoadingAnimationViewController
+                self.present(loadingAnimationViewController, animated: false)
+                
+                uploadImageObject.uploadImage(imageString: imageStr) { success in
+                    if success {
+                        loadingAnimationViewController.dismiss(animated: false) {
+                            let selectOrderTypeStoryboard = UIStoryboard(name: "SelectOrderType", bundle: nil)
+                            let selectOrderTypeViewController = selectOrderTypeStoryboard.instantiateViewController(withIdentifier: "kExpandedViewController") as! ExpandedViewController
+                            self.navigationController?.pushViewController(selectOrderTypeViewController, animated: false)
+                            
+                        }
                     }
-                    
                 }
+            } else {
+                let signinViewStoryboard = UIStoryboard(name: "SigninViewStoryboard", bundle: nil)
+                let signinViewController = signinViewStoryboard.instantiateViewController(withIdentifier: "kSigninViewController") as! SigninViewController
+                signinViewController.delegate = self
+                self.present(signinViewController, animated: false, completion: nil)
             }
         }
     }

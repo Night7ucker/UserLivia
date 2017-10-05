@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class SettingsController: RootViewController {
+class SettingsController: RootViewController, SigninViewControllerDelegate {
     
     var listOfPrescriptionViewController: ListOfPrescriptionsVC {
         let listOfPrescriptionsStoryboard = UIStoryboard(name: "ListOfPrescriptions", bundle: nil)
@@ -24,6 +24,8 @@ class SettingsController: RootViewController {
         return registrationVC
     }
     
+    
+    
     @IBOutlet weak var settingsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,10 @@ class SettingsController: RootViewController {
         
         settingsTableView.layer.cornerRadius = 10.0
         
+    }
+    
+    func pushToRegistrationViewController() {
+        navigationController?.pushViewController(regisrationViewController, animated: false)
     }
     
 }
@@ -102,17 +108,35 @@ extension SettingsController : UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        DispatchQueue.main.async {
         switch indexPath.row {
         case 0:
-            navigationController?.pushViewController(listOfPrescriptionViewController, animated: false)
+            if RealmDataManager.getTokensFromRealm().count != 0 {
+                self.navigationController?.pushViewController(self.listOfPrescriptionViewController, animated: false)
+            } else {
+                let loadingAnimationStoryboard = UIStoryboard(name: "SigninViewStoryboard", bundle: nil)
+                let signinViewController = loadingAnimationStoryboard.instantiateViewController(withIdentifier: "kSigninViewController") as! SigninViewController
+                signinViewController.delegate = self
+                self.present(signinViewController, animated: false, completion: nil)
+            }
+        case 1, 3:
+            if RealmDataManager.getTokensFromRealm().count != 0 {
+                
+            } else {
+                let loadingAnimationStoryboard = UIStoryboard(name: "SigninViewStoryboard", bundle: nil)
+                let signinViewController = loadingAnimationStoryboard.instantiateViewController(withIdentifier: "kSigninViewController") as! SigninViewController
+                signinViewController.delegate = self
+                self.present(signinViewController, animated: false, completion: nil)
+            }
         case 4, 5:
             let realm = try! Realm()
             try! realm.write {
                 realm.deleteAll()
             }
-            navigationController?.pushViewController(regisrationViewController, animated: false)
+            self.navigationController?.pushViewController(self.regisrationViewController, animated: false)
         default:
             break
+        }
         }
     }
 }
