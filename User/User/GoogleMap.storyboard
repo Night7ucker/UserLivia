@@ -62,6 +62,7 @@
                     <navigationItem key="navigationItem" id="lbE-Cu-WES"/>
                     <connections>
                         <outlet property="enterAddressLabelOutlet" destination="wOL-BI-ZKq" id="41u-3u-tP5"/>
+                        <outlet property="googleMapTopConstraint" destination="Bp2-9f-BFv" id="sUb-Wy-IHX"/>
                         <outlet property="setDeliveryPlaceMapView" destination="6Zb-Bh-TpP" id="rjU-hr-ifj"/>
                         <outlet property="topMajorViewOutlet" destination="zGO-Ui-p4b" id="ihe-T1-hB6"/>
                     </connections>

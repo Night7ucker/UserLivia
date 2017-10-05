@@ -35,6 +35,10 @@ class GoogleMapViewController: RootViewController, PharmacyInfoViewControllerDel
     @IBOutlet weak var topMajorViewOutlet: UIView!
     
     @IBOutlet weak var enterAddressLabelOutlet: UILabel!
+    
+    @IBOutlet weak var googleMapTopConstraint: NSLayoutConstraint!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,6 +92,9 @@ class GoogleMapViewController: RootViewController, PharmacyInfoViewControllerDel
         
         let viewForCurrentLocationButton = UIView()
         if isPaged {
+            enterAddressLabelOutlet.isHidden = true
+            topMajorViewOutlet.isHidden = true
+            googleMapTopConstraint.constant = 0
             viewForCurrentLocationButton.frame = CGRect(x: 330, y: 100, width: 35, height: 35)
         } else {
             viewForCurrentLocationButton.frame = CGRect(x: 330, y: 160, width: 35, height: 35)
@@ -104,21 +111,22 @@ class GoogleMapViewController: RootViewController, PharmacyInfoViewControllerDel
         buttonForCurrentPosition.addTarget(self, action: #selector(currentLocationButtonTapped(_ :)), for: .touchUpInside)
         
         if isPaged {
-            enterAddressLabelOutlet.isHidden = true
-            topMajorViewOutlet.backgroundColor = Colors.Root.lightGrayColor
-            let searchLabelIcon = UILabel()
-            searchLabelIcon.text = "🔍"
-            searchLabelIcon.font = UIFont.systemFont(ofSize: 20)
-            searchLabelIcon.frame = CGRect(x: 0, y: 33, width: 30, height: 33)
-            
-            let searchTextField = UITextField()
-            searchTextField.borderStyle = .none
-            searchTextField.frame = CGRect(x: 50, y: 33, width: view.frame.width - 50, height: 33)
-            searchTextField.placeholder = "Enter pharmacy name"
-            searchTextField.delegate = self
-            
-            view.addSubview(searchLabelIcon)
-            view.addSubview(searchTextField)
+//            enterAddressLabelOutlet.isHidden = true
+//            topMajorViewOutlet.backgroundColor = Colors.Root.lightGrayColor
+//            let searchLabelIcon = UILabel()
+//            searchLabelIcon.text = "🔍"
+//            searchLabelIcon.font = UIFont.systemFont(ofSize: 20)
+//            searchLabelIcon.frame = CGRect(x: 10, y: 33, width: 30, height: 33)
+//            
+//            let searchTextField = UITextField()
+//            searchTextField.borderStyle = .none
+//            searchTextField.frame = CGRect(x: 50, y: 33, width: view.frame.width - 50, height: 33)
+//            searchTextField.placeholder = "Enter pharmacy name"
+////            searchTextField.delegate = self
+//            searchTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+//            
+//            view.addSubview(searchLabelIcon)
+//            view.addSubview(searchTextField)
         } else {
             viewForCurrentLocationButton.addSubview(buttonForCurrentPosition)
             
@@ -175,6 +183,19 @@ class GoogleMapViewController: RootViewController, PharmacyInfoViewControllerDel
     func sentDelegateToPushToMainPageController(pharmacyID: String) {
         delegate.pushToReviewOrderVC(pharmacyID: pharmacyID)
     }
+    
+//    func textFieldDidChange(_ textField: UITextField) {
+//        let searchHelpView = UIView()
+//        searchHelpView.frame = CGRect(x: view.frame.width/2 - 50, y: 100, width: 100, height: 70)
+//        
+//        let searchPharmacyText = UILabel()
+//        searchPharmacyText.frame = CGRect(x: 15, y: 15, width: 90, height: 20)
+//        searchPharmacyText.text = getPharmacyNameBySearchString(searchString: textField.text!)
+//        
+//        searchHelpView.addSubview(searchPharmacyText)
+//        
+//        view.addSubview(searchHelpView)
+//    }
     
     func addPinsOnPharmaciesCoordinates() {
         for i in 0..<RealmDataManager.getPharmaciesFromRealm().count {
@@ -376,21 +397,12 @@ extension GoogleMapViewController: GMSAutocompleteResultsViewControllerDelegate 
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 }
-
-extension GoogleMapViewController: UITextFieldDelegate  {
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        let searchHelpView = UIView()
-        searchHelpView.frame = CGRect(x: view.frame.width/2 - 50, y: 100, width: 100, height: 70)
-        
-        let searchPharmacyText = UILabel()
-        searchPharmacyText.frame = CGRect(x: 15, y: 15, width: 90, height: 20)
-        searchPharmacyText.text = getPharmacyNameBySearchString(searchString: textField.text!)
-        
-        searchHelpView.addSubview(searchPharmacyText)
-        
-        view.addSubview(searchHelpView)
-    }
-}
+//
+//extension GoogleMapViewController: UITextFieldDelegate  {
+//    
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        
+//    }
+//}
 
 
