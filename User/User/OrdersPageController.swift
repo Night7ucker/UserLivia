@@ -54,9 +54,13 @@ extension OrdersPageController : UITableViewDataSource{
         case "3":
             cell.statusLabelOutlet.text = "Best Offer"
             cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "bestOffer"))
+        case "4":
+            cell.statusLabelOutlet.text = "Order being prepared"
+            cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "orderStatusImage"))
         case "6":
             cell.statusLabelOutlet.text = "Order cancelled"
             cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "cancelOrder"))
+            
         default:
             break
         }
