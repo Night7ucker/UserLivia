@@ -14,11 +14,12 @@ import AlamofireObjectMapper
 class DrugsDescriptionRequest {
     func drugsDescription(drugId:String, completion: @escaping (Bool) -> Void) {
         
-        let url = "https://test.liviaapp.com/api/drug/"+drugId+"?type=1"
+        let url = "https://test.liviaapp.com/api/drug/"+drugId+"?type="+String(describing: RealmDataManager.getDrugsFromRealm()[0].type)
        
         let headers = [
             "Content-Type": "application/json",
             "LiviaApp-language": "en",
+            "LiviaApp-Token": RealmDataManager.getTokensFromRealm()[0].accessToken!,
             "LiviaApp-country": RealmDataManager.getUserDataFromRealm()[0].countryCode!,
             "LiviaApp-city": RealmDataManager.getUserDataFromRealm()[0].cityId!,
             "LiviaApp-APIVersion": "2.0",
