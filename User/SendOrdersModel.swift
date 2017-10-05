@@ -31,7 +31,6 @@ class SendOrdersModel: Object, Mappable{
     
     static func writeIntoRealm(response: DataResponse<SendOrdersModel>){
         let result = response.result.value!
-        print(result)
         let realm = try! Realm()
         if RealmDataManager.getSendingOrderFromRealm().count != 0 {
             try! realm.write {

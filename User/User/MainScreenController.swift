@@ -28,9 +28,7 @@ class MainScreenController: RootViewController, SigninViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        
+
         if userIsRegistred == false {
             fullNameLabelOutlet.isHidden = true
         } else {
