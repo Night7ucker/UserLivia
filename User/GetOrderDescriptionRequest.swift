@@ -29,7 +29,7 @@ class GetOrderDescriptionRequest{
         ]
         
         Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-
+            print(response.result.value)
             guard let result = response.result.value as? [String : AnyObject] else{ return }
             let checkForImage = result["image"] as? String
             if checkForImage != nil {
