@@ -42,4 +42,5 @@ class OrderDrugsDescriptionModel: Object {
     dynamic var quantity: String?
     dynamic var quantityMeasuring: String?
     dynamic var drugPrice = 0
+    dynamic var activeItem: String?
 }

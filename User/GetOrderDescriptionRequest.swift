@@ -48,7 +48,10 @@ class GetOrderDescriptionRequest{
                 orderDescObjectImage.imageUrl = result["image"] as? String
                 orderDescObjectImage.selfCollect = result["self_collect"] as? String
                 RealmDataManager.writeIntoRealm(object: orderDescObjectImage)
-            } else {
+
+       
+    
+                } else {
                 let orderDescObject = OrderDescriptionModel()
                 orderDescObject.deliveryCost = result["delivery_cost"] as? String
                 orderDescObject.orderId = result["order_id"] as? String
@@ -70,6 +73,7 @@ class GetOrderDescriptionRequest{
                     orderDrugDescObject.pNumber = element["phone_number"] as? String
                     orderDrugDescObject.quantity = element["quantity"] as? String
                     orderDrugDescObject.quantityMeasuring = element["quantity_measuring"] as? String
+                    orderDrugDescObject.activeItem = element["active_item"] as? String
                     if let _ = element["price"] {
                         orderDrugDescObject.drugPrice = element["price"] as! Int
                     }

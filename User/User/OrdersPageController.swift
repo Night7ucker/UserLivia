@@ -60,13 +60,22 @@ extension OrdersPageController : UITableViewDataSource{
         case "6":
             cell.statusLabelOutlet.text = "Order cancelled"
             cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "cancelOrder"))
-            
+        case "7":
+            cell.statusLabelOutlet.text = "Order received"
+            cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "doneStatus"))
+        case "15":
+            cell.statusLabelOutlet.text = "Waiting for alternative drugs"
+            cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "time"))
+        case "16":
+            cell.statusLabelOutlet.text = "Best offer with alternative drugs"
+            cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "bestOffer"))
+
         default:
             break
         }
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let realm = try! Realm()
         if RealmDataManager.getOrderDescriptionModel().count > 0 {

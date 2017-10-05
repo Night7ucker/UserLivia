@@ -28,6 +28,13 @@ class MakeOrderViewController: RootViewController, BottomPopupForPrescriptionVCD
         configureNavigationBar()
         addBackButtonAndTitleToNavigationBar(title: "Request price")
         
+        if RealmDataManager.getImageUrlFromRealm().count != 0 {
+            let realm = try! Realm()
+            try! realm.write {
+                realm.delete(RealmDataManager.getImageUrlFromRealm())
+            }
+        }
+        
         makeOrderTableView.layer.cornerRadius = 10
         makeOrderTableView.dataSource = self
         makeOrderTableView.delegate = self

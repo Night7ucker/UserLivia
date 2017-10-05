@@ -96,6 +96,33 @@ class OrderDescriptionViewController: RootViewController {
             imageStatusOutlet.image = UIImage(named: "delivery-truck.png")
             navigationController?.navigationBar.barTintColor = Colors.Root.orangeColor
             headerView.backgroundColor = Colors.Root.orangeColor
+        case "7":
+            imageStatusOutlet.isHidden = false
+            clockView.isHidden = true
+            labelStatusOutlet.text = "Done"
+            descriptionTextViewOutlet.isHidden = true
+            imageStatusOutlet.image = UIImage(named: "success.png")
+            navigationController?.navigationBar.barTintColor = Colors.Root.receivedStatus
+            headerView.backgroundColor = Colors.Root.receivedStatus
+        case "15":
+            imageStatusOutlet.isHidden = true
+            clockView.isHidden = false
+            labelStatusOutlet.text = "In Process"
+            descriptionTextViewOutlet.font = descriptionTextViewOutlet.font?.withSize(12)
+            descriptionTextViewOutlet.text = "We are working to get you the BEST PRICE OFFER for your  order. This may take a few minutes. We thank you for you patience"
+            navigationController?.navigationBar.barTintColor = Colors.Root.inProgressStatusColor
+            headerView.backgroundColor = Colors.Root.inProgressStatusColor
+        case "16":
+            imageStatusOutlet.isHidden = false
+            clockView.isHidden = true
+            labelStatusOutlet.text = "Best price with alternative drugs offer:"
+            descriptionTextViewOutlet.font = descriptionTextViewOutlet.font?.withSize(15)
+            descriptionTextViewOutlet.text = RealmDataManager.getOrderDescriptionModel()[0].totatPrice! + "BYN"
+            imageStatusOutlet.isHidden = true
+            paymentButtonOutlet.isHidden = false
+            cancelButtonOutlet.isHidden = false
+            navigationController?.navigationBar.barTintColor = Colors.Root.lightBlueColor
+            headerView.backgroundColor = Colors.Root.lightBlueColor
 
         default:
             return
@@ -162,11 +189,17 @@ extension OrderDescriptionViewController : UITableViewDataSource{
             default:
                 return UITableViewCell()
             }
+
         } else {
             switch indexPath.row {
             case 0..<RealmDataManager.getOrderDrugsDescriptionModel().count:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "orderDrugsDetailsCell") as! OrderDescriptionTableViewCell
                 cell.isUserInteractionEnabled = false
+                if RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row].activeItem! == "0" {
+                    cell.backgroundColor = Colors.Root.backgroundColor
+                } else {
+                    cell.backgroundColor = UIColor.white
+                }
                 cell.drugAmount.text = RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row].quantity!
                 cell.drugName.text = RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row].drugName!
                 if RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row].drugPrice != 0 {
@@ -224,6 +257,10 @@ extension OrderDescriptionViewController : UITableViewDelegate{
             return 50
         }
         return 50
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 300
     }
     
 }

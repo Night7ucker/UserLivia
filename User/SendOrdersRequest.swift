@@ -54,18 +54,24 @@ class SendOrdersRequest {
         
         if RealmDataManager.getImageUrlFromRealm().count != 0 {
             parameters["image"] = RealmDataManager.getImageUrlFromRealm()[0].imageUrl
+            if let pharmID = RealmDataManager.getSendingOrderFromRealm()[0].pharmID {
+                parameters["pharm_id"] = pharmID
+            }
         } else {
             parameters["drugs"] = drugArray
             if let pharmID = RealmDataManager.getSendingOrderFromRealm()[0].pharmID {
                 parameters["pharm_id"] = pharmID
+                
             }
         }
         
-        
+
         
         
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+            print(parameters)
             print(response.result.value)
+    
             completion(true)
         }
         
