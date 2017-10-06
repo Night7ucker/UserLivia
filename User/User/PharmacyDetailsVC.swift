@@ -33,6 +33,8 @@ class PharmacyDetailsVC: RootViewController {
         
         pharmacyDetailsTableViewOutlet.isScrollEnabled = false
         pharmacyDetailsTableViewOutlet.backgroundColor = Colors.Root.lightGrayColor
+        
+        pharmacyNameLabelOutlet.text = RealmDataManager.getOrderDrugsDescriptionModel()[0].pName
 
         // Do any additional setup after loading the view.
     }

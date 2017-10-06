@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import RealmSwift
+
+protocol CancelPopupVCDelegate {
+    func showLowerCostPopup()
+}
 
 class OrderDescriptionViewController: RootViewController {
 
@@ -26,6 +31,7 @@ class OrderDescriptionViewController: RootViewController {
     @IBOutlet var rotateView: UIView!
     var tappedCellIndex = -1
     var timeTimer: Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -154,11 +160,35 @@ class OrderDescriptionViewController: RootViewController {
         self.isExpanded = !isExpanded
         self.tableView.reloadRows(at: [selectedIndex!], with: .automatic)
     }
+    
+    func sectionTapped(_ sender: UITapGestureRecognizer) {
+        print("section tapped")
+        let pharmacyDetailsStoryboard = UIStoryboard(name: "PharmacyDetails", bundle: nil)
+        let pharmacyDetailsViewController = pharmacyDetailsStoryboard.instantiateViewController(withIdentifier: "kPharmacyDetailsVC") as! PharmacyDetailsVC
+        navigationController?.pushViewController(pharmacyDetailsViewController, animated: false)
+    }
+    
+    
+    @IBAction func paymentButtontapped(_ sender: UIButton) {
+        let paymentStoryboard = UIStoryboard(name: "Payment", bundle: nil)
+        let paymentViewController = paymentStoryboard.instantiateViewController(withIdentifier: "kPaymentVC") as! PaymentVC
+        navigationController?.pushViewController(paymentViewController, animated: false)
+    }
+    
+    @IBAction func cancelOrderButtonTapped(_ sender: UIButton) {
+        let cancelOrderStoryboard = UIStoryboard(name: "CancelOrder", bundle: nil)
+        let cancelOrderViewController = cancelOrderStoryboard.instantiateViewController(withIdentifier: "kCancelPopupVC") as! CancelPopupVC
+        present(cancelOrderViewController, animated: false, completion: nil)
+    }
+    
+    
 }
 
 extension OrderDescriptionViewController : UITableViewDataSource{
 
-    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellCount
     }
@@ -260,8 +290,57 @@ extension OrderDescriptionViewController : UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 300
+        return 30
     }
-    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if RealmDataManager.getOrderDrugsDescriptionModel().count != 0 {
+            let orderDrugsDescriptionObject = RealmDataManager.getOrderDrugsDescriptionModel()[0]
+            if orderDrugsDescriptionObject.pAdmin != nil {
+                let pharmacyView = UIView()
+                
+                let imageView = UIImageView()
+                imageView.frame = CGRect(x: 10, y: 15, width: 30, height: 30)
+                imageView.image = #imageLiteral(resourceName: "pharmacySign")
+                
+                pharmacyView.addSubview(imageView)
+                
+                let pharmacyLabel = UILabel()
+                pharmacyLabel.text = "Pharmacy"
+                pharmacyLabel.font = UIFont.boldSystemFont(ofSize: 14)
+                pharmacyLabel.frame = CGRect(x: 50, y: 10, width: 100, height: 15)
+                
+                pharmacyView.addSubview(pharmacyLabel)
+                
+                let pharmacyNameLabel = UILabel()
+                pharmacyNameLabel.text = orderDrugsDescriptionObject.pName
+                pharmacyNameLabel.frame = CGRect(x: 50, y: 30, width: 100, height: 15)
+                pharmacyNameLabel.font = pharmacyNameLabel.font.withSize(15)
+                
+                pharmacyView.addSubview(pharmacyNameLabel)
+                
+                let arrowImageLabel = UILabel()
+                arrowImageLabel.text = ">"
+                arrowImageLabel.textColor = .gray
+                arrowImageLabel.font = arrowImageLabel.font.withSize(20)
+                arrowImageLabel.frame = CGRect(x: 350, y: 10, width: 40, height: 40)
+                
+                pharmacyView.addSubview(arrowImageLabel)
+                
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(sectionTapped(_:)))
+                pharmacyView.addGestureRecognizer(tapGesture)
+                
+                return pharmacyView
+            }
+        }
+        return nil
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
+    }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let emptyView = UIView()
+        emptyView.backgroundColor = .clear
+        return emptyView
+    }
 }
 

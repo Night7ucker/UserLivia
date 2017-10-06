@@ -1,8 +1,8 @@
 //
-//  PaymentRequest.swift
+//  WorkingHoursRequest.swift
 //  User
 //
-//  Created by User on 10/5/17.
+//  Created by User on 10/6/17.
 //  Copyright © 2017 BAMFAdmin. All rights reserved.
 //
 
@@ -12,15 +12,10 @@ import RealmSwift
 import AlamofireObjectMapper
 import ObjectMapper_Realm
 
-class PaymentRequest {
-    static func payForOrder(orderID: String, completion: @escaping (Bool) -> Void) {
+class WorkingHoursRequest {
+    static func getWorkingHoursFor(pharmacyID: String, completion: @escaping (Bool) -> Void) {
         
-        let url = "https://test.liviaapp.com/api/order/" + orderID
-        
-        let parameters: Parameters = [
-            "amount": RealmDataManager.getOrderDescriptionModel()[0].totatPrice,
-            "pay_type": "cash"
-        ]
+        let url = "https://test.liviaapp.com/api/working-hours/" + pharmacyID
         
         let headers = [
             "Content-Type": "application/json",
@@ -34,12 +29,10 @@ class PaymentRequest {
         
         
         
-        Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-            print(response.result.value)
+        Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).responseObject { (response: DataResponse
+            <MappedWorkingHoursModel>) in
+            MappedWorkingHoursModel.writeIntoRealm(response: response)
             completion(true)
         }
     }
 }
-
-
-

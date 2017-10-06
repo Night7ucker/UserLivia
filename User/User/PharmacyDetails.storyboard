@@ -285,9 +285,11 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="launchBreakLabelOutlet" destination="s8g-pp-A34" id="TyW-e4-gKl"/>
+                                            <outlet property="launchBreakLabelOutlet" destination="Zkb-ke-5ER" id="OSZ-xM-yYe"/>
+                                            <outlet property="launchBreakTimeLabelOutlet" destination="s8g-pp-A34" id="2Rl-Ff-Gjh"/>
                                             <outlet property="workDayBackgroundOutlet" destination="Fm0-uP-895" id="11B-qg-FQe"/>
                                             <outlet property="workDayImageViewOutlet" destination="kpO-IH-9Xs" id="cXX-g1-Zb1"/>
+                                            <outlet property="workingLabelOutlet" destination="efP-fh-Anh" id="xnf-UI-b3F"/>
                                             <outlet property="workingTimeLabelOutlet" destination="5DQ-uf-ax1" id="555-Bu-ZVS"/>
                                         </connections>
                                     </tableViewCell>

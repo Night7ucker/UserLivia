@@ -7,24 +7,79 @@
 //
 
 import UIKit
+import RealmSwift
 
 class WorkDaysVC: RootViewController {
 
     @IBOutlet weak var workDaysTableViewOutlet: UITableView!
+    
+    var arrayOfDays: Results<WorkingHour>? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let realm = try! Realm()
+        if RealmDataManager.getWorkingHoursModel().count != 0 {
+            try! realm.write {
+                realm.delete(RealmDataManager.getWorkingHoursModel())
+            }
+        }
 
         configureNavigationBar()
         addBackButtonAndTitleToNavigationBar(title: "Work time")
         
         workDaysTableViewOutlet.delegate = self
         workDaysTableViewOutlet.dataSource = self
-        // Do any additional setup after loading the view.
+        workDaysTableViewOutlet.isHidden = true
+        
+        WorkingHoursRequest.getWorkingHoursFor(pharmacyID: RealmDataManager.getOrderDrugsDescriptionModel()[0].pId!) { success in
+            if success {
+                self.arrayOfDays = RealmDataManager.getWorkingHoursModel()
+                self.workDaysTableViewOutlet.reloadData()
+                self.workDaysTableViewOutlet.isHidden = false
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    func formStartWorkEndWork(index: Int) -> (String, String) {
+        let startWorkHours = String(Int((arrayOfDays?[index].startWork)!)! / 60)
+        var startWorkMinutes = String(Int((arrayOfDays?[index].startWork)!)! % 60)
+        if startWorkMinutes == "0" {
+            startWorkMinutes += "0"
+        }
+        let startWorkTime = startWorkHours + ":" + startWorkMinutes
+        
+        let endWorkHours = String(Int((arrayOfDays?[index].endWork)!)! / 60)
+        var endWorkMinutes = String(Int((arrayOfDays?[index].endWork)!)! % 60)
+        if endWorkMinutes == "0" {
+            endWorkMinutes += "0"
+        }
+        let endWorkTime = endWorkHours + ":" + endWorkMinutes
+        
+        return (startWorkTime, endWorkTime)
+    }
+    
+    func formStartLaunchEndWork(index: Int) -> (String, String) {
+        let startWorkHours = String(Int((arrayOfDays?[index].startLunch)!)! / 60)
+        var startWorkMinutes = String(Int((arrayOfDays?[index].startLunch)!)! % 60)
+        if startWorkMinutes == "0" {
+            startWorkMinutes += "0"
+        }
+        let startWorkTime = startWorkHours + ":" + startWorkMinutes
+        
+        let endWorkHours = String(Int((arrayOfDays?[index].endLunch)!)! / 60)
+        var endWorkMinutes = String(Int((arrayOfDays?[index].endLunch)!)! % 60)
+        if endWorkMinutes == "0" {
+            endWorkMinutes += "0"
+        }
+        let endWorkTime = endWorkHours + ":" + endWorkMinutes
+        
+        
+        
+        return (startWorkTime, endWorkTime)
     }
 
 }
@@ -39,29 +94,104 @@ extension WorkDaysVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let workDaysCell = tableView.dequeueReusableCell(withIdentifier: "workDaysCell") as! WorkDaysCell
         
-        switch indexPath.row {
-        case 0:
-            workDaysCell.workDayImageViewOutlet.image = UIImage(named: "monday")
-        case 1:
-            workDaysCell.workDayImageViewOutlet.image = UIImage(named: "tuesday")
-        case 2:
-            workDaysCell.workDayImageViewOutlet.image = UIImage(named: "wensday")
-        case 3:
-            workDaysCell.workDayImageViewOutlet.image = UIImage(named: "thurday")
-        case 4:
-            workDaysCell.workDayImageViewOutlet.image = UIImage(named: "friday")
-        case 5:
-            workDaysCell.workDayImageViewOutlet.image = UIImage(named: "saturday")
-            workDaysCell.workDayBackgroundOutlet.image = #imageLiteral(resourceName: "workDayBackgroundGray")
-        case 6:
-            workDaysCell.workDayImageViewOutlet.image = UIImage(named: "sunday")
-            workDaysCell.workDayBackgroundOutlet.image = #imageLiteral(resourceName: "workDayBackgroundGray")
-        default:
-            break
+        if RealmDataManager.getWorkingHoursModel().count != 0 {
+            switch indexPath.row {
+            case 0:
+                if Int((arrayOfDays?[indexPath.row].dayType)!) == 0 {
+                    workDaysCell.workDayBackgroundOutlet.image = #imageLiteral(resourceName: "workDayBackgroundGray")
+                    workDaysCell.launchBreakLabelOutlet.isHidden = true
+                    workDaysCell.workingTimeLabelOutlet.isHidden = true
+                    workDaysCell.workingLabelOutlet.isHidden = true
+                    workDaysCell.launchBreakTimeLabelOutlet.isHidden = true
+                } else {
+                    workDaysCell.workDayBackgroundOutlet.image = #imageLiteral(resourceName: "workDayBackgroundGreen")
+                }
+                workDaysCell.workingTimeLabelOutlet.text = formStartWorkEndWork(index: indexPath.row).0 + " - " + formStartWorkEndWork(index: indexPath.row).1
+                workDaysCell.launchBreakTimeLabelOutlet.text = formStartLaunchEndWork(index: indexPath.row).0 + " - " + formStartLaunchEndWork(index: indexPath.row).1
+                workDaysCell.workDayImageViewOutlet.image = UIImage(named: "monday")
+            case 1:
+                if Int((arrayOfDays?[indexPath.row].dayType)!) == 0 {
+                    workDaysCell.workDayBackgroundOutlet.image = #imageLiteral(resourceName: "workDayBackgroundGray")
+                    workDaysCell.launchBreakLabelOutlet.isHidden = true
+                    workDaysCell.workingTimeLabelOutlet.isHidden = true
+                    workDaysCell.workingLabelOutlet.isHidden = true
+                    workDaysCell.launchBreakTimeLabelOutlet.isHidden = true
+                } else {
+                    workDaysCell.workDayBackgroundOutlet.image = #imageLiteral(resourceName: "workDayBackgroundGreen")
+                }
+                workDaysCell.workingTimeLabelOutlet.text = formStartWorkEndWork(index: indexPath.row).0 + " - " + formStartWorkEndWork(index: indexPath.row).1
+                workDaysCell.launchBreakTimeLabelOutlet.text = formStartLaunchEndWork(index: indexPath.row).0 + " - " + formStartLaunchEndWork(index: indexPath.row).1
+                workDaysCell.workDayImageViewOutlet.image = UIImage(named: "tuesday")
+            case 2:
+                if Int((arrayOfDays?[indexPath.row].dayType)!)! == 0 {
+                    workDaysCell.workDayBackgroundOutlet.image = #imageLiteral(resourceName: "workDayBackgroundGray")
+                    workDaysCell.launchBreakLabelOutlet.isHidden = true
+                    workDaysCell.workingTimeLabelOutlet.isHidden = true
+                    workDaysCell.workingLabelOutlet.isHidden = true
+                    workDaysCell.launchBreakTimeLabelOutlet.isHidden = true
+                } else {
+                    workDaysCell.workDayBackgroundOutlet.image = #imageLiteral(resourceName: "workDayBackgroundGreen")
+                }
+                workDaysCell.workingTimeLabelOutlet.text = formStartWorkEndWork(index: indexPath.row).0 + " - " + formStartWorkEndWork(index: indexPath.row).1
+                workDaysCell.launchBreakTimeLabelOutlet.text = formStartLaunchEndWork(index: indexPath.row).0 + " - " + formStartLaunchEndWork(index: indexPath.row).1
+                workDaysCell.workDayImageViewOutlet.image = UIImage(named: "wensday")
+            case 3:
+                if Int((arrayOfDays?[indexPath.row].dayType)!)! == 0 {
+                    workDaysCell.workDayBackgroundOutlet.image = #imageLiteral(resourceName: "workDayBackgroundGray")
+                    workDaysCell.launchBreakLabelOutlet.isHidden = true
+                    workDaysCell.workingTimeLabelOutlet.isHidden = true
+                    workDaysCell.workingLabelOutlet.isHidden = true
+                    workDaysCell.launchBreakTimeLabelOutlet.isHidden = true
+                } else {
+                    workDaysCell.workDayBackgroundOutlet.image = #imageLiteral(resourceName: "workDayBackgroundGreen")
+                }
+                workDaysCell.workingTimeLabelOutlet.text = formStartWorkEndWork(index: indexPath.row).0 + " - " + formStartWorkEndWork(index: indexPath.row).1
+                workDaysCell.launchBreakTimeLabelOutlet.text = formStartLaunchEndWork(index: indexPath.row).0 + " - " + formStartLaunchEndWork(index: indexPath.row).1
+                workDaysCell.workDayImageViewOutlet.image = UIImage(named: "thurday")
+            case 4:
+                if Int((arrayOfDays?[indexPath.row].dayType)!)! == 0 {
+                    workDaysCell.workDayBackgroundOutlet.image = #imageLiteral(resourceName: "workDayBackgroundGray")
+                    workDaysCell.launchBreakLabelOutlet.isHidden = true
+                    workDaysCell.workingTimeLabelOutlet.isHidden = true
+                    workDaysCell.workingLabelOutlet.isHidden = true
+                    workDaysCell.launchBreakTimeLabelOutlet.isHidden = true
+                } else {
+                    workDaysCell.workDayBackgroundOutlet.image = #imageLiteral(resourceName: "workDayBackgroundGreen")
+                }
+                workDaysCell.workingTimeLabelOutlet.text = formStartWorkEndWork(index: indexPath.row).0 + " - " + formStartWorkEndWork(index: indexPath.row).1
+                workDaysCell.launchBreakTimeLabelOutlet.text = formStartLaunchEndWork(index: indexPath.row).0 + " - " + formStartLaunchEndWork(index: indexPath.row).1
+                workDaysCell.workDayImageViewOutlet.image = UIImage(named: "friday")
+            case 5:
+                if Int((arrayOfDays?[indexPath.row].dayType)!)! == 0 {
+                    workDaysCell.workDayBackgroundOutlet.image = #imageLiteral(resourceName: "workDayBackgroundGray")
+                    workDaysCell.launchBreakLabelOutlet.isHidden = true
+                    workDaysCell.workingTimeLabelOutlet.isHidden = true
+                    workDaysCell.workingLabelOutlet.isHidden = true
+                    workDaysCell.launchBreakTimeLabelOutlet.isHidden = true
+                } else {
+                    workDaysCell.workDayBackgroundOutlet.image = #imageLiteral(resourceName: "workDayBackgroundGreen")
+                }
+                workDaysCell.workingTimeLabelOutlet.text = formStartWorkEndWork(index: indexPath.row).0 + " - " + formStartWorkEndWork(index: indexPath.row).1
+                workDaysCell.launchBreakTimeLabelOutlet.text = formStartLaunchEndWork(index: indexPath.row).0 + " - " + formStartLaunchEndWork(index: indexPath.row).1
+                workDaysCell.workDayImageViewOutlet.image = UIImage(named: "saturday")
+            case 6:
+                if Int((arrayOfDays?[indexPath.row].dayType)!)! == 0 {
+                    workDaysCell.workDayBackgroundOutlet.image = #imageLiteral(resourceName: "workDayBackgroundGray")
+                    workDaysCell.launchBreakLabelOutlet.isHidden = true
+                    workDaysCell.workingTimeLabelOutlet.isHidden = true
+                    workDaysCell.workingLabelOutlet.isHidden = true
+                    workDaysCell.launchBreakTimeLabelOutlet.isHidden = true
+                } else {
+                    workDaysCell.workDayBackgroundOutlet.image = #imageLiteral(resourceName: "workDayBackgroundGreen")
+                }
+                workDaysCell.workingTimeLabelOutlet.text = formStartWorkEndWork(index: indexPath.row).0 + " - " + formStartWorkEndWork(index: indexPath.row).1
+                workDaysCell.launchBreakTimeLabelOutlet.text = formStartLaunchEndWork(index: indexPath.row).0 + " - " + formStartLaunchEndWork(index: indexPath.row).1
+                workDaysCell.workDayImageViewOutlet.image = UIImage(named: "sunday")
+            default:
+                break
+            }
         }
-        
-        workDaysCell.workingTimeLabelOutlet.text = "08:46 - 21:00"
-        workDaysCell.launchBreakLabelOutlet.text = "13:00 - 14:00"
+        workDaysCell.isUserInteractionEnabled = false
         
         return workDaysCell
     }
