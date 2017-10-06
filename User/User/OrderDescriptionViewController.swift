@@ -50,10 +50,11 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate 
         tableView.tableFooterView = UIView(frame: .zero)
         let orderStatus = RealmDataManager.getOrdersListFromRealm()[tappedCellIndex].statusId!
         if RealmDataManager.getOrderDescriptionModelImage().count > 0 {
-            cellCount = 2
+            cellCount = 2 + RealmDataManager.getOrderDrugsDescriptionModel().count
         } else {
             cellCount = RealmDataManager.getOrderDrugsDescriptionModel().count + 1
         }
+        print(cellCount)
         switch orderStatus {
         case "1":
             imageStatusOutlet.isHidden = true
@@ -201,18 +202,10 @@ extension OrderDescriptionViewController : UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if RealmDataManager.getOrderDescriptionModelImage().count > 0 {
             switch indexPath.row {
             case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "orderDetailsCell") as! OrderDescriptionTableViewCell
-                if RealmDataManager.getOrderDescriptionModelImage()[0].selfCollect! == "1" {
-                    cell.selfCollectValue.text = "Self-collect"
-                } else {
-                    cell.selfCollectValue.text = "Delivery"
-                }
-                cell.isUserInteractionEnabled = false
-                return cell
-            case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "orderDescCellImage") as! OrderDescriptionTableViewCell
                 getImage(pictureUrl: "https://test.liviaapp.com"+RealmDataManager.getOrderDescriptionModelImage()[0].imageUrl!) { success, image in
                     if success {
@@ -220,8 +213,42 @@ extension OrderDescriptionViewController : UITableViewDataSource{
                         cell.drugsPreviewImage.image = image
                     }
                 }
-
                 return cell
+            case 1:
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "orderDetailsCell") as! OrderDescriptionTableViewCell
+                if RealmDataManager.getOrderDescriptionModel()[0].selfCollect! == "1" {
+                    cell.selfCollectValue.text = "Self-collect"
+                } else {
+                    cell.selfCollectValue.text = "Delivery"
+                }
+                cell.isUserInteractionEnabled = false
+                return cell
+                
+            case 2..<RealmDataManager.getOrderDrugsDescriptionModel().count + 2:
+
+                let cell = tableView.dequeueReusableCell(withIdentifier: "orderDrugsDetailsCell") as! OrderDescriptionTableViewCell
+                cell.isUserInteractionEnabled = false
+                if RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row - 2].activeItem! == "0" {
+                    cell.backgroundColor = Colors.Root.backgroundColor
+                } else {
+                    cell.backgroundColor = UIColor.white
+                }
+                cell.drugAmount.text = RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row - 2].quantity!
+                cell.drugName.text = RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row - 2].drugName!
+                if RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row - 2].drugPrice != 0 {
+                    cell.drugPriceLabel.text = String(describing: RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row - 2].drugPrice)
+                } else {
+                    cell.drugPriceLabel.isHidden = true
+                    cell.drugCurrencyLabel.isHidden = true
+                }
+                if RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row - 2].quantityMeasuring != nil {
+                    cell.drugQuantityMeasure.text = RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row - 2].quantityMeasuring!.uppercased()
+                } else {
+                    cell.drugQuantityMeasure.text = " "
+                }
+                return cell
+
 
             default:
                 return UITableViewCell()
