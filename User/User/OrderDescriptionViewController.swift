@@ -13,7 +13,7 @@ protocol CancelPopupVCDelegate {
     func showLowerCostPopup()
 }
 
-class OrderDescriptionViewController: RootViewController {
+class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate {
 
     
     @IBOutlet var paymentButtonOutlet: UIButton!
@@ -168,6 +168,12 @@ class OrderDescriptionViewController: RootViewController {
         navigationController?.pushViewController(pharmacyDetailsViewController, animated: false)
     }
     
+    func showLowerCostPopup() {
+        let cancelOrderStoryboard = UIStoryboard(name: "CancelOrder", bundle: nil)
+        let alternativePopupViewController = cancelOrderStoryboard.instantiateViewController(withIdentifier: "AlternativePopupVC") as! AlternativePopupVC
+        present(alternativePopupViewController, animated: false, completion: nil)
+    }
+    
     
     @IBAction func paymentButtontapped(_ sender: UIButton) {
         let paymentStoryboard = UIStoryboard(name: "Payment", bundle: nil)
@@ -178,6 +184,7 @@ class OrderDescriptionViewController: RootViewController {
     @IBAction func cancelOrderButtonTapped(_ sender: UIButton) {
         let cancelOrderStoryboard = UIStoryboard(name: "CancelOrder", bundle: nil)
         let cancelOrderViewController = cancelOrderStoryboard.instantiateViewController(withIdentifier: "kCancelPopupVC") as! CancelPopupVC
+        cancelOrderViewController.delegate = self
         present(cancelOrderViewController, animated: false, completion: nil)
     }
     
