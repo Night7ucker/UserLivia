@@ -118,6 +118,9 @@
 		FB22C2311F77E73F000EED58 /* MainScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22C2301F77E73F000EED58 /* MainScreenCell.swift */; };
 		FB22C2331F77E752000EED58 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22C2321F77E752000EED58 /* CustomImageView.swift */; };
 		FB22C2351F77E91B000EED58 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22C2341F77E91B000EED58 /* MainScreenController.swift */; };
+		FB2615CD1F87651D008069CE /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2615CC1F87651D008069CE /* FAQViewController.swift */; };
+		FB2615CF1F8767EE008069CE /* FAQ.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB2615CE1F8767EE008069CE /* FAQ.xib */; };
+		FB2615D11F876929008069CE /* FAQTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2615D01F876929008069CE /* FAQTableViewCell.swift */; };
 		FB5FC54E1F7A44CD00F8658A /* UploadImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5FC54D1F7A44CD00F8658A /* UploadImageRequest.swift */; };
 		FB5FC5501F7A44DE00F8658A /* UploadImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5FC54F1F7A44DE00F8658A /* UploadImageModel.swift */; };
 		FB5FC5551F7A83B500F8658A /* RegistrationUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5FC5541F7A83B500F8658A /* RegistrationUserRequest.swift */; };
@@ -272,6 +275,9 @@
 		FB22C2301F77E73F000EED58 /* MainScreenCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainScreenCell.swift; path = User/User/MainScreenCell.swift; sourceTree = SOURCE_ROOT; };
 		FB22C2321F77E752000EED58 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomImageView.swift; path = User/User/CustomImageView.swift; sourceTree = SOURCE_ROOT; };
 		FB22C2341F77E91B000EED58 /* MainScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainScreenController.swift; path = User/User/MainScreenController.swift; sourceTree = SOURCE_ROOT; };
+		FB2615CC1F87651D008069CE /* FAQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = SOURCE_ROOT; };
+		FB2615CE1F8767EE008069CE /* FAQ.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FAQ.xib; sourceTree = SOURCE_ROOT; };
+		FB2615D01F876929008069CE /* FAQTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		FB5FC54D1F7A44CD00F8658A /* UploadImageRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadImageRequest.swift; sourceTree = "<group>"; };
 		FB5FC54F1F7A44DE00F8658A /* UploadImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadImageModel.swift; sourceTree = "<group>"; };
 		FB5FC5541F7A83B500F8658A /* RegistrationUserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationUserRequest.swift; sourceTree = "<group>"; };
@@ -355,6 +361,7 @@
 		7FBAFBBD1F77DAE500BEB7F1 /* SettingsMenuModule */ = {
 			isa = PBXGroup;
 			children = (
+				FB2615CB1F876502008069CE /* FAQ */,
 				CE81353C1F865FF600FB550E /* ChangePhoneNumberModule */,
 				CEF2EBC31F863253002A1B20 /* ListOfPrescriptionsModule */,
 				FB22C22E1F77E6BE000EED58 /* SettingsController.swift */,
@@ -870,6 +877,16 @@
 			name = TakePhotoOfPrescriptionModule;
 			sourceTree = "<group>";
 		};
+		FB2615CB1F876502008069CE /* FAQ */ = {
+			isa = PBXGroup;
+			children = (
+				FB2615CC1F87651D008069CE /* FAQViewController.swift */,
+				FB2615CE1F8767EE008069CE /* FAQ.xib */,
+				FB2615D01F876929008069CE /* FAQTableViewCell.swift */,
+			);
+			name = FAQ;
+			sourceTree = "<group>";
+		};
 		FB5FC54B1F7A44A400F8658A /* RegisterUserRequests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1187,6 +1204,7 @@
 				7FBAFBB71F77D9D700BEB7F1 /* Settings.storyboard in Resources */,
 				CEB4A3021F869B8C004478B9 /* Payment.storyboard in Resources */,
 				FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */,
+				FB2615CF1F8767EE008069CE /* FAQ.xib in Resources */,
 				CEEC74991F8675C6002C28D2 /* PharmacyDetails.storyboard in Resources */,
 				7F6D01D11F82444A00FA01E8 /* InviteFriends.storyboard in Resources */,
 				CE798D1E1F7A7D7D00FDF83D /* EditProfile.storyboard in Resources */,
@@ -1329,6 +1347,7 @@
 				CEABE42E1F769B980041FAD5 /* PersonTitleTableViewCell.swift in Sources */,
 				FB75CB531F83A0A50022B38D /* OrdersCountRequest.swift in Sources */,
 				7F6D01E41F8282BE00FA01E8 /* Contact.swift in Sources */,
+				FB2615CD1F87651D008069CE /* FAQViewController.swift in Sources */,
 				CEABE4281F7676470041FAD5 /* FillRegistrationInfoViewController.swift in Sources */,
 				CEC5EFFF1F8235430012CFAA /* SectionHeaderView.swift in Sources */,
 				FB9D50001F7D1BE5001F3F95 /* EditUserCityRequest.swift in Sources */,
@@ -1384,6 +1403,7 @@
 				FB5FC5501F7A44DE00F8658A /* UploadImageModel.swift in Sources */,
 				CE4ABE0B1F83FBD80052EC10 /* GetPharmaciesModel.swift in Sources */,
 				FBD74BA71F7B84C300FA2BFE /* GetUserProfileRequest.swift in Sources */,
+				FB2615D11F876929008069CE /* FAQTableViewCell.swift in Sources */,
 				CEA61BCE1F756D9400BA1AED /* MakeOrderCellTableViewCell.swift in Sources */,
 				FB75CB431F8240550022B38D /* AddToCartTableViewCell.swift in Sources */,
 				CE2695A31F86B4B5002A1F1E /* CashPaymentCell.swift in Sources */,

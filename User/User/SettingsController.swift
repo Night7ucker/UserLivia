@@ -120,13 +120,21 @@ extension SettingsController : UITableViewDataSource{
                 self.present(signinViewController, animated: false, completion: nil)
             }
         case 1:
-            if RealmDataManager.getTokensFromRealm().count != 0 {
-                
-            } else {
-                let loadingAnimationStoryboard = UIStoryboard(name: "SigninViewStoryboard", bundle: nil)
-                let signinViewController = loadingAnimationStoryboard.instantiateViewController(withIdentifier: "kSigninViewController") as! SigninViewController
-                signinViewController.delegate = self
-                self.present(signinViewController, animated: false, completion: nil)
+            let SettingsStoryboard = UIStoryboard(name: "Settings", bundle: nil)
+            let SettingsViewController = SettingsStoryboard.instantiateViewController(withIdentifier: "kFAQViewController") as? FAQViewController
+            self.navigationController?.pushViewController(SettingsViewController!, animated: true)
+        case 2:
+            print("asd")
+            let googleUrlString = "googlegmail:///co?subject=Hello&body=Hi"
+            if let googleUrl = NSURL(string: googleUrlString) {
+                // show alert to choose app
+                if UIApplication.shared.canOpenURL(googleUrl as URL) {
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(googleUrl as URL, options: [:], completionHandler: nil)
+                    } else {
+                        UIApplication.shared.openURL(googleUrl as URL)
+                    }
+                }
             }
         case 3:
             if RealmDataManager.getTokensFromRealm().count != 0 {
