@@ -71,6 +71,7 @@ class GetOrderDescriptionRequest{
                     orderDrugDescObject.pLong = element["longitude"] as? String
                     orderDrugDescObject.pId = element["pharmacy_id"] as? String
                     orderDrugDescObject.pNumber = element["phone_number"] as? String
+                    orderDrugDescObject.pName = element["pharmacy_name"] as? String
                     orderDrugDescObject.quantity = element["quantity"] as? String
                     orderDrugDescObject.quantityMeasuring = element["quantity_measuring"] as? String
                     orderDrugDescObject.activeItem = element["active_item"] as? String

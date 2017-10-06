@@ -16,6 +16,11 @@ class WorkDaysCell: UITableViewCell {
     
     @IBOutlet weak var workDayBackgroundOutlet: UIImageView!
     
+    @IBOutlet weak var launchBreakTimeLabelOutlet: UILabel!
+    
+    @IBOutlet weak var workingLabelOutlet: UILabel!
+    
+    
     @IBOutlet weak var launchBreakLabelOutlet: UILabel!
     
     override func awakeFromNib() {

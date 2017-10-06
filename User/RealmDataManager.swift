@@ -95,5 +95,9 @@ class RealmDataManager {
         let data = realm.objects(PrescriptionModel.self)
         return data
     }
+    static func getWorkingHoursModel() -> Results<WorkingHour> {
+        let data = realm.objects(WorkingHour.self)
+        return data
+    }
 
 }

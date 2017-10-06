@@ -49,6 +49,9 @@
 		CE4ABE091F83FBCC0052EC10 /* GetPharmaciesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4ABE081F83FBCC0052EC10 /* GetPharmaciesRequest.swift */; };
 		CE4ABE0B1F83FBD80052EC10 /* GetPharmaciesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4ABE0A1F83FBD80052EC10 /* GetPharmaciesModel.swift */; };
 		CE5207991F84D7DD00B697F9 /* OrderSendedPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5207981F84D7DD00B697F9 /* OrderSendedPopupViewController.swift */; };
+		CE58A0361F876D7900BE46A4 /* WorkingHoursRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58A0351F876D7900BE46A4 /* WorkingHoursRequest.swift */; };
+		CE58A0381F876E1000BE46A4 /* WorkingHoursModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58A0371F876E1000BE46A4 /* WorkingHoursModel.swift */; };
+		CE58A03B1F877B2100BE46A4 /* CancelPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58A03A1F877B2100BE46A4 /* CancelPopupVC.swift */; };
 		CE5F4BEC1F77CC19009CBA5D /* Orders Appointments Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */; };
 		CE68E2F91F7C03AC002EE618 /* CityNameRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E2F81F7C03AC002EE618 /* CityNameRealmModel.swift */; };
 		CE6D40E61F7CF23D00C30EFA /* ReminderRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D40E51F7CF23D00C30EFA /* ReminderRequests.swift */; };
@@ -203,6 +206,9 @@
 		CE4ABE081F83FBCC0052EC10 /* GetPharmaciesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPharmaciesRequest.swift; sourceTree = "<group>"; };
 		CE4ABE0A1F83FBD80052EC10 /* GetPharmaciesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPharmaciesModel.swift; sourceTree = "<group>"; };
 		CE5207981F84D7DD00B697F9 /* OrderSendedPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSendedPopupViewController.swift; sourceTree = "<group>"; };
+		CE58A0351F876D7900BE46A4 /* WorkingHoursRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingHoursRequest.swift; sourceTree = "<group>"; };
+		CE58A0371F876E1000BE46A4 /* WorkingHoursModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingHoursModel.swift; sourceTree = "<group>"; };
+		CE58A03A1F877B2100BE46A4 /* CancelPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelPopupVC.swift; sourceTree = "<group>"; };
 		CE5F4BEB1F77CC19009CBA5D /* Orders Appointments Payments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Orders Appointments Payments.storyboard"; sourceTree = "<group>"; };
 		CE68E2F81F7C03AC002EE618 /* CityNameRealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityNameRealmModel.swift; sourceTree = "<group>"; };
 		CE6D40E51F7CF23D00C30EFA /* ReminderRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderRequests.swift; sourceTree = "<group>"; };
@@ -443,6 +449,7 @@
 				7F6137F41F7B7F7C00629AA7 /* OrderPageCell.swift */,
 				CEEC749A1F867BBA002C28D2 /* PharmacyDetails */,
 				CE2695981F869F4D002A1F1E /* PaymentViewModule */,
+				CE58A0391F877B0D00BE46A4 /* CancelPopupVC */,
 			);
 			name = OrdersPageModule;
 			sourceTree = "<group>";
@@ -530,6 +537,23 @@
 				CE5207981F84D7DD00B697F9 /* OrderSendedPopupViewController.swift */,
 			);
 			name = OrderSendedPopupModule;
+			sourceTree = "<group>";
+		};
+		CE58A0341F876D6500BE46A4 /* WorkingHoursRequest */ = {
+			isa = PBXGroup;
+			children = (
+				CE58A0351F876D7900BE46A4 /* WorkingHoursRequest.swift */,
+				CE58A0371F876E1000BE46A4 /* WorkingHoursModel.swift */,
+			);
+			name = WorkingHoursRequest;
+			sourceTree = "<group>";
+		};
+		CE58A0391F877B0D00BE46A4 /* CancelPopupVC */ = {
+			isa = PBXGroup;
+			children = (
+				CE58A03A1F877B2100BE46A4 /* CancelPopupVC.swift */,
+			);
+			name = CancelPopupVC;
 			sourceTree = "<group>";
 		};
 		CE6C7D561F82206F0023AFF1 /* TakePhotoofPresription */ = {
@@ -1040,6 +1064,7 @@
 		FB958B851F752BBC0065B49C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE58A0341F876D6500BE46A4 /* WorkingHoursRequest */,
 				CE2695A41F86BCE2002A1F1E /* PaymentRequest */,
 				CEF2EBC81F8632DD002A1B20 /* ListOfPrescriptionsRequests */,
 				FB6AC0B81F854F8D000F47CC /* GetOrderDescriptionRequests */,
@@ -1338,6 +1363,7 @@
 				FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */,
 				7F6137F31F7B7E3500629AA7 /* OrdersPaymentsController.swift in Sources */,
 				FB75CB461F8246E40022B38D /* AddedToCartDrugsModel.swift in Sources */,
+				CE58A03B1F877B2100BE46A4 /* CancelPopupVC.swift in Sources */,
 				FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */,
 				CE01762E1F7EA2CF00EE6777 /* SigninViewController.swift in Sources */,
 				CE9D72431F82A83D00BF1805 /* DrugNameAndTypeTableViewController.swift in Sources */,
@@ -1374,6 +1400,7 @@
 				7F6137F51F7B7F7C00629AA7 /* OrderPageCell.swift in Sources */,
 				CE798D201F7A81BF00FDF83D /* EditingProfileViewController.swift in Sources */,
 				CEABE42B1F769ABF0041FAD5 /* PopupTitleForPersonViewController.swift in Sources */,
+				CE58A0361F876D7900BE46A4 /* WorkingHoursRequest.swift in Sources */,
 				CE725FD91F838F6C009B8FC2 /* OrderTypeModel.swift in Sources */,
 				CEEC749E1F867BFA002C28D2 /* PharmacyAdminCell.swift in Sources */,
 				CE68E2F91F7C03AC002EE618 /* CityNameRealmModel.swift in Sources */,
@@ -1389,6 +1416,7 @@
 				CE2695A31F86B4B5002A1F1E /* CashPaymentCell.swift in Sources */,
 				CE4ABDFC1F83CE0B0052EC10 /* PageMapAndPharmacyVC.swift in Sources */,
 				CEB75F1C1F7BA8A100986F1D /* GetCitiesRequest.swift in Sources */,
+				CE58A0381F876E1000BE46A4 /* WorkingHoursModel.swift in Sources */,
 				CEF2EBC51F86326A002A1B20 /* ListOfPrescriptionsVC.swift in Sources */,
 				CE77533E1F84B6F8004E3F21 /* PharmacyInfoViewController.swift in Sources */,
 				CE725FDC1F83ABDD009B8FC2 /* ReviewYourOrdedViewController.swift in Sources */,

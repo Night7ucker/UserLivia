@@ -8,7 +8,11 @@
 
 import UIKit
 
-class PaymentVC: RootViewController {
+protocol SuccessPopupVCDelegate {
+    func pushToMainMenu()
+}
+
+class PaymentVC: RootViewController, SuccessPopupVCDelegate {
 
     
     @IBOutlet weak var topBarViewOutlet: UILabel!
@@ -61,9 +65,16 @@ class PaymentVC: RootViewController {
             loadingAnimationViewController.dismiss(animated: false) {
                 let paymentStoryboard = UIStoryboard(name: "Payment", bundle: nil)
                 let successPopupViewController = paymentStoryboard.instantiateViewController(withIdentifier: "kSuccessPopupVC") as! SuccessPopupVC
+                successPopupViewController.delegate = self
                 self.present(successPopupViewController, animated: false, completion: nil)
             }
         }
+    }
+    
+    func pushToMainMenu() {
+        let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
+        let mainScreenViewController = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as! MainScreenController
+        navigationController?.pushViewController(mainScreenViewController, animated: false)
     }
     
 

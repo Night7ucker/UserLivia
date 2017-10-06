@@ -164,7 +164,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.75262200342465757" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.49569242294520549" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="okButtonOutlet" destination="b2w-dl-Wua" id="fOB-EY-md9"/>
@@ -179,7 +179,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dMt-rI-5gb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Vf4-ht-K5H">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vf4-ht-K5H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -195,7 +195,7 @@
         <!--Success PopupVC-->
         <scene sceneID="p0z-Uh-TVx">
             <objects>
-                <viewController storyboardIdentifier="kSuccessPopupVC" id="ccL-ud-uaS" customClass="SuccessPopupVC" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="kSuccessPopupVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="ccL-ud-uaS" customClass="SuccessPopupVC" customModule="User" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eXf-Ml-ER1"/>
                         <viewControllerLayoutGuide type="bottom" id="zqR-7h-qUo"/>
@@ -227,7 +227,7 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.74547838184931503" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="okButtonOutlet" destination="oow-Nn-6uu" id="eZu-1a-eXy"/>

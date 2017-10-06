@@ -11,6 +11,9 @@ import UIKit
 class SuccessPopupVC: RootViewController {
 
     @IBOutlet weak var okButtonOutlet: UIButton!
+    
+    var delegate: SuccessPopupVCDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,10 +26,12 @@ class SuccessPopupVC: RootViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        delegate.pushToMainMenu()
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func okButtonTapped(_ sender: UIButton) {
+        delegate.pushToMainMenu()
         dismiss(animated: false, completion: nil)
     }
 
