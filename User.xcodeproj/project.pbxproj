@@ -92,6 +92,7 @@
 		CEB4A3021F869B8C004478B9 /* Payment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB4A3011F869B8C004478B9 /* Payment.storyboard */; };
 		CEB75F191F7B921D00986F1D /* LoadingAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB75F181F7B921D00986F1D /* LoadingAnimationViewController.swift */; };
 		CEB75F1C1F7BA8A100986F1D /* GetCitiesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB75F1B1F7BA8A100986F1D /* GetCitiesRequest.swift */; };
+		CEB7E49C1F879A0900A3B752 /* AlternativePopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB7E49B1F879A0900A3B752 /* AlternativePopupVC.swift */; };
 		CEC5EFFD1F8234CD0012CFAA /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5EFFC1F8234CD0012CFAA /* Section.swift */; };
 		CEC5EFFF1F8235430012CFAA /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5EFFE1F8235430012CFAA /* SectionHeaderView.swift */; };
 		CEC5F0011F8237810012CFAA /* ExpandedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5F0001F8237810012CFAA /* ExpandedViewController.swift */; };
@@ -252,6 +253,7 @@
 		CEB4A3011F869B8C004478B9 /* Payment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Payment.storyboard; sourceTree = "<group>"; };
 		CEB75F181F7B921D00986F1D /* LoadingAnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingAnimationViewController.swift; sourceTree = "<group>"; };
 		CEB75F1B1F7BA8A100986F1D /* GetCitiesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCitiesRequest.swift; sourceTree = "<group>"; };
+		CEB7E49B1F879A0900A3B752 /* AlternativePopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlternativePopupVC.swift; sourceTree = "<group>"; };
 		CEC5EFFC1F8234CD0012CFAA /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		CEC5EFFE1F8235430012CFAA /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		CEC5F0001F8237810012CFAA /* ExpandedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedViewController.swift; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 				CEEC749A1F867BBA002C28D2 /* PharmacyDetails */,
 				CE2695981F869F4D002A1F1E /* PaymentViewModule */,
 				CE58A0391F877B0D00BE46A4 /* CancelPopupVC */,
+				CEB7E49A1F8799F000A3B752 /* AlternativeGeneric */,
 			);
 			name = OrdersPageModule;
 			sourceTree = "<group>";
@@ -786,6 +789,14 @@
 				CE68E2F81F7C03AC002EE618 /* CityNameRealmModel.swift */,
 			);
 			name = GetCitiesRequest;
+			sourceTree = "<group>";
+		};
+		CEB7E49A1F8799F000A3B752 /* AlternativeGeneric */ = {
+			isa = PBXGroup;
+			children = (
+				CEB7E49B1F879A0900A3B752 /* AlternativePopupVC.swift */,
+			);
+			name = AlternativeGeneric;
 			sourceTree = "<group>";
 		};
 		CEC15DF61F7EBA9800858114 /* GetCountryCodesRequest */ = {
@@ -1367,6 +1378,7 @@
 				CE40CA821F78E87D003BC535 /* RemindersViewController.swift in Sources */,
 				FB22C2331F77E752000EED58 /* CustomImageView.swift in Sources */,
 				FB6B62E31F78F07100AAB2F0 /* TokensModel.swift in Sources */,
+				CEB7E49C1F879A0900A3B752 /* AlternativePopupVC.swift in Sources */,
 				CE9D723F1F82A80F00BF1805 /* NumberAndTypeTableViewCell.swift in Sources */,
 				CEB75F191F7B921D00986F1D /* LoadingAnimationViewController.swift in Sources */,
 				CEABE42E1F769B980041FAD5 /* PersonTitleTableViewCell.swift in Sources */,

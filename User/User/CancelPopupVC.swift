@@ -18,17 +18,21 @@ class CancelPopupVC: RootViewController {
     
     @IBOutlet weak var secondCheckboxOutlet: UIButton!
     
-    var firstCheckboxIsTapped = false
+    var firstCheckboxIsTapped = true
     var secondCheckboxIsTapped = false
     var thirdCheckboxIsTapped = false
     
     @IBOutlet weak var thirdCheckboxOutlet: UIButton!
 
     @IBOutlet weak var cancelOrderButtonOutlet: UIButton!
+    
+    var delegate: CancelPopupVCDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         cancelOrderButtonOutlet.setTitleColor(Colors.Root.greenColorForNavigationBar, for: .normal)
+        firstCheckboxOutlet.setImage(#imageLiteral(resourceName: "radioButtonUnchecked"), for: .normal)
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,27 +45,27 @@ class CancelPopupVC: RootViewController {
     
     
     @IBAction func firstCheckboxTapped(_ sender: Any) {
-        firstCheckboxOutlet.setBackgroundImage(#imageLiteral(resourceName: "radioButtonChecked"), for: .normal)
-        secondCheckboxOutlet.setBackgroundImage(#imageLiteral(resourceName: "radioButtonUnchecked"), for: .normal)
-        thirdCheckboxOutlet.setBackgroundImage(#imageLiteral(resourceName: "radioButtonUnchecked"), for: .normal)
+        firstCheckboxOutlet.setImage(#imageLiteral(resourceName: "radioButtonChecked"), for: .normal)
+        secondCheckboxOutlet.setImage(#imageLiteral(resourceName: "radioButtonUnchecked"), for: .normal)
+        thirdCheckboxOutlet.setImage(#imageLiteral(resourceName: "radioButtonUnchecked"), for: .normal)
         firstCheckboxIsTapped = true
         secondCheckboxIsTapped = false
         thirdCheckboxIsTapped = false
     }
     
     @IBAction func secondCheckboxTapped(_ sender: UIButton) {
-        firstCheckboxOutlet.setBackgroundImage(#imageLiteral(resourceName: "radioButtonUnchecked"), for: .normal)
-        secondCheckboxOutlet.setBackgroundImage(#imageLiteral(resourceName: "radioButtonChecked"), for: .normal)
-        thirdCheckboxOutlet.setBackgroundImage(#imageLiteral(resourceName: "radioButtonUnchecked"), for: .normal)
+        firstCheckboxOutlet.setImage(#imageLiteral(resourceName: "radioButtonUnchecked"), for: .normal)
+        secondCheckboxOutlet.setImage(#imageLiteral(resourceName: "radioButtonChecked"), for: .normal)
+        thirdCheckboxOutlet.setImage(#imageLiteral(resourceName: "radioButtonUnchecked"), for: .normal)
         firstCheckboxIsTapped = false
         secondCheckboxIsTapped = true
         thirdCheckboxIsTapped = false
     }
     
     @IBAction func thirdCheckboxTapped(_ sender: UIButton) {
-        firstCheckboxOutlet.setBackgroundImage(#imageLiteral(resourceName: "radioButtonUnchecked"), for: .normal)
-        secondCheckboxOutlet.setBackgroundImage(#imageLiteral(resourceName: "radioButtonUnchecked"), for: .normal)
-        thirdCheckboxOutlet.setBackgroundImage(#imageLiteral(resourceName: "radioButtonChecked"), for: .normal)
+        firstCheckboxOutlet.setImage(#imageLiteral(resourceName: "radioButtonUnchecked"), for: .normal)
+        secondCheckboxOutlet.setImage(#imageLiteral(resourceName: "radioButtonUnchecked"), for: .normal)
+        thirdCheckboxOutlet.setImage(#imageLiteral(resourceName: "radioButtonChecked"), for: .normal)
         firstCheckboxIsTapped = false
         secondCheckboxIsTapped = false
         thirdCheckboxIsTapped = true
@@ -71,5 +75,8 @@ class CancelPopupVC: RootViewController {
         dismiss(animated: false, completion: nil)
     }
     @IBAction func cancelOrderButtonTapped(_ sender: UIButton) {
+        dismiss(animated: false) {
+            self.delegate.showLowerCostPopup()
+        }
     }
 }
