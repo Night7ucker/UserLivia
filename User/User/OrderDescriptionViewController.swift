@@ -313,13 +313,11 @@ extension OrderDescriptionViewController : UITableViewDataSource{
 extension OrderDescriptionViewController : UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if isExpanded && self.selectedIndex == indexPath {
-            if indexPath.row == 1 {
+            if indexPath.row == 0 {
                 return 300
             }
         }
-        if indexPath.row == 0 {
-            return 50
-        }
+
         return 50
     }
     
