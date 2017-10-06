@@ -46,12 +46,8 @@ class GetOrderDescriptionRequest{
             if checkForImage != nil {
                 let orderDescObjectImage = OrderDescriptionModelImage()
                 orderDescObjectImage.imageUrl = result["image"] as? String
-                orderDescObjectImage.selfCollect = result["self_collect"] as? String
                 RealmDataManager.writeIntoRealm(object: orderDescObjectImage)
-
-       
-    
-                } else {
+            }
                 let orderDescObject = OrderDescriptionModel()
                 orderDescObject.deliveryCost = result["delivery_cost"] as? String
                 orderDescObject.orderId = result["order_id"] as? String
@@ -81,7 +77,7 @@ class GetOrderDescriptionRequest{
 
 
                     RealmDataManager.writeIntoRealm(object: orderDrugDescObject)
-                }
+                
             }
          completion(true)
         }

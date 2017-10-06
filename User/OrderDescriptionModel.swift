@@ -15,9 +15,6 @@ import ObjectMapper_Realm
 
 class OrderDescriptionModelImage: Object{
     dynamic var imageUrl: String?
-    dynamic var selfCollect: String?
-
-    
 }
 
 class OrderDescriptionModel: Object {
