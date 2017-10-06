@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 protocol CancelPopupVCDelegate {
-    func showLowerCostPopup()
+    func showLowerCostPopup(cancelReason: String)
 }
 
 class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate {
@@ -168,12 +168,12 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate 
         navigationController?.pushViewController(pharmacyDetailsViewController, animated: false)
     }
     
-    func showLowerCostPopup() {
+    func showLowerCostPopup(cancelReason: String) {
         let cancelOrderStoryboard = UIStoryboard(name: "CancelOrder", bundle: nil)
-        let alternativePopupViewController = cancelOrderStoryboard.instantiateViewController(withIdentifier: "AlternativePopupVC") as! AlternativePopupVC
+        let alternativePopupViewController = cancelOrderStoryboard.instantiateViewController(withIdentifier: "kAlternativePopupVC") as! AlternativePopupVC
+        
         present(alternativePopupViewController, animated: false, completion: nil)
     }
-    
     
     @IBAction func paymentButtontapped(_ sender: UIButton) {
         let paymentStoryboard = UIStoryboard(name: "Payment", bundle: nil)
