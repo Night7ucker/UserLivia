@@ -51,6 +51,7 @@ class CancelPopupVC: RootViewController {
         } else if thirdCheckboxIsTapped {
             return "3"
         }
+        return String()
     }
     
     

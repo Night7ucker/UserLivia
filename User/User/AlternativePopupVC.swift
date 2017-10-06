@@ -39,7 +39,7 @@ class AlternativePopupVC: RootViewController {
     }
 
     @IBAction func yesButtonTapped(_ sender: UIButton) {
-        CancelOrderRequest.deleteReminder(orderID: RealmDataManager.getOrderDescriptionModel()[0].orderId!, cancelReason: <#T##String#>)
+//        CancelOrderRequest.deleteReminder(orderID: RealmDataManager.getOrderDescriptionModel()[0].orderId!, cancelReason: )
     }
     
     @IBAction func noButtonTapped(_ sender: UIButton) {
