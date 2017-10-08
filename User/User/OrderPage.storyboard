@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="E9L-gO-tZ6">
-                                <rect key="frame" x="0.0" y="205" width="375" height="462"/>
+                                <rect key="frame" x="0.0" y="204" width="375" height="463"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -137,7 +137,7 @@
                                 </prototypes>
                             </tableView>
                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSq-Cc-yfZ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="142"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="140"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Process" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kuW-Fs-cLo">
                                         <rect key="frame" x="151.5" y="62" width="71" height="21"/>
@@ -203,7 +203,7 @@
                                     <constraint firstAttribute="trailing" secondItem="8Uk-CX-IrN" secondAttribute="trailing" constant="173" id="KYk-Fk-7Oi"/>
                                     <constraint firstAttribute="trailing" secondItem="0Jn-oY-1vP" secondAttribute="trailing" constant="21" id="VkY-mn-IIG"/>
                                     <constraint firstItem="kuW-Fs-cLo" firstAttribute="centerX" secondItem="8Uk-CX-IrN" secondAttribute="centerX" id="WmB-vh-aar"/>
-                                    <constraint firstItem="0Jn-oY-1vP" firstAttribute="bottom" secondItem="kSq-Cc-yfZ" secondAttribute="bottomMargin" constant="8" id="clm-OY-Jid"/>
+                                    <constraint firstItem="0Jn-oY-1vP" firstAttribute="bottom" secondItem="kSq-Cc-yfZ" secondAttribute="bottomMargin" constant="10" id="clm-OY-Jid"/>
                                     <constraint firstItem="0Jn-oY-1vP" firstAttribute="width" secondItem="kSq-Cc-yfZ" secondAttribute="width" constant="-41" id="uDt-cL-eKW"/>
                                     <constraint firstItem="kuW-Fs-cLo" firstAttribute="top" secondItem="8Uk-CX-IrN" secondAttribute="bottom" constant="8" id="wYe-eR-eu5"/>
                                     <constraint firstItem="0Jn-oY-1vP" firstAttribute="leading" secondItem="kSq-Cc-yfZ" secondAttribute="leading" constant="20" id="zOV-CE-x1v"/>
@@ -215,7 +215,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="kSq-Cc-yfZ" secondAttribute="trailing" constant="-16" id="exb-hW-saw"/>
                             <constraint firstItem="kSq-Cc-yfZ" firstAttribute="top" secondItem="2G4-63-b6y" secondAttribute="bottom" id="iZl-27-bya"/>
                             <constraint firstItem="kSq-Cc-yfZ" firstAttribute="leading" secondItem="zL1-mv-Y6x" secondAttribute="leadingMargin" constant="-16" id="tot-QL-fAK"/>
-                            <constraint firstItem="cc4-VF-BaD" firstAttribute="top" secondItem="kSq-Cc-yfZ" secondAttribute="bottom" constant="461" id="uxA-rl-ZCt"/>
+                            <constraint firstItem="cc4-VF-BaD" firstAttribute="top" secondItem="kSq-Cc-yfZ" secondAttribute="bottom" constant="463" id="uxA-rl-ZCt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Xh7-Vb-Tba"/>

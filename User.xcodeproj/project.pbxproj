@@ -163,6 +163,14 @@
 		FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B8C1F755D820065B49C /* RealmDataManager.swift */; };
 		FB9D4FFD1F7CDE3E001F3F95 /* DrugsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9D4FFC1F7CDE3E001F3F95 /* DrugsView.swift */; };
 		FB9D50001F7D1BE5001F3F95 /* EditUserCityRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9D4FFF1F7D1BE5001F3F95 /* EditUserCityRequest.swift */; };
+		FB9F58E31F8A5F85000A61FC /* 1.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB9F58E21F8A5F85000A61FC /* 1.xib */; };
+		FB9F58E61F8A6649000A61FC /* 2.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB9F58E51F8A6649000A61FC /* 2.xib */; };
+		FB9F58E81F8A6654000A61FC /* 3.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB9F58E71F8A6654000A61FC /* 3.xib */; };
+		FB9F58EA1F8A665B000A61FC /* 4.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB9F58E91F8A665B000A61FC /* 4.xib */; };
+		FB9F58EC1F8A6663000A61FC /* 6.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB9F58EB1F8A6663000A61FC /* 6.xib */; };
+		FB9F58EE1F8A6677000A61FC /* 7.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB9F58ED1F8A6677000A61FC /* 7.xib */; };
+		FB9F58F01F8A6681000A61FC /* 15.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB9F58EF1F8A6681000A61FC /* 15.xib */; };
+		FB9F58F21F8A668A000A61FC /* 16.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB9F58F11F8A668A000A61FC /* 16.xib */; };
 		FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA44C0E1F77B8BC00687544 /* GetAuthCodeRequest.swift */; };
 		FBA44C111F77C71B00687544 /* PhoneNumberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA44C101F77C71B00687544 /* PhoneNumberModel.swift */; };
 		FBD6BB181F7C1402007741DC /* SearchDrugs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBD6BB171F7C1402007741DC /* SearchDrugs.storyboard */; };
@@ -332,6 +340,14 @@
 		FB958B8C1F755D820065B49C /* RealmDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
 		FB9D4FFC1F7CDE3E001F3F95 /* DrugsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugsView.swift; sourceTree = "<group>"; };
 		FB9D4FFF1F7D1BE5001F3F95 /* EditUserCityRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserCityRequest.swift; sourceTree = "<group>"; };
+		FB9F58E21F8A5F85000A61FC /* 1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = 1.xib; sourceTree = "<group>"; };
+		FB9F58E51F8A6649000A61FC /* 2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = 2.xib; sourceTree = "<group>"; };
+		FB9F58E71F8A6654000A61FC /* 3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = 3.xib; sourceTree = "<group>"; };
+		FB9F58E91F8A665B000A61FC /* 4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = 4.xib; sourceTree = "<group>"; };
+		FB9F58EB1F8A6663000A61FC /* 6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = 6.xib; sourceTree = "<group>"; };
+		FB9F58ED1F8A6677000A61FC /* 7.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = 7.xib; sourceTree = "<group>"; };
+		FB9F58EF1F8A6681000A61FC /* 15.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = 15.xib; sourceTree = "<group>"; };
+		FB9F58F11F8A668A000A61FC /* 16.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = 16.xib; sourceTree = "<group>"; };
 		FBA44C0E1F77B8BC00687544 /* GetAuthCodeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAuthCodeRequest.swift; sourceTree = "<group>"; };
 		FBA44C101F77C71B00687544 /* PhoneNumberModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberModel.swift; sourceTree = "<group>"; };
 		FBD6BB171F7C1402007741DC /* SearchDrugs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchDrugs.storyboard; sourceTree = "<group>"; };
@@ -987,6 +1003,7 @@
 		FB6AC0B11F84D261000F47CC /* OrderPageModule */ = {
 			isa = PBXGroup;
 			children = (
+				FB9F58E41F8A639D000A61FC /* xibForStatus */,
 				FB6AC0B21F84D27B000F47CC /* OrderDescriptionViewController.swift */,
 				FB6AC0B61F853EA4000F47CC /* OrderDescriptionTableViewCell.swift */,
 				FB6AC0BD1F8577A8000F47CC /* CustomOrderCell.xib */,
@@ -1160,6 +1177,21 @@
 			name = EditUserCity;
 			sourceTree = "<group>";
 		};
+		FB9F58E41F8A639D000A61FC /* xibForStatus */ = {
+			isa = PBXGroup;
+			children = (
+				FB9F58E21F8A5F85000A61FC /* 1.xib */,
+				FB9F58E51F8A6649000A61FC /* 2.xib */,
+				FB9F58E71F8A6654000A61FC /* 3.xib */,
+				FB9F58E91F8A665B000A61FC /* 4.xib */,
+				FB9F58EB1F8A6663000A61FC /* 6.xib */,
+				FB9F58ED1F8A6677000A61FC /* 7.xib */,
+				FB9F58EF1F8A6681000A61FC /* 15.xib */,
+				FB9F58F11F8A668A000A61FC /* 16.xib */,
+			);
+			name = xibForStatus;
+			sourceTree = "<group>";
+		};
 		FBA44C0D1F77B87800687544 /* GetAuthCodeRequests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1261,13 +1293,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB9F58F21F8A668A000A61FC /* 16.xib in Resources */,
+				FB9F58E61F8A6649000A61FC /* 2.xib in Resources */,
 				CE32DD861F87B4DD00F06B1E /* OrderCancelView.xib in Resources */,
 				FB6AC0B01F84D161000F47CC /* OrderPage.storyboard in Resources */,
+				FB9F58E81F8A6654000A61FC /* 3.xib in Resources */,
+				FB9F58EA1F8A665B000A61FC /* 4.xib in Resources */,
 				CEF2EBC21F8631EB002A1B20 /* ListOfPrescriptions.storyboard in Resources */,
 				7F2E150F1F83640D00038A13 /* AddToCart.storyboard in Resources */,
 				CE5F4BEC1F77CC19009CBA5D /* Orders Appointments Payments.storyboard in Resources */,
 				CE2695AB1F86C242002A1F1E /* CancelOrder.storyboard in Resources */,
 				CE7B302A1F7B906E0023472F /* LoadingAnimation.storyboard in Resources */,
+				FB9F58E31F8A5F85000A61FC /* 1.xib in Resources */,
 				CEF4F2381F854D8900AD3A21 /* TakePhotoOfPrescription.storyboard in Resources */,
 				FBD6BB181F7C1402007741DC /* SearchDrugs.storyboard in Resources */,
 				CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */,
@@ -1279,8 +1316,11 @@
 				FB6AC0BE1F8577A8000F47CC /* CustomOrderCell.xib in Resources */,
 				7FBAFBB71F77D9D700BEB7F1 /* Settings.storyboard in Resources */,
 				CEB4A3021F869B8C004478B9 /* Payment.storyboard in Resources */,
+				FB9F58EE1F8A6677000A61FC /* 7.xib in Resources */,
+				FB9F58F01F8A6681000A61FC /* 15.xib in Resources */,
 				FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */,
 				FB2615CF1F8767EE008069CE /* FAQ.xib in Resources */,
+				FB9F58EC1F8A6663000A61FC /* 6.xib in Resources */,
 				CEEC74991F8675C6002C28D2 /* PharmacyDetails.storyboard in Resources */,
 				7F6D01D11F82444A00FA01E8 /* InviteFriends.storyboard in Resources */,
 				CE798D1E1F7A7D7D00FDF83D /* EditProfile.storyboard in Resources */,

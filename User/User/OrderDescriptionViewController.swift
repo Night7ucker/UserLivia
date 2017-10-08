@@ -35,11 +35,13 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate,
     @IBOutlet var rotateView: UIView!
     var tappedCellIndex = -1
     var timeTimer: Timer?
-    
+    var uiview :UIView?
     var cancelReasonVar = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -60,7 +62,8 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate,
         } else {
             cellCount = RealmDataManager.getOrderDrugsDescriptionModel().count + 1
         }
-        print(cellCount)
+
+        
         switch orderStatus {
         case "1":
             imageStatusOutlet.isHidden = true
@@ -141,9 +144,18 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate,
             return
         }
         rotate()
+        
+//        let view = instanceFromNib()
+//        view.frame.size.height = 140
+//        self.headerView.addSubview(view)
+
     }
     
-
+    func instanceFromNib() -> UIView {
+        return UINib(nibName: RealmDataManager.getOrderDescriptionModel()[0].statusId!, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
+    }
+    
+    
     func rotate()
     {
         var rotationAnimation = CABasicAnimation()
@@ -206,6 +218,9 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate,
             present(cancelOrderViewController, animated: false, completion: nil)
     }
 }
+
+
+
 
 extension OrderDescriptionViewController : UITableViewDataSource{
 
