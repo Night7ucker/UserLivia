@@ -9,7 +9,7 @@
 import UIKit
 
 class AlternativePopupVC: RootViewController {
-
+    
     @IBOutlet weak var popupViewOutlet: UIView!
     
     
@@ -18,7 +18,7 @@ class AlternativePopupVC: RootViewController {
     @IBOutlet weak var noButtonOutlet: UIButton!
     
     @IBOutlet weak var questionLabelOutlet: UILabel!
-    
+    var delegate: AlternativePopupVCDelegate!
     var cancelReason: String!
     
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ class AlternativePopupVC: RootViewController {
         questionLabelOutlet.textColor = Colors.Root.greenColorForNavigationBar
         popupViewOutlet.layer.cornerRadius = 2
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -37,13 +37,20 @@ class AlternativePopupVC: RootViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         dismiss(animated: false, completion: nil)
     }
-
+    
     @IBAction func yesButtonTapped(_ sender: UIButton) {
-//        CancelOrderRequest.deleteReminder(orderID: RealmDataManager.getOrderDescriptionModel()[0].orderId!, cancelReason: )
+        AlternativeOrderRequest.changeToAlternativeOrder(orderID: RealmDataManager.getOrderDescriptionModel()[0].orderId!)
+        dismiss(animated: false) {
+            self.delegate.pushToMainScreenViewController()
+        }
     }
     
     @IBAction func noButtonTapped(_ sender: UIButton) {
+        CancelOrderRequest.deleteReminder(orderID: RealmDataManager.getOrderDescriptionModel()[0].orderId!, cancelReason: cancelReason)
+        dismiss(animated: false) {
+            self.delegate.pushToMainScreenViewController()
+        }
         
     }
-
+    
 }

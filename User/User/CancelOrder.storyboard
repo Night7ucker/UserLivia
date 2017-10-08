@@ -146,20 +146,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2YE-ZX-5el">
-                                        <rect key="frame" x="194" y="90" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="NO"/>
-                                        <connections>
-                                            <action selector="noButtonTapped:" destination="ebM-7i-ldy" eventType="touchUpInside" id="JKi-h4-Lz3"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iW3-MK-BTM">
-                                        <rect key="frame" x="137" y="90" width="30" height="30"/>
+                                        <rect key="frame" x="197" y="90" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="YES"/>
                                         <connections>
                                             <action selector="yesButtonTapped:" destination="ebM-7i-ldy" eventType="touchUpInside" id="whH-PJ-IJ6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2YE-ZX-5el">
+                                        <rect key="frame" x="151" y="90" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="NO"/>
+                                        <connections>
+                                            <action selector="noButtonTapped:" destination="ebM-7i-ldy" eventType="touchUpInside" id="JKi-h4-Lz3"/>
                                         </connections>
                                     </button>
                                 </subviews>

@@ -32,7 +32,7 @@ class CancelPopupVC: RootViewController {
         super.viewDidLoad()
 
         cancelOrderButtonOutlet.setTitleColor(Colors.Root.greenColorForNavigationBar, for: .normal)
-        firstCheckboxOutlet.setImage(#imageLiteral(resourceName: "radioButtonUnchecked"), for: .normal)
+        firstCheckboxOutlet.setImage(#imageLiteral(resourceName: "radioButtonChecked"), for: .normal)
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,8 +86,15 @@ class CancelPopupVC: RootViewController {
         dismiss(animated: false, completion: nil)
     }
     @IBAction func cancelOrderButtonTapped(_ sender: UIButton) {
-        dismiss(animated: false) {
-            self.delegate.showLowerCostPopup(cancelReason: self.getCancelReason())
+        if RealmDataManager.getOrderDescriptionModel()[0].statusId == "16" {
+            CancelOrderRequest.deleteReminder(orderID: RealmDataManager.getOrderDescriptionModel()[0].orderId!, cancelReason: getCancelReason())
+            dismiss(animated: false) {
+                self.delegate.showLowerCostPopup(cancelReason: self.getCancelReason())
+            }
+        } else {
+            dismiss(animated: false) {
+                self.delegate.showLowerCostPopup(cancelReason: self.getCancelReason())
+            }
         }
     }
 }

@@ -34,6 +34,8 @@
 		CE2695A61F86BCF0002A1F1E /* PaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2695A51F86BCF0002A1F1E /* PaymentRequest.swift */; };
 		CE2695A91F86BF48002A1F1E /* SuccessPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2695A81F86BF48002A1F1E /* SuccessPopupVC.swift */; };
 		CE2695AB1F86C242002A1F1E /* CancelOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2695AA1F86C242002A1F1E /* CancelOrder.storyboard */; };
+		CE32DD841F87ABC200F06B1E /* AlternativeOrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE32DD831F87ABC200F06B1E /* AlternativeOrderRequest.swift */; };
+		CE32DD861F87B4DD00F06B1E /* OrderCancelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE32DD851F87B4DD00F06B1E /* OrderCancelView.xib */; };
 		CE3A427D1F7F83430016A0C7 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A427C1F7F83430016A0C7 /* RootViewController.swift */; };
 		CE3C59FE1F835BCF00345BB6 /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3C59FD1F835BCF00345BB6 /* PlaceMarker.swift */; };
 		CE40CA801F78E619003BC535 /* RefillsAndReminders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */; };
@@ -196,6 +198,8 @@
 		CE2695A51F86BCF0002A1F1E /* PaymentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentRequest.swift; sourceTree = "<group>"; };
 		CE2695A81F86BF48002A1F1E /* SuccessPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessPopupVC.swift; sourceTree = "<group>"; };
 		CE2695AA1F86C242002A1F1E /* CancelOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CancelOrder.storyboard; sourceTree = "<group>"; };
+		CE32DD831F87ABC200F06B1E /* AlternativeOrderRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlternativeOrderRequest.swift; sourceTree = "<group>"; };
+		CE32DD851F87B4DD00F06B1E /* OrderCancelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderCancelView.xib; sourceTree = "<group>"; };
 		CE3A427C1F7F83430016A0C7 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		CE3C59FD1F835BCF00345BB6 /* PlaceMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMarker.swift; sourceTree = "<group>"; };
 		CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RefillsAndReminders.storyboard; sourceTree = "<group>"; };
@@ -443,6 +447,14 @@
 				CE2695A81F86BF48002A1F1E /* SuccessPopupVC.swift */,
 			);
 			name = SuccessPopup;
+			sourceTree = "<group>";
+		};
+		CE32DD821F87ABB000F06B1E /* AlternativeOrderRequest */ = {
+			isa = PBXGroup;
+			children = (
+				CE32DD831F87ABC200F06B1E /* AlternativeOrderRequest.swift */,
+			);
+			name = AlternativeOrderRequest;
 			sourceTree = "<group>";
 		};
 		CE3A427E1F7F83460016A0C7 /* RootViewController */ = {
@@ -965,6 +977,7 @@
 				FB6AC0B21F84D27B000F47CC /* OrderDescriptionViewController.swift */,
 				FB6AC0B61F853EA4000F47CC /* OrderDescriptionTableViewCell.swift */,
 				FB6AC0BD1F8577A8000F47CC /* CustomOrderCell.xib */,
+				CE32DD851F87B4DD00F06B1E /* OrderCancelView.xib */,
 			);
 			name = OrderPageModule;
 			sourceTree = "<group>";
@@ -1102,6 +1115,7 @@
 		FB958B851F752BBC0065B49C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE32DD821F87ABB000F06B1E /* AlternativeOrderRequest */,
 				CEB7E49D1F87A4A200A3B752 /* CancelOrderRequest */,
 				CE58A0341F876D6500BE46A4 /* WorkingHoursRequest */,
 				CE2695A41F86BCE2002A1F1E /* PaymentRequest */,
@@ -1233,6 +1247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE32DD861F87B4DD00F06B1E /* OrderCancelView.xib in Resources */,
 				FB6AC0B01F84D161000F47CC /* OrderPage.storyboard in Resources */,
 				CEF2EBC21F8631EB002A1B20 /* ListOfPrescriptions.storyboard in Resources */,
 				7F2E150F1F83640D00038A13 /* AddToCart.storyboard in Resources */,
@@ -1438,6 +1453,7 @@
 				CE4ABDFF1F83CEDB0052EC10 /* PharmacyViewController.swift in Sources */,
 				CEB7E49F1F87A4BF00A3B752 /* CancelOrderRequest.swift in Sources */,
 				FB6BB3161F7E364800165BB2 /* GetDrugsModel.swift in Sources */,
+				CE32DD841F87ABC200F06B1E /* AlternativeOrderRequest.swift in Sources */,
 				FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */,
 				CE2695A61F86BCF0002A1F1E /* PaymentRequest.swift in Sources */,
 				7F6137F51F7B7F7C00629AA7 /* OrderPageCell.swift in Sources */,

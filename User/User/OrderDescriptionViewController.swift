@@ -13,7 +13,11 @@ protocol CancelPopupVCDelegate {
     func showLowerCostPopup(cancelReason: String)
 }
 
-class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate {
+protocol AlternativePopupVCDelegate {
+    func pushToMainScreenViewController()
+}
+
+class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate, AlternativePopupVCDelegate {
 
     
     @IBOutlet var paymentButtonOutlet: UIButton!
@@ -31,6 +35,8 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate 
     @IBOutlet var rotateView: UIView!
     var tappedCellIndex = -1
     var timeTimer: Timer?
+    
+    var cancelReasonVar = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -170,10 +176,21 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate 
     }
     
     func showLowerCostPopup(cancelReason: String) {
-        let cancelOrderStoryboard = UIStoryboard(name: "CancelOrder", bundle: nil)
-        let alternativePopupViewController = cancelOrderStoryboard.instantiateViewController(withIdentifier: "kAlternativePopupVC") as! AlternativePopupVC
-        
-        present(alternativePopupViewController, animated: false, completion: nil)
+        if RealmDataManager.getOrderDescriptionModel()[0].statusId == "16" {
+            pushToMainScreenViewController()
+        } else {
+            let cancelOrderStoryboard = UIStoryboard(name: "CancelOrder", bundle: nil)
+            let alternativePopupViewController = cancelOrderStoryboard.instantiateViewController(withIdentifier: "kAlternativePopupVC") as! AlternativePopupVC
+            alternativePopupViewController.cancelReason = cancelReason
+            alternativePopupViewController.delegate = self
+            present(alternativePopupViewController, animated: false, completion: nil)
+        }
+    }
+    
+    func pushToMainScreenViewController() {
+        let mainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: nil)
+        let mainScreenViewController = mainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as! MainScreenController
+        navigationController?.pushViewController(mainScreenViewController, animated: false)
     }
     
     @IBAction func paymentButtontapped(_ sender: UIButton) {
@@ -183,13 +200,11 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate 
     }
     
     @IBAction func cancelOrderButtonTapped(_ sender: UIButton) {
-        let cancelOrderStoryboard = UIStoryboard(name: "CancelOrder", bundle: nil)
-        let cancelOrderViewController = cancelOrderStoryboard.instantiateViewController(withIdentifier: "kCancelPopupVC") as! CancelPopupVC
-        cancelOrderViewController.delegate = self
-        present(cancelOrderViewController, animated: false, completion: nil)
+            let cancelOrderStoryboard = UIStoryboard(name: "CancelOrder", bundle: nil)
+            let cancelOrderViewController = cancelOrderStoryboard.instantiateViewController(withIdentifier: "kCancelPopupVC") as! CancelPopupVC
+            cancelOrderViewController.delegate = self
+            present(cancelOrderViewController, animated: false, completion: nil)
     }
-    
-    
 }
 
 extension OrderDescriptionViewController : UITableViewDataSource{
