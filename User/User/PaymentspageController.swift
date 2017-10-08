@@ -18,6 +18,13 @@ class PaymentsPageController: RootViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        PaymentListRequest.getPaymentList { (success) in
+            if success {
+                self.paymentsPageTableView.reloadData()
+            }
+        }
+        
+        
         paymentsPageTableView.delegate = self
         paymentsPageTableView.dataSource = self
         

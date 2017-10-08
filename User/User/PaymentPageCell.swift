@@ -23,9 +23,9 @@ class PaymentPageCell: UITableViewCell {
 
 extension PaymentPageCell {
     func fillCellInfo(priceOfOrder: String, dateAndId: String, cardNumber: String, typeOfCardImage: UIImage) {
-        self.priceOfOrderLabel.text = priceOfOrder
-        self.dateAndIdlabel.text = dateAndId
-        self.cardNumberLabel.text = cardNumber
-        self.typeOfCardImage.image = typeOfCardImage
+     //   self.priceOfOrderLabel.text = priceOfOrder
+    //    self.dateAndIdlabel.text = dateAndId
+    //    self.cardNumberLabel.text = cardNumber
+    //    self.typeOfCardImage.image = typeOfCardImage
     }
 }

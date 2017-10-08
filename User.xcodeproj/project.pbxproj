@@ -128,6 +128,8 @@
 		FB2615CD1F87651D008069CE /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2615CC1F87651D008069CE /* FAQViewController.swift */; };
 		FB2615CF1F8767EE008069CE /* FAQ.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB2615CE1F8767EE008069CE /* FAQ.xib */; };
 		FB2615D11F876929008069CE /* FAQTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2615D01F876929008069CE /* FAQTableViewCell.swift */; };
+		FB2615D41F87A9EC008069CE /* PaymentListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2615D31F87A9EC008069CE /* PaymentListModel.swift */; };
+		FB2615D61F87AA18008069CE /* PaymentListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2615D51F87AA18008069CE /* PaymentListRequest.swift */; };
 		FB5FC54E1F7A44CD00F8658A /* UploadImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5FC54D1F7A44CD00F8658A /* UploadImageRequest.swift */; };
 		FB5FC5501F7A44DE00F8658A /* UploadImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5FC54F1F7A44DE00F8658A /* UploadImageModel.swift */; };
 		FB5FC5551F7A83B500F8658A /* RegistrationUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5FC5541F7A83B500F8658A /* RegistrationUserRequest.swift */; };
@@ -292,6 +294,8 @@
 		FB2615CC1F87651D008069CE /* FAQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = SOURCE_ROOT; };
 		FB2615CE1F8767EE008069CE /* FAQ.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FAQ.xib; sourceTree = SOURCE_ROOT; };
 		FB2615D01F876929008069CE /* FAQTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		FB2615D31F87A9EC008069CE /* PaymentListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentListModel.swift; sourceTree = "<group>"; };
+		FB2615D51F87AA18008069CE /* PaymentListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentListRequest.swift; sourceTree = "<group>"; };
 		FB5FC54D1F7A44CD00F8658A /* UploadImageRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadImageRequest.swift; sourceTree = "<group>"; };
 		FB5FC54F1F7A44DE00F8658A /* UploadImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadImageModel.swift; sourceTree = "<group>"; };
 		FB5FC5541F7A83B500F8658A /* RegistrationUserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationUserRequest.swift; sourceTree = "<group>"; };
@@ -944,6 +948,15 @@
 			name = FAQ;
 			sourceTree = "<group>";
 		};
+		FB2615D21F87A9D8008069CE /* GetPaymentListRequest */ = {
+			isa = PBXGroup;
+			children = (
+				FB2615D31F87A9EC008069CE /* PaymentListModel.swift */,
+				FB2615D51F87AA18008069CE /* PaymentListRequest.swift */,
+			);
+			name = GetPaymentListRequest;
+			sourceTree = "<group>";
+		};
 		FB5FC54B1F7A44A400F8658A /* RegisterUserRequests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1116,6 +1129,7 @@
 			isa = PBXGroup;
 			children = (
 				CE32DD821F87ABB000F06B1E /* AlternativeOrderRequest */,
+				FB2615D21F87A9D8008069CE /* GetPaymentListRequest */,
 				CEB7E49D1F87A4A200A3B752 /* CancelOrderRequest */,
 				CE58A0341F876D6500BE46A4 /* WorkingHoursRequest */,
 				CE2695A41F86BCE2002A1F1E /* PaymentRequest */,
@@ -1442,10 +1456,12 @@
 				FB5FC54E1F7A44CD00F8658A /* UploadImageRequest.swift in Sources */,
 				CE3A427D1F7F83430016A0C7 /* RootViewController.swift in Sources */,
 				CE2695A91F86BF48002A1F1E /* SuccessPopupVC.swift in Sources */,
+				FB2615D41F87A9EC008069CE /* PaymentListModel.swift in Sources */,
 				FB6AC0BA1F854FAD000F47CC /* GetOrderDescriptionRequest.swift in Sources */,
 				7F6137F71F7B7F9400629AA7 /* PaymentPageCell.swift in Sources */,
 				7F2F05EA1F7D08150068964B /* OrderStatusCell.swift in Sources */,
 				FB75CB561F83BC8D0022B38D /* OrdersListModel.swift in Sources */,
+				FB2615D61F87AA18008069CE /* PaymentListRequest.swift in Sources */,
 				7F3536451F7BB3970084AACA /* OrdersStatusesPopupController.swift in Sources */,
 				7FE995421F7A96B200E31AA2 /* OrdersPageController.swift in Sources */,
 				CE40CA8E1F793408003BC535 /* TimePopupViewController.swift in Sources */,
