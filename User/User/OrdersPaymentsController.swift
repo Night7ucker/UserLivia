@@ -38,7 +38,7 @@ class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate, Orders
 
         navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 0)
         navigationController?.navigationBar.layer.shadowRadius = 0
-        //navigationItem.rightBarButtonItem = UIBarButtonItem(title: "⇅", style: .plain, target: self, action: #selector(showInfoPopover))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "⇅", style: .plain, target: self, action: #selector(showInfoPopover))
         navigationItem.rightBarButtonItem?.tintColor = .white
 
         addBackButtonAndTitleToNavigationBar(title: "Status")
