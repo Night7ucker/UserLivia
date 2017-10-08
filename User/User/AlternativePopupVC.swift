@@ -19,6 +19,8 @@ class AlternativePopupVC: RootViewController {
     
     @IBOutlet weak var questionLabelOutlet: UILabel!
     
+    var cancelReason: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +32,6 @@ class AlternativePopupVC: RootViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -38,10 +39,11 @@ class AlternativePopupVC: RootViewController {
     }
 
     @IBAction func yesButtonTapped(_ sender: UIButton) {
-        
+//        CancelOrderRequest.deleteReminder(orderID: RealmDataManager.getOrderDescriptionModel()[0].orderId!, cancelReason: )
     }
     
     @IBAction func noButtonTapped(_ sender: UIButton) {
+        
     }
 
 }

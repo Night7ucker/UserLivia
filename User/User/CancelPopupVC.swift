@@ -43,6 +43,17 @@ class CancelPopupVC: RootViewController {
         dismiss(animated: false, completion: nil)
     }
     
+    func getCancelReason() -> String {
+        if firstCheckboxIsTapped {
+            return "1"
+        } else if secondCheckboxIsTapped {
+            return "2"
+        } else if thirdCheckboxIsTapped {
+            return "3"
+        }
+        return String()
+    }
+    
     
     @IBAction func firstCheckboxTapped(_ sender: Any) {
         firstCheckboxOutlet.setImage(#imageLiteral(resourceName: "radioButtonChecked"), for: .normal)
@@ -76,7 +87,7 @@ class CancelPopupVC: RootViewController {
     }
     @IBAction func cancelOrderButtonTapped(_ sender: UIButton) {
         dismiss(animated: false) {
-            self.delegate.showLowerCostPopup()
+            self.delegate.showLowerCostPopup(cancelReason: self.getCancelReason())
         }
     }
 }
