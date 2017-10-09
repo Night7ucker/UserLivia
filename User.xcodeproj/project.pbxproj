@@ -38,6 +38,9 @@
 		CE32DD861F87B4DD00F06B1E /* OrderCancelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE32DD851F87B4DD00F06B1E /* OrderCancelView.xib */; };
 		CE3A427D1F7F83430016A0C7 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A427C1F7F83430016A0C7 /* RootViewController.swift */; };
 		CE3C59FE1F835BCF00345BB6 /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3C59FD1F835BCF00345BB6 /* PlaceMarker.swift */; };
+		CE3C76061F8B70740054EA51 /* FindDoctor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE3C76051F8B70740054EA51 /* FindDoctor.storyboard */; };
+		CE3C76091F8B72BA0054EA51 /* FindDoctorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3C76081F8B72BA0054EA51 /* FindDoctorVC.swift */; };
+		CE3C760B1F8B72FE0054EA51 /* FindDoctorCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3C760A1F8B72FE0054EA51 /* FindDoctorCellTableViewCell.swift */; };
 		CE40CA801F78E619003BC535 /* RefillsAndReminders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */; };
 		CE40CA821F78E87D003BC535 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA811F78E87D003BC535 /* RemindersViewController.swift */; };
 		CE40CA851F78F2ED003BC535 /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA841F78F2ED003BC535 /* AddReminderViewController.swift */; };
@@ -212,6 +215,9 @@
 		CE32DD851F87B4DD00F06B1E /* OrderCancelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderCancelView.xib; sourceTree = "<group>"; };
 		CE3A427C1F7F83430016A0C7 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		CE3C59FD1F835BCF00345BB6 /* PlaceMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMarker.swift; sourceTree = "<group>"; };
+		CE3C76051F8B70740054EA51 /* FindDoctor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FindDoctor.storyboard; sourceTree = "<group>"; };
+		CE3C76081F8B72BA0054EA51 /* FindDoctorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindDoctorVC.swift; sourceTree = "<group>"; };
+		CE3C760A1F8B72FE0054EA51 /* FindDoctorCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindDoctorCellTableViewCell.swift; sourceTree = "<group>"; };
 		CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RefillsAndReminders.storyboard; sourceTree = "<group>"; };
 		CE40CA811F78E87D003BC535 /* RemindersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		CE40CA841F78F2ED003BC535 /* AddReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
@@ -516,6 +522,15 @@
 			name = OrderStatusModule;
 			sourceTree = "<group>";
 		};
+		CE3C76071F8B71D90054EA51 /* FindDoctorModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE3C76081F8B72BA0054EA51 /* FindDoctorVC.swift */,
+				CE3C760A1F8B72FE0054EA51 /* FindDoctorCellTableViewCell.swift */,
+			);
+			name = FindDoctorModule;
+			sourceTree = "<group>";
+		};
 		CE40CA831F78E881003BC535 /* RemindersModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -709,6 +724,7 @@
 				CEEC74981F8675C6002C28D2 /* PharmacyDetails.storyboard */,
 				CEB4A3011F869B8C004478B9 /* Payment.storyboard */,
 				CE2695AA1F86C242002A1F1E /* CancelOrder.storyboard */,
+				CE3C76051F8B70740054EA51 /* FindDoctor.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -750,6 +766,7 @@
 		CEABE41B1F764D950041FAD5 /* UserFunctionalityModule */ = {
 			isa = PBXGroup;
 			children = (
+				CE3C76071F8B71D90054EA51 /* FindDoctorModule */,
 				7F6D01D21F82450100FA01E8 /* InviteFriendsModule */,
 				7FE995371F7A905200E31AA2 /* OrdersPaymentsModule */,
 				7FBAFBBD1F77DAE500BEB7F1 /* SettingsMenuModule */,
@@ -1309,6 +1326,7 @@
 				FBD6BB181F7C1402007741DC /* SearchDrugs.storyboard in Resources */,
 				CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */,
 				7FBAFBB61F77D9D700BEB7F1 /* MainScreen.storyboard in Resources */,
+				CE3C76061F8B70740054EA51 /* FindDoctor.storyboard in Resources */,
 				CE6D40E91F7D00A000C30EFA /* SelectOrderType.storyboard in Resources */,
 				7F862DBF1F82A19C0098ECA9 /* ContactsCell.xib in Resources */,
 				CE725FDE1F83AC2A009B8FC2 /* ReviewYourOrder.storyboard in Resources */,
@@ -1432,6 +1450,7 @@
 				CEA61BCF1F756D9400BA1AED /* MakeOrderViewController.swift in Sources */,
 				CEAB79AF1F83B261006F7311 /* OrderMapTableViewCell.swift in Sources */,
 				CEEC74A91F868A08002C28D2 /* WorkDaysVC.swift in Sources */,
+				CE3C760B1F8B72FE0054EA51 /* FindDoctorCellTableViewCell.swift in Sources */,
 				FB75CB4B1F828D750022B38D /* GoogleMapViewController.swift in Sources */,
 				FB6AC0B71F853EA4000F47CC /* OrderDescriptionTableViewCell.swift in Sources */,
 				FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */,
@@ -1498,6 +1517,7 @@
 				CE2695A91F86BF48002A1F1E /* SuccessPopupVC.swift in Sources */,
 				FB2615D41F87A9EC008069CE /* PaymentListModel.swift in Sources */,
 				FB6AC0BA1F854FAD000F47CC /* GetOrderDescriptionRequest.swift in Sources */,
+				CE3C76091F8B72BA0054EA51 /* FindDoctorVC.swift in Sources */,
 				7F6137F71F7B7F9400629AA7 /* PaymentPageCell.swift in Sources */,
 				7F2F05EA1F7D08150068964B /* OrderStatusCell.swift in Sources */,
 				FB75CB561F83BC8D0022B38D /* OrdersListModel.swift in Sources */,

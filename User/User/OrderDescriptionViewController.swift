@@ -50,7 +50,8 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate,
         clockView.layer.borderWidth = 2
         paymentButtonOutlet.isHidden = true
         cancelButtonOutlet.isHidden = true
-        addBackButtonAndTitleToNavigationBar(title: "ORDER ID - "+RealmDataManager.getOrdersListFromRealm()[tappedCellIndex].orderId!)
+        addBackButtonAndTitleWithTwoLabelsToNavigationBar(title: "OrderID - "+RealmDataManager.getOrdersListFromRealm()[tappedCellIndex].orderId!, bottomLabelTitle: "09.10.2017")
+//        addBackButtonAndTitleToNavigationBar(title: "ORDER ID - "+RealmDataManager.getOrdersListFromRealm()[tappedCellIndex].orderId!)
         navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar
         navigationController?.navigationBar.layer.shadowOpacity = 0
         let nib = UINib.init(nibName: "CustomOrderCell", bundle: nil)

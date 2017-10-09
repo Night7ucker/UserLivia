@@ -57,9 +57,42 @@ class RootViewController: UIViewController {
         titleLabel.text = title
         titleLabel.textColor = .white
         titleLabel.frame = CGRect(x: 0, y: 0, width: 250, height: 30)
+        titleLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightSemibold)
         let titleLabelBarButton = UIBarButtonItem(customView: titleLabel)
         
         navigationItem.setLeftBarButtonItems([backButtonBarButton, titleLabelBarButton], animated: true)
+    }
+    
+    func addBackButtonAndTitleWithTwoLabelsToNavigationBar(title: String, bottomLabelTitle: String) {
+        let backButton = UIButton(type: .system)
+        backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        backButton.setTitle("", for: .normal)
+        
+        backButton.setBackgroundImage(UIImage(named: "backButtonImage"), for: .normal)
+        backButton.addTarget(self, action: #selector(backButtonTapped(_:)), for: .touchUpInside)
+        
+        let backButtonBarButton = UIBarButtonItem(customView: backButton)
+        
+        let viewForLabels = UIView()
+        
+        let titleLabel = UILabel()
+        titleLabel.text = title
+        titleLabel.textColor = .white
+        titleLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightSemibold)
+        titleLabel.frame = CGRect(x: 0, y: -10, width: 250, height: 20)
+        
+        let bottomLabel = UILabel()
+        bottomLabel.text = bottomLabelTitle
+        bottomLabel.textColor = .white
+        bottomLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightThin)
+        bottomLabel.frame = CGRect(x: 0, y: 3, width: 250, height: 20)
+        
+        viewForLabels.addSubview(titleLabel)
+        viewForLabels.addSubview(bottomLabel)
+        
+        let viewForLabelsBarButton = UIBarButtonItem(customView: viewForLabels)
+        
+        navigationItem.setLeftBarButtonItems([backButtonBarButton, viewForLabelsBarButton], animated: true)
     }
     
     func createTitleInNavigtaionBar(title: String) {
