@@ -45,20 +45,43 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         try! realm.write {
             realm.deleteAll()
         }
-  
+        
         hideKeyboardWhenTappedAround()
         
         nextButtonOutlet.backgroundColor = Colors.Root.lightBlueColor
         errorViewOutlet.isHidden = true
         wrongPhoneNumberViewOutlet.isHidden = true
         nextButtonOutlet.layer.cornerRadius = 2
-        mainWhiteViewOutlet.layer.cornerRadius = 10
         skipRegistrationButtonOutlet.layer.cornerRadius = 2
         skipRegistrationButtonOutlet.setTitleColor(Colors.Root.lightBlueColor, for: .normal)
+        nextButtonOutlet.layer.shadowOffset = .zero
+        nextButtonOutlet.layer.shadowRadius = 1
+        nextButtonOutlet.layer.shadowColor = UIColor.black.cgColor
+        nextButtonOutlet.layer.shadowOpacity = 0.8
+        mainWhiteViewOutlet.layer.borderColor = UIColor.white.cgColor
+        
+        nextButtonOutlet.transform = CGAffineTransform(scaleX: 0.8, y: 1.2) // initial view distorted scale so it has a starting point for the animation
+        
+        UIView.animate(withDuration: 0.6, delay: 1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
+            self.nextButtonOutlet.transform = .identity // get back to original scale in an animated way
+        }, completion: nil)
+        
+//        UIView.transition(with: view, duration: 5, options: .transitionCrossDissolve, animations: { _ in
+//            self.mainWhiteViewOutlet.isHidden = true
+//        }, completion: nil)
+        
+        //        mainWhiteViewOutlet.addCornerRadiusAnimation(from: 800, to: 10, duration: 0.5) { success in
+        //            if success {
+        //                self.mainWhiteViewOutlet.layer.shadowOffset = .zero
+        //                self.mainWhiteViewOutlet.layer.shadowRadius = 1
+        //                self.mainWhiteViewOutlet.layer.shadowColor = UIColor.black.cgColor
+        //                self.mainWhiteViewOutlet.layer.shadowOpacity = 0.8
+        //            }
+        //        }
         
         phoneNumberField.delegate = self
         
@@ -201,5 +224,20 @@ extension RegistrationViewController: UITextFieldDelegate  {
         let newString: NSString =
             currentString.replacingCharacters(in: range, with: string) as NSString
         return newString.length <= maxLength
+    }
+}
+
+extension UIView
+{
+    func addCornerRadiusAnimation(from: CGFloat, to: CGFloat, duration: CFTimeInterval, completion: @escaping (Bool) -> Void)
+    {
+        let animation = CABasicAnimation(keyPath:"cornerRadius")
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.fromValue = from
+        animation.toValue = to
+        animation.duration = duration
+        self.layer.add(animation, forKey: "cornerRadius")
+        self.layer.cornerRadius = to
+        completion(true)
     }
 }
