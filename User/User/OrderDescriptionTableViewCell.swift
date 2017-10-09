@@ -13,6 +13,7 @@ class OrderDescriptionTableViewCell: UITableViewCell {
     @IBOutlet var drugsReceptImage: UIImageView!
     @IBOutlet var drugName: UILabel!
 
+    @IBOutlet var alternativeLabel: UILabel!
     @IBOutlet var drugCurrencyLabel: UILabel!
     @IBOutlet var drugPriceLabel: UILabel!
     @IBOutlet var selfCollectValue: UILabel!

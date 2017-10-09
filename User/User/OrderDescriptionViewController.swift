@@ -37,6 +37,7 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate,
     var timeTimer: Timer?
     var uiview :UIView?
     var cancelReasonVar = ""
+    var colorForNavigationBar: UIColor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +51,12 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate,
         clockView.layer.borderWidth = 2
         paymentButtonOutlet.isHidden = true
         cancelButtonOutlet.isHidden = true
-        addBackButtonAndTitleWithTwoLabelsToNavigationBar(title: "OrderID - "+RealmDataManager.getOrdersListFromRealm()[tappedCellIndex].orderId!, bottomLabelTitle: "09.10.2017")
-//        addBackButtonAndTitleToNavigationBar(title: "ORDER ID - "+RealmDataManager.getOrdersListFromRealm()[tappedCellIndex].orderId!)
+        
+        let fullDate = RealmDataManager.getOrderDescriptionModel()[0].createDate!
+        var splittedDate = fullDate.components(separatedBy: "T")
+        var finalDate = splittedDate[0].components(separatedBy: "-")
+        
+        addBackButtonAndTitleWithTwoLabelsToNavigationBar(title: "OrderID - "+RealmDataManager.getOrdersListFromRealm()[tappedCellIndex].orderId!, bottomLabelTitle: finalDate[0]+"."+finalDate[1]+"."+finalDate[2])
         navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar
         navigationController?.navigationBar.layer.shadowOpacity = 0
         let nib = UINib.init(nibName: "CustomOrderCell", bundle: nil)
@@ -63,7 +68,6 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate,
         } else {
             cellCount = RealmDataManager.getOrderDrugsDescriptionModel().count + 1
         }
-
         
         switch orderStatus {
         case "1":
@@ -145,6 +149,7 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate,
             return
         }
         rotate()
+        colorForNavigationBar = navigationController?.navigationBar.barTintColor
         
 //        let view = instanceFromNib()
 //        view.frame.size.height = 140
@@ -153,7 +158,7 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate,
     }
     
     func instanceFromNib() -> UIView {
-        return UINib(nibName: RealmDataManager.getOrderDescriptionModel()[0].statusId!, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
+        return UINib(nibName: "CustomCancelView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
     }
     
     
@@ -170,6 +175,11 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate,
     
     
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        navigationController?.navigationBar.barTintColor = colorForNavigationBar
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -220,9 +230,6 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate,
     }
 }
 
-
-
-
 extension OrderDescriptionViewController : UITableViewDataSource{
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -262,8 +269,11 @@ extension OrderDescriptionViewController : UITableViewDataSource{
                 cell.isUserInteractionEnabled = false
                 if RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row - 2].activeItem! == "0" {
                     cell.backgroundColor = Colors.Root.backgroundColor
+                    cell.alternativeLabel.isHidden = false
+                    cell.alternativeLabel.text = "alternative: "+RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row - 1].drugName!
                 } else {
                     cell.backgroundColor = UIColor.white
+                    cell.alternativeLabel.isHidden = true
                 }
                 cell.drugAmount.text = RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row - 2].quantity!
                 cell.drugName.text = RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row - 2].drugName!
@@ -292,8 +302,12 @@ extension OrderDescriptionViewController : UITableViewDataSource{
                 cell.isUserInteractionEnabled = false
                 if RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row].activeItem! == "0" {
                     cell.backgroundColor = Colors.Root.backgroundColor
+                    cell.alternativeLabel.isHidden = false
+                    cell.alternativeLabel.text = "alternative: "+RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row + 1].drugName!
                 } else {
                     cell.backgroundColor = UIColor.white
+                    cell.alternativeLabel.isHidden = true
+                    
                 }
                 cell.drugAmount.text = RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row].quantity!
                 cell.drugName.text = RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row].drugName!
@@ -398,7 +412,10 @@ extension OrderDescriptionViewController : UITableViewDelegate{
         return nil
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        if RealmDataManager.getOrderDrugsDescriptionModel()[0].pAdmin != nil {
+            return 60
+        }
+        return 1
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let emptyView = UIView()

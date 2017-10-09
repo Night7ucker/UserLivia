@@ -154,7 +154,6 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
             let countryCodeValue = String(countryCode.text!.characters.dropFirst())
             let getAuthCodeObject = GetAuthCode(number: phoneNumberField.text!, code: countryCodeValue)
             getAuthCodeObject.getAutCodeRequest()
-            
             let registrationStoryboard = UIStoryboard(name: "RegistrationModule", bundle: nil)
             let smsConfirmViewController = registrationStoryboard.instantiateViewController(withIdentifier: "kSmsConfrimViewController") as? SmsConfrimViewController
             smsConfirmViewController?.delegate = self
