@@ -10,10 +10,14 @@ import UIKit
 
 class PaymentPageCell: UITableViewCell {
     
-    @IBOutlet weak var priceOfOrderLabel: UILabel!
-    @IBOutlet weak var dateAndIdlabel: UILabel!
-    @IBOutlet weak var cardNumberLabel: UILabel!
-    @IBOutlet weak var typeOfCardImage: UIImageView!
+
+    @IBOutlet var paymentData: UILabel!
+    @IBOutlet var paymentOrderId: UILabel!
+    @IBOutlet var paymentText: UILabel!
+    @IBOutlet var paymentPrice: UILabel!
+    @IBOutlet var paymentImage: UIImageView!
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,11 +25,3 @@ class PaymentPageCell: UITableViewCell {
     }
 }
 
-extension PaymentPageCell {
-    func fillCellInfo(priceOfOrder: String, dateAndId: String, cardNumber: String, typeOfCardImage: UIImage) {
-     //   self.priceOfOrderLabel.text = priceOfOrder
-    //    self.dateAndIdlabel.text = dateAndId
-    //    self.cardNumberLabel.text = cardNumber
-    //    self.typeOfCardImage.image = typeOfCardImage
-    }
-}

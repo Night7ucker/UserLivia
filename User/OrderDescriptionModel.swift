@@ -25,6 +25,7 @@ class OrderDescriptionModel: Object {
     dynamic var totatPrice: String?
     dynamic var totalDrugsPrice: String?
     dynamic var statusId: String?
+    dynamic var createDate: String?
 
 }
 

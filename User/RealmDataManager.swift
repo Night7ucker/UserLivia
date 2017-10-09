@@ -99,5 +99,9 @@ class RealmDataManager {
         let data = realm.objects(WorkingHour.self)
         return data
     }
+    static func getPaymentList() -> Results<PaymentListModel> {
+        let data = realm.objects(PaymentListModel.self)
+        return data
+    }
 
 }

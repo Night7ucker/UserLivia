@@ -10,6 +10,10 @@ import UIKit
 
 class PaymentsPageController: RootViewController {
     
+    
+    
+
+    
     @IBOutlet weak var paymentsPageTableView: UITableView!
     
     var pageOp = OrdersPaymentsController()
@@ -18,15 +22,9 @@ class PaymentsPageController: RootViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        PaymentListRequest.getPaymentList { (success) in
-            if success {
-                self.paymentsPageTableView.reloadData()
-            }
-        }
-        
-        
         paymentsPageTableView.delegate = self
         paymentsPageTableView.dataSource = self
+        paymentsPageTableView.tableFooterView = UIView(frame: .zero)
         
     }
     
@@ -34,37 +32,23 @@ class PaymentsPageController: RootViewController {
 
 extension PaymentsPageController : UITableViewDataSource{
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        //Here will be number of months, which has orders
-        return 1
-    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numberOfRowsInSection = 1
-        return numberOfRowsInSection
-        //will work only with data!!!!
-//        let numberOfRowsInSection: Int = 0
-//                if myArray.count > 0
-//                {
-//                    tableView.separatorStyle = .singleLine
-//                    numberOfRowsInSection            = myArray.count
-//                    tableView.backgroundView = nil
-//                }
-//                else
-//                {
-//        let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
-//        noDataLabel.text          = "No apoointments available"
-//        noDataLabel.textColor     = UIColor.black
-//        noDataLabel.textAlignment = .center
-//        tableView.backgroundView  = noDataLabel
-//        tableView.separatorStyle  = .none
-//                }
-//        return numberOfRowsInSection
+
+        return RealmDataManager.getPaymentList().count
+
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : PaymentPageCell = tableView.dequeueReusableCell(withIdentifier: "PaymentsPageCell", for: indexPath) as! PaymentPageCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentsPageCell", for: indexPath) as! PaymentPageCell
         
-        cell.fillCellInfo(priceOfOrder: "1000 BYN", dateAndId: "12.09.2017/001", cardNumber: "1234 **** **** 9876", typeOfCardImage: #imageLiteral(resourceName: "typeOfCardImage"))
-        cell.isHidden = false
+        let fullDate = RealmDataManager.getPaymentList()[0].createDate!
+        var splittedDate = fullDate.components(separatedBy: "T")
+        var finalDate = splittedDate[0].components(separatedBy: "-")
+        cell.paymentData.text = finalDate[0]+"."+finalDate[1]+"."+finalDate[2]
+        cell.paymentOrderId.text = RealmDataManager.getPaymentList()[0].orderId!
+        cell.paymentText.text = RealmDataManager.getPaymentList()[0].statusName!
+        cell.paymentPrice.text = RealmDataManager.getPaymentList()[0].fullAmount!
+        cell.paymentImage.image = UIImage(named: "bill.png")
         return cell
     }
     
@@ -72,11 +56,6 @@ extension PaymentsPageController : UITableViewDataSource{
 
 extension PaymentsPageController : UITableViewDelegate{
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        // add name of month from array of monthes
-        
-        return "\(section)"
-    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         

@@ -55,6 +55,7 @@ class GetOrderDescriptionRequest{
                 orderDescObject.totatPrice = result["total_price"] as? String
                 orderDescObject.totalDrugsPrice = result["total_price_drugs"] as? String
                 orderDescObject.statusId = result["status_id"] as? String
+                orderDescObject.createDate = result["create_date"] as? String
                 RealmDataManager.writeIntoRealm(object: orderDescObject)
 
                 let array = result["drugs"] as? [[String: AnyObject]]

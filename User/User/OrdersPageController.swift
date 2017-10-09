@@ -19,6 +19,17 @@ class OrdersPageController: RootViewController {
         ordersPageTableView.delegate = self
         ordersPageTableView.dataSource = self
         ordersPageTableView.allowsSelection = true
+        let realm = try! Realm()
+        if RealmDataManager.getPaymentList().count > 0 {
+            try! realm.write {
+                realm.delete(RealmDataManager.getPaymentList())
+            }
+        }
+        PaymentListRequest.getPaymentList { (success) in
+            if success {
+                
+            }
+        }
     }
 
 }
