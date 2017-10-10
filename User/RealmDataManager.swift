@@ -103,5 +103,8 @@ class RealmDataManager {
         let data = realm.objects(PaymentListModel.self)
         return data
     }
-
+    static func getDoctorSpecialityList() -> Results<DoctorSpecialityModel> {
+        let data = realm.objects(DoctorSpecialityModel.self)
+        return data
+    }
 }

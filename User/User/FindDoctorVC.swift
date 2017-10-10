@@ -7,23 +7,33 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FindDoctorVC: RootViewController {
     
     @IBOutlet weak var textFieldForSearchingOutlet: UITextField!
     @IBOutlet weak var specialityTypesTableView: UITableView!
+    
+    var doctorsSpecializationList: Results<DoctorSpecialityModel>? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        addBackButtonAndTitleWithTwoLabelsToNavigationBar(title: "Specializations", bottomLabelTitle: RealmDataManager.getUserDataFromRealm()[0].cityName! + ", " + RealmDataManager.getUserDataFromRealm()[0].countryName!)
-        addBackButtonAndTitleWithTwoLabelsToNavigationBar(title: "Specializations", bottomLabelTitle: "Minsk, Belarus")
+        addBackButtonAndTitleWithTwoLabelsToNavigationBar(title: "Specializations", bottomLabelTitle: RealmDataManager.getUserDataFromRealm()[0].cityName! + ", " + RealmDataManager.getUserDataFromRealm()[0].countryName!)
+//        addBackButtonAndTitleWithTwoLabelsToNavigationBar(title: "Specializations", bottomLabelTitle: "Minsk, Belarus")
         addCityButtonToNavigationBar()
         
         specialityTypesTableView.delegate = self
         specialityTypesTableView.dataSource = self
         
         specialityTypesTableView.bounces = false
+        FindDoctorSpecialityRequest.getSpecialityList { success in
+            if success {
+                self.doctorsSpecializationList = RealmDataManager.getDoctorSpecialityList()
+                self.specialityTypesTableView.reloadData()
+            }
+        }
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -51,12 +61,12 @@ extension FindDoctorVC: UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return RealmDataManager.getDoctorSpecialityList().count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let specializationCell = tableView.dequeueReusableCell(withIdentifier: "findDoctorCell") as! FindDoctorCellTableViewCell
         
-        specializationCell.specializationNameLabelOutlet.text = "Accident and emergency medicine"
+        specializationCell.specializationNameLabelOutlet.text = doctorsSpecializationList?[indexPath.row].name
         specializationCell.imageViewOutlet.image = #imageLiteral(resourceName: "pharmacySign")
         
         return specializationCell

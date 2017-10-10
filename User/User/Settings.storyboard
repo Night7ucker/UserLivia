@@ -79,7 +79,6 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="mainIcon" destination="Ug9-W4-wIH" id="fGH-Fn-hM0"/>
                                                     <outlet property="mainLabel" destination="hvm-Uj-RHu" id="u5c-sa-kTn"/>
                                                     <outlet property="mainScreenImage" destination="YAx-a7-bMv" id="czf-jG-Gkd"/>
                                                 </connections>
@@ -137,7 +136,6 @@
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="detailLabel" destination="pXs-yt-Nwg" id="4TZ-GT-BSJ"/>
-                                                    <outlet property="mainIcon" destination="kLe-0l-mMB" id="X0W-Ny-bgg"/>
                                                     <outlet property="mainLabel" destination="ZiQ-kV-407" id="Ejr-22-e7U"/>
                                                     <outlet property="mainScreenImage" destination="Mo2-vp-74X" id="gST-wo-G6P"/>
                                                 </connections>
