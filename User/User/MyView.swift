@@ -9,15 +9,25 @@
 import UIKit
 
 class MyView: UIView {
-
+    
     @IBOutlet var priceValue: UILabel!
-
+    
     @IBOutlet var priceForAlternative: UILabel!
     @IBOutlet var priceForCancelOrder: UILabel!
-
+    
+    @IBOutlet weak var bestPriceOfferLabelOutlet: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        UIView.animate(withDuration: 0.9, delay: 0, options: [.repeat,.autoreverse], animations: {
+            self.bestPriceOfferLabelOutlet.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.9, animations: {
+                self.bestPriceOfferLabelOutlet.transform = .identity
+            })
+        })
+        
         
         if RealmDataManager.getOrderDescriptionModel().count > 0 {
             switch RealmDataManager.getOrderDescriptionModel()[0].statusId! {

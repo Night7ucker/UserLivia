@@ -79,6 +79,7 @@
             <color key="backgroundColor" red="0.47450980392156861" green="0.70980392156862748" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="bestPriceOfferLabelOutlet" destination="Bac-NW-AOg" id="pk5-rY-JL2"/>
                 <outlet property="priceValue" destination="8dI-9f-5F5" id="8nc-TD-sZA"/>
             </connections>
             <point key="canvasLocation" x="12.5" y="-313"/>
