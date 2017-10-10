@@ -127,14 +127,7 @@ extension SearchForItemsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if transitionFromMainController == true {
-            let GetDrugsStoryboard = UIStoryboard(name: "SearchDrugs", bundle: nil)
-            let GetDrugsViewController = GetDrugsStoryboard.instantiateViewController(withIdentifier: "kSearchDrugsStoryboardId") as? GetDrugsViewController
-            navigationController?.pushViewController(GetDrugsViewController!, animated: true)
-        } else {
-        
-        if checkIsRegistered == true {
+        if RealmDataManager.getUserDataFromRealm().count == 0 {
             let selectedCityWithCountry = City()
             let cell = tableView.cellForRow(at: indexPath) as? CityTableViewCell
             selectedCityWithCountry.countryName = countriesAndCitiesArray[indexPath.section].country
@@ -147,37 +140,62 @@ extension SearchForItemsViewController: UITableViewDataSource {
                     }
                 }
             }
-            
-            let realmAddCityInfo = RealmDataManager.getUserDataFromRealm()
-            
-            try! realm.write {
-                realmAddCityInfo[0].cityName = RealmDataManager.getCitiesNamesFromRealm()[0].cityName!
-                realmAddCityInfo[0].countryName = RealmDataManager.getCitiesNamesFromRealm()[0].countryName!
-                realmAddCityInfo[0].cityId = RealmDataManager.getCitiesNamesFromRealm()[0].cityId!
-                realmAddCityInfo[0].countryId = RealmDataManager.getCitiesNamesFromRealm()[0].countryId!
-                realmAddCityInfo[0].countryCode = RealmDataManager.getCitiesNamesFromRealm()[0].countryCode!
-            }
-            let obj = EditUserCityRequest()
-            obj.editUserFunc { (success) in
-                if success {
-                    if self.checkEditProfile == true {
-                        self.navigationController?.popViewController(animated: false)
-                    } else {
-                        let MainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
-                        let MainScreenController = MainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as! MainScreenController
-                        MainScreenController.userIsRegistred = true
-                        self.navigationController?.pushViewController(MainScreenController, animated: true)
+            let findDoctorStoryboard = UIStoryboard(name: "FindDoctor", bundle: nil)
+            let findDoctorViewController = findDoctorStoryboard.instantiateViewController(withIdentifier: "kFindDoctorVC") as! FindDoctorVC
+            navigationController?.pushViewController(findDoctorViewController, animated: false)
+        } else {
+            if transitionFromMainController == true {
+                let GetDrugsStoryboard = UIStoryboard(name: "SearchDrugs", bundle: nil)
+                let GetDrugsViewController = GetDrugsStoryboard.instantiateViewController(withIdentifier: "kSearchDrugsStoryboardId") as? GetDrugsViewController
+                navigationController?.pushViewController(GetDrugsViewController!, animated: true)
+            } else {
+                
+                if checkIsRegistered == true {
+                    let selectedCityWithCountry = City()
+                    let cell = tableView.cellForRow(at: indexPath) as? CityTableViewCell
+                    selectedCityWithCountry.countryName = countriesAndCitiesArray[indexPath.section].country
+                    selectedCityWithCountry.cityName = cell?.cityNameLabelOutlet.text
+                    let arrayWithputChoosedCity = RealmDataManager.getCitiesNamesFromRealm()
+                    for element in arrayWithputChoosedCity {
+                        if element.cityName != selectedCityWithCountry.cityName {
+                            try! realm.write {
+                                realm.delete(element)
+                            }
+                        }
                     }
                     
+                    let realmAddCityInfo = RealmDataManager.getUserDataFromRealm()
+                    
+                    try! realm.write {
+                        realmAddCityInfo[0].cityName = RealmDataManager.getCitiesNamesFromRealm()[0].cityName!
+                        realmAddCityInfo[0].countryName = RealmDataManager.getCitiesNamesFromRealm()[0].countryName!
+                        realmAddCityInfo[0].cityId = RealmDataManager.getCitiesNamesFromRealm()[0].cityId!
+                        realmAddCityInfo[0].countryId = RealmDataManager.getCitiesNamesFromRealm()[0].countryId!
+                        realmAddCityInfo[0].countryCode = RealmDataManager.getCitiesNamesFromRealm()[0].countryCode!
+                    }
+                    let obj = EditUserCityRequest()
+                    obj.editUserFunc { (success) in
+                        if success {
+                            if self.checkEditProfile == true {
+                                self.navigationController?.popViewController(animated: false)
+                            } else {
+                                let MainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
+                                let MainScreenController = MainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as! MainScreenController
+                                MainScreenController.userIsRegistred = true
+                                self.navigationController?.pushViewController(MainScreenController, animated: true)
+                            }
+                            
+                        }
+                    }
+                } else {
+                    let GetDrugsStoryboard = UIStoryboard(name: "SearchDrugs", bundle: nil)
+                    let GetDrugsViewController = GetDrugsStoryboard.instantiateViewController(withIdentifier: "kSearchDrugsStoryboardId") as? GetDrugsViewController
+                    navigationController?.pushViewController(GetDrugsViewController!, animated: true)
                 }
+                
             }
-        } else {
-            let GetDrugsStoryboard = UIStoryboard(name: "SearchDrugs", bundle: nil)
-            let GetDrugsViewController = GetDrugsStoryboard.instantiateViewController(withIdentifier: "kSearchDrugsStoryboardId") as? GetDrugsViewController
-            navigationController?.pushViewController(GetDrugsViewController!, animated: true)
         }
         
-        }
 
     }
 }

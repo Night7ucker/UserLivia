@@ -204,9 +204,16 @@ extension MainScreenController : UITableViewDelegate{
         DispatchQueue.main.async {
             switch indexPath.section {
             case 0:
-                let findDoctorStoryboard = UIStoryboard(name: "FindDoctor", bundle: nil)
-                let findDoctorSpecialityViewController = findDoctorStoryboard.instantiateViewController(withIdentifier: "kFindDoctorVC") as! FindDoctorVC
-                self.navigationController?.pushViewController(findDoctorSpecialityViewController, animated: false)
+                if RealmDataManager.getUserDataFromRealm().count != 0 {
+                    let findDoctorStoryboard = UIStoryboard(name: "FindDoctor", bundle: nil)
+                    let findDoctorSpecialityViewController = findDoctorStoryboard.instantiateViewController(withIdentifier: "kFindDoctorVC") as! FindDoctorVC
+                    self.navigationController?.pushViewController(findDoctorSpecialityViewController, animated: false)
+                } else {
+                    let mainViewStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: nil)
+                    let searchForItemsViewController = mainViewStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as! SearchForItemsViewController
+                    self.navigationController?.pushViewController(searchForItemsViewController, animated: false)
+                }
+                
             case 1:
                 switch indexPath.row {
                 case 0:

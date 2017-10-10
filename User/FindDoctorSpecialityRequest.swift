@@ -13,9 +13,9 @@ import AlamofireObjectMapper
 import ObjectMapper_Realm
 
 class FindDoctorSpecialityRequest {
-    static func getSpecialityList(completion: @escaping (Bool) -> Void) {
+    static func getSpecialityList(searchText: String = "", offset: Int = 0, completion: @escaping (Bool) -> Void) {
         
-        let url = "https://test.liviaapp.com/api/specialization?parent_id=0&offset=0&limit=20&search="
+        let url = "https://test.liviaapp.com/api/specialization?parent_id=0&offset=" + String(offset) + "&limit=20&search=" + searchText
         
         let headers = [
             "Content-Type": "application/json",
@@ -27,6 +27,25 @@ class FindDoctorSpecialityRequest {
             "LiviaApp-APIVersion": "2.0"
         ]
         
+        
+        Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).responseObject { (response: DataResponse
+            <MappedFindDoctorSpecialityModel>) in
+            MappedFindDoctorSpecialityModel.writeIntoRealm(response: response)
+            completion(true)
+        }
+    }
+    
+    static func getSpecialityListForUnsignedUser(searchText: String = "", offset: Int = 0, completion: @escaping (Bool) -> Void) {
+        
+        let url = "https://test.liviaapp.com/api/specialization?parent_id=0&offset=" + String(offset) + "&limit=20&search=" + searchText
+        
+        let headers = [
+            "Content-Type": "application/json",
+            "LiviaApp-city": RealmDataManager.getCitiesNamesFromRealm()[0].cityId!,
+            "LiviaApp-language": "en",
+            "LiviaApp-timezone": "180",
+            "LiviaApp-APIVersion": "2.0"
+        ]
         
         
         Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).responseObject { (response: DataResponse
