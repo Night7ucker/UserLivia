@@ -89,11 +89,7 @@ extension OrdersPageController : UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let realm = try! Realm()
-        if RealmDataManager.getOrderDescriptionModel().count > 0 {
-            try! realm.write {
-                realm.delete(RealmDataManager.getOrderDescriptionModel())
-            }
-        }
+        
         if RealmDataManager.getOrderDescriptionModelImage().count > 0 {
             try! realm.write {
                 realm.delete(RealmDataManager.getOrderDescriptionModelImage())

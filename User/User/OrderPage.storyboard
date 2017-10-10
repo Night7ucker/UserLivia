@@ -146,76 +146,7 @@
                             </tableView>
                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSq-Cc-yfZ">
                                 <rect key="frame" x="0.0" y="64" width="375" height="140"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Process" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kuW-Fs-cLo">
-                                        <rect key="frame" x="151.5" y="62" width="71" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="ThR-hu-SiB"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="15"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="We are working to get you the BEST PRICE OFFER for your  order. This may take a few minutes. We thank you for you patience" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Jn-oY-1vP">
-                                        <rect key="frame" x="20" y="77" width="334" height="65"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Uk-CX-IrN">
-                                        <rect key="frame" x="172" y="24" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="8rK-Sg-5OS"/>
-                                        </constraints>
-                                    </imageView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MNh-61-9bD">
-                                        <rect key="frame" x="172" y="24" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ncx-Dq-KxE">
-                                                <rect key="frame" x="4" y="15" width="12" height="1"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </view>
-                                        </subviews>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUM-Oa-Hqx">
-                                        <rect key="frame" x="30" y="105" width="130" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Payment">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="paymentButtontapped:" destination="6rS-lT-rxc" eventType="touchUpInside" id="52r-Ea-eeR"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37h-ib-ZtB">
-                                        <rect key="frame" x="214" y="105" width="130" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.03742904276491732" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Cancel order">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="cancelOrderButtonTapped:" destination="6rS-lT-rxc" eventType="touchUpInside" id="aMS-tg-d1k"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" red="0.28235294117647058" green="0.69019607843137254" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="kuW-Fs-cLo" firstAttribute="top" secondItem="kSq-Cc-yfZ" secondAttribute="top" constant="62" id="1ee-sN-536"/>
-                                    <constraint firstItem="kuW-Fs-cLo" firstAttribute="top" secondItem="8Uk-CX-IrN" secondAttribute="bottom" constant="8" id="CuQ-9i-YPE"/>
-                                    <constraint firstItem="0Jn-oY-1vP" firstAttribute="top" secondItem="kuW-Fs-cLo" secondAttribute="bottom" constant="-6" id="DnY-6Q-LfV"/>
-                                    <constraint firstItem="8Uk-CX-IrN" firstAttribute="top" secondItem="kSq-Cc-yfZ" secondAttribute="top" constant="24" id="KOU-8P-qUj"/>
-                                    <constraint firstAttribute="trailing" secondItem="8Uk-CX-IrN" secondAttribute="trailing" constant="173" id="KYk-Fk-7Oi"/>
-                                    <constraint firstAttribute="trailing" secondItem="0Jn-oY-1vP" secondAttribute="trailing" constant="21" id="VkY-mn-IIG"/>
-                                    <constraint firstItem="kuW-Fs-cLo" firstAttribute="centerX" secondItem="8Uk-CX-IrN" secondAttribute="centerX" id="WmB-vh-aar"/>
-                                    <constraint firstItem="0Jn-oY-1vP" firstAttribute="bottom" secondItem="kSq-Cc-yfZ" secondAttribute="bottomMargin" constant="10" id="clm-OY-Jid"/>
-                                    <constraint firstItem="0Jn-oY-1vP" firstAttribute="width" secondItem="kSq-Cc-yfZ" secondAttribute="width" constant="-41" id="uDt-cL-eKW"/>
-                                    <constraint firstItem="kuW-Fs-cLo" firstAttribute="top" secondItem="8Uk-CX-IrN" secondAttribute="bottom" constant="8" id="wYe-eR-eu5"/>
-                                    <constraint firstItem="0Jn-oY-1vP" firstAttribute="leading" secondItem="kSq-Cc-yfZ" secondAttribute="leading" constant="20" id="zOV-CE-x1v"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -228,14 +159,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Xh7-Vb-Tba"/>
                     <connections>
-                        <outlet property="cancelButtonOutlet" destination="37h-ib-ZtB" id="kJC-4X-a8B"/>
-                        <outlet property="clockView" destination="MNh-61-9bD" id="44E-4v-Upa"/>
-                        <outlet property="descriptionTextViewOutlet" destination="0Jn-oY-1vP" id="ON5-dM-bAR"/>
                         <outlet property="headerView" destination="kSq-Cc-yfZ" id="hUn-Bk-yZk"/>
-                        <outlet property="imageStatusOutlet" destination="8Uk-CX-IrN" id="RXG-QG-5tS"/>
-                        <outlet property="labelStatusOutlet" destination="kuW-Fs-cLo" id="vje-ua-FlH"/>
-                        <outlet property="paymentButtonOutlet" destination="MUM-Oa-Hqx" id="BhS-zR-jZN"/>
-                        <outlet property="rotateView" destination="ncx-Dq-KxE" id="OXZ-Ij-sCK"/>
                         <outlet property="tableView" destination="E9L-gO-tZ6" id="qU1-rr-01a"/>
                     </connections>
                 </viewController>
@@ -248,7 +172,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dt9-DX-uhk" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WFu-oP-J3m">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WFu-oP-J3m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

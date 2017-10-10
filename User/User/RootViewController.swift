@@ -19,7 +19,7 @@ class RootViewController: UIViewController {
             static var orangeColor: UIColor { return UIColor(red: CGFloat(228/255.0), green: CGFloat(181/255.0), blue: CGFloat(106/255.0), alpha: CGFloat(1.0)) }
             static var lightGrayColor: UIColor { return UIColor( red: CGFloat(230/255.0), green: CGFloat(230/255.0), blue: CGFloat(230/255.0), alpha: CGFloat(1.0)) }
             static var inProgressStatusColor: UIColor { return UIColor( red: CGFloat(122/255.0), green: CGFloat(162/255.0), blue: CGFloat(107/255.0), alpha: CGFloat(1.0)) }
-            static var greenColorForNavigationBar: UIColor { return UIColor(red: 0.4, green: 0.8, blue: 0.7, alpha: 1) }
+            static var greenColorForNavigationBar: UIColor { return UIColor( red: CGFloat(102/255.0), green: CGFloat(204/255.0), blue: CGFloat(178/255.0), alpha: CGFloat(1.0)) }
             static var canceledStatusColor: UIColor { return UIColor(red: CGFloat(245/255.0), green: CGFloat(102/255.0), blue: CGFloat(18/255.0), alpha: CGFloat(1.0)) }
         }
     }

@@ -150,6 +150,7 @@
 		FB6BB31A1F7E607A00165BB2 /* DrugInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6BB3191F7E607A00165BB2 /* DrugInfoViewController.swift */; };
 		FB6BB31C1F7E652100165BB2 /* DrugsDescriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6BB31B1F7E652100165BB2 /* DrugsDescriptionModel.swift */; };
 		FB6BB31E1F7E653000165BB2 /* DrugsDescriptionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6BB31D1F7E653000165BB2 /* DrugsDescriptionRequest.swift */; };
+		FB6C66451F8CB3B6006EDF4A /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6C66441F8CB3B6006EDF4A /* MyView.swift */; };
 		FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB740D161F74F24900F6DD79 /* AppDelegate.swift */; };
 		FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB740D1F1F74F24900F6DD79 /* LaunchScreen.storyboard */; };
 		FB75CB411F8235E80022B38D /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75CB401F8235E80022B38D /* AddToCartViewController.swift */; };
@@ -161,6 +162,15 @@
 		FB75CB531F83A0A50022B38D /* OrdersCountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75CB521F83A0A50022B38D /* OrdersCountRequest.swift */; };
 		FB75CB561F83BC8D0022B38D /* OrdersListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75CB551F83BC8D0022B38D /* OrdersListModel.swift */; };
 		FB75CB581F83BC9C0022B38D /* OrdersListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75CB571F83BC9C0022B38D /* OrdersListRequest.swift */; };
+		FB7640411F8BB12400B17A96 /* 1.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7640401F8BB12400B17A96 /* 1.xib */; };
+		FB7640431F8BB12C00B17A96 /* 2.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7640421F8BB12C00B17A96 /* 2.xib */; };
+		FB7640451F8BB13700B17A96 /* 3.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7640441F8BB13700B17A96 /* 3.xib */; };
+		FB7640471F8BB13E00B17A96 /* 4.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7640461F8BB13E00B17A96 /* 4.xib */; };
+		FB7640491F8BB14600B17A96 /* 6.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7640481F8BB14600B17A96 /* 6.xib */; };
+		FB76404B1F8BB15200B17A96 /* 7.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB76404A1F8BB15200B17A96 /* 7.xib */; };
+		FB76404D1F8BB15C00B17A96 /* 15.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB76404C1F8BB15C00B17A96 /* 15.xib */; };
+		FB76404F1F8BB16300B17A96 /* 16.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB76404E1F8BB16300B17A96 /* 16.xib */; };
+		FB7640511F8BBD4800B17A96 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7640501F8BBD4800B17A96 /* ClockView.swift */; };
 		FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B861F752C4D0065B49C /* CountryCodesModel.swift */; };
 		FB958B891F752D000065B49C /* GetCountryCodesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B881F752D000065B49C /* GetCountryCodesRequest.swift */; };
 		FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB958B8C1F755D820065B49C /* RealmDataManager.swift */; };
@@ -319,6 +329,7 @@
 		FB6BB3191F7E607A00165BB2 /* DrugInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugInfoViewController.swift; sourceTree = "<group>"; };
 		FB6BB31B1F7E652100165BB2 /* DrugsDescriptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugsDescriptionModel.swift; sourceTree = "<group>"; };
 		FB6BB31D1F7E653000165BB2 /* DrugsDescriptionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugsDescriptionRequest.swift; sourceTree = "<group>"; };
+		FB6C66441F8CB3B6006EDF4A /* MyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		FB740D131F74F24900F6DD79 /* User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB740D161F74F24900F6DD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB740D201F74F24900F6DD79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -333,6 +344,15 @@
 		FB75CB521F83A0A50022B38D /* OrdersCountRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersCountRequest.swift; sourceTree = "<group>"; };
 		FB75CB551F83BC8D0022B38D /* OrdersListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersListModel.swift; sourceTree = "<group>"; };
 		FB75CB571F83BC9C0022B38D /* OrdersListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersListRequest.swift; sourceTree = "<group>"; };
+		FB7640401F8BB12400B17A96 /* 1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = 1.xib; sourceTree = "<group>"; };
+		FB7640421F8BB12C00B17A96 /* 2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = 2.xib; sourceTree = "<group>"; };
+		FB7640441F8BB13700B17A96 /* 3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = 3.xib; sourceTree = "<group>"; };
+		FB7640461F8BB13E00B17A96 /* 4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = 4.xib; sourceTree = "<group>"; };
+		FB7640481F8BB14600B17A96 /* 6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = 6.xib; sourceTree = "<group>"; };
+		FB76404A1F8BB15200B17A96 /* 7.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = 7.xib; sourceTree = "<group>"; };
+		FB76404C1F8BB15C00B17A96 /* 15.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = 15.xib; sourceTree = "<group>"; };
+		FB76404E1F8BB16300B17A96 /* 16.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = 16.xib; sourceTree = "<group>"; };
+		FB7640501F8BBD4800B17A96 /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		FB958B861F752C4D0065B49C /* CountryCodesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodesModel.swift; sourceTree = "<group>"; };
 		FB958B881F752D000065B49C /* GetCountryCodesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCountryCodesRequest.swift; sourceTree = "<group>"; };
 		FB958B8C1F755D820065B49C /* RealmDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
@@ -1004,6 +1024,7 @@
 		FB6AC0B11F84D261000F47CC /* OrderPageModule */ = {
 			isa = PBXGroup;
 			children = (
+				FB76403F1F8BB10800B17A96 /* xibForHeaderView */,
 				FB6AC0B21F84D27B000F47CC /* OrderDescriptionViewController.swift */,
 				FB6AC0B61F853EA4000F47CC /* OrderDescriptionTableViewCell.swift */,
 				FB6AC0BD1F8577A8000F47CC /* CustomOrderCell.xib */,
@@ -1122,6 +1143,23 @@
 				FB75CB571F83BC9C0022B38D /* OrdersListRequest.swift */,
 			);
 			name = GetOrdersListRequests;
+			sourceTree = "<group>";
+		};
+		FB76403F1F8BB10800B17A96 /* xibForHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				FB7640401F8BB12400B17A96 /* 1.xib */,
+				FB7640421F8BB12C00B17A96 /* 2.xib */,
+				FB7640441F8BB13700B17A96 /* 3.xib */,
+				FB7640461F8BB13E00B17A96 /* 4.xib */,
+				FB7640481F8BB14600B17A96 /* 6.xib */,
+				FB76404A1F8BB15200B17A96 /* 7.xib */,
+				FB76404C1F8BB15C00B17A96 /* 15.xib */,
+				FB76404E1F8BB16300B17A96 /* 16.xib */,
+				FB7640501F8BBD4800B17A96 /* ClockView.swift */,
+				FB6C66441F8CB3B6006EDF4A /* MyView.swift */,
+			);
+			name = xibForHeaderView;
 			sourceTree = "<group>";
 		};
 		FB88BB631F810B22009E34D9 /* DrugsRequests */ = {
@@ -1278,7 +1316,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB7640411F8BB12400B17A96 /* 1.xib in Resources */,
+				FB7640451F8BB13700B17A96 /* 3.xib in Resources */,
 				CE32DD861F87B4DD00F06B1E /* OrderCancelView.xib in Resources */,
+				FB7640431F8BB12C00B17A96 /* 2.xib in Resources */,
 				FB6AC0B01F84D161000F47CC /* OrderPage.storyboard in Resources */,
 				CEF2EBC21F8631EB002A1B20 /* ListOfPrescriptions.storyboard in Resources */,
 				7F2E150F1F83640D00038A13 /* AddToCart.storyboard in Resources */,
@@ -1287,10 +1328,13 @@
 				CE7B302A1F7B906E0023472F /* LoadingAnimation.storyboard in Resources */,
 				CEF4F2381F854D8900AD3A21 /* TakePhotoOfPrescription.storyboard in Resources */,
 				FBD6BB181F7C1402007741DC /* SearchDrugs.storyboard in Resources */,
+				FB7640491F8BB14600B17A96 /* 6.xib in Resources */,
+				FB76404D1F8BB15C00B17A96 /* 15.xib in Resources */,
 				CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */,
 				7FBAFBB61F77D9D700BEB7F1 /* MainScreen.storyboard in Resources */,
 				CE3C76061F8B70740054EA51 /* FindDoctor.storyboard in Resources */,
 				CE6D40E91F7D00A000C30EFA /* SelectOrderType.storyboard in Resources */,
+				FB76404B1F8BB15200B17A96 /* 7.xib in Resources */,
 				7F862DBF1F82A19C0098ECA9 /* ContactsCell.xib in Resources */,
 				CE725FDE1F83AC2A009B8FC2 /* ReviewYourOrder.storyboard in Resources */,
 				CE40CA801F78E619003BC535 /* RefillsAndReminders.storyboard in Resources */,
@@ -1302,9 +1346,11 @@
 				CEEC74991F8675C6002C28D2 /* PharmacyDetails.storyboard in Resources */,
 				7F6D01D11F82444A00FA01E8 /* InviteFriends.storyboard in Resources */,
 				CE798D1E1F7A7D7D00FDF83D /* EditProfile.storyboard in Resources */,
+				FB76404F1F8BB16300B17A96 /* 16.xib in Resources */,
 				CEF2EBD11F8644CA002A1B20 /* ChangePhoneNumber.storyboard in Resources */,
 				CE798D231F7A828400FDF83D /* TermsAndConditions.storyboard in Resources */,
 				CEABE4221F7662AC0041FAD5 /* RegistrationModule.storyboard in Resources */,
+				FB7640471F8BB13E00B17A96 /* 4.xib in Resources */,
 				FB75CB481F828D3F0022B38D /* GoogleMap.storyboard in Resources */,
 				CE0176301F7EA2DF00EE6777 /* SigninViewStoryboard.storyboard in Resources */,
 				7F6D01E01F825A6E00FA01E8 /* HeaderView.xib in Resources */,
@@ -1410,6 +1456,7 @@
 				CEA61BCF1F756D9400BA1AED /* MakeOrderViewController.swift in Sources */,
 				CEAB79AF1F83B261006F7311 /* OrderMapTableViewCell.swift in Sources */,
 				CEEC74A91F868A08002C28D2 /* WorkDaysVC.swift in Sources */,
+				FB7640511F8BBD4800B17A96 /* ClockView.swift in Sources */,
 				CE3C760B1F8B72FE0054EA51 /* FindDoctorCellTableViewCell.swift in Sources */,
 				FB75CB4B1F828D750022B38D /* GoogleMapViewController.swift in Sources */,
 				FB6AC0B71F853EA4000F47CC /* OrderDescriptionTableViewCell.swift in Sources */,
@@ -1490,6 +1537,7 @@
 				CEB7E49F1F87A4BF00A3B752 /* CancelOrderRequest.swift in Sources */,
 				FB6BB3161F7E364800165BB2 /* GetDrugsModel.swift in Sources */,
 				CE32DD841F87ABC200F06B1E /* AlternativeOrderRequest.swift in Sources */,
+				FB6C66451F8CB3B6006EDF4A /* MyView.swift in Sources */,
 				FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */,
 				CE2695A61F86BCF0002A1F1E /* PaymentRequest.swift in Sources */,
 				7F6137F51F7B7F7C00629AA7 /* OrderPageCell.swift in Sources */,
@@ -1650,10 +1698,13 @@
 			baseConfigurationReference = D54A04BC4E2A4BD6D4442D1C /* Pods-User.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = User/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vertigo.User;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1663,10 +1714,13 @@
 			baseConfigurationReference = 6AADFDFA54C039FDAC2628CA /* Pods-User.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = User/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vertigo.User;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

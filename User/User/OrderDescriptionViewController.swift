@@ -19,20 +19,12 @@ protocol AlternativePopupVCDelegate {
 
 class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate, AlternativePopupVCDelegate {
 
-    
-    @IBOutlet var paymentButtonOutlet: UIButton!
-    @IBOutlet var cancelButtonOutlet: UIButton!
-    @IBOutlet var clockView: UIView!
-    @IBOutlet var labelStatusOutlet: UILabel!
-    @IBOutlet var imageStatusOutlet: UIImageView!
     @IBOutlet var headerView: UIView!
-    @IBOutlet var descriptionTextViewOutlet: UITextView!
     @IBOutlet var tableView: UITableView!
     var selectedIndex: IndexPath?
     var isExpanded = false
     var cellCount = 0
     var checkIsExpanded = 1
-    @IBOutlet var rotateView: UIView!
     var tappedCellIndex = -1
     var timeTimer: Timer?
     var uiview :UIView?
@@ -42,138 +34,37 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        
         tableView.delegate = self
         tableView.dataSource = self
-        clockView.layer.cornerRadius = 15
-        clockView.layer.borderColor = UIColor.white.cgColor
-        clockView.layer.borderWidth = 2
-        paymentButtonOutlet.isHidden = true
-        cancelButtonOutlet.isHidden = true
-        
+
         let fullDate = RealmDataManager.getOrderDescriptionModel()[0].createDate!
         var splittedDate = fullDate.components(separatedBy: "T")
         var finalDate = splittedDate[0].components(separatedBy: "-")
-        
+
         addBackButtonAndTitleWithTwoLabelsToNavigationBar(title: "OrderID - "+RealmDataManager.getOrdersListFromRealm()[tappedCellIndex].orderId!, bottomLabelTitle: finalDate[0]+"."+finalDate[1]+"."+finalDate[2])
         navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar
         navigationController?.navigationBar.layer.shadowOpacity = 0
         let nib = UINib.init(nibName: "CustomOrderCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "orderDescCellImage")
         tableView.tableFooterView = UIView(frame: .zero)
-        let orderStatus = RealmDataManager.getOrdersListFromRealm()[tappedCellIndex].statusId!
         if RealmDataManager.getOrderDescriptionModelImage().count > 0 {
             cellCount = 2 + RealmDataManager.getOrderDrugsDescriptionModel().count
         } else {
             cellCount = RealmDataManager.getOrderDrugsDescriptionModel().count + 1
         }
         
-        switch orderStatus {
-        case "1":
-            imageStatusOutlet.isHidden = true
-            clockView.isHidden = false
-            labelStatusOutlet.text = "In Process"
-            descriptionTextViewOutlet.font = descriptionTextViewOutlet.font?.withSize(12)
-            descriptionTextViewOutlet.text = "We are working to get you the BEST PRICE OFFER for your  order. This may take a few minutes. We thank you for you patience"
-            navigationController?.navigationBar.barTintColor = Colors.Root.inProgressStatusColor
-            headerView.backgroundColor = Colors.Root.inProgressStatusColor
-        case "2":
-            imageStatusOutlet.isHidden = false
-            clockView.isHidden = true
-            labelStatusOutlet.text = "No Offers"
-            descriptionTextViewOutlet.font = descriptionTextViewOutlet.font?.withSize(15)
-            descriptionTextViewOutlet.text = "We can not find the drug"
-            imageStatusOutlet.image = UIImage(named: "cancel.png")
-            navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar
-            headerView.backgroundColor = Colors.Root.greenColorForNavigationBar
-        case "3":
-            imageStatusOutlet.isHidden = false
-            clockView.isHidden = true
-            labelStatusOutlet.text = "Best price offer"
-            descriptionTextViewOutlet.font = descriptionTextViewOutlet.font?.withSize(15)
-            descriptionTextViewOutlet.text = RealmDataManager.getOrderDescriptionModel()[0].totatPrice! + "BYN"
-            imageStatusOutlet.isHidden = true
-            paymentButtonOutlet.isHidden = false
-            cancelButtonOutlet.isHidden = false
-            navigationController?.navigationBar.barTintColor = Colors.Root.lightBlueColor
-            headerView.backgroundColor = Colors.Root.lightBlueColor
-        case "6":
-            imageStatusOutlet.isHidden = false
-            clockView.isHidden = true
-            descriptionTextViewOutlet.isHidden = true
-            descriptionTextViewOutlet.isHidden = false
-            labelStatusOutlet.text = "You have cancelled the order"
-            descriptionTextViewOutlet.font = descriptionTextViewOutlet.font?.withSize(15)
-            descriptionTextViewOutlet.text = RealmDataManager.getOrderDescriptionModel()[0].totatPrice! + "BYN"
-            imageStatusOutlet.image = UIImage(named: "cancelPageOrder.png")
-            navigationController?.navigationBar.barTintColor = Colors.Root.canceledStatusColor
-            headerView.backgroundColor = Colors.Root.canceledStatusColor
-        case "4":
-            imageStatusOutlet.isHidden = false
-            clockView.isHidden = true
-            labelStatusOutlet.text = "Your order is being prepared"
-            descriptionTextViewOutlet.isHidden = true
-            imageStatusOutlet.image = UIImage(named: "delivery-truck.png")
-            navigationController?.navigationBar.barTintColor = Colors.Root.orangeColor
-            headerView.backgroundColor = Colors.Root.orangeColor
-        case "7":
-            imageStatusOutlet.isHidden = false
-            clockView.isHidden = true
-            labelStatusOutlet.text = "Done"
-            descriptionTextViewOutlet.isHidden = true
-            imageStatusOutlet.image = UIImage(named: "success.png")
-            navigationController?.navigationBar.barTintColor = Colors.Root.receivedStatus
-            headerView.backgroundColor = Colors.Root.receivedStatus
-        case "15":
-            imageStatusOutlet.isHidden = true
-            clockView.isHidden = false
-            labelStatusOutlet.text = "In Process"
-            descriptionTextViewOutlet.font = descriptionTextViewOutlet.font?.withSize(12)
-            descriptionTextViewOutlet.text = "We are working to get you the BEST PRICE OFFER for your  order. This may take a few minutes. We thank you for you patience"
-            navigationController?.navigationBar.barTintColor = Colors.Root.inProgressStatusColor
-            headerView.backgroundColor = Colors.Root.inProgressStatusColor
-        case "16":
-            imageStatusOutlet.isHidden = false
-            clockView.isHidden = true
-            labelStatusOutlet.text = "Best price with alternative drugs offer:"
-            descriptionTextViewOutlet.font = descriptionTextViewOutlet.font?.withSize(15)
-            descriptionTextViewOutlet.text = RealmDataManager.getOrderDescriptionModel()[0].totatPrice! + "BYN"
-            imageStatusOutlet.isHidden = true
-            paymentButtonOutlet.isHidden = false
-            cancelButtonOutlet.isHidden = false
-            navigationController?.navigationBar.barTintColor = Colors.Root.lightBlueColor
-            headerView.backgroundColor = Colors.Root.lightBlueColor
+        setBarTintColor(status: RealmDataManager.getOrderDescriptionModel()[0].statusId!)
 
-        default:
-            return
-        }
-        rotate()
         colorForNavigationBar = navigationController?.navigationBar.barTintColor
-        
-//        let view = instanceFromNib()
-//        view.frame.size.height = 140
-//        self.headerView.addSubview(view)
-
+        let view = instanceFromNib()
+        view.frame.size.height = 140
+        self.headerView.addSubview(view)
     }
+
     
     func instanceFromNib() -> UIView {
-        return UINib(nibName: "CustomCancelView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
+        return UINib(nibName: RealmDataManager.getOrderDescriptionModel()[0].statusId!, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
     }
-    
-    
-    func rotate()
-    {
-        var rotationAnimation = CABasicAnimation()
-        rotationAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
-        rotationAnimation.toValue = NSNumber(value: (Double.pi))
-        rotationAnimation.duration = 0.7
-        rotationAnimation.isCumulative = true
-        rotationAnimation.repeatCount = 1000.0
-        clockView.layer.add(rotationAnimation, forKey: "rotationAnimation")
-    }
-    
-    
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
@@ -182,7 +73,6 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate,
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     
@@ -196,6 +86,30 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate,
         let pharmacyDetailsStoryboard = UIStoryboard(name: "PharmacyDetails", bundle: nil)
         let pharmacyDetailsViewController = pharmacyDetailsStoryboard.instantiateViewController(withIdentifier: "kPharmacyDetailsVC") as! PharmacyDetailsVC
         navigationController?.pushViewController(pharmacyDetailsViewController, animated: false)
+    }
+    
+    func setBarTintColor(status: String) {
+        switch status {
+        case "1":
+            navigationController?.navigationBar.barTintColor = Colors.Root.inProgressStatusColor
+        case "2":
+            navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar
+        case "3":
+            navigationController?.navigationBar.barTintColor = Colors.Root.lightBlueColor
+        case "4":
+            navigationController?.navigationBar.barTintColor = Colors.Root.orangeColor
+        case "6":
+            navigationController?.navigationBar.barTintColor = Colors.Root.canceledStatusColor
+        case "7":
+            navigationController?.navigationBar.barTintColor = Colors.Root.receivedStatus
+        case "15":
+            navigationController?.navigationBar.barTintColor = Colors.Root.inProgressStatusColor
+        case "16":
+            navigationController?.navigationBar.barTintColor = Colors.Root.lightBlueColor
+        default:
+            return
+        }
+
     }
     
     func showLowerCostPopup(cancelReason: String) {
@@ -253,7 +167,6 @@ extension OrderDescriptionViewController : UITableViewDataSource{
                 }
                 return cell
             case 1:
-                
                 let cell = tableView.dequeueReusableCell(withIdentifier: "orderDetailsCell") as! OrderDescriptionTableViewCell
                 if RealmDataManager.getOrderDescriptionModel()[0].selfCollect! == "1" {
                     cell.selfCollectValue.text = "Self-collect"
@@ -337,7 +250,7 @@ extension OrderDescriptionViewController : UITableViewDataSource{
                 return UITableViewCell()
             }
         }
-        
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -412,9 +325,12 @@ extension OrderDescriptionViewController : UITableViewDelegate{
         return nil
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if RealmDataManager.getOrderDrugsDescriptionModel()[0].pAdmin != nil {
-            return 60
+        if RealmDataManager.getOrderDrugsDescriptionModel().count != 0 {
+            if RealmDataManager.getOrderDrugsDescriptionModel()[0].pAdmin != nil {
+                return 60
+            }
         }
+        
         return 1
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

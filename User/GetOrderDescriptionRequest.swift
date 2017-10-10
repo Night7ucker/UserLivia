@@ -48,6 +48,17 @@ class GetOrderDescriptionRequest{
                 orderDescObjectImage.imageUrl = result["image"] as? String
                 RealmDataManager.writeIntoRealm(object: orderDescObjectImage)
             }
+            
+            let checkForDrugs = result["drugs"] as? [[String: AnyObject]]
+            if (checkForDrugs?.isEmpty)! {
+                let orderDescObject = OrderDescriptionModel()
+                orderDescObject.orderId = result["order_id"] as? String
+                orderDescObject.selfCollect = result["self_collect"] as? String
+                orderDescObject.statusId = result["status_id"] as? String
+                orderDescObject.createDate = result["create_date"] as? String
+                RealmDataManager.writeIntoRealm(object: orderDescObject)
+
+            } else {
                 let orderDescObject = OrderDescriptionModel()
                 orderDescObject.deliveryCost = result["delivery_cost"] as? String
                 orderDescObject.orderId = result["order_id"] as? String
@@ -57,10 +68,10 @@ class GetOrderDescriptionRequest{
                 orderDescObject.statusId = result["status_id"] as? String
                 orderDescObject.createDate = result["create_date"] as? String
                 RealmDataManager.writeIntoRealm(object: orderDescObject)
-
+                
                 let array = result["drugs"] as? [[String: AnyObject]]
                 for element in array! {
-                   let orderDrugDescObject = OrderDrugsDescriptionModel()
+                    let orderDrugDescObject = OrderDrugsDescriptionModel()
                     orderDrugDescObject.drugName = element["drug_name"] as? String
                     orderDrugDescObject.drugId = element["drug_id"] as? String
                     orderDrugDescObject.pAdmin = element["admin_name"] as? String
@@ -75,11 +86,13 @@ class GetOrderDescriptionRequest{
                     if let _ = element["price"] {
                         orderDrugDescObject.drugPrice = element["price"] as! Int
                     }
-
-
                     RealmDataManager.writeIntoRealm(object: orderDrugDescObject)
-                
+                }
             }
+            
+
+
+
          completion(true)
         }
      
