@@ -39,6 +39,7 @@ class MakeOrderViewController: RootViewController, BottomPopupForPrescriptionVCD
         makeOrderTableView.dataSource = self
         makeOrderTableView.delegate = self
         
+        
         picker.delegate = self
     }
     
@@ -73,7 +74,7 @@ class MakeOrderViewController: RootViewController, BottomPopupForPrescriptionVCD
     }
     
     func pushToRegistrationViewController() {
-        let mainViewsStoryboard = UIStoryboard(name: "MainViewStoryboard", bundle: nil)
+        let mainViewsStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: nil)
         let registrationViewController = mainViewsStoryboard.instantiateViewController(withIdentifier: "kRegistrationViewController") as! RegistrationViewController
         navigationController?.pushViewController(registrationViewController, animated: false)
     }
@@ -117,6 +118,8 @@ extension MakeOrderViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         DispatchQueue.main.async {
+            let cell = tableView.cellForRow(at: indexPath) as! MakeOrderCellTableViewCell
+            cell.selectionStyle = .none
             switch indexPath.row {
             case 0:
                 let takePhotoOfPrescriptionStoryboard = UIStoryboard(name: "TakePhotoOfPrescription", bundle: nil)
@@ -130,6 +133,7 @@ extension MakeOrderViewController: UITableViewDataSource {
             default:
                 break
             }
+            cell.selectionStyle = .default
         }
     }
 }

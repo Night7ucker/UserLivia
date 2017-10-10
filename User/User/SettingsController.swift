@@ -65,19 +65,19 @@ extension SettingsController : UITableViewDataSource{
             cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! MainScreenCell
             switch indexPath.row {
             case 0:
-                cell.mainIcon.image = #imageLiteral(resourceName: "orderImage")
+                cell.mainScreenImage.image = #imageLiteral(resourceName: "orderImage")
                 cell.mainLabel.text = "List of Prescriptions"
                 
             case 2:
-                cell.mainIcon.image = #imageLiteral(resourceName: "contactUsImage")
+                cell.mainScreenImage.image = #imageLiteral(resourceName: "contactUsImage")
                 cell.mainLabel.text = "Contact us"
                 
             case 4:
-                cell.mainIcon.image = #imageLiteral(resourceName: "logoutImage")
+                cell.mainScreenImage.image = #imageLiteral(resourceName: "logoutImage")
                 cell.mainLabel.text = "Logout from this device only"
                 
             case 5:
-                cell.mainIcon.image = #imageLiteral(resourceName: "logoutImage")
+                cell.mainScreenImage.image = #imageLiteral(resourceName: "logoutImage")
                 cell.mainLabel.text = "Logout from all devices"
                 
             default:
@@ -88,12 +88,12 @@ extension SettingsController : UITableViewDataSource{
             cell = tableView.dequeueReusableCell(withIdentifier: "settingsWithDetailInfoCell", for: indexPath) as! MainScreenCell
             switch indexPath.row {
             case 1:
-                cell.mainIcon.image = #imageLiteral(resourceName: "faqImage")
+                cell.mainScreenImage.image = #imageLiteral(resourceName: "faqImage")
                 cell.mainLabel.text = "FAQ"
                 cell.detailLabel.text = "FREQUENTLY ASKED QUESTION(S)"
                 
             case 3:
-                cell.mainIcon.image = #imageLiteral(resourceName: "phoneImage")
+                cell.mainScreenImage.image = #imageLiteral(resourceName: "phoneImage")
                 cell.mainLabel.text = "Change phone number"
                 cell.detailLabel.text = "PRESS TO CHANGE NUMBER"
                 

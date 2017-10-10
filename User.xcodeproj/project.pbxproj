@@ -41,6 +41,9 @@
 		CE3C76061F8B70740054EA51 /* FindDoctor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE3C76051F8B70740054EA51 /* FindDoctor.storyboard */; };
 		CE3C76091F8B72BA0054EA51 /* FindDoctorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3C76081F8B72BA0054EA51 /* FindDoctorVC.swift */; };
 		CE3C760B1F8B72FE0054EA51 /* FindDoctorCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3C760A1F8B72FE0054EA51 /* FindDoctorCellTableViewCell.swift */; };
+		CE3C760E1F8BADE80054EA51 /* FindDoctorSpecialityRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3C760D1F8BADE80054EA51 /* FindDoctorSpecialityRequest.swift */; };
+		CE3C76101F8BADF60054EA51 /* FindDoctorSpecialityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3C760F1F8BADF60054EA51 /* FindDoctorSpecialityModel.swift */; };
+		CE3C76161F8BC9750054EA51 /* MainScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3C76151F8BC9750054EA51 /* MainScreenVC.swift */; };
 		CE40CA801F78E619003BC535 /* RefillsAndReminders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */; };
 		CE40CA821F78E87D003BC535 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA811F78E87D003BC535 /* RemindersViewController.swift */; };
 		CE40CA851F78F2ED003BC535 /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40CA841F78F2ED003BC535 /* AddReminderViewController.swift */; };
@@ -220,6 +223,9 @@
 		CE3C76051F8B70740054EA51 /* FindDoctor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FindDoctor.storyboard; sourceTree = "<group>"; };
 		CE3C76081F8B72BA0054EA51 /* FindDoctorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindDoctorVC.swift; sourceTree = "<group>"; };
 		CE3C760A1F8B72FE0054EA51 /* FindDoctorCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindDoctorCellTableViewCell.swift; sourceTree = "<group>"; };
+		CE3C760D1F8BADE80054EA51 /* FindDoctorSpecialityRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindDoctorSpecialityRequest.swift; sourceTree = "<group>"; };
+		CE3C760F1F8BADF60054EA51 /* FindDoctorSpecialityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindDoctorSpecialityModel.swift; sourceTree = "<group>"; };
+		CE3C76151F8BC9750054EA51 /* MainScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainScreenVC.swift; path = User/MainScreenVC.swift; sourceTree = SOURCE_ROOT; };
 		CE40CA7F1F78E619003BC535 /* RefillsAndReminders.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RefillsAndReminders.storyboard; sourceTree = "<group>"; };
 		CE40CA811F78E87D003BC535 /* RemindersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		CE40CA841F78F2ED003BC535 /* AddReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
@@ -397,6 +403,7 @@
 				FB22C2301F77E73F000EED58 /* MainScreenCell.swift */,
 				FB22C2321F77E752000EED58 /* CustomImageView.swift */,
 				FB22C2341F77E91B000EED58 /* MainScreenController.swift */,
+				CE3C76151F8BC9750054EA51 /* MainScreenVC.swift */,
 			);
 			name = MainMenuModule;
 			path = ../../../../user/User;
@@ -533,6 +540,15 @@
 				CE3C760A1F8B72FE0054EA51 /* FindDoctorCellTableViewCell.swift */,
 			);
 			name = FindDoctorModule;
+			sourceTree = "<group>";
+		};
+		CE3C760C1F8BADD00054EA51 /* FindDoctorsSpecialityRequest */ = {
+			isa = PBXGroup;
+			children = (
+				CE3C760D1F8BADE80054EA51 /* FindDoctorSpecialityRequest.swift */,
+				CE3C760F1F8BADF60054EA51 /* FindDoctorSpecialityModel.swift */,
+			);
+			name = FindDoctorsSpecialityRequest;
 			sourceTree = "<group>";
 		};
 		CE40CA831F78E881003BC535 /* RemindersModule */ = {
@@ -1183,6 +1199,7 @@
 		FB958B851F752BBC0065B49C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE3C760C1F8BADD00054EA51 /* FindDoctorsSpecialityRequest */,
 				CE32DD821F87ABB000F06B1E /* AlternativeOrderRequest */,
 				FB2615D21F87A9D8008069CE /* GetPaymentListRequest */,
 				CEB7E49D1F87A4A200A3B752 /* CancelOrderRequest */,
@@ -1491,6 +1508,7 @@
 				FB75CB531F83A0A50022B38D /* OrdersCountRequest.swift in Sources */,
 				7F6D01E41F8282BE00FA01E8 /* Contact.swift in Sources */,
 				FB2615CD1F87651D008069CE /* FAQViewController.swift in Sources */,
+				CE3C760E1F8BADE80054EA51 /* FindDoctorSpecialityRequest.swift in Sources */,
 				CEABE4281F7676470041FAD5 /* FillRegistrationInfoViewController.swift in Sources */,
 				CEC5EFFF1F8235430012CFAA /* SectionHeaderView.swift in Sources */,
 				FB9D50001F7D1BE5001F3F95 /* EditUserCityRequest.swift in Sources */,
@@ -1503,6 +1521,7 @@
 				CE58A03B1F877B2100BE46A4 /* CancelPopupVC.swift in Sources */,
 				FB958B8D1F755D820065B49C /* RealmDataManager.swift in Sources */,
 				CE01762E1F7EA2CF00EE6777 /* SigninViewController.swift in Sources */,
+				CE3C76101F8BADF60054EA51 /* FindDoctorSpecialityModel.swift in Sources */,
 				CE9D72431F82A83D00BF1805 /* DrugNameAndTypeTableViewController.swift in Sources */,
 				CEC5F0051F8279350012CFAA /* ExpandedTableViewCell.swift in Sources */,
 				CEF2EBCC1F8632FD002A1B20 /* ListOfPrescriptionsModel.swift in Sources */,
@@ -1519,6 +1538,7 @@
 				CE40CA8C1F79132A003BC535 /* CalendarPopupViewController.swift in Sources */,
 				FB6BB31C1F7E652100165BB2 /* DrugsDescriptionModel.swift in Sources */,
 				CE4ABE011F83DB5D0052EC10 /* PharmacyTableViewCell.swift in Sources */,
+				CE3C76161F8BC9750054EA51 /* MainScreenVC.swift in Sources */,
 				FB5FC54E1F7A44CD00F8658A /* UploadImageRequest.swift in Sources */,
 				CE3A427D1F7F83430016A0C7 /* RootViewController.swift in Sources */,
 				CE2695A91F86BF48002A1F1E /* SuccessPopupVC.swift in Sources */,

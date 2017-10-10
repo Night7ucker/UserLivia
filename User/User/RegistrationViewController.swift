@@ -35,6 +35,18 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
     
     @IBOutlet weak var wrongPhoneNumberViewOutlet: UIView!
     
+    @IBOutlet weak var circleForAnimationOutlet: UILabel!
+    
+    @IBOutlet weak var personImageViewOutlet: UIImageView!
+    @IBOutlet weak var personBackgroundImageViewOutlet: UIImageView!
+    
+    @IBOutlet weak var infoTextViewOutlet: UITextView!
+    
+    
+    
+    @IBOutlet var contryView: [UIView]!
+    
+    
     
     let realm = try! Realm()
     let countryCodeDataManagerObject = GetCountryCodesRequest()
@@ -52,6 +64,10 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
         
         hideKeyboardWhenTappedAround()
         
+        mainWhiteViewOutlet.isHidden = true
+        self.nextButtonOutlet.isHidden = true
+        circleForAnimationOutlet.layer.masksToBounds = true
+        circleForAnimationOutlet.layer.cornerRadius = circleForAnimationOutlet.frame.size.width / 2
         nextButtonOutlet.backgroundColor = Colors.Root.lightBlueColor
         errorViewOutlet.isHidden = true
         wrongPhoneNumberViewOutlet.isHidden = true
@@ -63,16 +79,65 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
         nextButtonOutlet.layer.shadowColor = UIColor.black.cgColor
         nextButtonOutlet.layer.shadowOpacity = 0.8
         mainWhiteViewOutlet.layer.borderColor = UIColor.white.cgColor
+        mainWhiteViewOutlet.layer.cornerRadius = 10
+        personBackgroundImageViewOutlet.alpha = 0
+        infoTextViewOutlet.alpha = 0
         
-        nextButtonOutlet.transform = CGAffineTransform(scaleX: 0.8, y: 1.2) // initial view distorted scale so it has a starting point for the animation
+        nextButtonOutlet.transform = CGAffineTransform(scaleX: 0.8, y: 1.2)
         
-        UIView.animate(withDuration: 0.6, delay: 1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
-            self.nextButtonOutlet.transform = .identity // get back to original scale in an animated way
-        }, completion: nil)
+        for view in contryView {
+            view.isHidden = true
+        }
+//        circleForAnimationOutlet.transform = CGAffineTransform(scaleX: 5, y: 5)
+//        mainWhiteViewOutlet.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
+//        circleForAnimationOutlet.frame.origin.x = 0
+//        circleForAnimationOutlet.frame.origin.y = 0
+        nextButtonOutlet.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
         
-//        UIView.transition(with: view, duration: 5, options: .transitionCrossDissolve, animations: { _ in
-//            self.mainWhiteViewOutlet.isHidden = true
-//        }, completion: nil)
+        circleForAnimationOutlet.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
+        UIView.animate(withDuration: 0.3, animations: {
+//            self.mainWhiteViewOutlet.transform = .identity
+            self.circleForAnimationOutlet.transform = .identity
+//            self.circleForAnimationOutlet.frame.size = self.mainWhiteViewOutlet.frame.size
+        }, completion: { success in
+            if success {
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.circleForAnimationOutlet.frame = CGRect(x: 16, y: 76, width: 343, height: 535)
+                    self.circleForAnimationOutlet.layer.cornerRadius = 10
+                    for view in self.contryView {
+                        view.frame.origin.y += 20
+                    }
+                }, completion: { success in
+                    if success {
+                        self.circleForAnimationOutlet.isHidden = true
+                        self.mainWhiteViewOutlet.isHidden = false
+                        UIView.animate(withDuration: 0.6, delay: 0.2, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
+                            self.nextButtonOutlet.isHidden = false
+                            self.nextButtonOutlet.transform = .identity // get back to original scale in an animated way
+                            
+                        }, completion: nil)
+                        UIView.animate(withDuration: 1, delay: 0.2, animations: {
+                            self.personBackgroundImageViewOutlet.alpha = 1
+                        })
+                        UIView.animate(withDuration: 1, delay: 0.1, animations: {
+                            self.infoTextViewOutlet.alpha = 1
+                        })
+                        UIView.animate(withDuration: 1, delay: 0, animations: {
+                            for view in self.contryView {
+                                view.isHidden = false
+                                view.frame.origin.y -= 20
+                            }
+                        })
+                    }
+                })
+            }
+            
+        })
+        
+        
+        //        UIView.transition(with: view, duration: 5, options: .transitionCrossDissolve, animations: { _ in
+        //            self.mainWhiteViewOutlet.isHidden = true
+        //        }, completion: nil)
         
         //        mainWhiteViewOutlet.addCornerRadiusAnimation(from: 800, to: 10, duration: 0.5) { success in
         //            if success {

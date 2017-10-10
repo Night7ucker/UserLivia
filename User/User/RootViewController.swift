@@ -63,6 +63,13 @@ class RootViewController: UIViewController {
         navigationItem.setLeftBarButtonItems([backButtonBarButton, titleLabelBarButton], animated: true)
     }
     
+    func addShadowFor(view: UIView, shadowRadius: CGFloat) {
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = shadowRadius
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.8
+    }
+    
     func addBackButtonAndTitleWithTwoLabelsToNavigationBar(title: String, bottomLabelTitle: String) {
         let backButton = UIButton(type: .system)
         backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
