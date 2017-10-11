@@ -45,6 +45,8 @@ class AddReminderViewController: RootViewController, CalendarPopupViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideKeyboardWhenTappedAround()
+        
         configureNavigationBar()
         addBackButtonAndTitleToNavigationBar(title: "Add reminder")
         

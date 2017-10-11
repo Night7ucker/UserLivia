@@ -16,6 +16,7 @@ class AddToCartViewController:RootViewController, DrugNameAndTypeTableViewContro
     
     @IBOutlet var addToCartTableView: UITableView!
     
+    @IBOutlet var deleteDrugButtonOutlet: UIButton!
     
     var indexPathOfCellToChangeDrugsNumber: IndexPath!
     
@@ -29,6 +30,8 @@ class AddToCartViewController:RootViewController, DrugNameAndTypeTableViewContro
         requestPriceButtonOutlet.backgroundColor = Colors.Root.lightBlueColor
         addToCartTableView.dataSource = self
         addToCartTableView.tableFooterView = UIView(frame: .zero)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

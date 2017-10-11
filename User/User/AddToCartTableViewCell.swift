@@ -10,6 +10,7 @@ import UIKit
 
 class AddToCartTableViewCell: UITableViewCell {
 
+    @IBOutlet var deleteButtonOutlet: UIButton!
     @IBOutlet var nameOfMedicineLabel: UILabel!
     @IBOutlet var amountLabel: UILabel!
     @IBOutlet weak var drugQuantityMeasureOutlet: UILabel!
@@ -17,6 +18,7 @@ class AddToCartTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

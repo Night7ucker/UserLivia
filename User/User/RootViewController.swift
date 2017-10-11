@@ -45,10 +45,14 @@ class RootViewController: UIViewController {
     
     func addBackButtonAndTitleToNavigationBar(title: String) {
         let backButton = UIButton(type: .system)
-        backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        backButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
         backButton.setTitle("", for: .normal)
         
-        backButton.setBackgroundImage(UIImage(named: "backButtonImage"), for: .normal)
+        let origImage = UIImage(named: "backButtonImage");
+        let tintedImage = origImage?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        backButton.setImage(tintedImage, for: .normal)
+        backButton.tintColor = .white
+        
         backButton.addTarget(self, action: #selector(backButtonTapped(_:)), for: .touchUpInside)
         
         let backButtonBarButton = UIBarButtonItem(customView: backButton)
@@ -56,7 +60,7 @@ class RootViewController: UIViewController {
         let titleLabel = UILabel()
         titleLabel.text = title
         titleLabel.textColor = .white
-        titleLabel.frame = CGRect(x: 0, y: 0, width: 250, height: 30)
+        titleLabel.frame = CGRect(x: 0, y: 0, width: 170, height: 30)
         titleLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
         let titleLabelBarButton = UIBarButtonItem(customView: titleLabel)
         

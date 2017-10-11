@@ -92,11 +92,11 @@ class FindDoctorVC: RootViewController {
     
     private func addCityButtonToNavigationBar() {
         let addReminderButton = UIButton(type: .system)
-        addReminderButton.frame = CGRect(x: 0, y: 0, width: 70, height: 50)
+        addReminderButton.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         addReminderButton.setTitle("City >", for: .normal)
         addReminderButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
         addReminderButton.setTitleColor(.white, for: .normal)
-        addReminderButton.titleEdgeInsets = UIEdgeInsetsMake(5, 25, 0, 0)
+//        addReminderButton.titleEdgeInsets = UIEdgeInsetsMake(5, 25, 0, 0)
         addReminderButton.addTarget(self, action: #selector(cityButtonTapped(_ :)), for: .touchUpInside)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addReminderButton)

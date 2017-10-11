@@ -94,9 +94,13 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideKeyboardWhenTappedAround()
         configureNavigationBar()
         addBackButtonAndTitleToNavigationBar(title: "My account")
         addCompleteChangesButtonAsRightBarButtonItem()
+        
+        userAvatarImageOutlet.layer.borderWidth = 3
+        userAvatarImageOutlet.layer.borderColor = Colors.Root.lightGrayColor.cgColor
         
         userLastnameTextFieldOutlet.delegate = self
         userNameTextFieldOutlet.delegate = self
@@ -159,12 +163,13 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
     
     private func addCompleteChangesButtonAsRightBarButtonItem() {
         let addReminderButton = UIButton(type: .system)
-        addReminderButton.frame = CGRect(x: 300, y: 0, width: 70, height: 100)
+        addReminderButton.frame = CGRect(x: 360, y: 0, width: 20, height: 40)
         addReminderButton.setTitle("✓", for: .normal)
-        addReminderButton.titleLabel?.font = UIFont(name: "Arial", size: 25)
-        addReminderButton.titleLabel?.font = UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.thin)
+        addReminderButton.titleLabel?.font = UIFont(name: "Arial", size: 30)
+        addReminderButton.titleLabel?.font = UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.semibold)
         addReminderButton.setTitleColor(.white, for: .normal)
-        addReminderButton.titleEdgeInsets = UIEdgeInsetsMake(5, 5, 0, -60)
+//        addReminderButton.titleEdgeInsets = UIEdgeInsetsMake(5, 5, 0, -60)
+        addReminderButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         addReminderButton.addTarget(self, action: #selector(confrimedTapped(_ :)), for: .touchUpInside)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addReminderButton)

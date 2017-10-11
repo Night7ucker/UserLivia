@@ -26,6 +26,8 @@ class GetDrugsViewController: RootViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideKeyboardWhenTappedAround()
+        
         if RealmDataManager.getImageUrlFromRealm().count != 0 {
             try! realm.write {
                 realm.delete(RealmDataManager.getImageUrlFromRealm())

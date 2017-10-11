@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Eh6-am-Drg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Eh6-am-Drg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -58,7 +57,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Medicine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZm-wv-nKg">
-                                                    <rect key="frame" x="8" y="8" width="139" height="21"/>
+                                                    <rect key="frame" x="8" y="7.5" width="139" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="139" id="g5L-cS-wGc"/>
                                                         <constraint firstAttribute="height" constant="21" id="pwf-ei-N9k"/>
@@ -78,7 +77,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJU-BM-ePi">
-                                                    <rect key="frame" x="287.5" y="27" width="5.5" height="21"/>
+                                                    <rect key="frame" x="287.5" y="26.5" width="5.5" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="wbr-po-dna"/>
                                                     </constraints>
@@ -86,19 +85,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApB-vh-66W">
-                                                    <rect key="frame" x="342" y="33" width="14" height="14"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="14" id="8aS-KJ-aNp"/>
-                                                        <constraint firstAttribute="height" constant="14" id="f45-GF-Q6k"/>
-                                                    </constraints>
-                                                    <state key="normal" image="information"/>
-                                                    <connections>
-                                                        <action selector="getDrugInfoAction:" destination="ooM-kc-5o0" eventType="touchUpInside" id="lFU-84-WDD"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="aspirine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSg-XS-u3O">
-                                                    <rect key="frame" x="8" y="30" width="179" height="21"/>
+                                                    <rect key="frame" x="8" y="29.5" width="179" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Zbe-sP-874"/>
                                                         <constraint firstAttribute="width" constant="179" id="xC0-pS-dV7"/>
@@ -107,19 +95,19 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1w-38-JL8">
-                                                    <rect key="frame" x="341" y="11" width="17" height="17"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1w-38-JL8">
+                                                    <rect key="frame" x="337" y="3" width="25" height="25"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="17" id="4Uz-lM-LrF"/>
-                                                        <constraint firstAttribute="height" constant="17" id="REd-Jr-r7h"/>
+                                                        <constraint firstAttribute="width" constant="25" id="4Uz-lM-LrF"/>
+                                                        <constraint firstAttribute="height" constant="25" id="REd-Jr-r7h"/>
                                                     </constraints>
-                                                    <state key="normal" backgroundImage="delete"/>
+                                                    <state key="normal" image="delete"/>
                                                     <connections>
                                                         <action selector="deleteDrugAction:" destination="ooM-kc-5o0" eventType="touchUpInside" id="b0w-3x-1ca"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePI-aT-aqb">
-                                                    <rect key="frame" x="296" y="30" width="0.0" height="16"/>
+                                                    <rect key="frame" x="296" y="30" width="0.0" height="15.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -141,24 +129,35 @@
                                                         <action selector="drugNumberPopupTapped:" destination="ooM-kc-5o0" eventType="touchUpInside" id="J07-y1-jlf"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="topRight" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApB-vh-66W">
+                                                    <rect key="frame" x="337" y="27" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="8aS-KJ-aNp"/>
+                                                        <constraint firstAttribute="height" constant="25" id="f45-GF-Q6k"/>
+                                                    </constraints>
+                                                    <state key="normal" image="information"/>
+                                                    <connections>
+                                                        <action selector="getDrugInfoAction:" destination="ooM-kc-5o0" eventType="touchUpInside" id="lFU-84-WDD"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="leadingMargin" secondItem="aSg-XS-u3O" secondAttribute="leading" id="D3m-Lt-cIL"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ApB-vh-66W" secondAttribute="bottom" constant="-0.5" id="E49-az-ynS"/>
-                                                <constraint firstItem="R1w-38-JL8" firstAttribute="top" secondItem="p1e-j9-1Sy" secondAttribute="topMargin" constant="3" id="FUh-qx-YNf"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ApB-vh-66W" secondAttribute="bottom" constant="-5.5" id="E49-az-ynS"/>
+                                                <constraint firstItem="R1w-38-JL8" firstAttribute="top" secondItem="p1e-j9-1Sy" secondAttribute="topMargin" constant="-5" id="FUh-qx-YNf"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="aSg-XS-u3O" secondAttribute="bottom" constant="-4" id="HZl-ZL-Tbs"/>
                                                 <constraint firstItem="ZzM-Rc-vRt" firstAttribute="leading" secondItem="ePI-aT-aqb" secondAttribute="trailing" constant="2" id="Imc-JW-goq"/>
-                                                <constraint firstItem="ApB-vh-66W" firstAttribute="leading" secondItem="ZzM-Rc-vRt" secondAttribute="trailing" constant="33" id="KB4-np-ytz"/>
-                                                <constraint firstItem="ApB-vh-66W" firstAttribute="top" secondItem="R1w-38-JL8" secondAttribute="bottom" constant="5" id="LaQ-Du-Qjg"/>
+                                                <constraint firstItem="ApB-vh-66W" firstAttribute="leading" secondItem="ZzM-Rc-vRt" secondAttribute="trailing" constant="28" id="KB4-np-ytz"/>
+                                                <constraint firstItem="ApB-vh-66W" firstAttribute="top" secondItem="R1w-38-JL8" secondAttribute="bottom" constant="-1" id="LaQ-Du-Qjg"/>
                                                 <constraint firstItem="aSg-XS-u3O" firstAttribute="top" secondItem="qZm-wv-nKg" secondAttribute="bottom" constant="1" id="TRp-Ks-x06"/>
                                                 <constraint firstItem="ePI-aT-aqb" firstAttribute="leading" secondItem="iJU-BM-ePi" secondAttribute="trailing" constant="3" id="V0X-28-jX1"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="qZm-wv-nKg" secondAttribute="leading" id="YT2-hQ-I4M"/>
                                                 <constraint firstItem="ZzM-Rc-vRt" firstAttribute="top" secondItem="4Gx-fI-so6" secondAttribute="bottom" constant="1" id="cKZ-Sd-UWW"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="ApB-vh-66W" secondAttribute="trailing" constant="11" id="fQr-Cj-J5V"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ApB-vh-66W" secondAttribute="trailing" constant="5" id="fQr-Cj-J5V"/>
                                                 <constraint firstAttribute="topMargin" secondItem="qZm-wv-nKg" secondAttribute="top" id="mR3-z9-mMX"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ePI-aT-aqb" secondAttribute="bottom" constant="1" id="nVi-cB-QSJ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="4Gx-fI-so6" secondAttribute="trailing" constant="58" id="oZ5-xn-bTl"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="R1w-38-JL8" secondAttribute="trailing" constant="9" id="ohc-pe-yvQ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="R1w-38-JL8" secondAttribute="trailing" constant="5" id="ohc-pe-yvQ"/>
                                                 <constraint firstAttribute="topMargin" secondItem="4Gx-fI-so6" secondAttribute="top" id="pQz-wD-0dC"/>
                                                 <constraint firstItem="ePI-aT-aqb" firstAttribute="top" secondItem="p1e-j9-1Sy" secondAttribute="topMargin" constant="22" id="psK-zn-X69"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="iJU-BM-ePi" secondAttribute="bottom" constant="-1" id="y5S-Ft-DGY"/>
@@ -167,6 +166,7 @@
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="amountLabel" destination="iJU-BM-ePi" id="2px-aS-PDE"/>
+                                            <outlet property="deleteButtonOutlet" destination="R1w-38-JL8" id="1I3-qP-gjp"/>
                                             <outlet property="drugQuantityMeasureOutlet" destination="ePI-aT-aqb" id="7TT-Hh-Ekn"/>
                                             <outlet property="nameOfMedicineLabel" destination="aSg-XS-u3O" id="ptf-Rc-JWX"/>
                                         </connections>
@@ -193,7 +193,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Eh6-am-Drg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="par-C2-pfm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -208,6 +208,6 @@
     </scenes>
     <resources>
         <image name="delete" width="20" height="20"/>
-        <image name="information" width="52" height="52"/>
+        <image name="information" width="20" height="20"/>
     </resources>
 </document>
