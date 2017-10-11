@@ -82,6 +82,8 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
     var ageFieldErrorAppear = false
     var emailFieldErrorAppear = false
     
+    var isUserChoseNewPicture = false
+    
     var sex = "Female"
     var imagePicker = UIImagePickerController()
     
@@ -146,11 +148,11 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
         }
         
         
-//        let uploadImageModel = UploadImageModel()
-//        uploadImageModel.imageUrl = RealmDataManager.getUserDataFromRealm()[0].avatar
-//        try! realm.write {
-//            realm.add(uploadImageModel)
-//        }
+        let uploadImageModel = UploadImageModel()
+        uploadImageModel.imageUrl = RealmDataManager.getUserDataFromRealm()[0].avatar
+        try! realm.write {
+            realm.add(uploadImageModel)
+        }
         
     }
     
@@ -189,7 +191,7 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
             
             let realmObjectToSave = RealmDataManager.getUserDataFromRealm()
             let realm = try! Realm()
-            if RealmDataManager.getImageUrlFromRealm().count != 0 {
+            if RealmDataManager.getImageUrlFromRealm().count != 0 && isUserChoseNewPicture == false {
                 
                 try! realm.write {
                     realmObjectToSave[0].namePrefix = userTitleLabelOutlet.text
@@ -294,7 +296,12 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
         let imageData = UIImagePNGRepresentation(selectedImage)! as NSData
         self.imageStr = imageData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         let uploadImageObject = UploadImageRequest()
-        uploadImageObject.uploadImage(imageString: self.imageStr)
+        isUserChoseNewPicture = true
+        uploadImageObject.uploadImage(imageString: self.imageStr) { success in
+            if success {
+                self.isUserChoseNewPicture = false
+            }
+        }
         dismiss(animated: true, completion: nil)
     }
     

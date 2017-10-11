@@ -55,7 +55,7 @@ class UploadImageRequest{
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseObject { (response: DataResponse
             <UploadImageModel>) in
             print(response.result.value!)
-//            UploadImageModel.writeIntoRealm(response: response)
+            UploadImageModel.writeIntoRealm(response: response)
 //            if completion != nil {
 //                completion!(true)
 //            }
