@@ -21,6 +21,13 @@ class FindDoctorVC: RootViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let realm = try! Realm()
+        if RealmDataManager.getDoctorSpecialityList().count != 0 {
+            try! realm.write {
+                realm.delete(RealmDataManager.getDoctorSpecialityList())
+            }
+        }
+        
         textFieldForSearchingOutlet.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         if RealmDataManager.getUserDataFromRealm().count != 0 {
             addBackButtonAndTitleWithTwoLabelsToNavigationBar(title: "Specializations", bottomLabelTitle: RealmDataManager.getUserDataFromRealm()[0].cityName! + ", " + RealmDataManager.getUserDataFromRealm()[0].countryName!)
@@ -77,17 +84,9 @@ class FindDoctorVC: RootViewController {
 //        navigationItem.setLeftBarButtonItems([backButtonBarButton, titleLabelBarButton], animated: true)
 //    }
     
-    override func viewWillAppear(_ animated: Bool) {
-        let realm = try! Realm()
-        if RealmDataManager.getDoctorSpecialityList().count != 0 {
-            try! realm.write {
-                realm.delete(RealmDataManager.getDoctorSpecialityList())
-            }
-        }
-    }
-    
     override func backButtonTapped(_ sender: UIButton) {
-        navigationController?.popToViewController((self.navigationController?.viewControllers[1])!, animated: false)
+        navigationController?.popViewController(animated: false)
+        
     }
     
     private func addCityButtonToNavigationBar() {

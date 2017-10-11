@@ -176,15 +176,19 @@ extension SearchForItemsViewController: UITableViewDataSource {
                     let obj = EditUserCityRequest()
                     obj.editUserFunc { (success) in
                         if success {
-                            if self.checkEditProfile == true {
+                            switch self.checkEditProfile {
+                            case true:
                                 self.navigationController?.popViewController(animated: false)
-                            } else {
-                                let MainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
-                                let MainScreenController = MainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as! MainScreenController
-                                MainScreenController.userIsRegistred = true
-                                self.navigationController?.pushViewController(MainScreenController, animated: true)
+                            case false:
+                                if RealmDataManager.getCitiesNamesFromRealm().count == 0 {
+                                    let MainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
+                                    let MainScreenController = MainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as! MainScreenController
+                                    MainScreenController.userIsRegistred = true
+                                    self.navigationController?.pushViewController(MainScreenController, animated: true)
+                                } else {
+                                    self.navigationController?.popViewController(animated: false)
+                                }
                             }
-                            
                         }
                     }
                 } else {
