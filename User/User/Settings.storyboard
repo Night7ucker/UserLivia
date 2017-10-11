@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WoK-Le-uc2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WoK-Le-uc2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,19 +41,11 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="310" height="79.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YAx-a7-bMv" customClass="CustomImageView" customModule="User" customModuleProvider="target">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YAx-a7-bMv" customClass="CustomImageView" customModule="User" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="22" width="35" height="35"/>
-                                                            <color key="backgroundColor" red="0.019848848329999998" green="0.7380829632" blue="0.53444504719999997" alpha="0.78636023119999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="35" id="fgW-wN-4be"/>
                                                                 <constraint firstAttribute="height" constant="35" id="gl3-W9-wS3"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ug9-W4-wIH">
-                                                            <rect key="frame" x="16" y="30" width="19" height="19"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="19" id="QTZ-9S-3Zn"/>
-                                                                <constraint firstAttribute="width" constant="19" id="kD5-v3-kSW"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List of Prescriptions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvm-Uj-RHu">
@@ -72,9 +63,7 @@
                                                         <constraint firstAttribute="leadingMargin" secondItem="YAx-a7-bMv" secondAttribute="leading" id="1ix-9r-iTp"/>
                                                         <constraint firstItem="hvm-Uj-RHu" firstAttribute="leading" secondItem="YAx-a7-bMv" secondAttribute="trailing" constant="20" id="2qW-Lj-j9B"/>
                                                         <constraint firstItem="hvm-Uj-RHu" firstAttribute="top" secondItem="cV4-0m-hkx" secondAttribute="topMargin" constant="21" id="8rx-PL-XEw"/>
-                                                        <constraint firstItem="Ug9-W4-wIH" firstAttribute="centerX" secondItem="YAx-a7-bMv" secondAttribute="centerX" id="Hjn-61-hR1"/>
                                                         <constraint firstItem="YAx-a7-bMv" firstAttribute="top" secondItem="cV4-0m-hkx" secondAttribute="topMargin" constant="14" id="a3Z-xh-9Ol"/>
-                                                        <constraint firstItem="Ug9-W4-wIH" firstAttribute="centerY" secondItem="YAx-a7-bMv" secondAttribute="centerY" id="lIY-Pa-dML"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="YAx-a7-bMv" secondAttribute="bottom" constant="14.5" id="nOY-AQ-EEj"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
@@ -90,16 +79,12 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="310" height="79.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mo2-vp-74X" customClass="CustomImageView" customModule="User" customModuleProvider="target">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mo2-vp-74X" customClass="CustomImageView" customModule="User" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="22" width="35" height="35"/>
-                                                            <color key="backgroundColor" red="0.019848848329999998" green="0.7380829632" blue="0.53444504719999997" alpha="0.78636023119999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="7UE-ee-3v1"/>
                                                                 <constraint firstAttribute="width" constant="35" id="aZ1-Pt-1HD"/>
                                                             </constraints>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kLe-0l-mMB">
-                                                            <rect key="frame" x="16" y="30" width="19" height="19"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAQ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZiQ-kV-407">
                                                             <rect key="frame" x="63" y="22" width="32" height="14.5"/>
@@ -121,17 +106,13 @@
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="kLe-0l-mMB" firstAttribute="centerY" secondItem="Mo2-vp-74X" secondAttribute="centerY" id="49I-yJ-Ghf"/>
                                                         <constraint firstItem="ZiQ-kV-407" firstAttribute="leading" secondItem="pXs-yt-Nwg" secondAttribute="leading" id="9EY-1M-dNt"/>
-                                                        <constraint firstItem="pXs-yt-Nwg" firstAttribute="leading" secondItem="kLe-0l-mMB" secondAttribute="trailing" constant="28" id="GS9-Tz-2In"/>
-                                                        <constraint firstItem="kLe-0l-mMB" firstAttribute="top" secondItem="H0K-rC-nXd" secondAttribute="topMargin" constant="22" id="Hsx-Ig-WvD"/>
                                                         <constraint firstItem="pXs-yt-Nwg" firstAttribute="leading" secondItem="Mo2-vp-74X" secondAttribute="trailing" constant="20" id="WRd-sB-tws"/>
                                                         <constraint firstItem="ZiQ-kV-407" firstAttribute="top" secondItem="H0K-rC-nXd" secondAttribute="topMargin" constant="14" id="bj3-TD-Zd4"/>
                                                         <constraint firstAttribute="leadingMargin" secondItem="Mo2-vp-74X" secondAttribute="leading" id="gd7-DR-uKu"/>
                                                         <constraint firstItem="ZiQ-kV-407" firstAttribute="leading" secondItem="Mo2-vp-74X" secondAttribute="trailing" constant="20" id="ill-wO-JoO"/>
                                                         <constraint firstItem="pXs-yt-Nwg" firstAttribute="top" secondItem="ZiQ-kV-407" secondAttribute="bottom" constant="5.5" id="tYC-lr-IVB"/>
                                                         <constraint firstItem="Mo2-vp-74X" firstAttribute="top" secondItem="H0K-rC-nXd" secondAttribute="topMargin" constant="14" id="twc-Rn-MQY"/>
-                                                        <constraint firstItem="kLe-0l-mMB" firstAttribute="centerX" secondItem="Mo2-vp-74X" secondAttribute="centerX" id="y7x-kL-pyz"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
