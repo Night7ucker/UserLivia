@@ -32,6 +32,8 @@ class SearchForItemsViewController: RootViewController, UISearchBarDelegate {
     
     var isSearchStarted = false
     
+    var cameFromDoctorSpecializationVC = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -180,7 +182,7 @@ extension SearchForItemsViewController: UITableViewDataSource {
                             case true:
                                 self.navigationController?.popViewController(animated: false)
                             case false:
-                                if RealmDataManager.getCitiesNamesFromRealm().count == 0 {
+                                if self.cameFromDoctorSpecializationVC == false {
                                     let MainScreenStoryboard = UIStoryboard(name: "MainScreen", bundle: Bundle.main)
                                     let MainScreenController = MainScreenStoryboard.instantiateViewController(withIdentifier: "kMainScreenController") as! MainScreenController
                                     MainScreenController.userIsRegistred = true

@@ -29,11 +29,7 @@ class FindDoctorVC: RootViewController {
         }
         
         textFieldForSearchingOutlet.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        if RealmDataManager.getUserDataFromRealm().count != 0 {
-            addBackButtonAndTitleWithTwoLabelsToNavigationBar(title: "Specializations", bottomLabelTitle: RealmDataManager.getUserDataFromRealm()[0].cityName! + ", " + RealmDataManager.getUserDataFromRealm()[0].countryName!)
-        } else {
-            addBackButtonAndTitleWithTwoLabelsToNavigationBar(title: "Specializations", bottomLabelTitle: RealmDataManager.getCitiesNamesFromRealm()[0].cityName! + ", " + RealmDataManager.getCitiesNamesFromRealm()[0].countryName!)
-        }
+        
         specialityTypesTableView.tableFooterView = UIView(frame: .zero)
         
 //        addBackButtonAndTitleWithTwoLabelsToNavigationBar(title: "Specializations", bottomLabelTitle: "Minsk, Belarus")
@@ -63,6 +59,16 @@ class FindDoctorVC: RootViewController {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        
+        if RealmDataManager.getUserDataFromRealm().count != 0 {
+            addBackButtonAndTitleWithTwoLabelsToNavigationBar(title: "Specializations", bottomLabelTitle: RealmDataManager.getUserDataFromRealm()[0].cityName! + ", " + RealmDataManager.getUserDataFromRealm()[0].countryName!)
+        } else {
+            addBackButtonAndTitleWithTwoLabelsToNavigationBar(title: "Specializations", bottomLabelTitle: RealmDataManager.getCitiesNamesFromRealm()[0].cityName! + ", " + RealmDataManager.getCitiesNamesFromRealm()[0].countryName!)
+        }
     }
 //    override func addBackButtonAndTitleToNavigationBar(title: String) {
 //        let backButton = UIButton(type: .system)
@@ -104,6 +110,7 @@ class FindDoctorVC: RootViewController {
     @objc func cityButtonTapped(_ sender: UIButton) {
         let mainViewsStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: nil)
         let searchForItemsViewController = mainViewsStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as! SearchForItemsViewController
+        searchForItemsViewController.cameFromDoctorSpecializationVC = true
         navigationController?.pushViewController(searchForItemsViewController, animated: false)
     }
     
