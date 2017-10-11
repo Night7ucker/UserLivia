@@ -95,23 +95,7 @@ class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate, Orders
     
     
     
-    func didMoveToPage(_ controller: UIViewController, index: Int) {
-        if index == controllerArray.count - 1 {
-            let button = UIBarButtonItem()
-            button.title = ""
-            button.isEnabled = false
-            
-            navigationItem.rightBarButtonItem = button
-        }
-        else{
-            let button = UIBarButtonItem()
-            button.title = "⇅"
-            button.tintColor = .white
-            button.isEnabled = true
-            
-            navigationItem.rightBarButtonItem = button
-        }
-    }
+    
     
     func pushToOrderPageController(index: Int) {
         let orderPageStoryboard = UIStoryboard(name: "OrderPage", bundle: nil)

@@ -94,6 +94,12 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let realm = try! Realm()
+        if RealmDataManager.getImageUrlFromRealm().count != 0 {
+            try! realm.write {
+                realm.delete(RealmDataManager.getImageUrlFromRealm())
+            }
+        }
         hideKeyboardWhenTappedAround()
         configureNavigationBar()
         addBackButtonAndTitleToNavigationBar(title: "My account")
@@ -139,12 +145,12 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
             }
         }
         
-        let realm = try! Realm()
-        let uploadImageModel = UploadImageModel()
-        uploadImageModel.imageUrl = RealmDataManager.getUserDataFromRealm()[0].avatar
-        try! realm.write {
-            realm.add(uploadImageModel)
-        }
+        
+//        let uploadImageModel = UploadImageModel()
+//        uploadImageModel.imageUrl = RealmDataManager.getUserDataFromRealm()[0].avatar
+//        try! realm.write {
+//            realm.add(uploadImageModel)
+//        }
         
     }
     
@@ -222,8 +228,6 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
     }
     
     func addTokenOnImageUploading() {
-        
-        
         let imageUploadRealmObject = RealmDataManager.getImageUrlFromRealm()
         
         avatarToken = imageUploadRealmObject.addNotificationBlock { change in

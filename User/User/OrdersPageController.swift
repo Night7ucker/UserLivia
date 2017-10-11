@@ -78,8 +78,8 @@ extension OrdersPageController : UITableViewDataSource{
             cell.statusLabelOutlet.text = "Order received"
             cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "doneStatus"))
         case "14":
-            cell.statusLabelOutlet.text = "On moderation"
-            cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "time"))
+            cell.statusLabelOutlet.text = "Doctor's Prescription"
+            cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "bestOffer"))
         case "15":
             cell.statusLabelOutlet.text = "Waiting for alternative drugs"
             cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "time"))
@@ -116,27 +116,7 @@ extension OrdersPageController : UITableViewDataSource{
 
 extension OrdersPageController : UITableViewDelegate{
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1)
-        
-        let sectionNameLabel = UILabel()
-        sectionNameLabel.text = "OCT"
-        sectionNameLabel.frame = CGRect(x: 15, y: 12, width: 375, height: 30)
-        sectionNameLabel.textColor = UIColor.lightGray
-        sectionNameLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.semibold)
 
-        
-        headerView.addSubview(sectionNameLabel)
-        
-        return headerView
-    }
-    
-
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
     
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
