@@ -67,7 +67,6 @@ class MainScreenController: RootViewController, SigninViewControllerDelegate {
         
         mainScreenTableView.delegate = self
         mainScreenTableView.dataSource = self
-        mainScreenTableView.layer.cornerRadius = 10.0
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -153,14 +152,25 @@ extension MainScreenController : UITableViewDataSource{
             
             cell.mainLabel.text = "Find a doctor"
             cell.detailLabel.text = "BOOK APPOINTMENT"
-            cell.layer.cornerRadius = 5
+            cell.layer.cornerRadius = 10
+            cell.layer.shadowRadius = 1
+            cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowOpacity = 0.8
         case 1:
             switch indexPath.row {
-            case 0,1,2,4,5:
+            case 0, 1, 2, 4, 5:
                 cell = tableView.dequeueReusableCell(withIdentifier: "mainScreenCell", for: indexPath) as! MainScreenCell
                 switch indexPath.row {
                 case 0:
                     cell.fillCellInfo(mainScreenImage: UIImage(named: "makeOrder")!, mainLabel: "Make Order", detailLabel: "GENERATE ORDER")
+                    let path = UIBezierPath(roundedRect:cell.bounds,
+                                            byRoundingCorners:[.topRight, .topLeft],
+                                            cornerRadii: CGSize(width: 10, height:  10))
+                    
+                    let maskLayer = CAShapeLayer()
+                    
+                    maskLayer.path = path.cgPath
+                    cell.layer.mask = maskLayer
                 case 1:
                     cell.fillCellInfo(mainScreenImage: UIImage(named: "overTheCounterProducts")!, mainLabel: "Over the Counter Products", detailLabel: "SEARCH FOR ITEMS")
                 case 2:
@@ -174,6 +184,14 @@ extension MainScreenController : UITableViewDataSource{
                     cell.fillCellInfo(mainScreenImage: UIImage(named: "inviteFriends")!, mainLabel: "Invite Friends", detailLabel: "INVITE FROM CONTACTS")
                 case 5:
                     cell.fillCellInfo(mainScreenImage: UIImage(named: "settings")!, mainLabel: "Settings", detailLabel: "APP SETTINGS")
+                    let path = UIBezierPath(roundedRect:cell.bounds,
+                                            byRoundingCorners:[.bottomLeft, .bottomRight],
+                                            cornerRadii: CGSize(width: 10, height:  10))
+                    
+                    let maskLayer = CAShapeLayer()
+                    
+                    maskLayer.path = path.cgPath
+                    cell.layer.mask = maskLayer
                 default:
                     break
                 }

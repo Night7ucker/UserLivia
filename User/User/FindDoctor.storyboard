@@ -107,7 +107,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8WT-e6-qOJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="999.20000000000005" y="-198.35082458770617"/>
+            <point key="canvasLocation" x="1338.4000000000001" y="-198.35082458770617"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="MmK-fB-9Yf">
+            <objects>
+                <viewController id="rTu-4x-gh3" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dF8-sr-fau"/>
+                        <viewControllerLayoutGuide type="bottom" id="igZ-UI-oH4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tQT-lu-aV4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yzo-zk-eee">
+                                <rect key="frame" x="16" y="93" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pE2-bN-nW2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Zi-0e-MOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-644" y="-198.35082458770617"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mg5-Ms-Eby">
@@ -125,7 +153,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JL7-Me-Y7Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="60" y="-198.35082458770617"/>
+            <point key="canvasLocation" x="399.19999999999999" y="-198.35082458770617"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qiL-yh-IcU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="06s-pg-O4X" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zc9-0q-xUR">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rTu-4x-gh3" kind="relationship" relationship="rootViewController" id="ntR-W4-eK6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vpm-7x-58x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1993" y="-198"/>
         </scene>
     </scenes>
 </document>
