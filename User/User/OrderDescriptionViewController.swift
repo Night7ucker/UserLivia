@@ -40,7 +40,6 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate,
         let fullDate = RealmDataManager.getOrderDescriptionModel()[0].createDate!
         var splittedDate = fullDate.components(separatedBy: "T")
         var finalDate = splittedDate[0].components(separatedBy: "-")
-
         addBackButtonAndTitleWithTwoLabelsToNavigationBar(title: "OrderID - "+RealmDataManager.getOrdersListFromRealm()[tappedCellIndex].orderId!, bottomLabelTitle: finalDate[0]+"."+finalDate[1]+"."+finalDate[2])
         navigationController?.navigationBar.barTintColor = Colors.Root.greenColorForNavigationBar
         navigationController?.navigationBar.layer.shadowOpacity = 0
@@ -61,6 +60,8 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate,
         self.headerView.addSubview(view)
     }
 
+    
+    
     
     func instanceFromNib() -> UIView {
         return UINib(nibName: RealmDataManager.getOrderDescriptionModel()[0].statusId!, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
