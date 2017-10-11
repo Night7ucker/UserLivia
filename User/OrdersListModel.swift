@@ -37,11 +37,11 @@ class MappedOrdersListModel: Mappable {
 }
 
 class OrdersListModel: Object, Mappable {
-    dynamic var orderId: String?
-    dynamic var createDate: String?
-    dynamic var statusId: String?
-    dynamic var selfCollect: String?
-    dynamic var redCircle = -1
+    @objc dynamic var orderId: String?
+    @objc dynamic var createDate: String?
+    @objc dynamic var statusId: String?
+    @objc dynamic var selfCollect: String?
+    @objc dynamic var redCircle = -1
     
     required convenience init?(map: Map) {
         self.init()

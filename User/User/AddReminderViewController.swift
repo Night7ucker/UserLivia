@@ -293,7 +293,7 @@ class AddReminderViewController: RootViewController, CalendarPopupViewController
         navigationController?.popViewController(animated: true)
     }
     
-    func dismissAlert() {
+    @objc func dismissAlert() {
         poupErrorViewOutlet.isHidden = true
     }
 }

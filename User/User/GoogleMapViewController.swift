@@ -213,7 +213,7 @@ class GoogleMapViewController: RootViewController, PharmacyInfoViewControllerDel
         }
     }
     
-    func currentLocationButtonTapped(_ sender: UIButton) {
+    @objc func currentLocationButtonTapped(_ sender: UIButton) {
         if isPaged == false {
             setDeliveryPlaceMapView.clear()
         }
@@ -232,7 +232,7 @@ class GoogleMapViewController: RootViewController, PharmacyInfoViewControllerDel
         
     }
     
-    func deliveryButtonTapped(_ sender: UIButton) {
+    @objc func deliveryButtonTapped(_ sender: UIButton) {
         if Int(RealmDataManager.getSendingOrderFromRealm()[0].manual!)! == 1 {
             let objectToWriteCoordinates = RealmDataManager.getSendingOrderFromRealm()[0]
             let realm = try! Realm()

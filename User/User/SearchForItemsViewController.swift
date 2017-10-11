@@ -91,7 +91,7 @@ class SearchForItemsViewController: RootViewController, UISearchBarDelegate {
         return countriesAndCitiesArray
     }
     
-    func textFieldDidChange(_ sender: UITextField) {
+    @objc func textFieldDidChange(_ sender: UITextField) {
         isSearchStarted = true
         GetCitiesRequest.getCitiesForSearchRequest(searchStringForCities: sender.text!) { success in
             self.countriesAndCitiesArray = self.formDictionaryOfCountriesAndCities()

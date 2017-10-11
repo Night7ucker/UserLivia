@@ -14,7 +14,7 @@ import ObjectMapper_Realm
 
 class OrderTypeModel: Object, Mappable{
     
-    dynamic var drugCurrency: String?
+    @objc dynamic var drugCurrency: String?
     
     required convenience init?(map: Map) {
         self.init()

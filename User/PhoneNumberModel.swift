@@ -10,5 +10,5 @@ import Foundation
 import RealmSwift
 
 class PhoneNumberModel: Object {
-    dynamic var phoneNumber:String?
+    @objc dynamic var phoneNumber:String?
 }

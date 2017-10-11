@@ -68,12 +68,18 @@ extension OrdersPageController : UITableViewDataSource{
         case "4":
             cell.statusLabelOutlet.text = "Order being prepared"
             cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "orderStatusImage"))
+        case "5":
+            cell.statusLabelOutlet.text = "On delivery"
+            cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "orderStatusImage"))
         case "6":
             cell.statusLabelOutlet.text = "Order cancelled"
             cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "cancelOrder"))
         case "7":
             cell.statusLabelOutlet.text = "Order received"
             cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "doneStatus"))
+        case "14":
+            cell.statusLabelOutlet.text = "On moderation"
+            cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "time"))
         case "15":
             cell.statusLabelOutlet.text = "Waiting for alternative drugs"
             cell.fillCellInfo(orderStatusImage: #imageLiteral(resourceName: "time"))
@@ -118,7 +124,7 @@ extension OrdersPageController : UITableViewDelegate{
         sectionNameLabel.text = "OCT"
         sectionNameLabel.frame = CGRect(x: 15, y: 12, width: 375, height: 30)
         sectionNameLabel.textColor = UIColor.lightGray
-        sectionNameLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightSemibold)
+        sectionNameLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.semibold)
 
         
         headerView.addSubview(sectionNameLabel)

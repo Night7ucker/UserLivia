@@ -26,7 +26,7 @@ class CancelOrderRequest {
         
         
         Alamofire.request(url, method: .delete, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-            print(response.result.value)
+            print(response.result.value!)
         }
     }
 

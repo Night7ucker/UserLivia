@@ -81,7 +81,7 @@ class OrderDescriptionViewController: RootViewController, CancelPopupVCDelegate,
         self.tableView.reloadRows(at: [selectedIndex!], with: .automatic)
     }
     
-    func sectionTapped(_ sender: UITapGestureRecognizer) {
+    @objc func sectionTapped(_ sender: UITapGestureRecognizer) {
         print("section tapped")
         let pharmacyDetailsStoryboard = UIStoryboard(name: "PharmacyDetails", bundle: nil)
         let pharmacyDetailsViewController = pharmacyDetailsStoryboard.instantiateViewController(withIdentifier: "kPharmacyDetailsVC") as! PharmacyDetailsVC
@@ -225,7 +225,7 @@ extension OrderDescriptionViewController : UITableViewDataSource{
                 cell.drugAmount.text = RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row].quantity!
                 cell.drugName.text = RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row].drugName!
                 if RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row].drugPrice != 0 {
-                    cell.drugPriceLabel.text = String(describing: RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row].drugPrice)
+                    cell.drugPriceLabel.text = String(RealmDataManager.getOrderDrugsDescriptionModel()[indexPath.row].drugPrice)
                 } else {
                     cell.drugPriceLabel.isHidden = true
                     cell.drugCurrencyLabel.isHidden = true
@@ -250,7 +250,7 @@ extension OrderDescriptionViewController : UITableViewDataSource{
                 return UITableViewCell()
             }
         }
-        return UITableViewCell()
+       
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

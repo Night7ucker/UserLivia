@@ -45,7 +45,7 @@ class PageMapAndPharmacyVC: RootViewController, CAPSPageMenuDelegate, GoogleMapV
         controllerTwo.delegate = self
         controllerArray.append(controllerTwo)
         
-        let font = UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightRegular)
+        let font = UIFont.systemFont(ofSize: 14.0, weight: UIFont.Weight.regular)
         
         let parameters: [CAPSPageMenuOption] = [
             .menuHeight(39),

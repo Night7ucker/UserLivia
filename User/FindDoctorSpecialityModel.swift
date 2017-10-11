@@ -37,11 +37,11 @@ class MappedFindDoctorSpecialityModel: Mappable {
 }
 
 class DoctorSpecialityModel: Object, Mappable {
-    dynamic var id: String?
-    dynamic var name: String?
-    dynamic var color: String?
-    dynamic var image: String?
-    dynamic var children: String?
+    @objc dynamic var id: String?
+    @objc dynamic var name: String?
+    @objc dynamic var color: String?
+    @objc dynamic var image: String?
+    @objc dynamic var children: String?
     
     required convenience init?(map: Map) {
         self.init()

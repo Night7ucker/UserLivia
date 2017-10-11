@@ -20,7 +20,7 @@ class RootViewController: UIViewController {
             static var lightGrayColor: UIColor { return UIColor( red: CGFloat(230/255.0), green: CGFloat(230/255.0), blue: CGFloat(230/255.0), alpha: CGFloat(1.0)) }
             static var inProgressStatusColor: UIColor { return UIColor( red: CGFloat(122/255.0), green: CGFloat(162/255.0), blue: CGFloat(107/255.0), alpha: CGFloat(1.0)) }
             static var greenColorForNavigationBar: UIColor { return UIColor( red: CGFloat(102/255.0), green: CGFloat(204/255.0), blue: CGFloat(178/255.0), alpha: CGFloat(1.0)) }
-            static var canceledStatusColor: UIColor { return UIColor(red: CGFloat(245/255.0), green: CGFloat(102/255.0), blue: CGFloat(18/255.0), alpha: CGFloat(1.0)) }
+            static var canceledStatusColor: UIColor { return UIColor(red: CGFloat(255/255.0), green: CGFloat(123/255.0), blue: CGFloat(105/255.0), alpha: CGFloat(1.0)) }
         }
     }
     override func viewDidLoad() {
@@ -57,7 +57,7 @@ class RootViewController: UIViewController {
         titleLabel.text = title
         titleLabel.textColor = .white
         titleLabel.frame = CGRect(x: 0, y: 0, width: 250, height: 30)
-        titleLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightSemibold)
+        titleLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
         let titleLabelBarButton = UIBarButtonItem(customView: titleLabel)
         
         navigationItem.setLeftBarButtonItems([backButtonBarButton, titleLabelBarButton], animated: true)
@@ -74,7 +74,6 @@ class RootViewController: UIViewController {
         let backButton = UIButton(type: .system)
         backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
         backButton.setTitle("", for: .normal)
-        
         backButton.setBackgroundImage(UIImage(named: "backButtonImage"), for: .normal)
         backButton.addTarget(self, action: #selector(backButtonTapped(_:)), for: .touchUpInside)
         
@@ -85,13 +84,13 @@ class RootViewController: UIViewController {
         let titleLabel = UILabel()
         titleLabel.text = title
         titleLabel.textColor = .white
-        titleLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightSemibold)
+        titleLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
         titleLabel.frame = CGRect(x: 0, y: -10, width: 250, height: 20)
         
         let bottomLabel = UILabel()
         bottomLabel.text = bottomLabelTitle
         bottomLabel.textColor = .white
-        bottomLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightThin)
+        bottomLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.thin)
         bottomLabel.frame = CGRect(x: 0, y: 3, width: 250, height: 20)
         
         viewForLabels.addSubview(titleLabel)
@@ -113,7 +112,7 @@ class RootViewController: UIViewController {
         navigationItem.leftBarButtonItem = titleLabelBarButton
     }
     
-    func backButtonTapped(_ sender: UIButton) {
+    @objc func backButtonTapped(_ sender: UIButton) {
         let transition = CATransition()
         
         transition.duration = 0.4
@@ -145,7 +144,7 @@ extension RootViewController {
         view.addGestureRecognizer(tap)
     }
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         view.endEditing(true)
     }
 }

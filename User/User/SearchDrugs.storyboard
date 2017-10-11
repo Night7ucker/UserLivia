@@ -1,31 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yg7-hj-mnE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="SDY-0s-z9x">
-            <objects>
-                <navigationController id="yg7-hj-mnE" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Bsh-j7-Z00">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="F52-rz-h2d" kind="show" id="XEn-lm-zSv"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ade-3z-R8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-769" y="128"/>
-        </scene>
         <!--Get Drugs View Controller-->
         <scene sceneID="Hmk-0h-4oY">
             <objects>
@@ -156,7 +139,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfU-rH-Tdp">
-                                <rect key="frame" x="16" y="183" width="284" height="35"/>
+                                <rect key="frame" x="16" y="183" width="283" height="35"/>
                                 <color key="backgroundColor" red="0.47450980392156861" green="0.70980392156862748" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="aCR-iP-xa7"/>
@@ -204,7 +187,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cke-Tj-zNg">
-                                <rect key="frame" x="16" y="183" width="284" height="35"/>
+                                <rect key="frame" x="16" y="183" width="283" height="35"/>
                                 <color key="backgroundColor" red="0.47450980390000003" green="0.70980392160000005" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="gxt-Kd-tLH"/>
@@ -217,7 +200,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0y-sH-cWw" userLabel="Number Of Drugs Label Outlet">
-                                <rect key="frame" x="300" y="190" width="36" height="21"/>
+                                <rect key="frame" x="299" y="190" width="36" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="rEQ-UJ-Xs3"/>
                                     <constraint firstAttribute="width" constant="36" id="y8O-R3-ecr"/>
@@ -226,14 +209,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="▼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7d-AX-rBd">
-                                <rect key="frame" x="346.5" y="192" width="11.5" height="16"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="▼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7d-AX-rBd">
+                                <rect key="frame" x="347" y="192" width="11" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxD-IP-i4c">
-                                <rect key="frame" x="342" y="190" width="0.0" height="20.5"/>
+                                <rect key="frame" x="341" y="190" width="0.0" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="jfc-CS-jMb"/>
                                 </constraints>
@@ -242,7 +225,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dc0-n4-OAf">
-                                <rect key="frame" x="308" y="181" width="51" height="37"/>
+                                <rect key="frame" x="307" y="181" width="52" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="kuf-YN-znv"/>
                                 </constraints>

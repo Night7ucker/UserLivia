@@ -20,13 +20,20 @@ class MyView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        UIView.animate(withDuration: 0.9, delay: 0, options: [.repeat,.autoreverse], animations: {
-            self.bestPriceOfferLabelOutlet.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-        }, completion: { _ in
-            UIView.animate(withDuration: 0.9, animations: {
-                self.bestPriceOfferLabelOutlet.transform = .identity
-            })
-        })
+        if RealmDataManager.getOrderDescriptionModel().count > 0 {
+            switch RealmDataManager.getOrderDescriptionModel()[0].statusId! {
+            case "3":
+                UIView.animate(withDuration: 0.9, delay: 0, options: [.repeat,.autoreverse], animations: {
+                    self.bestPriceOfferLabelOutlet.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+                }, completion: { _ in
+                    UIView.animate(withDuration: 0.9, animations: {
+                        self.bestPriceOfferLabelOutlet.transform = .identity
+                    })
+                })
+            default:
+                break
+            }
+        }
         
         
         if RealmDataManager.getOrderDescriptionModel().count > 0 {

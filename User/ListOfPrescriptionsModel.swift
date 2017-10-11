@@ -37,10 +37,10 @@ class MappedPrescriptionListModel: Mappable {
 }
 
 class PrescriptionModel: Object, Mappable {
-    dynamic var id: String?
-    dynamic var orderID: String?
-    dynamic var image: String?
-    dynamic var createDate: String?
+    @objc dynamic var id: String?
+    @objc dynamic var orderID: String?
+    @objc dynamic var image: String?
+    @objc dynamic var createDate: String?
     
     required convenience init?(map: Map) {
         self.init()

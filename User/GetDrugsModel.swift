@@ -14,9 +14,9 @@ import ObjectMapper_Realm
 
 
 class GetDrugsModel: Object, Mappable {
-    dynamic var id: String?
-    dynamic var name: String?
-    dynamic var type = -1
+    @objc dynamic var id: String?
+    @objc dynamic var name: String?
+    @objc dynamic var type = -1
     
     required convenience init?(map: Map) {
         self.init()

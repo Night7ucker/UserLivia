@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KHb-k6-8Xn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,11 +22,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Zb-Bh-TpP" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="153" width="375" height="514"/>
+                                <rect key="frame" x="0.0" y="109" width="375" height="558"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGO-Ui-p4b">
-                                <rect key="frame" x="0.0" y="64" width="375" height="91"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="91"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENTER ADDRESS HERE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOL-BI-ZKq">
                                         <rect key="frame" x="112" y="27" width="152" height="21"/>
@@ -71,24 +70,6 @@
             </objects>
             <point key="canvasLocation" x="1116" y="35.532233883058474"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ecc-0U-dER">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AFZ-xu-4ea" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dJq-CL-qVp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="fIB-Mc-zJG" kind="relationship" relationship="rootViewController" id="Bps-o7-dVM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YZA-j0-8hZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="176.80000000000001" y="35.532233883058474"/>
-        </scene>
         <!--Page Map And PharmacyVC-->
         <scene sceneID="fDF-jd-0Oa">
             <objects>
@@ -121,7 +102,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="89" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RO8-8D-uf6">
-                                <rect key="frame" x="1" y="113" width="375" height="488"/>
+                                <rect key="frame" x="1" y="69" width="375" height="532"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -217,7 +198,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RBk-3V-dmd">
-                                <rect key="frame" x="0.0" y="64" width="375" height="41"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="41"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🔍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uo-A1-Tsg">
                                         <rect key="frame" x="30" y="12" width="23" height="21"/>
@@ -356,42 +337,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mfo-QI-VP1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3620" y="906.29685157421295"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="aUJ-Wi-mo5">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KHb-k6-8Xn" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dGq-ll-1kk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="tWT-TE-yh7" kind="relationship" relationship="rootViewController" id="yYP-xt-hyo"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kEm-3t-9L9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5.5999999999999996" y="894.60269865067471"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="FQa-9P-144">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WsI-em-Dv1" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xaX-FN-6JP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="aci-cj-Wen" kind="relationship" relationship="rootViewController" id="0eV-Wg-UgA"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1KH-zn-iD5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1773.5999999999999" y="894.60269865067471"/>
         </scene>
     </scenes>
     <resources>

@@ -81,7 +81,7 @@ extension OrdersStatusesPopupController : UITableViewDataSource{
         
     }
     
-    func cellTapped(sender : UITapGestureRecognizer) {
+    @objc func cellTapped(sender : UITapGestureRecognizer) {
         
         let checkedBoxImage  = sender.view as! UIImageView
         let position = sender.location(in: filteredTableView)

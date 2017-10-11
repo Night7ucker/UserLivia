@@ -15,11 +15,11 @@ import ObjectMapper_Realm
 
 class OrdersCountModel: Object, Mappable{
     
-    dynamic var allEvents = -1
-    dynamic var allOrders = -1
-    dynamic var eventsPendingAction = -1
-    dynamic var openOrders = -1
-    dynamic var ordersPendingAction = -1
+    @objc dynamic var allEvents = -1
+    @objc dynamic var allOrders = -1
+    @objc dynamic var eventsPendingAction = -1
+    @objc dynamic var openOrders = -1
+    @objc dynamic var ordersPendingAction = -1
 
     
     required convenience init?(map: Map) {

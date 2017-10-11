@@ -14,32 +14,32 @@ import ObjectMapper_Realm
 
 
 class OrderDescriptionModelImage: Object{
-    dynamic var imageUrl: String?
+   @objc dynamic var imageUrl: String?
 }
 
 class OrderDescriptionModel: Object {
     
-    dynamic var deliveryCost: String?
-    dynamic var orderId: String?
-    dynamic var selfCollect: String?
-    dynamic var totatPrice: String?
-    dynamic var totalDrugsPrice: String?
-    dynamic var statusId: String?
-    dynamic var createDate: String?
+    @objc dynamic var deliveryCost: String?
+    @objc dynamic var orderId: String?
+    @objc dynamic var selfCollect: String?
+    @objc dynamic var totatPrice: String?
+    @objc dynamic var totalDrugsPrice: String?
+    @objc dynamic var statusId: String?
+    @objc dynamic var createDate: String?
 
 }
 
 class OrderDrugsDescriptionModel: Object {
-    dynamic var drugName: String?
-    dynamic var drugId: String?
-    dynamic var pAdmin: String?
-    dynamic var pLat: String?
-    dynamic var pLong: String?
-    dynamic var pId: String?
-    dynamic var pNumber: String?
-    dynamic var quantity: String?
-    dynamic var quantityMeasuring: String?
-    dynamic var drugPrice = 0
-    dynamic var activeItem: String?
-    dynamic var pName: String?
+    @objc dynamic var drugName: String?
+    @objc dynamic var drugId: String?
+    @objc dynamic var pAdmin: String?
+    @objc dynamic var pLat: String?
+    @objc dynamic var pLong: String?
+    @objc dynamic var pId: String?
+    @objc dynamic var pNumber: String?
+    @objc dynamic var quantity: String?
+    @objc dynamic var quantityMeasuring: String?
+    @objc dynamic var drugPrice: Double = 0
+    @objc dynamic var activeItem: String?
+    @objc dynamic var pName: String?
 }

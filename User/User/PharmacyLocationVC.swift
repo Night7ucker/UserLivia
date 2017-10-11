@@ -58,7 +58,7 @@ class PharmacyLocationVC: RootViewController, GMSMapViewDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    func currentLocationButtonTapped(_ sender: UIButton) {
+    @objc func currentLocationButtonTapped(_ sender: UIButton) {
         let cameraOnCurrentLocation = GMSCameraPosition.camera(withLatitude: userCurrentLocation.latitude,
                                                       longitude: userCurrentLocation.longitude,
                                                       zoom: pharmacyMapView.camera.zoom)

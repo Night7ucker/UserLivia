@@ -69,7 +69,7 @@ class RemindersViewController: RootViewController, AddReminderViewControllerProt
         addReminderButton.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         addReminderButton.setTitle("+", for: .normal)
         addReminderButton.titleLabel?.font = UIFont(name: "Arial", size: 45)
-        addReminderButton.titleLabel?.font = UIFont.systemFont(ofSize: 34, weight: UIFontWeightThin)
+        addReminderButton.titleLabel?.font = UIFont.systemFont(ofSize: 34, weight: UIFont.Weight.thin)
         addReminderButton.setTitleColor(.white, for: .normal)
         addReminderButton.titleEdgeInsets = UIEdgeInsetsMake(5, 25, 0, 0)
         addReminderButton.addTarget(self, action: #selector(addTapped(_ :)), for: .touchUpInside)
@@ -77,7 +77,7 @@ class RemindersViewController: RootViewController, AddReminderViewControllerProt
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addReminderButton)
     }
     
-    func addTapped(_ sender: UIButton) {
+    @objc func addTapped(_ sender: UIButton) {
         let transition = CATransition()
         transition.duration = 0.4
         transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)

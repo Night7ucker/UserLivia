@@ -38,9 +38,9 @@ class MappedCountryCodesModel: Mappable {
 }
 
 class CountryCodesModel:Object, Mappable {
-    dynamic var countryName: String?
-    dynamic var phoneCode: String?
-    dynamic var countryFlag: String?
+    @objc dynamic var countryName: String?
+    @objc dynamic var phoneCode: String?
+    @objc dynamic var countryFlag: String?
     
     required convenience init?(map: Map) {
         self.init()

@@ -14,18 +14,18 @@ import ObjectMapper_Realm
 
 
 class DrugsDescriptionModel: Object, Mappable{
-    dynamic var id: String?
-    dynamic var type = -1
-    dynamic var brandName: String?
-    dynamic var contraindications: String?
-    dynamic var desc: String?
-    dynamic var dosage: String?
-    dynamic var dosageUnits: String?
-    dynamic var manufacturerCompany: String?
-    dynamic var name: String?
-    dynamic var sideEffects: String?
-    dynamic var quantityMeasuring: String?
-    dynamic var amount = 1
+    @objc dynamic var id: String?
+    @objc dynamic var type = -1
+    @objc dynamic var brandName: String?
+    @objc dynamic var contraindications: String?
+    @objc dynamic var desc: String?
+    @objc dynamic var dosage: String?
+    @objc dynamic var dosageUnits: String?
+    @objc dynamic var manufacturerCompany: String?
+    @objc dynamic var name: String?
+    @objc dynamic var sideEffects: String?
+    @objc dynamic var quantityMeasuring: String?
+    @objc dynamic var amount = 1
     
     required convenience init?(map: Map) {
         self.init()

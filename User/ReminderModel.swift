@@ -10,10 +10,10 @@ import Foundation
 import RealmSwift
 
 class ReminderModel: Object {
-    dynamic var medicineName: String?
-    dynamic var dateTimeDaysAndYears: String?
-    dynamic var dateTimeHoursAndMinutes: String?
-    dynamic var checkBoxIndex = -1
-    dynamic var dateForRequest: String?
-    dynamic var id: String?
+    @objc dynamic var medicineName: String?
+    @objc dynamic var dateTimeDaysAndYears: String?
+    @objc dynamic var dateTimeHoursAndMinutes: String?
+    @objc dynamic var checkBoxIndex = -1
+    @objc dynamic var dateForRequest: String?
+    @objc dynamic var id: String?
 }

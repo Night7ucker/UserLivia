@@ -31,7 +31,7 @@ class SectionHeaderView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func selectHeaderAction(gestureRecognizer: UITapGestureRecognizer) {
+    @objc func selectHeaderAction(gestureRecognizer: UITapGestureRecognizer) {
         let cell = gestureRecognizer.view as! SectionHeaderView
         
         delegate?.toggleSection(header: self, section: cell.section)
@@ -54,7 +54,7 @@ class SectionHeaderView: UITableViewHeaderFooterView {
         let sectionNameLabel = UILabel()
         sectionNameLabel.frame = CGRect(x: 45, y: 5, width: 200, height: 30)
         sectionNameLabel.text = title
-        sectionNameLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightThin)
+        sectionNameLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.thin)
         
         self.addSubview(sectionNameLabel)
         

@@ -40,11 +40,11 @@ class MappedCityModel: Mappable {
 }
 
 class City: Object, Mappable {
-        dynamic var cityName: String?
-        dynamic var countryName: String?
-        dynamic var countryId: String?
-        dynamic var cityId: String?
-        dynamic var countryCode: String?
+        @objc dynamic var cityName: String?
+        @objc dynamic var countryName: String?
+        @objc dynamic var countryId: String?
+        @objc dynamic var cityId: String?
+        @objc dynamic var countryCode: String?
     
     required convenience init?(map: Map) {
         self.init()

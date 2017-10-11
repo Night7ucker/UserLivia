@@ -14,12 +14,12 @@ import ObjectMapper_Realm
 
 class SendOrdersModel: Object, Mappable{
     
-    dynamic var drugCurrency: String?
-    dynamic var latitude: String?
-    dynamic var longtitude: String?
-    dynamic var selfCollect: String?
-    dynamic var manual: String?
-    dynamic var pharmID: String?
+    @objc dynamic var drugCurrency: String?
+    @objc dynamic var latitude: String?
+    @objc dynamic var longtitude: String?
+    @objc dynamic var selfCollect: String?
+    @objc dynamic var manual: String?
+    @objc dynamic var pharmID: String?
     
     required convenience init?(map: Map) {
         self.init()

@@ -37,12 +37,12 @@ class MappedWorkingHoursModel: Mappable {
 }
 
 class WorkingHour: Object, Mappable {
-    dynamic var dayInWeek: String?
-    dynamic var dayType: String?
-    dynamic var startWork: String?
-    dynamic var endWork: String?
-    dynamic var startLunch: String?
-    dynamic var endLunch: String?
+    @objc dynamic var dayInWeek: String?
+    @objc dynamic var dayType: String?
+    @objc dynamic var startWork: String?
+    @objc dynamic var endWork: String?
+    @objc dynamic var startLunch: String?
+    @objc dynamic var endLunch: String?
     
     required convenience init?(map: Map) {
         self.init()

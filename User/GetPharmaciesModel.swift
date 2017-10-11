@@ -40,14 +40,14 @@ class MappedPharmacyModel: Mappable {
 }
 
 class Pharmacy: Object, Mappable {
-    dynamic var userId: String?
-    dynamic var latitude: String?
-    dynamic var longtitude: String?
-    dynamic var avatar: String?
-    dynamic var adminName: String?
-    dynamic var pharmacyName: String?
-    dynamic var physicalAddress: String?
-    dynamic var workTime: String?
+    @objc dynamic var userId: String?
+    @objc dynamic var latitude: String?
+    @objc dynamic var longtitude: String?
+    @objc dynamic var avatar: String?
+    @objc dynamic var adminName: String?
+    @objc dynamic var pharmacyName: String?
+    @objc dynamic var physicalAddress: String?
+    @objc dynamic var workTime: String?
     
     required convenience init?(map: Map) {
         self.init()

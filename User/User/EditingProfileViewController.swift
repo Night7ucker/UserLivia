@@ -162,7 +162,7 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
         addReminderButton.frame = CGRect(x: 300, y: 0, width: 70, height: 100)
         addReminderButton.setTitle("✓", for: .normal)
         addReminderButton.titleLabel?.font = UIFont(name: "Arial", size: 25)
-        addReminderButton.titleLabel?.font = UIFont.systemFont(ofSize: 25, weight: UIFontWeightThin)
+        addReminderButton.titleLabel?.font = UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.thin)
         addReminderButton.setTitleColor(.white, for: .normal)
         addReminderButton.titleEdgeInsets = UIEdgeInsetsMake(5, 5, 0, -60)
         addReminderButton.addTarget(self, action: #selector(confrimedTapped(_ :)), for: .touchUpInside)
@@ -170,7 +170,7 @@ class EditingProfileViewController: RootViewController, PopupTitleForPersonViewC
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addReminderButton)
     }
     
-    func confrimedTapped(_ sender: UIButton) {
+    @objc func confrimedTapped(_ sender: UIButton) {
         
         if checkIfFieldsAreFilled() {
             

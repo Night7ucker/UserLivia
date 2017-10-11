@@ -14,9 +14,9 @@ import ObjectMapper_Realm
 
 class TokensModel: Object, Mappable{
     
-    dynamic var accessToken: String?
-    dynamic var refreshToken: String?
-    dynamic var userStatus: String?
+    @objc dynamic var accessToken: String?
+    @objc dynamic var refreshToken: String?
+    @objc dynamic var userStatus: String?
     
     required convenience init?(map: Map) {
         self.init()

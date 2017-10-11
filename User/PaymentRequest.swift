@@ -18,7 +18,7 @@ class PaymentRequest {
         let url = "https://test.liviaapp.com/api/order/" + orderID
         
         let parameters: Parameters = [
-            "amount": RealmDataManager.getOrderDescriptionModel()[0].totatPrice,
+            "amount": RealmDataManager.getOrderDescriptionModel()[0].totatPrice!,
             "pay_type": "cash"
         ]
         
@@ -35,7 +35,7 @@ class PaymentRequest {
         
         
         Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-            print(response.result.value)
+            print(response.result.value!)
             completion(true)
         }
     }

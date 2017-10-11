@@ -37,14 +37,14 @@ class MappedPaymentList: Mappable {
 }
 
 class PaymentListModel: Object, Mappable {
-    dynamic var transactionId = -1
-    dynamic var orderId: String?
-    dynamic var fullAmount: String?
-    dynamic var statusId: String?
-    dynamic var payMethodId: String?
-    dynamic var payMethod: String?
-    dynamic var statusName: String?
-    dynamic var createDate: String?
+    @objc dynamic var transactionId = -1
+    @objc dynamic var orderId: String?
+    @objc dynamic var fullAmount: String?
+    @objc dynamic var statusId: String?
+    @objc dynamic var payMethodId: String?
+    @objc dynamic var payMethod: String?
+    @objc dynamic var statusName: String?
+    @objc dynamic var createDate: String?
     
     required convenience init?(map: Map) {
         self.init()

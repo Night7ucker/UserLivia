@@ -13,22 +13,22 @@ import RealmSwift
 import ObjectMapper_Realm
 
 class UserModel: Object, Mappable{
-    dynamic var id: String?
-    dynamic var avatar: String?
-    dynamic var email: String?
-    dynamic var countryCode: String?
-    dynamic var countryName: String?
-    dynamic var countryId: String?
-    dynamic var cityId: String?
-    dynamic var cityName: String?
-    dynamic var phoneNumber: String?
-    dynamic var namePrefix: String?
-    dynamic var firstName: String?
-    dynamic var lastName: String?
-    dynamic var age: String?	
-    dynamic var sex: String?
-    dynamic var online: String?
-    dynamic var phoneCode: String?
+    @objc dynamic var id: String?
+    @objc dynamic var avatar: String?
+    @objc dynamic var email: String?
+    @objc dynamic var countryCode: String?
+    @objc dynamic var countryName: String?
+    @objc dynamic var countryId: String?
+    @objc dynamic var cityId: String?
+    @objc dynamic var cityName: String?
+    @objc dynamic var phoneNumber: String?
+    @objc dynamic var namePrefix: String?
+    @objc dynamic var firstName: String?
+    @objc dynamic var lastName: String?
+    @objc dynamic var age: String?
+    @objc dynamic var sex: String?
+    @objc dynamic var online: String?
+    @objc dynamic var phoneCode: String?
     
     required convenience init?(map: Map) {
         self.init()

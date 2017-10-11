@@ -47,7 +47,7 @@ class GetDrugsViewController: RootViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    func textFieldDidChange(_ textField: UITextField) {
+    @objc func textFieldDidChange(_ textField: UITextField) {
         if(drugNameTextFieldOutlet.text!.characters.count > 2) {
             drugsListView.isHidden = false
             searchImageOutlet.isHidden = true

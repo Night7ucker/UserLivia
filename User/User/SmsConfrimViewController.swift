@@ -83,7 +83,7 @@ class SmsConfrimViewController: RootViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func keyboardWillShow(notification: NSNotification) {
+    @objc func keyboardWillShow(notification: NSNotification) {
         if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if self.view.frame.origin.y == 0{
                 self.view.frame.origin.y -= 20
@@ -91,7 +91,7 @@ class SmsConfrimViewController: RootViewController {
         }
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    @objc func keyboardWillHide(notification: NSNotification) {
         if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if self.view.frame.origin.y != 0{
                 self.view.frame.origin.y += 20
@@ -103,7 +103,7 @@ class SmsConfrimViewController: RootViewController {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(self.updateTimer)), userInfo: nil, repeats: true)
     }
     
-    func updateTimer() {
+    @objc func updateTimer() {
         if seconds == 0 {
             timerButtonOutlet.isHidden = false
             timerButtonOutlet.backgroundColor = Colors.Root.lightBlueColor
@@ -173,11 +173,11 @@ class SmsConfrimViewController: RootViewController {
         timer.invalidate()
     }
     
-    func timerForCodeSendingPassed() {
+    @objc func timerForCodeSendingPassed() {
         delegate.timeToSentNewCode()
     }
     
-    func hideErrorView() {
+    @objc func hideErrorView() {
         wrongAuthCodeView.isHidden = true
     }
 }

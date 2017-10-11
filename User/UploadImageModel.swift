@@ -14,7 +14,7 @@ import ObjectMapper_Realm
 
 class UploadImageModel: Object, Mappable {
     
-    dynamic var imageUrl: String?
+    @objc dynamic var imageUrl: String?
     
     required convenience init?(map: Map) {
         self.init()

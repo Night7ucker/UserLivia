@@ -133,20 +133,7 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
             }
             
         })
-        
-        
-        //        UIView.transition(with: view, duration: 5, options: .transitionCrossDissolve, animations: { _ in
-        //            self.mainWhiteViewOutlet.isHidden = true
-        //        }, completion: nil)
-        
-        //        mainWhiteViewOutlet.addCornerRadiusAnimation(from: 800, to: 10, duration: 0.5) { success in
-        //            if success {
-        //                self.mainWhiteViewOutlet.layer.shadowOffset = .zero
-        //                self.mainWhiteViewOutlet.layer.shadowRadius = 1
-        //                self.mainWhiteViewOutlet.layer.shadowColor = UIColor.black.cgColor
-        //                self.mainWhiteViewOutlet.layer.shadowOpacity = 0.8
-        //            }
-        //        }
+
         
         phoneNumberField.delegate = self
         
@@ -182,7 +169,7 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
         super.didReceiveMemoryWarning()
     }
     
-    func keyboardWillShow(notification: NSNotification) {
+    @objc func keyboardWillShow(notification: NSNotification) {
         if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if self.view.frame.origin.y == 0{
                 self.view.frame.origin.y -= 37
@@ -190,7 +177,7 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
         }
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    @objc func keyboardWillHide(notification: NSNotification) {
         if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if self.view.frame.origin.y != 0{
                 self.view.frame.origin.y += 37
@@ -219,6 +206,7 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
             let countryCodeValue = String(countryCode.text!.characters.dropFirst())
             let getAuthCodeObject = GetAuthCode(number: phoneNumberField.text!, code: countryCodeValue)
             getAuthCodeObject.getAutCodeRequest()
+            print("PUSH")
             let registrationStoryboard = UIStoryboard(name: "RegistrationModule", bundle: nil)
             let smsConfirmViewController = registrationStoryboard.instantiateViewController(withIdentifier: "kSmsConfrimViewController") as? SmsConfrimViewController
             smsConfirmViewController?.delegate = self
@@ -233,11 +221,11 @@ class RegistrationViewController: RootViewController, PopupCountryCodesTableView
     }
     
     
-    func hideErrorView() {
+    @objc func hideErrorView() {
         errorViewOutlet.isHidden = true
     }
     
-    func hideWrongPhoneNumberView() {
+    @objc func hideWrongPhoneNumberView() {
         wrongPhoneNumberViewOutlet.isHidden = true
     }
     

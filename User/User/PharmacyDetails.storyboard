@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="U3R-xC-Cii">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qz8-oc-QLI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,14 +22,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pharmacySign" translatesAutoresizingMaskIntoConstraints="NO" id="8Pz-dL-g55">
-                                <rect key="frame" x="16" y="82" width="90" height="90"/>
+                                <rect key="frame" x="16" y="38" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="00p-Bo-EM6"/>
                                     <constraint firstAttribute="width" constant="90" id="6Hr-3R-7Ux"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PharmacyName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdK-4K-KbZ">
-                                <rect key="frame" x="114" y="95" width="245" height="21"/>
+                                <rect key="frame" x="114" y="51" width="245" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="245" id="Qmt-4H-xEb"/>
                                     <constraint firstAttribute="height" constant="21" id="rqA-TB-tNr"/>
@@ -231,7 +230,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="o2K-rr-N1O">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="workCustomCell" id="o2K-rr-N1O">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o2K-rr-N1O" id="dsL-zR-PnO">
@@ -335,60 +334,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OTA-0R-SId" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5136.8000000000002" y="-152.47376311844079"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Icw-dy-d0N">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="U3R-xC-Cii" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rwz-vp-OXN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="qz8-oc-QLI" kind="relationship" relationship="rootViewController" id="oEb-iQ-4A9"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8KP-GK-Kfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="444" y="-151.57421289355324"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="0HE-Tm-aOv">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JFc-Ne-PU1" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="b2v-sv-4ef">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="PZe-ib-xfh" kind="relationship" relationship="rootViewController" id="TbX-OC-n7H"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kHz-6R-gfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2184.8000000000002" y="-152.47376311844079"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="rzc-uV-AtO">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XII-oB-ZRU" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="o6A-m6-Pd3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="4ru-CU-UIZ" kind="relationship" relationship="rootViewController" id="6zd-4c-RNA"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z4e-gg-OFg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4197.6000000000004" y="-152.47376311844079"/>
         </scene>
     </scenes>
     <resources>

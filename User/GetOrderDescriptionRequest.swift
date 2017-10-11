@@ -40,7 +40,7 @@ class GetOrderDescriptionRequest{
                     realm.delete(RealmDataManager.getOrderDrugsDescriptionModel())
                 }
             }
-            print(response.result.value)
+            print(response.result.value!)
             guard let result = response.result.value as? [String : AnyObject] else{ return }
             let checkForImage = result["image"] as? String
             if checkForImage != nil {
@@ -83,8 +83,8 @@ class GetOrderDescriptionRequest{
                     orderDrugDescObject.quantity = element["quantity"] as? String
                     orderDrugDescObject.quantityMeasuring = element["quantity_measuring"] as? String
                     orderDrugDescObject.activeItem = element["active_item"] as? String
-                    if let _ = element["price"] {
-                        orderDrugDescObject.drugPrice = element["price"] as! Int
+                    if let drugPrice = element["price"] as? Double {
+                        orderDrugDescObject.drugPrice = drugPrice
                     }
                     RealmDataManager.writeIntoRealm(object: orderDrugDescObject)
                 }

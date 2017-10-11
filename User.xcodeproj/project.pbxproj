@@ -181,6 +181,8 @@
 		FB9D50001F7D1BE5001F3F95 /* EditUserCityRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9D4FFF1F7D1BE5001F3F95 /* EditUserCityRequest.swift */; };
 		FBA44C0F1F77B8BC00687544 /* GetAuthCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA44C0E1F77B8BC00687544 /* GetAuthCodeRequest.swift */; };
 		FBA44C111F77C71B00687544 /* PhoneNumberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA44C101F77C71B00687544 /* PhoneNumberModel.swift */; };
+		FBC9AF7C1F8E0EE300DC44C8 /* 5.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC9AF7B1F8E0EE300DC44C8 /* 5.xib */; };
+		FBC9AF7E1F8E0EED00DC44C8 /* 14.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC9AF7D1F8E0EED00DC44C8 /* 14.xib */; };
 		FBD6BB181F7C1402007741DC /* SearchDrugs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBD6BB171F7C1402007741DC /* SearchDrugs.storyboard */; };
 		FBD6BB1B1F7C161C007741DC /* GetDrugsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD6BB1A1F7C161C007741DC /* GetDrugsViewController.swift */; };
 		FBD74BA71F7B84C300FA2BFE /* GetUserProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD74BA61F7B84C300FA2BFE /* GetUserProfileRequest.swift */; };
@@ -366,6 +368,11 @@
 		FB9D4FFF1F7D1BE5001F3F95 /* EditUserCityRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserCityRequest.swift; sourceTree = "<group>"; };
 		FBA44C0E1F77B8BC00687544 /* GetAuthCodeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAuthCodeRequest.swift; sourceTree = "<group>"; };
 		FBA44C101F77C71B00687544 /* PhoneNumberModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberModel.swift; sourceTree = "<group>"; };
+		FBC9AF7B1F8E0EE300DC44C8 /* 5.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = 5.xib; sourceTree = "<group>"; };
+		FBC9AF7D1F8E0EED00DC44C8 /* 14.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = 14.xib; sourceTree = "<group>"; };
+		FBC9AF801F8E10E900DC44C8 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBC9AF821F8E10FB00DC44C8 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBC9AF841F8E110E00DC44C8 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD6BB171F7C1402007741DC /* SearchDrugs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchDrugs.storyboard; sourceTree = "<group>"; };
 		FBD6BB1A1F7C161C007741DC /* GetDrugsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetDrugsViewController.swift; sourceTree = "<group>"; };
 		FBD74BA61F7B84C300FA2BFE /* GetUserProfileRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserProfileRequest.swift; sourceTree = "<group>"; };
@@ -436,6 +443,9 @@
 		A60317FA6321E05DCD3F5A73 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FBC9AF841F8E110E00DC44C8 /* RealmSwift.framework */,
+				FBC9AF821F8E10FB00DC44C8 /* Realm.framework */,
+				FBC9AF801F8E10E900DC44C8 /* RealmSwift.framework */,
 				9EA6723FDEE4071DE9039A46 /* Pods_User.framework */,
 			);
 			name = Frameworks;
@@ -1168,8 +1178,10 @@
 				FB7640421F8BB12C00B17A96 /* 2.xib */,
 				FB7640441F8BB13700B17A96 /* 3.xib */,
 				FB7640461F8BB13E00B17A96 /* 4.xib */,
+				FBC9AF7B1F8E0EE300DC44C8 /* 5.xib */,
 				FB7640481F8BB14600B17A96 /* 6.xib */,
 				FB76404A1F8BB15200B17A96 /* 7.xib */,
+				FBC9AF7D1F8E0EED00DC44C8 /* 14.xib */,
 				FB76404C1F8BB15C00B17A96 /* 15.xib */,
 				FB76404E1F8BB16300B17A96 /* 16.xib */,
 				FB7640501F8BBD4800B17A96 /* ClockView.swift */,
@@ -1301,11 +1313,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = BAMFAdmin;
 				TargetAttributes = {
 					FB740D121F74F24900F6DD79 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1347,6 +1360,7 @@
 				FBD6BB181F7C1402007741DC /* SearchDrugs.storyboard in Resources */,
 				FB7640491F8BB14600B17A96 /* 6.xib in Resources */,
 				FB76404D1F8BB15C00B17A96 /* 15.xib in Resources */,
+				FBC9AF7E1F8E0EED00DC44C8 /* 14.xib in Resources */,
 				CEA61BC91F756D9400BA1AED /* MainViewsStoryboard.storyboard in Resources */,
 				7FBAFBB61F77D9D700BEB7F1 /* MainScreen.storyboard in Resources */,
 				CE3C76061F8B70740054EA51 /* FindDoctor.storyboard in Resources */,
@@ -1357,6 +1371,7 @@
 				CE40CA801F78E619003BC535 /* RefillsAndReminders.storyboard in Resources */,
 				FB6AC0BE1F8577A8000F47CC /* CustomOrderCell.xib in Resources */,
 				7FBAFBB71F77D9D700BEB7F1 /* Settings.storyboard in Resources */,
+				FBC9AF7C1F8E0EE300DC44C8 /* 5.xib in Resources */,
 				CEB4A3021F869B8C004478B9 /* Payment.storyboard in Resources */,
 				FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */,
 				FB2615CF1F8767EE008069CE /* FAQ.xib in Resources */,
@@ -1628,7 +1643,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1636,7 +1653,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1659,7 +1680,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1679,7 +1700,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1687,7 +1710,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1704,7 +1731,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1725,7 +1752,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = vertigo.User;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1741,7 +1769,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = vertigo.User;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

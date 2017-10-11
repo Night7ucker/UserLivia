@@ -136,7 +136,7 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
         // Dispose of any resources that can be recreated.
     }
     
-    func keyboardWillShow(notification: NSNotification) {
+    @objc func keyboardWillShow(notification: NSNotification) {
         if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if isEmailTextField {
                 if self.view.frame.origin.y == 0{
@@ -147,7 +147,7 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
         }
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    @objc func keyboardWillHide(notification: NSNotification) {
         if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if self.view.frame.origin.y != 0{
                 self.view.frame.origin.y += 60
