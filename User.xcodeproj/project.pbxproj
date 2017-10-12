@@ -34,6 +34,10 @@
 		CE2695A61F86BCF0002A1F1E /* PaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2695A51F86BCF0002A1F1E /* PaymentRequest.swift */; };
 		CE2695A91F86BF48002A1F1E /* SuccessPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2695A81F86BF48002A1F1E /* SuccessPopupVC.swift */; };
 		CE2695AB1F86C242002A1F1E /* CancelOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2695AA1F86C242002A1F1E /* CancelOrder.storyboard */; };
+		CE2DA52A1F8F25F2007E32C5 /* DoctorListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2DA5291F8F25F2007E32C5 /* DoctorListVC.swift */; };
+		CE2DA52D1F8F2606007E32C5 /* DoctorCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2DA52C1F8F2606007E32C5 /* DoctorCellTableViewCell.swift */; };
+		CE2DA5301F8F2770007E32C5 /* GetDoctorRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2DA52F1F8F2770007E32C5 /* GetDoctorRequest.swift */; };
+		CE2DA5321F8F277F007E32C5 /* GetDoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2DA5311F8F277F007E32C5 /* GetDoctorModel.swift */; };
 		CE32DD841F87ABC200F06B1E /* AlternativeOrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE32DD831F87ABC200F06B1E /* AlternativeOrderRequest.swift */; };
 		CE32DD861F87B4DD00F06B1E /* OrderCancelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE32DD851F87B4DD00F06B1E /* OrderCancelView.xib */; };
 		CE3A427D1F7F83430016A0C7 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A427C1F7F83430016A0C7 /* RootViewController.swift */; };
@@ -220,6 +224,10 @@
 		CE2695A51F86BCF0002A1F1E /* PaymentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentRequest.swift; sourceTree = "<group>"; };
 		CE2695A81F86BF48002A1F1E /* SuccessPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessPopupVC.swift; sourceTree = "<group>"; };
 		CE2695AA1F86C242002A1F1E /* CancelOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CancelOrder.storyboard; sourceTree = "<group>"; };
+		CE2DA5291F8F25F2007E32C5 /* DoctorListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorListVC.swift; sourceTree = "<group>"; };
+		CE2DA52C1F8F2606007E32C5 /* DoctorCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCellTableViewCell.swift; sourceTree = "<group>"; };
+		CE2DA52F1F8F2770007E32C5 /* GetDoctorRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDoctorRequest.swift; sourceTree = "<group>"; };
+		CE2DA5311F8F277F007E32C5 /* GetDoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDoctorModel.swift; sourceTree = "<group>"; };
 		CE32DD831F87ABC200F06B1E /* AlternativeOrderRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlternativeOrderRequest.swift; sourceTree = "<group>"; };
 		CE32DD851F87B4DD00F06B1E /* OrderCancelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderCancelView.xib; sourceTree = "<group>"; };
 		CE3A427C1F7F83430016A0C7 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -502,6 +510,24 @@
 			name = SuccessPopup;
 			sourceTree = "<group>";
 		};
+		CE2DA5281F8F25D9007E32C5 /* DoctorInfoModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE2DA5291F8F25F2007E32C5 /* DoctorListVC.swift */,
+				CE2DA52C1F8F2606007E32C5 /* DoctorCellTableViewCell.swift */,
+			);
+			name = DoctorInfoModule;
+			sourceTree = "<group>";
+		};
+		CE2DA52E1F8F2758007E32C5 /* GetDoctorRequest */ = {
+			isa = PBXGroup;
+			children = (
+				CE2DA52F1F8F2770007E32C5 /* GetDoctorRequest.swift */,
+				CE2DA5311F8F277F007E32C5 /* GetDoctorModel.swift */,
+			);
+			name = GetDoctorRequest;
+			sourceTree = "<group>";
+		};
 		CE32DD821F87ABB000F06B1E /* AlternativeOrderRequest */ = {
 			isa = PBXGroup;
 			children = (
@@ -554,6 +580,7 @@
 			children = (
 				CE3C76081F8B72BA0054EA51 /* FindDoctorVC.swift */,
 				CE3C760A1F8B72FE0054EA51 /* FindDoctorCellTableViewCell.swift */,
+				CE2DA5281F8F25D9007E32C5 /* DoctorInfoModule */,
 			);
 			name = FindDoctorModule;
 			sourceTree = "<group>";
@@ -563,6 +590,7 @@
 			children = (
 				CE3C760D1F8BADE80054EA51 /* FindDoctorSpecialityRequest.swift */,
 				CE3C760F1F8BADF60054EA51 /* FindDoctorSpecialityModel.swift */,
+				CE2DA52E1F8F2758007E32C5 /* GetDoctorRequest */,
 			);
 			name = FindDoctorsSpecialityRequest;
 			sourceTree = "<group>";
@@ -1504,6 +1532,7 @@
 				CE40CA851F78F2ED003BC535 /* AddReminderViewController.swift in Sources */,
 				CEEC74AC1F868CC5002C28D2 /* PharmacyLocationVC.swift in Sources */,
 				CE4ABE061F83F22E0052EC10 /* SendOrdersModel.swift in Sources */,
+				CE2DA52A1F8F25F2007E32C5 /* DoctorListVC.swift in Sources */,
 				FB958B891F752D000065B49C /* GetCountryCodesRequest.swift in Sources */,
 				CEABE4201F7650CC0041FAD5 /* CityTableViewCell.swift in Sources */,
 				CEF2EBCF1F864086002A1B20 /* ShowPhotoViewController.swift in Sources */,
@@ -1517,6 +1546,7 @@
 				FB958B871F752C4D0065B49C /* CountryCodesModel.swift in Sources */,
 				FB6BB31A1F7E607A00165BB2 /* DrugInfoViewController.swift in Sources */,
 				CE26959E1F86A1EF002A1F1E /* MpesaPopupVC.swift in Sources */,
+				CE2DA5301F8F2770007E32C5 /* GetDoctorRequest.swift in Sources */,
 				CE7753401F84BCB6004E3F21 /* PharmacyOrderCell.swift in Sources */,
 				CE725FE01F83ADEA009B8FC2 /* OrderReviewTableViewCell.swift in Sources */,
 				FB6AC0B31F84D27B000F47CC /* OrderDescriptionViewController.swift in Sources */,
@@ -1553,6 +1583,7 @@
 				CE4ABE041F83F2160052EC10 /* SendOrdersRequest.swift in Sources */,
 				CEF4F2361F854D7400AD3A21 /* BottomPopupForPrescriptionVC.swift in Sources */,
 				CE95905C1F79473800536DF7 /* ReminderTableViewCell.swift in Sources */,
+				CE2DA52D1F8F2606007E32C5 /* DoctorCellTableViewCell.swift in Sources */,
 				FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */,
 				7F6137F31F7B7E3500629AA7 /* OrdersPaymentsController.swift in Sources */,
 				FB75CB461F8246E40022B38D /* AddedToCartDrugsModel.swift in Sources */,
@@ -1572,6 +1603,7 @@
 				FB5FC5551F7A83B500F8658A /* RegistrationUserRequest.swift in Sources */,
 				CEC5EFFD1F8234CD0012CFAA /* Section.swift in Sources */,
 				CEC5F0011F8237810012CFAA /* ExpandedViewController.swift in Sources */,
+				CE2DA5321F8F277F007E32C5 /* GetDoctorModel.swift in Sources */,
 				CE77533B1F84A1F1004E3F21 /* DeliveryTypeTableViewCell.swift in Sources */,
 				CE40CA8C1F79132A003BC535 /* CalendarPopupViewController.swift in Sources */,
 				FB6BB31C1F7E652100165BB2 /* DrugsDescriptionModel.swift in Sources */,

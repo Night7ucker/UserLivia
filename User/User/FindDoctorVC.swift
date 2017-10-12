@@ -154,6 +154,8 @@ extension FindDoctorVC: UITableViewDataSource {
         
         specializationCell.specializationNameLabelOutlet.text = doctorsSpecializationList?[indexPath.row].name
         specializationCell.imageViewOutlet.image = #imageLiteral(resourceName: "pharmacySign")
+        specializationCell.specializationID = doctorsSpecializationList?[indexPath.row].id
+        specializationCell.specializationName = doctorsSpecializationList?[indexPath.row].name
         
         if indexPath.row == (doctorsSpecializationList?.count)! - 1 {
             if RealmDataManager.getUserDataFromRealm().count != 0 {
@@ -180,6 +182,14 @@ extension FindDoctorVC: UITableViewDataSource {
 }
 
 extension FindDoctorVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCell = tableView.cellForRow(at: indexPath) as! FindDoctorCellTableViewCell
+        let findDoctorStoryboard = UIStoryboard(name: "FindDoctor", bundle: nil)
+        let doctorListViewController = findDoctorStoryboard.instantiateViewController(withIdentifier: "kDoctorListVC") as! DoctorListVC
+        doctorListViewController.specializationID = selectedCell.specializationID
+        doctorListViewController.specializationName = selectedCell.specializationName
+        navigationController?.pushViewController(doctorListViewController, animated: false)
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }

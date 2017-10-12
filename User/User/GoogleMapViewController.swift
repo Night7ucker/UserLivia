@@ -67,11 +67,12 @@ class GoogleMapViewController: RootViewController, PharmacyInfoViewControllerDel
             setDeliveryPlaceMapView.selectedMarker = infoMarker
         }
         
-        locationManager.delegate = self
+        
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         locationManager.distanceFilter = 500
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+        locationManager.delegate = self
         
         if isPaged == false {
             let deliverAtMyCurrentLocation = UIButton()
@@ -354,14 +355,15 @@ extension GoogleMapViewController: GMSMapViewDelegate {
 
 extension GoogleMapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location: CLLocation = locations.last!
-        print("Location: \(location)")
         
-        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
-                                              longitude: location.coordinate.longitude,
-                                              zoom: setDeliveryPlaceMapView.camera.zoom)
+        let location = locations.last
         
-        setDeliveryPlaceMapView.animate(to: camera)
+        let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!, zoom: 17.0)
+        
+        self.setDeliveryPlaceMapView.animate(to: camera)
+        
+        //Finally stop updating location otherwise it will come again and again in this delegate
+        self.locationManager.stopUpdatingLocation()
         
     }
 }
