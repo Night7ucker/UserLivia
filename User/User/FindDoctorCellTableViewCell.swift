@@ -10,7 +10,8 @@ import UIKit
 
 class FindDoctorCellTableViewCell: UITableViewCell {
 
-    
+    var specializationID: String?
+    var specializationName: String?
     @IBOutlet weak var imageViewOutlet: UIImageView!
     
     @IBOutlet weak var specializationNameLabelOutlet: UILabel!

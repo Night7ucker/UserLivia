@@ -107,4 +107,8 @@ class RealmDataManager {
         let data = realm.objects(DoctorSpecialityModel.self)
         return data
     }
+    static func getDoctorsArray() -> Results<DoctorModel> {
+        let data = realm.objects(DoctorModel.self)
+        return data
+    }
 }
