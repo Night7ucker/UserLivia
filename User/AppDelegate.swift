@@ -41,13 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let pushTokenObject = PushTokenModel()
         pushTokenObject.pushToken = deviceTokenString
         RealmDataManager.writeIntoRealm(object: pushTokenObject)
-   
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Registration failed!")
     }
-
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter,  willPresent notification: UNNotification, withCompletionHandler   completionHandler: @escaping (_ options:   UNNotificationPresentationOptions) -> Void) {
         print("Handle push from foreground")
         // custom code to handle push while app is in the foreground
