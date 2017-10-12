@@ -110,8 +110,6 @@ class FillRegistrationInfoViewController: RootViewController, UINavigationContro
         
         personTitleLabelOutlet.text = "Dr."
         
-        photoImageView.layer.borderWidth = 5
-        photoImageView.layer.borderColor = Colors.Root.lightGrayColor.cgColor
         nextButtonOutlet.layer.cornerRadius = 2
         nextButtonOutlet.backgroundColor = Colors.Root.lightBlueColor
         nextButtonOutlet.isHidden = true

@@ -15,7 +15,7 @@ protocol SigninViewControllerDelegate: class {
 
 class MainScreenController: RootViewController, SigninViewControllerDelegate {
     
-    
+    var q = 0
     @IBOutlet weak var scrollViewOutlet: UIScrollView!
     @IBOutlet weak var fullNameLabelOutlet: UILabel!
     @IBOutlet weak var userProfileImageOutlet: CustomImageView!
@@ -56,9 +56,6 @@ class MainScreenController: RootViewController, SigninViewControllerDelegate {
                                 self.personImage.image = image
                             }
                         }
-                        print(RealmDataManager.getPushTokenFromRealm()[0].pushToken!)
-                        let obj = PushTokenRequest()
-                        obj.getPushTokenRequest()
                     }
                     
                 }

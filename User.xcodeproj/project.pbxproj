@@ -160,6 +160,7 @@
 		FB6C66451F8CB3B6006EDF4A /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6C66441F8CB3B6006EDF4A /* MyView.swift */; };
 		FB71E2A71F8F622F00BEBD29 /* PushTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB71E2A61F8F622F00BEBD29 /* PushTokenModel.swift */; };
 		FB7355E91F8F65EE00AFDE34 /* PushTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7355E81F8F65EE00AFDE34 /* PushTokenRequest.swift */; };
+		FB7355FE1F8FCF4000AFDE34 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB7355FD1F8FCF3F00AFDE34 /* GoogleService-Info.plist */; };
 		FB740D171F74F24900F6DD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB740D161F74F24900F6DD79 /* AppDelegate.swift */; };
 		FB740D211F74F24900F6DD79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB740D1F1F74F24900F6DD79 /* LaunchScreen.storyboard */; };
 		FB75CB411F8235E80022B38D /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75CB401F8235E80022B38D /* AddToCartViewController.swift */; };
@@ -351,7 +352,7 @@
 		FB71E2A51F8F592C00BEBD29 /* User.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = User.entitlements; sourceTree = "<group>"; };
 		FB71E2A61F8F622F00BEBD29 /* PushTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTokenModel.swift; sourceTree = "<group>"; };
 		FB7355E81F8F65EE00AFDE34 /* PushTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTokenRequest.swift; sourceTree = "<group>"; };
-		FB7355EC1F8F70C800AFDE34 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FB7355FD1F8FCF3F00AFDE34 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB740D131F74F24900F6DD79 /* User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB740D161F74F24900F6DD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB740D201F74F24900F6DD79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1125,6 +1126,7 @@
 		FB740D0A1F74F24900F6DD79 = {
 			isa = PBXGroup;
 			children = (
+				FB7355FD1F8FCF3F00AFDE34 /* GoogleService-Info.plist */,
 				FB740D151F74F24900F6DD79 /* User */,
 				FB740D141F74F24900F6DD79 /* Products */,
 				C55DA99B51D0BBE559589D2E /* Pods */,
@@ -1154,7 +1156,6 @@
 		FB740D281F74F26200F6DD79 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FB7355EC1F8F70C800AFDE34 /* GoogleService-Info.plist */,
 				FB740D161F74F24900F6DD79 /* AppDelegate.swift */,
 				7F6D01D71F824F5800FA01E8 /* Assets.xcassets */,
 				FB740D1F1F74F24900F6DD79 /* LaunchScreen.storyboard */,
@@ -1360,6 +1361,9 @@
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -1400,6 +1404,7 @@
 				CE5F4BEC1F77CC19009CBA5D /* Orders Appointments Payments.storyboard in Resources */,
 				CE2695AB1F86C242002A1F1E /* CancelOrder.storyboard in Resources */,
 				CE7B302A1F7B906E0023472F /* LoadingAnimation.storyboard in Resources */,
+				FB7355FE1F8FCF4000AFDE34 /* GoogleService-Info.plist in Resources */,
 				CEF4F2381F854D8900AD3A21 /* TakePhotoOfPrescription.storyboard in Resources */,
 				FBD6BB181F7C1402007741DC /* SearchDrugs.storyboard in Resources */,
 				FB7640491F8BB14600B17A96 /* 6.xib in Resources */,

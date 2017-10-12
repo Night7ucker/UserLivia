@@ -26,6 +26,7 @@ class GetAuthCode{
         let id = UIDevice.current.identifierForVendor!.uuidString
         let url = "https://test.liviaapp.com/api/auth"
         let parameters: Parameters = [
+            "os_type": "2",
             "phone_id": id,
             "phone_code": phoneCode!,
             "phone_number": phoneNumber!,
@@ -33,7 +34,9 @@ class GetAuthCode{
         ]
         let headers = [
             "Content-Type": "application/json",
-            "LiviaApp-language": "en"
+            "LiviaApp-language": "en",
+            "LiviaApp-timezone": "180",
+            "LiviaApp-APIVersion": "2.0"
         ]
         
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in

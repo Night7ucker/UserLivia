@@ -25,21 +25,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         GMSPlacesClient.provideAPIKey(googleApiKey)
         GMSServices.provideAPIKey(googleApiKey)
-        FirebaseApp.configure()
-        let center = UNUserNotificationCenter.current()
-        center.delegate = self
-        center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
-            // Enable or disable features based on authorization.
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+            
+            // For iOS 10 data message (sent via FCM)
+            //FIRMessaging.messaging().remoteMessageDelegate = self
+            
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
         }
+        
         application.registerForRemoteNotifications()
+        
+        FirebaseApp.configure()
+        
         return true
     }
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        
-        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
-        print("DEVICE TOKEN: \(deviceTokenString)")
+        var token = ""
+        for i in 0..<deviceToken.count {
+            token = token + String(format: "%02.2hhx", arguments: [deviceToken[i]])
+        }
+        let tokenn = Messaging.messaging().fcmToken
+        print("FCM token: \(tokenn ?? "")")
+        print("Registration succeeded! Token: ", token)
+
         let pushTokenObject = PushTokenModel()
-        pushTokenObject.pushToken = deviceTokenString
+        pushTokenObject.pushToken = token
         RealmDataManager.writeIntoRealm(object: pushTokenObject)
     }
     
@@ -47,28 +67,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("Registration failed!")
     }
     
+    @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter,  willPresent notification: UNNotification, withCompletionHandler   completionHandler: @escaping (_ options:   UNNotificationPresentationOptions) -> Void) {
-        print("Handle push from foreground")
+        
         // custom code to handle push while app is in the foreground
-        print("\(notification.request.content.userInfo)")
+        print("Handle push from foreground\(notification.request.content.userInfo)")
+        
+        let dict = notification.request.content.userInfo["aps"] as! NSDictionary
+        let d : [String : Any] = dict["alert"] as! [String : Any]
+        let body : String = d["body"] as! String
+        let title : String = d["title"] as! String
+        print("Title:\(title) + body:\(body)")
+        self.showAlertAppDelegate(title: title,message:body,buttonTitle:"ok",window:self.window!)
+        
     }
     
+    @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        print("Handle push from background or closed")
         // if you set a member variable in didReceiveRemoteNotification, you  will know if this is from closed or background
-        print("\(response.notification.request.content.userInfo)")
+        print("Handle push from background or closed\(response.notification.request.content.userInfo)")
     }
     
-    
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        print("ZARABOTALO")
-        print(userInfo)
+    func showAlertAppDelegate(title: String,message : String,buttonTitle: String,window: UIWindow){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: buttonTitle, style: UIAlertActionStyle.default, handler: nil))
+        window.rootViewController?.present(alert, animated: false, completion: nil)
     }
-    
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
+
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
