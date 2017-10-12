@@ -51,7 +51,7 @@ class GetTokensRequest{
                 completion(false)
             }
         }
-    }
+    } 
 }
 
 

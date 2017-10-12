@@ -107,4 +107,8 @@ class RealmDataManager {
         let data = realm.objects(DoctorSpecialityModel.self)
         return data
     }
+    static func getPushTokenFromRealm() -> Results<PushTokenModel> {
+        let data = realm.objects(PushTokenModel.self)
+        return data
+    }
 }

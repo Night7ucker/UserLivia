@@ -56,6 +56,9 @@ class MainScreenController: RootViewController, SigninViewControllerDelegate {
                                 self.personImage.image = image
                             }
                         }
+                        print(RealmDataManager.getPushTokenFromRealm()[0].pushToken!)
+                        let obj = PushTokenRequest()
+                        obj.getPushTokenRequest()
                     }
                     
                 }
@@ -67,6 +70,10 @@ class MainScreenController: RootViewController, SigninViewControllerDelegate {
         
         mainScreenTableView.delegate = self
         mainScreenTableView.dataSource = self
+        
+        
+
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {

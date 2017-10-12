@@ -13,6 +13,8 @@ target 'User' do
   pod 'ObjectMapper+Realm', '~> 0.5'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
-  pod 'GooglePlacePicker'  
+  pod 'GooglePlacePicker'
+  pod ‘Firebase’
+  pod ‘Firebase/Messaging’    
   
 end
