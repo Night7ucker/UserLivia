@@ -41,13 +41,13 @@ extension PaymentsPageController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentsPageCell", for: indexPath) as! PaymentPageCell
         
-        let fullDate = RealmDataManager.getPaymentList()[0].createDate!
+        let fullDate = RealmDataManager.getPaymentList()[indexPath.row].createDate!
         var splittedDate = fullDate.components(separatedBy: "T")
         var finalDate = splittedDate[0].components(separatedBy: "-")
         cell.paymentData.text = finalDate[0]+"."+finalDate[1]+"."+finalDate[2]
-        cell.paymentOrderId.text = RealmDataManager.getPaymentList()[0].orderId!
-        cell.paymentText.text = RealmDataManager.getPaymentList()[0].statusName!
-        cell.paymentPrice.text = RealmDataManager.getPaymentList()[0].fullAmount!
+        cell.paymentOrderId.text = RealmDataManager.getPaymentList()[indexPath.row].orderId!
+        cell.paymentText.text = RealmDataManager.getPaymentList()[indexPath.row].statusName!
+        cell.paymentPrice.text = RealmDataManager.getPaymentList()[indexPath.row].fullAmount!
         cell.paymentImage.image = UIImage(named: "bill.png")
         return cell
     }
