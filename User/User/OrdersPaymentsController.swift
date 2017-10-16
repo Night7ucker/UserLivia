@@ -31,8 +31,8 @@ class OrdersPaymentsController: RootViewController, CAPSPageMenuDelegate, Orders
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let pushTokenObject = PushTokenRequest()
-        pushTokenObject.getPushTokenRequest()
+//        let pushTokenObject = PushTokenRequest()
+//        pushTokenObject.getPushTokenRequest()
 
         
         let newColor = Colors.Root.greenColorForNavigationBar

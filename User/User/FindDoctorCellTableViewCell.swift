@@ -12,6 +12,7 @@ class FindDoctorCellTableViewCell: UITableViewCell {
 
     var specializationID: String?
     var specializationName: String?
+    var children: String?
     @IBOutlet weak var imageViewOutlet: UIImageView!
     
     @IBOutlet weak var specializationNameLabelOutlet: UILabel!

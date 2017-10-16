@@ -281,6 +281,7 @@ extension MainScreenController : UITableViewDelegate{
                     } else {
                         let refillsAndRemindersStoryboard = UIStoryboard(name: "RefillsAndReminders", bundle: nil)
                         let settingsViewController = refillsAndRemindersStoryboard.instantiateViewController(withIdentifier: "kRemindersViewController") as? RemindersViewController
+                        
                         self.navigationController?.pushViewController(settingsViewController!, animated: true)
                     }
                     

@@ -23,6 +23,14 @@ class RootViewController: UIViewController {
             static var canceledStatusColor: UIColor { return UIColor(red: CGFloat(255/255.0), green: CGFloat(123/255.0), blue: CGFloat(105/255.0), alpha: CGFloat(1.0)) }
         }
     }
+    
+    var isUserLogged: Bool {
+        if RealmDataManager.getUserDataFromRealm().count != 0 {
+            return true
+        }
+        return false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,7 +82,7 @@ class RootViewController: UIViewController {
         view.layer.shadowOpacity = 0.8
     }
     
-    func addBackButtonAndTitleWithTwoLabelsToNavigationBar(title: String, bottomLabelTitle: String) {
+    func addBackButtonAndTitleWithTwoLabelsToNavigationBar(title: String, bottomLabelTitle: String?) {
         let backButton = UIButton(type: .system)
         backButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
         backButton.setTitle("", for: .normal)
@@ -138,6 +146,24 @@ class RootViewController: UIViewController {
                 }
             })
         }
+    }
+    
+    func addCityButtonToNavigationBar() {
+        let addReminderButton = UIButton(type: .system)
+        addReminderButton.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        addReminderButton.setTitle("City >", for: .normal)
+        addReminderButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
+        addReminderButton.setTitleColor(.white, for: .normal)
+        addReminderButton.addTarget(self, action: #selector(cityButtonTapped(_ :)), for: .touchUpInside)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addReminderButton)
+    }
+    
+    @objc func cityButtonTapped(_ sender: UIButton) {
+        let mainViewsStoryboard = UIStoryboard(name: "MainViewsStoryboard", bundle: nil)
+        let searchForItemsViewController = mainViewsStoryboard.instantiateViewController(withIdentifier: "kSearchForItemsViewController") as! SearchForItemsViewController
+        searchForItemsViewController.cameFromDoctorSpecializationVC = true
+        navigationController?.pushViewController(searchForItemsViewController, animated: false)
     }
 }
 
