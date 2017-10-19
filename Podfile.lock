@@ -53,11 +53,20 @@ PODS:
   - ObjectMapper+Realm (0.5):
     - ObjectMapper
     - RealmSwift
+  - ObjectMapperAdditions/Core (3.0.5):
+    - ObjectMapper
+  - ObjectMapperAdditions/Realm (3.0.5):
+    - ObjectMapper
+    - ObjectMapperAdditions/Core
+    - RealmAdditions
+    - RealmSwift
   - PageMenu (2.0.0)
   - Protobuf (3.4.0)
   - Realm (2.10.2):
     - Realm/Headers (= 2.10.2)
   - Realm/Headers (2.10.2)
+  - RealmAdditions (2.0.0):
+    - RealmSwift
   - RealmSwift (2.10.2):
     - Realm (= 2.10.2)
 
@@ -71,6 +80,8 @@ DEPENDENCIES:
   - GooglePlaces
   - NVActivityIndicatorView
   - ObjectMapper+Realm (~> 0.5)
+  - ObjectMapperAdditions/Core
+  - ObjectMapperAdditions/Realm
   - PageMenu
   - RealmSwift
 
@@ -90,11 +101,13 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 54c9b93b6f25a4f467512680c0c90c09a1095cf2
   ObjectMapper: 63cfe41bc6f8e7c8f44344c49901b8ae7de14c52
   ObjectMapper+Realm: 3188789fb77c189c7a83cb625333a607eb61a08f
+  ObjectMapperAdditions: 238a929ee6fa3427fa48b91bac7969f9239fd60b
   PageMenu: 9c38fd7e0d9ef4b1408320f55bb907bbc0e538dc
   Protobuf: 03eef2ee0b674770735cf79d9c4d3659cf6908e8
   Realm: 0ef72b837fb67e9f4b098bac771ddd72c7fdbb69
+  RealmAdditions: 2a2b59ad4186b4b3c2392d57e44320db7b907c8c
   RealmSwift: 07a9ae0505091eda6b2ee7c190c3786d6e90a7b0
 
-PODFILE CHECKSUM: 5725a00cd184521415f77a7062d2404cc0d0c82c
+PODFILE CHECKSUM: 5fe4cd5a90e7674428619298ed54f1a60c4497b6
 
 COCOAPODS: 1.3.1

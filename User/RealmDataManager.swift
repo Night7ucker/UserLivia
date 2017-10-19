@@ -115,4 +115,8 @@ class RealmDataManager {
         let data = realm.objects(DoctorModel.self)
         return data
     }
+    static func getCertainDoctorFromRealm() -> Results<MappedCertainDoctorModel> {
+        let data = realm.objects(MappedCertainDoctorModel.self)
+        return data
+    }
 }

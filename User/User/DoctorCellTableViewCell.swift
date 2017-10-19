@@ -20,7 +20,9 @@ class DoctorCellTableViewCell: UITableViewCell {
     @IBOutlet weak var doctorExperienceLabelOutelt: UILabel!
     
     @IBOutlet weak var doctorFeeLabelOutlet: UILabel!
-    
+    var doctorID: String?
+    var latitude: String?
+    var longitude: String?
     
     override func awakeFromNib() {
         super.awakeFromNib()
