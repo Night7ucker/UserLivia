@@ -11,6 +11,8 @@ target 'User' do
   pod 'NVActivityIndicatorView'
   pod 'AlamofireObjectMapper', '~> 4.1'
   pod 'ObjectMapper+Realm', '~> 0.5'
+  pod 'ObjectMapperAdditions/Core'
+  pod 'ObjectMapperAdditions/Realm'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'GooglePlacePicker'

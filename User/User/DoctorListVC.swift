@@ -124,6 +124,9 @@ extension DoctorListVC: UITableViewDataSource {
         doctorCell.doctorAddressLabelOutlet.text = doctorsArray![indexPath.row].address
         doctorCell.doctorFeeLabelOutlet.text = "Fee - " + doctorsArray![indexPath.row].consultationsFees!
         doctorCell.doctorExperienceLabelOutelt.text = "Experience - " + doctorsArray![indexPath.row].experienceYears!
+        doctorCell.doctorID = doctorsArray![indexPath.row].id
+        doctorCell.latitude = doctorsArray![indexPath.row].latitude
+        doctorCell.longitude = doctorsArray![indexPath.row].longitude
         
         if indexPath.row == (doctorsArray?.count)! - 1 {
             offset += 20
@@ -157,7 +160,11 @@ extension DoctorListVC: UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isUserLogged {
-            
+            let selectedCell = tableView.cellForRow(at: indexPath) as! DoctorCellTableViewCell
+            let findDoctorStroboard = UIStoryboard(name: "FindDoctor", bundle: nil)
+            let certainDoctorViewController = findDoctorStroboard.instantiateViewController(withIdentifier: "kCertainDoctorVC") as! CertainDoctorVC
+            certainDoctorViewController.doctorID = selectedCell.doctorID
+            navigationController?.pushViewController(certainDoctorViewController, animated: false)
         } else {
             let signInViewStoryboard = UIStoryboard(name: "SigninViewStoryboard", bundle: nil)
             let signInViewController = signInViewStoryboard.instantiateViewController(withIdentifier: "kSigninViewController") as! SigninViewController
